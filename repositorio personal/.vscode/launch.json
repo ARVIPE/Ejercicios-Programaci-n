@@ -1,0 +1,77 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio3tema2",
+            "request": "launch",
+            "mainClass": "ejercicio3tema2",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio1perocon3variablestema2",
+            "request": "launch",
+            "mainClass": "ejercicio1perocon3variablestema2",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio5bloquedeejercicios1",
+            "request": "launch",
+            "mainClass": "ejercicio5bloquedeejercicios1",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio6bloquedeejercicios1",
+            "request": "launch",
+            "mainClass": "ejercicio6bloquedeejercicios1",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio1bloquedeejercicios1",
+            "request": "launch",
+            "mainClass": "bloquedeejercicios1.ejercicio1bloquedeejercicios1",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio1bloquedeejercicios1",
+            "request": "launch",
+            "mainClass": "ejercicio1bloquedeejercicios1",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ejercicio1<repositorio personal>",
+            "request": "launch",
+            "mainClass": "ejercicio1",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ejercicio2<repositorio personal>",
+            "request": "launch",
+            "mainClass": "ejercicio2",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ejercicio3<repositorio personal>",
+            "request": "launch",
+            "mainClass": "ejercicio3",
+            "projectName": "repositorio personal"
+        }
+    ]
+}
