@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE correoelectronicos [
+    <!ELEMENT correoelectrónicos (destinatarios+,tipo+,asunto,texto,archivos?)>
+    <!ELEMENT tipo (para?,cc?,cco?)>
+    <!ELEMENT archivos (nombre,mime type,longitud del archivo adjunto)>
+    <!ELEMENT destinatarios (#PCDATA)>
+    <!ELEMENT para EMPTY>
+    <!ELEMENT cc EMPTY>
+    <!ELEMENT cco EMPTY>
+    <!ELEMENT asunto (#PCDATA)>
+    <!ELEMENT texto (#PCDATA)>
+    <!ELEMENT archivos EMPTY>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT mime type ANY>
+    <!ELEMENT longitud del archivo adjunto (#PCDATA)>
+]>
+<correoselectrónicos>
+    <destinatarios>arvipe@hotmail.com</destinarios>
+    <tipo>para</tipo>
+    <asunto>Hola buenos dias</asunto> 
+    <texto>¿que pasa illo?</texto>
+    <archivos>
+        <nombre>foto</nombre>
+        <mimetype>foto.png</mimetype>
+        <longituddelarchivoadjunto>20</longituddelarchivoadjunto>
+    </archivos>    
+</correoselectrónicos>
+
+    

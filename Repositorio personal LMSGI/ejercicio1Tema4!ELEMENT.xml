@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE placabase [
+    <!ELEMENT placabase (procesador+,memoria+,modelo,fabricante)> <!--se pone signo + ya que tiene que haber minimo un elemento de cada cosa y luego puede haber mas de uno pero no puede haber mas de un modelo ni mas de un fabricante-->
+    <!ELEMENT procesador (#PCDATA)> <!--PCDATA ya que es un caracter-->
+    <!ELEMENT memoria (#PCDATA)>
+    <!ELEMENT modelo (#PCDATA)>
+    <!ELEMENT fabricante (Asus|Intel)>  <!-- | ya que es o uno o el otro-->
+    <!ELEMENT Asus EMPTY>      <!-- porque nos dice el ejercicio que son vacios y no admite nada-->
+    <!ELEMENT Intel EMPTY>
+]>
+<placabase>
+     <procesador>intel 7-9700K</procesador>
+     <memoria>64gb</memoria>
+     <modelo>Asus Prime Z390-A</modelo>
+    <fabricante><Asus/></fabricante> <!-- de tal forma ya que es una opción o la otra-->
+</placabase>    
