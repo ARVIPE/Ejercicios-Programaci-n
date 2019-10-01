@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio1tema1",
+            "request": "launch",
+            "mainClass": "TEMA1.ejercicio1tema1",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio1tema1",
+            "request": "launch",
+            "mainClass": "ejercicio1tema1",
+            "projectName": "repositorio personal"
+        }
+    ]
+}
