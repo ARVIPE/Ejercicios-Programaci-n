@@ -17,6 +17,4 @@ public class ejercicio6tema2opción2 {
 	
 
 	}
-
 }
-
