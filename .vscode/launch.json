@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ejercicio3bloquedeejercicios3",
+            "request": "launch",
+            "mainClass": "tema2.ejercicio3bloquedeejercicios3",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio2bloquedeejercicios3",
+            "request": "launch",
+            "mainClass": "tema2.ejercicio2bloquedeejercicios3",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ejercicio6tema1",
             "request": "launch",
             "mainClass": "tema1.ejercicio6tema1",
