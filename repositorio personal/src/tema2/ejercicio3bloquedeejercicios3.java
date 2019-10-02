@@ -6,8 +6,9 @@ public class ejercicio3bloquedeejercicios3 {
 
 	public static void main(String[] args) {
         
-        int n = 0;
-        while (n != 0) {
+        boolean prueba = true;
+        while (prueba){
+    
             String str = JOptionPane.showInputDialog("Introduzca un número del 0 al 5 en función de lo que desee" +
             "1. Cálculo de la hipotenusa de un triángulo." + 
             " 2. Cálculo de la superficie de una circunferencia." +
@@ -67,8 +68,9 @@ public class ejercicio3bloquedeejercicios3 {
                     break;
 
                 }
-            }
+            }      
         }
     }
+    
 }
 
