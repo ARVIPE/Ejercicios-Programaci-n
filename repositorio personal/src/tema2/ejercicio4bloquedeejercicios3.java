@@ -17,8 +17,14 @@ public class ejercicio4bloquedeejercicios3 {
 
        System.out.println(vuelta/100 + " monedas de 100 " + vuelta/50 + " monedas de 50 " + vuelta/25 + " monedas de 25 "+ vuelta/5 + " monedas de 5 " + vuelta/1 + " monedas de 1 ");
         
-        if (vuelta % 100) == 0 {
-            System.out.println("La vuelta es" + vuelta/100);
+        if (vuelta >= 0) {
+            System.out.println("Número de monedas de 100:" + " " + (vuelta/100));
+            System.out.println("Número de monedas de 50:" + " " + (vuelta%100)/50);
+            System.out.println("Número de monedas de 125:" + " " + ((vuelta%100)%50)/25);
+            System.out.println("Número de monedas de 5:" + " " + (((vuelta/100)%50)%25)/5);
+            System.out.println("Número de monedas de 1:" + " " + ((((vuelta/100)%50)%25)%5)/1);
+
+            
         }
 
 
