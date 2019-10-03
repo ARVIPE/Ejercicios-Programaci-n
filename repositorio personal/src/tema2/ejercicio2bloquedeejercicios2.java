@@ -112,8 +112,5 @@ public class ejercicio2bloquedeejercicios2 {
    	 System.out.println("Acumulador números bajos: " + conBajos);
    	 System.out.println("Acumulador números medios: " + conMedios);
    	 System.out.println("Acuulador números altos: " + conAltos);
-
     }
-
 }
-

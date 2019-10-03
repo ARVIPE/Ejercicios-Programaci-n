@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class ejercicio2bloquedeejercicios3 {
     public static void main(String[] args) {
 
-        String str = JOptionPane.showInputDialog("Introduzca 1 si quiere hacer raices, introduzca 2 si quiere hacer potencias, introduzca 3 si quiere calcular el resto de una división ");
+        String str = JOptionPane.showInputDialog("Introduzca 1 si quiere hacer raices.\nIntroduzca 2 si quiere hacer potencias,\nIntroduzca 3 si quiere calcular el resto de una división. \n ");
         int caso = Integer.parseInt(str);
 
         
