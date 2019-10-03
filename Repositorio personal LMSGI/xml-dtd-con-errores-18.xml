@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mensajes [
   <!ELEMENT mensajes (mensaje*)>
-  <!ELEMENT mensaje ((de?, para?, hora?, texto?)*)>
-  <!ELEMENT texto (#PCDATA)>
+  <!ELEMENT mensaje ((de*, para*, hora*, texto*))>
+  <!ELEMENT texto (#PCDATA| strong)*>
   <!ELEMENT de (#PCDATA)>
   <!ELEMENT para (#PCDATA)>
   <!ELEMENT hora (#PCDATA)>
