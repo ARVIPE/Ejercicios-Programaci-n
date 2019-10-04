@@ -12,21 +12,30 @@ public class ejercicio4bloquedeejercicios3 {
         str = JOptionPane.showInputDialog("Introduzca la cantidad pagada");
         int pagado = Integer.parseInt(str);
 
-       int vuelta = (pagado - importe);
-       System.out.println(vuelta);
+        int vuelta = (pagado - importe);
+	
+        System.out.println("Devuelvo" + (vuelta  / 10000) + " billetes de 100");
+        vuelta = vuelta % 10000;
 
-       System.out.println(vuelta/100 + " monedas de 100 " + vuelta/50 + " monedas de 50 " + vuelta/25 + " monedas de 25 "+ vuelta/5 + " monedas de 5 " + vuelta/1 + " monedas de 1 ");
+ 
+        System.out.println("Devuelvo" + (vuelta  / 5000) + " billetes de 50");
+        vuelta = vuelta % 5000;
         
-        if (vuelta >= 0) {
-            System.out.println("Número de monedas de 100:" + " " + (vuelta/100));
-            System.out.println("Número de monedas de 50:" + " " + (vuelta%100)/50);
-            System.out.println("Número de monedas de 125:" + " " + ((vuelta%100)%50)/25);
-            System.out.println("Número de monedas de 5:" + " " + (((vuelta/100)%50)%25)/5);
-            System.out.println("Número de monedas de 1:" + " " + ((((vuelta/100)%50)%25)%5)/1);
-
-            
-        }
-
+        System.out.println("Devuelvo" + (vuelta  / 2000) + " billetes de 20");
+        vuelta = vuelta % 2000;
+        
+        System.out.println("Devuelvo" + (vuelta  / 1000) + " billetes de 10");
+        vuelta = vuelta % 1000;
+        
+        System.out.println("Devuelvo" + (vuelta  / 500) + " billetes de 5");
+        vuelta = vuelta % 500;
+        
+        System.out.println("Devuelvo" + (vuelta  / 500) + " billetes de 1");
+        vuelta = vuelta % 100;
+        
+        
+        
+           
 
     }
 } 
