@@ -7,6 +7,7 @@ public class ejercicio1bloque1 {
 	public static void main(String[] args) {
 		
 			int i;
+			int suma = 0;
 		
 			for (i = 0; i < 4; i++) {
 				String str = JOptionPane.showInputDialog("Introduzca 4 números");
@@ -14,7 +15,7 @@ public class ejercicio1bloque1 {
 			
 		
 				if (numeros > 10) {
-					int suma = numeros;
+					suma = suma + numeros;
 					System.out.println(suma);
 	
 					
