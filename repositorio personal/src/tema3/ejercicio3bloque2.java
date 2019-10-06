@@ -6,25 +6,15 @@ public class ejercicio3bloque2 {
 
 	public static void main(String[] args) {
         
-        String str = JOptionPane.showInputDialog("Introduzca el número del que quiera saber los múltiplos");
+        String str = JOptionPane.showInputDialog("Introduzca el número del que quiera conocer sus múltiplos");
         int numero = Integer.parseInt(str);
-
-        int pares = numero%2;
-        int impares = numero%3; 
         
-        for (int i = 0; i > numero; i++){
-            if  (pares ==  0) {
-                System.out.println(numero + 2) ;
-            }else{
-                if (impares == 0)
-                System.out.println(numero + 3);
-            }
+        int limite = 100;
+        int factor = numero;
             
+            
+        for (int i = 0; (i * factor) < limite; i++) {
+            System.out.println("Valor de i * factor: " + (i * factor));
         }
     }
 }
-
-
-
-    
-    
