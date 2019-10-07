@@ -13,6 +13,9 @@ public class ejercicio2bloque2 {
 		for (i = 0; i > seriedenumeros; i++) {
 			str = JOptionPane.showInputDialog("Introduzca los números");
 			int numeros = Integer.parseInt(str);
+
+
+			
 			
 			
 			
