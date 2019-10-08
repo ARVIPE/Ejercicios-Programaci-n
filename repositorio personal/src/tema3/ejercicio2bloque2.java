@@ -1,6 +1,6 @@
 package tema3;
 
-import javax.swing.JOptionPane;
+import javax.swing.JOptionPane; // Sin terminar
 
 public class ejercicio2bloque2 {
 

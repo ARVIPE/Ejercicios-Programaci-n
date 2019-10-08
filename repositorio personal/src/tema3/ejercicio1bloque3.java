@@ -6,19 +6,28 @@ public class ejercicio1bloque3 {
 
 	public static void main(String[] args) {
 		
-        int numero;
+     
         int suma = 0;
+        int numero = 1;
+      
 
-        do {
-            String str = JOptionPane.showInputDialog("Introduzca los números que desee");
+     
+        for (;numero != 0;) {
+            
+        	String str = JOptionPane.showInputDialog("Introduzca los números que desee");
             numero = Integer.parseInt(str);
-
-            suma = suma + numero;
-
+       
+       
+        	
+            
+        	suma = suma + numero;
+        	
+       
         }
-        while (numero !=0);
-        
-        System.out.println(suma);
+        	System.out.println(suma);
+
+
     }
+			
 }
 
