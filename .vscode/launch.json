@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - juegoadivinarnumeroalazar",
+            "request": "launch",
+            "mainClass": "tema3.juegoadivinarnumeroalazar",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Utils",
+            "request": "launch",
+            "mainClass": "Utils",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ejercicio1bloque1",
             "request": "launch",
             "mainClass": "tema3.ejercicio1bloque1",
