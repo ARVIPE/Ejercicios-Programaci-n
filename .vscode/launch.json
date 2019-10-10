@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - mejorde3",
+            "request": "launch",
+            "mainClass": "tema3.mejorde3",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - juegocaraocruz",
+            "request": "launch",
+            "mainClass": "tema3.juegocaraocruz",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - juegoadivinarnumeroalazar",
             "request": "launch",
             "mainClass": "tema3.juegoadivinarnumeroalazar",

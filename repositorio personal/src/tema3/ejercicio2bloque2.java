@@ -13,7 +13,6 @@ public class ejercicio2bloque2 {
 
 		for(int i=0; i < numero; i++) {
 
-			String srt = JOptionPane.showInputDialog("Introduce la sucesión de números");
 			int sucesiondenumeros = Integer.parseInt(str);
 
 			if (sucesiondenumeros > sucesiondenumeros) {

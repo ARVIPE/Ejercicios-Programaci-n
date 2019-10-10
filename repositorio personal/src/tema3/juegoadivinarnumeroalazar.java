@@ -24,6 +24,6 @@ public class juegoadivinarnumeroalazar {
                     }
                 }
             }
-        System.out.println("Enhorabuena has acertado el número");
+        JOptionPane.showMessageDialog(null, "Enhorabuena has acertado el número");
 	}
 }
