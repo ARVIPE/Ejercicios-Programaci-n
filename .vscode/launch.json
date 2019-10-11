@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ejercicio3bloque3conbuclewhile",
+            "request": "launch",
+            "mainClass": "tema3.ejercicio3bloque3conbuclewhile",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ejercicio2bloque3buclewhile",
             "request": "launch",
             "mainClass": "tema3.ejercicio2bloque3buclewhile",
