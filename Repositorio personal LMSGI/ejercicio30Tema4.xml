@@ -2,7 +2,7 @@
 <!DOCTYPE factura [
     <!ELEMENT factura (datos_empresa,datos_cliente, datos_factura)*>
     <!ELEMENT datos_empresa (nombre,dir,poblacion,provincia,cif,telefono?)>
-    <!ATTLIST factura n_fac CDATA #REQUIRED>
+    <!ATTLIST factura n_fac ID #REQUIRED>
     <!ELEMENT nombre (#PCDATA)>
     <!ELEMENT dir (#PCDATA)>
     <!ELEMENT provincia (#PCDATA)>
@@ -25,8 +25,8 @@
     <!ELEMENT base (#PCDATA)>
     <!ELEMENT cuota_iva (#PCDATA)>
     <!ELEMENT total (#PCDATA)>
-    <!ATTLIST datos_factura iva CDATA #REQUIRED>
-    <!ATTLIST datos_factura f_pago CDATA #REQUIRED>
+    <!ATTLIST datos_factura iva NMTOKEN #REQUIRED>
+    <!ATTLIST datos_factura f_pago (tarjeta| efectivo | plazos ) #REQUIRED>
     <!ATTLIST datos_factura moneda CDATA #REQUIRED>
     <!ATTLIST factura n_fac ID #REQUIRED>
     
