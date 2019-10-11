@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ejercicio2bloque3buclewhile",
+            "request": "launch",
+            "mainClass": "tema3.ejercicio2bloque3buclewhile",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio1bloque3bucledowhile",
+            "request": "launch",
+            "mainClass": "tema3.ejercicio1bloque3bucledowhile",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio1bloque3conbuclewhile",
+            "request": "launch",
+            "mainClass": "tema3.ejercicio1bloque3conbuclewhile",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - numerosalazar",
             "request": "launch",
             "mainClass": "tema3.numerosalazar",
