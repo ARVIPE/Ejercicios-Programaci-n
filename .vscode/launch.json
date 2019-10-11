@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - numerosalazar",
+            "request": "launch",
+            "mainClass": "tema3.numerosalazar",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejerciciofactorial",
+            "request": "launch",
+            "mainClass": "tema3.ejerciciofactorial",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - mejorde3",
             "request": "launch",
             "mainClass": "tema3.mejorde3",
