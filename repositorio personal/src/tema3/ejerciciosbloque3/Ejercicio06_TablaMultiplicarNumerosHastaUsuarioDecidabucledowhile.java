@@ -2,14 +2,14 @@ package tema3.ejerciciosbloque3;
 
 import javax.swing.JOptionPane;
 
-public class Ejercicio06_TablaMultiplicarNumerosHastaUsuarioDecida {
+public class Ejercicio06_TablaMultiplicarNumerosHastaUsuarioDecidabucledowhile {
 
 	public static void main(String[] args) {
 		int num = -1;
 		String tablaMultiplicar = "";
 
 		
-		for (; num != 0;) {
+		do {
 			num = Integer.parseInt(JOptionPane.showInputDialog(
 				"Introduzca n�mero (0 -> Salir): "));
 			
@@ -21,7 +21,7 @@ public class Ejercicio06_TablaMultiplicarNumerosHastaUsuarioDecida {
 				}
 				JOptionPane.showMessageDialog(null, tablaMultiplicar); 
 			}
-		}
+		}while(num!=0);
 		
 	}
 	

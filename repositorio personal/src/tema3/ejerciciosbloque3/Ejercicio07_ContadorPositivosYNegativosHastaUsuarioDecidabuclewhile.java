@@ -2,13 +2,13 @@ package tema3.ejerciciosbloque3;
 
 import javax.swing.JOptionPane;
 
-public class Ejercicio07_ContadorPositivosYNegativosHastaUsuarioDecida {
+public class Ejercicio07_ContadorPositivosYNegativosHastaUsuarioDecidabuclewhile {
 
 	public static void main(String[] args) {
 		int num = -1, contPos = 0, contNeg = 0;
 
 		
-		for (; num != 0;) {
+		while (num != 0) {
 			num = Integer.parseInt(JOptionPane.showInputDialog(
 				"Introduzca n�mero (0 -> Salir): "));
 

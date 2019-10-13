@@ -2,29 +2,33 @@ package tema3.ejerciciosbloque3;
 
 import javax.swing.JOptionPane;
 
-public class Ejercicio03_buclewhile {
+public class Ejercicio05_MenorYMenorNumerosHastaUsuarioDecidabucledowhile {
 
 	public static void main(String[] args) {
-		int mayor = 0, num = -1;
+		int menor = 0, mayor = 0, num = -1;
 		int contador = 0;
 		
-		while (num != 0) {
+		do{
 			num = Integer.parseInt(JOptionPane.showInputDialog(
 					"Introduzca n�mero (0 -> Salir): "));
 			contador ++;
-			
-					if (contador == 0) {
-				mayor = num;
+					if (contador == 1) {
+				menor = num;
+				mayor = menor;
 			}
 			else {
+				if (num < menor && num != 0) {
+					menor = num;
+				}
 				if (num > mayor && num != 0) {
 					mayor = num;
 				}
 			}
-		}
+		}while (num != 0);
 		
 		// Sacamos el mensaje final con el valor acumulado
-		JOptionPane.showMessageDialog(null, "Mayor total " + mayor); 
+		JOptionPane.showMessageDialog(null, "Mayor " + mayor + 
+				" y menor " + menor); 
 	}
 	
 	

@@ -2,6 +2,55 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Ejercicio07_ContadorPositivosYNegativosHastaUsuarioDecidabuclewhile",
+            "request": "launch",
+            "mainClass": "tema3.ejerciciosbloque3.Ejercicio07_ContadorPositivosYNegativosHastaUsuarioDecidabuclewhile",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Ejercicio06_TablaMultiplicarNumerosHastaUsuarioDecidabucledowhile",
+            "request": "launch",
+            "mainClass": "tema3.ejerciciosbloque3.Ejercicio06_TablaMultiplicarNumerosHastaUsuarioDecidabucledowhile",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Ejercicio06_TablaMultiplicarNumerosHastaUsuarioDecida",
+            "request": "launch",
+            "mainClass": "tema3.ejerciciosbloque3.Ejercicio06_TablaMultiplicarNumerosHastaUsuarioDecida",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Ejercicio05_MenorYMenorNumerosHastaUsuarioDecida",
+            "request": "launch",
+            "mainClass": "tema3.ejerciciosbloque3.Ejercicio05_MenorYMenorNumerosHastaUsuarioDecida",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Ejercicio04_MenorNumerosHastaUsuarioDecidabucledowhile",
+            "request": "launch",
+            "mainClass": "tema3.ejerciciosbloque3.Ejercicio04_MenorNumerosHastaUsuarioDecidabucledowhile",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Ejercicio04_MenorNumerosHastaUsuarioDecida",
+            "request": "launch",
+            "mainClass": "tema3.ejerciciosbloque3.Ejercicio04_MenorNumerosHastaUsuarioDecida",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Ejercicio03_bucledowhile",
+            "request": "launch",
+            "mainClass": "tema3.ejerciciosbloque3.Ejercicio03_bucledowhile",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Ejercicio03_buclewhile",
             "request": "launch",
             "mainClass": "tema3.ejerciciosbloque3.Ejercicio03_buclewhile",
