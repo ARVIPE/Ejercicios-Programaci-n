@@ -1,8 +1,8 @@
-package tema3;
+package tema3.ejerciciosbloque3;
 
 import javax.swing.JOptionPane;
 
-public class ejercicio2bloque3buclewhile {
+public class ejercicio2bloque3 {
 
 	public static void main(String[] args) {
 		
@@ -12,7 +12,7 @@ public class ejercicio2bloque3buclewhile {
          int serienum = 0;
          int media = 0;
 		
-		    while(numeros != 0) {
+		    for (; numeros != 0; ) {
                 String str = JOptionPane.showInputDialog("Introduzca una serie de números");
                 numeros = Integer.parseInt(str);
                 
@@ -37,5 +37,3 @@ public class ejercicio2bloque3buclewhile {
 }
 			
 		
-		
-               

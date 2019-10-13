@@ -1,16 +1,16 @@
-package tema3;
+package tema3.ejerciciosbloque3;
 
 import javax.swing.JOptionPane;
 
-public class ejercicio3bloque3conbuclewhile {
+public class Ejercicio03_MayorNumerosHastaUsuarioDecida {
 
 	public static void main(String[] args) {
 		int mayor = 0, num = -1;
 
 		
-		while (int i = 0; num != 0; i++) {
+		for (int i = 0; num != 0; i++) {
 			num = Integer.parseInt(JOptionPane.showInputDialog(
-					"Introduzca número (0 -> Salir): "));
+					"Introduzca n�mero (0 -> Salir): "));
 			if (i == 0) {
 				mayor = num;
 			}

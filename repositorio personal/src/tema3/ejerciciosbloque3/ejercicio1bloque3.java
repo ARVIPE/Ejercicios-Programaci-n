@@ -1,4 +1,4 @@
-package tema3;
+package tema3.ejerciciosbloque3;
 
 import javax.swing.JOptionPane;
 
