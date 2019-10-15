@@ -4,5 +4,5 @@
   <!ATTLIST pelicula titulo CDATA #IMPLIED>
 ]>
 
-<pelicula titulo="La diligencia" genero="oeste" />
+<pelicula titulo="La diligencia"/>
 

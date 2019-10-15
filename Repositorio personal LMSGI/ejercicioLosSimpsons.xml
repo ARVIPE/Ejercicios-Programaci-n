@@ -1,1 +1,28 @@
-!ELEMENT Springfield (HomerSimpson, )
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  Springfield [
+<!ELEMENT Springfield (HomerSimpson+, MargeSimpson?, BartSimpson, LisaSimpson, MaggieSimpson )>
+<!ELEMENT MargeSimpson EMPTY>
+<!ELEMENT HomerSimpson EMPTY>
+<!ELEMENT BartSimpson (#PCDATA)>
+<!ELEMENT LisaSimpson (#PCDATA|saxofón|estudiar)*>
+<!ELEMENT MaggieSimpson (#PCDATA)>
+<!ELEMENT personaje EMPTY>
+<!ATTLIST personaje nombre ID #REQUIRED>
+ 
+
+
+
+
+]>
+
+<Springfield>
+   
+    <HomerSimpson></HomerSimpson>
+    <personaje nombre="Homer_Simpson"/>
+    <MargeSimpson></MargeSimpson>
+    <BartSimpson></BartSimpson>
+    <LisaSimpson></LisaSimpson>
+    <MaggieSimpson></MaggieSimpson>
+
+
+</Springfield>

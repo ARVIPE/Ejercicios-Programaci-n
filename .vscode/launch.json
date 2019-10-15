@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Ejercicio06_TablaMultiplicarNumerosHastaUsuarioDecidabuclewhile",
+            "request": "launch",
+            "mainClass": "tema3.ejerciciosbloque3.Ejercicio06_TablaMultiplicarNumerosHastaUsuarioDecidabuclewhile",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Ejercicio07_ContadorPositivosYNegativosHastaUsuarioDecidabuclewhile",
             "request": "launch",
             "mainClass": "tema3.ejerciciosbloque3.Ejercicio07_ContadorPositivosYNegativosHastaUsuarioDecidabuclewhile",
