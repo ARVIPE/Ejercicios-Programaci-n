@@ -1,0 +1,19 @@
+<UniversoMarvel>
+
+    <superheroes>
+        <superheroe nombre = "Iron Man" superpoder = "Tener dineroh"/>
+        <superheroe nombre = "Thor" superpoder = "Fuerza"/>
+        <superheroe nombre = "Capitan América" superpoder = "Ta mazao el cabrón"/>
+    </superheroes>
+    <supervillanos>
+        <supervillano nombre = "Thanos" superpoder = "Guantalete del infinito"/>
+        <supervillano nombre = "Loki" superpoder = "Al final se hace bueno pero se lo cargan"/>
+    </supervillanos>
+    <peliculas>
+        <pelicula>
+
+            
+        </pelicula>
+    </peliculas>
+
+</UniversoMarvel>
