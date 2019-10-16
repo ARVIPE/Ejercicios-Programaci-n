@@ -1,4 +1,4 @@
-package tutorialJava.capitulo5_Arrays_y_Colecciones.ejercicios.bloque01;
+package tema5.bloque1;
 
 import javax.swing.JOptionPane;
 
@@ -8,9 +8,9 @@ public class Ejercicio01_NumeroEntreDosLimites {
 		int limiteInf, limiteSup;
 		int numeros[] = new int[150];
 		
-		// Petición de límites al usuario
-		limiteInf = Integer.parseInt(JOptionPane.showInputDialog("Introduzca límite inferior"));
-		limiteSup = Integer.parseInt(JOptionPane.showInputDialog("Introduzca límite superior"));
+		// Peticiï¿½n de lï¿½mites al usuario
+		limiteInf = Integer.parseInt(JOptionPane.showInputDialog("Introduzca lï¿½mite inferior"));
+		limiteSup = Integer.parseInt(JOptionPane.showInputDialog("Introduzca lï¿½mite superior"));
 
 		// Inicializamos el contenido del array
 		for (int i = 0; i < numeros.length; i++) {
@@ -22,7 +22,7 @@ public class Ejercicio01_NumeroEntreDosLimites {
 			System.out.print(numeros[i] + " ");
 		}
 		
-		// Imprimo un salto de línea
+		// Imprimo un salto de lï¿½nea
 		System.out.println();
 		
 		// Otra forma de iterar sobre un array

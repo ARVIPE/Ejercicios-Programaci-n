@@ -1,4 +1,4 @@
-package tutorialJava.capitulo5_Arrays_y_Colecciones.ejercicios.bloque01;
+package tema5.bloque1;
 
 import javax.swing.JOptionPane;
 
@@ -17,7 +17,7 @@ public class Ejercicio02_ArrayMostradoEnOrdenInverso {
 			System.out.print(numeros[i] + " ");
 		}
 		
-		// Imprimo un salto de línea
+		// Imprimo un salto de lï¿½nea
 		System.out.println();
 
 		// Muestro el array en orden inverso

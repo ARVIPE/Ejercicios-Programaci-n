@@ -1,12 +1,11 @@
-package tutorialJava.capitulo5_Arrays_y_Colecciones.ejercicios.bloque01;
-
+package tema5.bloque1;
 import javax.swing.JOptionPane;
 
 public class Ejercicio03_BuscarNumeroEnArray {
 
 	public static void main(String[] args) {
 		int numeroBuscado;
-		// Declaración de array
+		// Declaraciï¿½n de array
 		int array[] = new int[250];
 		
 		// Inicializamos el array
@@ -19,26 +18,26 @@ public class Ejercicio03_BuscarNumeroEnArray {
 			System.out.print(array[i] + " ");
 		}
 		
-		// Pedir número al usuario
-		numeroBuscado = Integer.parseInt(JOptionPane.showInputDialog("Introduzca número"));
+		// Pedir nï¿½mero al usuario
+		numeroBuscado = Integer.parseInt(JOptionPane.showInputDialog("Introduzca nï¿½mero"));
 
-		// Una línea en blanco
+		// Una lï¿½nea en blanco
 		System.out.println();
 		
 		boolean estaNumeroBuscadoEnArray = false;
-		// Buscar el número del usuario
+		// Buscar el nï¿½mero del usuario
 		for (int i = 0; i < array.length && !estaNumeroBuscadoEnArray; i++) {
 			if (numeroBuscado == array[i]) {
-				System.out.println("He encontrado el número " + numeroBuscado + 
-						" en posición " + i);
+				System.out.println("He encontrado el nï¿½mero " + numeroBuscado + 
+						" en posiciï¿½n " + i);
 				estaNumeroBuscadoEnArray = true;
 			}
 		}
 
-		// Si el contador está a cero, después de haber recorrido el array,
-		// sabemos que el número buscado no está en el mismo
+		// Si el contador estï¿½ a cero, despuï¿½s de haber recorrido el array,
+		// sabemos que el nï¿½mero buscado no estï¿½ en el mismo
 		if (!estaNumeroBuscadoEnArray) {
-			System.out.println("El número " + numeroBuscado + " no se encuentra");
+			System.out.println("El nï¿½mero " + numeroBuscado + " no se encuentra");
 		}
 	}
 	
