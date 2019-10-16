@@ -1,19 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE UniversoMarvel SYSTEM "Losvengadores.dtd">
+
 <UniversoMarvel>
 
     <superheroes>
-        <superheroe nombre = "Iron Man" superpoder = "Tener dineroh"/>
+        <superheroe nombre = "Iron Man" superpoder = "Tener oroh"/>
         <superheroe nombre = "Thor" superpoder = "Fuerza"/>
-        <superheroe nombre = "Capitan América" superpoder = "Ta mazao el cabrón"/>
+        <superheroe nombre = "Capitan América" superpoder = "Ta mazao"/>
     </superheroes>
     <supervillanos>
         <supervillano nombre = "Thanos" superpoder = "Guantalete del infinito"/>
         <supervillano nombre = "Loki" superpoder = "Al final se hace bueno pero se lo cargan"/>
     </supervillanos>
     <peliculas>
-        <pelicula>
-
-            
-        </pelicula>
+        <pelicula nombre = "Infinity War" año = "2018"/>
+        <pelicula nombre = "End Game" año = "2019" />
     </peliculas>
 
 </UniversoMarvel>

@@ -1,0 +1,21 @@
+<!ELEMENT UniversoMarvel (superheroes?, superheroe?, supervillanos?, supervillano?, peliculas?, pelicula?)*>
+<!ELEMENT superheroes (superheroe+)>
+<!ELEMENT superheroe EMPTY>
+<!ELEMENT supervillanos (supervillano+)>
+<!ELEMENT supervillano EMPTY>
+<!ELEMENT peliculas (pelicula+)>
+<!ELEMENT pelicula EMPTY>
+<!ENTITY % caracteristicas "nombre CDATA #REQUIRED
+                            superpoder CDATA #REQUIRED">
+<!ATTLIST superheroe %caracteristicas;>
+<!ENTITY % caracteristicassv "nombre CDATA #REQUIRED   
+                              superpoder CDATA #REQUIRED">
+<!ATTLIST supervillano %caracteristicassv;>
+<!ENTITY % tipopeliculas "nombre CDATA #REQUIRED
+                          año CDATA #REQUIRED">
+<!ATTLIST pelicula %tipopeliculas;>
+
+
+
+
+
