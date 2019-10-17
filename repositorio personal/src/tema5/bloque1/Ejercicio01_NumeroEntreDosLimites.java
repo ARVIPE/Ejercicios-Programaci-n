@@ -6,7 +6,7 @@ public class Ejercicio01_NumeroEntreDosLimites {
 
 	public static void main(String[] args) {
 		int limiteInf, limiteSup;
-		int numeros[] = new int[150];
+		int numeros[] = new int[10];
 		
 		// Petici�n de l�mites al usuario
 		limiteInf = Integer.parseInt(JOptionPane.showInputDialog("Introduzca l�mite inferior"));
@@ -22,13 +22,7 @@ public class Ejercicio01_NumeroEntreDosLimites {
 			System.out.print(numeros[i] + " ");
 		}
 		
-		// Imprimo un salto de l�nea
-		System.out.println();
 		
-		// Otra forma de iterar sobre un array
-		for (int num : numeros) {
-			System.out.print(num + " ");
-		}
 	}
 
 }

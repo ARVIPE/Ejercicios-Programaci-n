@@ -2,6 +2,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ejercicio01_Cambiardesignonumeros",
+            "request": "launch",
+            "mainClass": "tema5.bloque2.ejercicio01_Cambiardesignonumeros",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Ejercicio01_NumeroEntreDosLimites",
+            "request": "launch",
+            "mainClass": "tema5.bloque1.Ejercicio01_NumeroEntreDosLimites",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Ejercicio02_ArrayMostradoEnOrdenInverso",
+            "request": "launch",
+            "mainClass": "tema5.bloque1.Ejercicio02_ArrayMostradoEnOrdenInverso",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio04_Obtenersumanumerospareseimpares",
+            "request": "launch",
+            "mainClass": "tema5.bloque1.ejercicio04_Obtenersumanumerospareseimpares",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ejercicio3",
             "request": "launch",
             "mainClass": "tema5.bloque1.ejercicio3",
