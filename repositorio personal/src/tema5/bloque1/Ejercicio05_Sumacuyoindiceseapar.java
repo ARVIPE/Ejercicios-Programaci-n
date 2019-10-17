@@ -12,6 +12,9 @@ public class Ejercicio05_Sumacuyoindiceseapar {
 		
 		// Imprimir en la consola el array creado
 		for (int i = 0; i < numeros.length; i++) {
+			if (i%2 == 0) {
+				int numerospares = numeros[i];
+				
 			
 		}
 	}
