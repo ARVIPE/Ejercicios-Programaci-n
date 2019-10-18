@@ -37,15 +37,16 @@ public class ejercicio2 {
     
         for (int i = 0; i < array3.length; i++) {
 
-        if (array[i] % 2 != 0) {
+        if (i % 2 == 1) {
                 array3[i] = array[i];
         }
-            if (array[i] % 2 == 0) {
+            if (i % 2 == 0) {
             array3[i] = array2[i];
                 
     
-            System.out.print(array3[i]);   
+    
             }
+             System.out.print(array3[i]);   
         }
     }
 }
