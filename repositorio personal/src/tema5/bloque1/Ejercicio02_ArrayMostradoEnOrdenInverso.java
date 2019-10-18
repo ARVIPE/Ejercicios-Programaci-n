@@ -1,6 +1,6 @@
 package tema5.bloque1;
 
-import javax.swing.JOptionPane;
+
 
 public class Ejercicio02_ArrayMostradoEnOrdenInverso {
 
