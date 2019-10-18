@@ -18,10 +18,18 @@ public class ejercicio4 {
 			System.out.print(numeros[i] + " ");
 		}
 
+		int ultimo;
+		int primero;
+
+		ultimo = primero;
+
 		
+
 
 		
 		
 	}
 
 }
+
+

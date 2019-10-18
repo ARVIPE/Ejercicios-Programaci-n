@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - nosepuederepetirnumeros",
+            "request": "launch",
+            "mainClass": "tema5.bloque2.nosepuederepetirnumeros",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ejercicio2",
             "request": "launch",
             "mainClass": "tema5.bloque2.ejercicio2",
