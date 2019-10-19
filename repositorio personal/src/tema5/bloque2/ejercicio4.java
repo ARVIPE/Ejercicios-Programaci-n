@@ -1,35 +1,34 @@
 package tema5.bloque2;
 
+import javax.swing.JOptionPane;
 
 public class ejercicio4 {
 
 	public static void main(String[] args) {
- 
-        int numeros[] = new int[5];
-
-
-		// Inicializamos el contenido del array
-		for (int i = 0; i < numeros.length; i++) {
-			numeros[i] = (int) Math.round(Math.random() * (5));
+		
+		int array[] = new int [5];
+		
+		
+		for (int i = 0; i < array.length; i++) {
+			array [i] = (int)Math.round(Math.random() * 100);
+			System.out.println(array[i] + "");
 		}
 		
-		// Imprimir en la consola el array creado
-		for (int i = 0; i < numeros.length; i++) {
-			System.out.print(numeros[i] + " ");
+		System.out.println("");
+		
+		int aux=array[array.length-1];
+		for (int i = array.length-1; i>0; i--) {
+			array[i] = array[i-1];
 		}
-
-		int ultimo;
-		int primero;
-
-		ultimo = primero;
-
 		
-
-
+		array[0]=aux;
 		
-		
+		for (int i = 0; i < array.length; i++) {
+			
+			System.out.println(array[i] + "");
+		}
 	}
-
 }
-
-
+ 
+		
+		
