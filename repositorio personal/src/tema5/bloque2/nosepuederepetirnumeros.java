@@ -4,38 +4,41 @@ public class nosepuederepetirnumeros {
 
 	public static void main(String[] args) {
 
-		int array[] = new int[8];
-		int array2[] = new int [1];
-	
-	
-        // Inicializamos el contenido del array
-		for (int i = 0; i < array.length; i++) {
-			array[i] = (int) Math.round(Math.random() * (10));
-		}
+	int array[] = new int [5];
+
+	int aux;
+
+	boolean NumRepetido=false;
+
+	for (int i = 0; i<array.length; i++){
 		
-		// Imprimir en la consola el array creado
-			for (int i = 0; i < array.length; i++) {
-		
-			}
-			
-			
-			
-				for (int i = 0; i < array.length; i++) {
-					if(array[i] == array[i]) {
-						array2[i] = (int) Math.round(Math.random() * (10));
-						array2[i] = array[i];
-						System.out.println(array[i]);
-					}
+		aux = Utils_Arrays.obtenerNumeroalAzar(5,0);
+
+		for(int j = 0; j < array.length; j++) {
+
+					if (array[j]==aux){
+					NumRepetido=true;
+					break;
 				}
-				
-			
+			}
+
+			if (NumRepetido==true) {
+			NumRepetido=false;
+			}
+			else{
+			array[i]=aux;
+			}
+		}
+		for(int i = 0; i<array.length;i++) {
+			System.out.println(array[i]);
+		}
 	}
 }
-		
+
+	
+
 	
 	
-				
-				
 			
 			
 		     
