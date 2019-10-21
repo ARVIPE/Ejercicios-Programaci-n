@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ejercicio1",
+            "request": "launch",
+            "mainClass": "tema5.bloque2.ejercicio1",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Ejercicio03_BuscarNumeroEnArray",
+            "request": "launch",
+            "mainClass": "tema5.bloque1.Ejercicio03_BuscarNumeroEnArray",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ejercicio5",
             "request": "launch",
             "mainClass": "tema5.bloque2.ejercicio5",

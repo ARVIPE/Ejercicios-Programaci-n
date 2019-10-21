@@ -17,7 +17,7 @@ public class ejercicio3 {
 		
 		// Inicializamos el contenido del array
 		for (int i = 0; i < numeros.length; i++) {
-			numeros[i] = (int) Math.round(Math.random() * (100));
+			numeros[i] = (int) Math.round(Math.random() * (100));    
 		}
 		
 		// Imprimir en la consola el array creado
