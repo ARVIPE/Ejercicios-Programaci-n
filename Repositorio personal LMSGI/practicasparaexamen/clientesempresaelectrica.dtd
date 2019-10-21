@@ -1,0 +1,29 @@
+<!ELEMENT empresa (clientes+,facturas*, metododepago,socios)>
+<!ELEMENT clientes (cliente*,socio1?)*>
+<!ELEMENT facturas (moroso1?,moroso2)>
+<!ATTLIST empresa nombre CDATA #FIXED "Endesa">
+<!ELEMENT cliente EMPTY>
+<!ENTITY % datosclientes "nombre ID #IMPLIED
+                          DNI IDREF #REQUIRED
+                          edad IDREFS #REQUIRED">
+<!ATTLIST cliente %datosclientes;>
+<!ELEMENT moroso1 EMPTY>
+<!ATTLIST moroso1 pago CDATA #REQUIRED>
+<!ELEMENT moroso2 EMPTY>
+<!ATTLIST moroso2 pago CDATA #IMPLIED>
+<!ELEMENT metododepago (cliente1*)>
+<!ELEMENT cliente1 (#PCDATA|efectivo|tarjeta)*>
+<!ELEMENT efectivo EMPTY>
+<!ELEMENT tarjeta EMPTY>
+<!ELEMENT socios (socio1)>
+<!ELEMENT socio1 EMPTY>
+<!ATTLIST socio1 desde (2015|2016|2017|2018) #REQUIRED>
+<!ENTITY corte "electricidad">
+
+
+
+
+
+
+
+

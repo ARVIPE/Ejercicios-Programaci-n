@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE empresa SYSTEM "clientesempresaelectrica.dtd">
+
+<empresa nombre ="Endesa">
+
+    <clientes> No hay &electricidad desde hace 3 días;
+
+        <cliente nombre ="Alberto Catetas"   DNI ="M23490987"  edad = "34 años"/>
+        <cliente nombre ="Paca Garte"        DNI ="Q42823246"  edad = "42 años"/>    
+        <cliente nombre="Ana Bohueles"       DNI ="P32829245"  edad = "54 años"/>
+
+    </clientes>
+
+    <facturas>
+    
+        <moroso1 pago ="500 lereles"/>
+        <moroso2 pago ="330 lereles"/>
+    
+    </facturas>
+
+    <metododepago>
+
+        <cliente1><efectivo/></cliente1>
+
+
+    </metododepago>
+
+    <socios>
+
+        <socio1 desde ="2015"/>
+
+    </socios>
+
+
+
+</empresa>
