@@ -1,6 +1,5 @@
 package tema5.bloque2;
 
-import javax.swing.JOptionPane;
 
 public class ejercicio4 {
 

@@ -18,17 +18,17 @@ public class ejercicio5 {
 		}
 
 		
-		int num = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el número de desplazamientos que desee:"));
+		int num = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el nï¿½mero de desplazamientos que desee:"));
 		int aux = 0;
 		int i;
 		
 		System.out.println();
 		
 		for (i = 0; i < num; i++) {
-			aux=array[array.length-1];
+			aux=array[array.length-num];
 		}
 		
-		for (i = array.length - 1; i>0; i--) {
+		for (i = array.length - num; i>0; i--) {
 			array[i] = array[i-1];
 			array[i-1]= aux;
 		}
@@ -42,4 +42,10 @@ public class ejercicio5 {
 		}
 	}
 }
-		
+
+
+
+	
+
+
+
