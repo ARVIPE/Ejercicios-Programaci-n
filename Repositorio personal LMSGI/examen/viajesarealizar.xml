@@ -1,0 +1,21 @@
+<?xml version= "1.0" encoding="UTF-8"?>
+<!DOCTYPE ciudad SYSTEM "viajesarealizar.dtd">
+
+<ciudad>
+    
+    <parís País="Francia">
+
+        <tipo_transporte><avion compañía="Iberia" puerta="12"/></tipo_transporte>
+        <fecha fechaInicio="2015"/>
+        <precio>500 euros</precio>   
+
+    
+    </parís>
+
+    <madrid>En estos momentos no hay &disponibilidad;</madrid>
+
+
+
+</ciudad>
+
+

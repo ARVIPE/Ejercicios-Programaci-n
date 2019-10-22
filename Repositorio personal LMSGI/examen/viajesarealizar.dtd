@@ -1,0 +1,24 @@
+<!ELEMENT ciudad (parís, madrid)*>
+<!ELEMENT parís (tipo_transporte*, fecha+, precio)>
+<!ENTITY % capital "País CDATA #FIXED 'Francia'">
+<!ATTLIST parís %capital;>
+<!ELEMENT tipo_transporte (avion?|coche?|tren?)*>
+<!ELEMENT avion EMPTY>
+<!ELEMENT coche EMPTY>
+<!ELEMENT tren EMPTY>
+<!ENTITY % datosAvion "compañía ID #REQUIRED 
+                                tipo_avion IDREF #IMPLIED
+                                puerta CDATA #REQUIRED
+                                nacionalidad_compañía IDREFS  #IMPLIED">
+<!ATTLIST avion %datosAvion;>                       
+<!ELEMENT fecha EMPTY>
+<!ATTLIST fecha fechaInicio (2015 |2016|2017|2018|2019|2020) #REQUIRED>
+<!ELEMENT precio (#PCDATA|EMPTY)*>
+<!ELEMENT madrid (#PCDATA)>
+<!ENTITY disponibilidad "viajes">
+<!NOTATION JPG SYSTEM "image/jpeg">
+<!NOTATION GIF SYSTEM "image/gif">
+<!NOTATION PNG SYSTEM "image/png">
+<!ATTLIST paris %datosAvion; 
+                logo NOTATION (GIF | JPG | PNG) #IMPLIED>
+
