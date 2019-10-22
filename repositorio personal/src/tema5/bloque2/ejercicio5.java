@@ -6,46 +6,40 @@ public class ejercicio5 {
 
 	public static void main(String[] args) {
 		
-		int array[] = new int[5];
+		int array[] = new int [5];
 		
 		
 		for (int i = 0; i < array.length; i++) {
-			array[i] = (int) Math.round(Math.random() * 100);
+			array [i] = (int)Math.round(Math.random() * 10);
+			System.out.print(array[i] + "     ");
 		}
-		
-		for (int i = 0; i < array.length; i++) {
-			System.out.println(array[i]);
-		}
-
-		
-		int num = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el n�mero de desplazamientos que desee:"));
-		int aux = 0;
-		int i;
-		
-		System.out.println();
-		
-		for (i = 0; i < num; i++) {
-			aux=array[array.length-num];
-		}
-		
-		for (i = array.length - num; i>0; i--) {
-			array[i] = array[i-1];
-			array[i-1]= aux;
-		}
-		
-		array[0]=aux;
 		
 		System.out.println("");
 		
-		for( i = 0; i < array.length; i++) {
-			System.out.println(array[i]);
+		String str = JOptionPane.showInputDialog("Introduzca número de posiciones");
+		int num = Integer.parseInt(str);
+
+		for(int j = 0; j < num; j++){
+
+		int aux=array[array.length-1];
+		for (int i = array.length-1; i>0; i--) {
+			array[i] = array[i-1];
+			array[i-1] = aux;
+		}
+		
+		System.out.println();
+
+		array[0]=aux;
+		
+			for (int i = 0; i < array.length; i++) {
+			
+				System.out.print(array[i] + "");
+			}
 		}
 	}
 }
 
-
-
-	
-
-
+ 
+		
+		
 
