@@ -1,7 +1,9 @@
-
+package tutorialJava;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+
+import javax.swing.JOptionPane;
 
 public class Utils {
 
@@ -31,6 +33,46 @@ public class Utils {
 			e.printStackTrace();
 		}
 		return numero;
+	}
+
+
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static int obtenerNumUsuario () {
+		int num = obtenerNumUsuario("Introduzca n�mero");
+		return num;
+	}
+	/**
+	 * 
+	 * @param mensaje
+	 * @return
+	 */
+	public static int obtenerNumUsuario (String mensaje) {
+		int num = obtenerNumUsuario(mensaje, -2147483648, 2147483647);
+		return num;
+	}
+	
+	
+	/**
+	 * 
+	 * @param mensaje
+	 * @param minimo
+	 * @param maximo
+	 * @return
+	 */
+	public static int obtenerNumUsuario (String mensaje, int minimo, int maximo) {
+		int num;
+		String mensajeError = "";
+		do {
+			num = Integer.parseInt(JOptionPane.showInputDialog(mensajeError + mensaje));
+			if (num < minimo || num > maximo) {
+				mensajeError = "El n�mero debe estar entre " + minimo + " y " + maximo + " - ";
+			}
+		} while (num < minimo || num > maximo);
+		return num;
 	}
 
 
