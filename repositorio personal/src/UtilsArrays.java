@@ -1,5 +1,3 @@
-package tutorialJava;
-
 public class UtilsArrays {
 
 	/**

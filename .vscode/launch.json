@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ordenarparesconpareseinparesconinpares",
+            "request": "launch",
+            "mainClass": "tema5.bloque2.ordenarparesconpareseinparesconinpares",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ejercicio1",
             "request": "launch",
             "mainClass": "tema5.bloque2.ejercicio1",
