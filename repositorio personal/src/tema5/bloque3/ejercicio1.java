@@ -1,38 +1,34 @@
 package tema5.bloque3;
 
+
 public class ejercicio1 {
 
 	public static void main(String[] args) {
-
-	int array[] = new int [20];
-
-	int aux;
-
-	boolean NumRepetido=false;
-
-	for (int i = 0; i<array.length; i++){
+		// Declaraci�n del array
+		int array[] = new int[20];
 		
-		aux = Utils.obtenerNumeroAzar(20, 0);
+		for (int i = 0; i < array.length; i++) {
 
-		for(int j = 0; j < array.length; j++) {
-
-					if (array[j]==aux){
-					NumRepetido=true;
-					break;
+			int candidato; 
+			boolean existeCandidatoEnArray;  
+		
+			do {
+				candidato = Utils.obtenerNumeroAzar1(20);
+				existeCandidatoEnArray = false;
+				for (int j = 0; j < i; j++) {
+					if (array[j] == candidato) {
+						existeCandidatoEnArray = true;
+					}
 				}
-			}
-
-			if (NumRepetido==true) {
-			NumRepetido=false;
-			}
-			else{
-			array[i]=aux;
-			}
+			} while (existeCandidatoEnArray);
+	
+			array[i] = candidato;
 		}
-		for(int i = 0; i<array.length;i++) {
-			System.out.println(array[i]);
-		}
+		
+	
+		System.out.println(array);
 	}
+
 }
 
 	

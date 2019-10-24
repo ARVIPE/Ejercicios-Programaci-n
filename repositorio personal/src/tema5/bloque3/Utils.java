@@ -6,16 +6,16 @@ import javax.swing.JOptionPane;
 public class Utils {
 
 	
-	public static int obtenerNumeroAzar () {
+	public static int obtenerNumeroAzar1 (int i) {
 		 return (int) Math.round(Math.random() * 100);
 	}
 	
-	public static int obtenerNumeroAzar (int min, int max) {
+	public static int obtenerNumeroAzar (int min) {
 		 return (int) Math.round(Math.random() * (max - min)) + min;
 	}
 	 
 	public static void main (String args[]) {
-		System.out.print(obtenerNumeroAzar (-2, 5));
+		System.out.print(obtenerNumeroAzar1 (-2, 5));
 	}
 	
 	
