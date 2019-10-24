@@ -31,10 +31,11 @@ public class ejercicio5 {
 
 		array[0]=aux;
 		
-			for (int i = 0; i < array.length; i++) {
+	
+		}
+		for (int i = 0; i < array.length; i++) {
 			
-				System.out.print(array[i] + "");
-			}
+			System.out.print(array[i] + "");
 		}
 	}
 }
