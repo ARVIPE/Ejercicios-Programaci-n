@@ -19,25 +19,31 @@ public class ejercicio3 {
 		// Imprimir en la consola el array creado
 		for (i = 0; i < array.length; i++) {
 			
-		
+
 
 			System.out.print(array[i] + "    ");
         }
         
         salto = array.length/2;
 
-        do{
-            k=j+salto;
-            if(array[j] <= array[k]){
-                j = -1;
-            }else{
-                int aux = array[j];
-                array[j] = array[k];
-                array[k] = aux;
-                j = j - salto;
-            }
+        for (j = 0; j < array.length - 1; j++) {
+        	
+        	k=j+salto;
+        	
+        	for (j = 0; j < array.length; j++) {
+				          	
+            	if(array[j] <= array[k]){
+            		j = -1;
+            	}else{
+            		int aux = array[j];
+            		array[j] = array[k];
+            		array[k] = aux;
+            		j = j - salto;
+            	}
+        	}
 
-        }while(salto > 0);
+            	
+        }
     
 
 
