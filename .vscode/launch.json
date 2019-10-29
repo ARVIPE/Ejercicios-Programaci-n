@@ -5,6 +5,34 @@
             "name": "CodeLens (Launch) - ejercicio2",
             "request": "launch",
             "mainClass": "tema5.bloque3.ejercicio2",
+            "projectName": "bloque3"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio4",
+            "request": "launch",
+            "mainClass": "tema5.bloque3.ejercicio4",
+            "projectName": "bloque3"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio1",
+            "request": "launch",
+            "mainClass": "tema5.bloque3.ejercicio1",
+            "projectName": "bloque3"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio4",
+            "request": "launch",
+            "mainClass": "ejercicio4",
+            "projectName": "bloque3"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio2",
+            "request": "launch",
+            "mainClass": "tema5.bloque3.ejercicio2",
             "projectName": "repositorio personal"
         },
         {
