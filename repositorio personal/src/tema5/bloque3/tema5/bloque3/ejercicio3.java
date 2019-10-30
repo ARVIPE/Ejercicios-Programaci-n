@@ -6,52 +6,51 @@ public class ejercicio3 {
 	public static void main(String[] args) {
 
 		int array[] = new int [20];
-		int i;
-        int j = 0;
-        int salto;
-        int k;
+
 		
 		
-		for (i = 0; i < array.length; i++) {
+		for (int i = 0; i < array.length; i++) {
 			array[i] = (int) Math.round(Math.random() * (20));    
 		}
 	
-		// Imprimir en la consola el array creado
-		for (i = 0; i < array.length; i++) {
+		// Imprimir en la consola el array creadoSystem.out.println();
+		for (int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + "    ");
+		}
+		for (int i = 0; i < array.length; i++) {
 			
 
 
 			System.out.print(array[i] + "    ");
         }
         
-        salto = array.length/2;
+		int salto, aux, i;
 
-        for (j = 0; j < array.length - 1; j++) {
-        	
-        	k=j+salto;
-        	
-        	for (j = 0; j < array.length; j++) {
-				          	
-            	if(array[j] <= array[k]){
-            		j = -1;
-            	}else{
-            		int aux = array[j];
-            		array[j] = array[k];
-            		array[k] = aux;
-            		j = j - salto;
-            	}
-        	}
-
-            	
-        }
-    
-
-
-        salto = salto/2;
-        for (i = 0; i < array.length; i++) {
-			System.out.print(array[j] + "    ");
+		boolean cambios;
+		
+		for(salto=array.length/2; salto!=0; salto = salto / 2){
+		cambios=true;
+			
+			while(cambios){ 
+			cambios=false;
+			
+				for(i=salto; i< array.length; i++) {
+					if(array[i-salto]<array[i]){ 
+						aux=array[i];
+						array[i]=array[i-salto];
+						array[i-salto]=aux;
+						cambios=true;
+					}
+				}
+			}
 		}
-
-
-    }
+		System.out.println();
+		for (i = 0; i < array.length; i++) {
+			System.out.print(array[i] + "    ");
+		}
+	}
 }
+				
+
+						
+		
