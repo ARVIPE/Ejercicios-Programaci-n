@@ -15,7 +15,7 @@ public class ejercicio1 {
 		
 		
 
-        // Inicializamos el contenido del arra
+        // Inicializamos el contenido del array
         
 		for (int i = 0; i < array.length; i++) {
 			array[i] = (int) Math.round(Math.random() * (100 - -100) + -100);
