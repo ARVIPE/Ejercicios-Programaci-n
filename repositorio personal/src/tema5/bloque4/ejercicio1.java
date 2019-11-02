@@ -15,26 +15,35 @@ public class ejercicio1 {
 		
 		
 
-		// Inicializamos el contenido del array
+        // Inicializamos el contenido del arra
+        
 		for (int i = 0; i < array.length; i++) {
 			array[i] = (int) Math.round(Math.random() * (100 - -100) + -100);
 		}
-		
+        
+        System.out.println("El array es:");
+        
 		// Imprimir en la consola el array creado
 		for (int i = 0; i < array.length; i++) {
-			System.out.print(array[i]);
-        }
+            
+           
 
-        if ((longitud % 3) == 0) {
+            System.out.print("          " + array[i]);
+        }
+        System.out.println("       ");
+        if ((longitud % 2) != 0) {
             int posicionmedia = longitud/2;
+    
+            System.out.println("El número que se encuentra en medio es: ");
+
         
-        
-        
-        
-            for (int i = 0; i < array.length; i++) {
-			
-                System.out.print(array[posicionmedia] + "");
-            }
+                
+                
+
+             System.out.print(array[posicionmedia] + "      ");
+            
+        }else{
+            System.out.println("El array es par");
         }
 
 
