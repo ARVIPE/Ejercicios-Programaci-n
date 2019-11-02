@@ -22,7 +22,7 @@ public class ejercicio1 {
 		
 		// Imprimir en la consola el array creado
 		for (int i = 0; i < array.length; i++) {
-			System.out.println(array[i]);
+			System.out.print(array[i]);
         }
 
         if ((longitud % 3) == 0) {
