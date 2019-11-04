@@ -3,51 +3,45 @@ package tema5.bloque4;
 public class ejercicio3 {
 
 	public static void main(String[] args) {
+
+		int j = 0;
+		int i = 0;
+		int parteentera[] = Utils.obtenernumeroaleatorioentero(10, 0, 100);
+		float partedecimal[] = Utils.obtenernumeroaleatoriodecimal(10, 0, 100);
+		int contador = 0;
+		float sumatotal[] = new float[10];
+
 		
-		
-		 int parteentera[] = new int[10];
-		
-		 
-		
-		for (int i = 0; i < parteentera.length; i++) {
-			parteentera[i] = (int) Math.round(Math.random() * (100));
+
+		System.out.println("El array es: ");
+		for (i = 0; i < parteentera.length; i++) {
+		System.out.print(parteentera[i]  + "   ");
 		}
-        
-        System.out.println("El array es:");
-        
-		// Imprimir en la consola el array creado
-		for (int i = 0; i < parteentera.length; i++) {
+		
+		System.out.println();
 
-			System.out.print("      " + parteentera[i]);
+		for (i = 0; i < partedecimal.length; i++) {
+			partedecimal[i] = partedecimal[i] / 100;
+			System.out.print(partedecimal[i] + "   ");
 		}
-        
-		
-			System.out.println();
 
-		
-			for (int i = 0; i < 11; i++) {
-				String partedecimal = ((Math.random()) + "      ");
+		System.out.println();
 
-				System.out.print(partedecimal + "      ");
+		for (i = 0; i < partedecimal.length; i++) {
+			if (partedecimal[i] < 0.50 && partedecimal[i] <= 0.49) {
+
+				contador++;
+
 			}
-			double partedecimal = 0;
-			for (int i = 0; i < 10; i++) {
-
-				double numerostotales = parteentera[i] + partedecimal;
-			}
-			String numerostotales;
-			System.out.print(numerostotales + "    ");
-		
-
-
 		}
-		
-		
+		System.out.print("Hay " + contador + " números cuya parte decimal se encuentra por debajo de 0.50");
 
-		
-    		
-		
-		
+		System.out.println();
+
+		for (i = 0; i < sumatotal.length; i++) {
+			sumatotal[i] = (parteentera[i] + partedecimal[i]);
+		}
+		System.out.print(sumatotal[i]);
 
 	}
 

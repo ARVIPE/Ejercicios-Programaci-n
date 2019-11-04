@@ -4,45 +4,38 @@ public class ejercicio2 {
 
 	public static void main(String[] args) {
 
-        int array[] = new int[5];
-        
-        int mediaaprobados = 0;
-        int mediasuspensos = 0;
-        int mediatotal = 0;
+		int array[] = new int[20];
 
-        for (int i = 0; i < array.length; i++) {
+		int mediaaprobados = 0;
+		int mediasuspensos = 0;
+
+		for (int i = 0; i < array.length; i++) {
 			array[i] = (int) Math.round(Math.random() * (10));
 		}
-        
-        System.out.println("El array es:");
-        
+
+		System.out.println("El array es:");
+
 		// Imprimir en la consola el array creado
 		for (int i = 0; i < array.length; i++) {
 
-            System.out.print("      " + array[i]);
-        }
-		
+			System.out.print("      " + array[i]);
+		}
+
 		int i = 0;
 		for (i = 0; i < array.length; i++) {
-			if ((i >= 5) && (array[i] >= 5)) {
+			if (array[i] >= 5) {
 
+				mediaaprobados++;
 
-			
-				mediatotal = array[i] / i;
-				
-				
-				System.out.println();
-				System.out.println("La media de los aprobados es:  " + mediatotal);
+			} else {
+				mediasuspensos++;
 			}
-			
-				
-			
+
 		}
-		
-		
+		System.out.println();
+		System.out.print(((mediaaprobados * 100) / 20) + "% aprobados");
+		System.out.println();
+		System.out.print(((mediasuspensos * 100) / 20) + "% suspensos");
+
 	}
 }
-			
-
-        
-    
