@@ -33,9 +33,9 @@ public class ejercicio2 {
 
 		}
 		System.out.println();
-		System.out.print(((mediaaprobados * 100) / 20) + "% aprobados");
+		System.out.print(((mediaaprobados * 100) / array.length) + "% aprobados");
 		System.out.println();
-		System.out.print(((mediasuspensos * 100) / 20) + "% suspensos");
+		System.out.print(((mediasuspensos * 100) / array.length) + "% suspensos");
 
 	}
 }
