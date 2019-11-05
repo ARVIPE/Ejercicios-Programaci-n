@@ -9,7 +9,7 @@ public class ejercicio3 {
 		int parteentera[] = Utils.obtenernumeroaleatorioentero(10, 0, 100);
 		float partedecimal[] = Utils.obtenernumeroaleatoriodecimal(10, 0, 100);
 		int contador = 0;
-		float sumatotal[] = new float[10];
+		float sumatotal[] = Utils.obtenernumeroaleatoriodecimal(10, 0, 100);
 
 		
 

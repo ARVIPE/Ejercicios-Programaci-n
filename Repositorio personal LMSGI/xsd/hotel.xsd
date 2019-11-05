@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:sx="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="hotel">
+    <xs:complexType>
+      <xs:sequence>
+        
+      </xs:sequence>
+
+
+    </xs:complexType>
+
