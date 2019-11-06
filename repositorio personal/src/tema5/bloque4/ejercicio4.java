@@ -22,9 +22,24 @@ public class ejercicio4 {
       System.out.println();
     }
 
-    
-  
-    
-    
+    // Comprobamos si la matríz es positiva
+    boolean esPositiva = esMatrizPositiva(matriz);
+    if (esPositiva) {
+      System.out.println("La matríz es positiva");
+    }else{
+      System.out.println("La matríz no es positiva");
+
   }
+
+  private static boolean esMatrizPositiva (int matriz[][]) {
+    for (int i = 0; i < matriz.length; i++) {
+      for (int j = 0; j < matriz[i].length; j++) {
+        if (matriz[i][j] < 0) { // Hay un elemento negativo, la matriz no es positiva
+          return false;
+        }
+      }
+    }
+    return false;
+  }
+
 }
