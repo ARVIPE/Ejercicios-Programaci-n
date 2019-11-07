@@ -28,6 +28,20 @@ public class ejercicio4 {
       System.out.println("La matríz es positiva");
     }else{
       System.out.println("La matríz no es positiva");
+    }
+    // Comprobamos si la matríz es diagonal
+    boolean esDiagonal = esMatrizDiagonal(matriz);
+    if (esDiagonal) {
+      System.out.println("La matríz es diagonal");
+    }else{
+      System.out.println("La matríz no es diagonal");
+    }
+    boolean esSuperior = esMatrizSuperior(matriz);
+    if (esSuperior) {
+      System.out.println("La matríz es superior");
+    }else{
+      System.out.println("La matríz no es superior");
+    }
 
   }
 
@@ -41,5 +55,28 @@ public class ejercicio4 {
     }
     return false;
   }
+  private static boolean esMatrizDiagonal (int matriz[][]) {
+    for (int i = 0; i < matriz.length; i++) {
+      for (int j = 0; j < matriz[i].length; j++) {
+        if (i != j && matriz[i][j] != 0) { 
+          return false;
+        }
+      }
+    }
+    return false;
+  }
+  private static boolean esMatrizSuperior (int matriz[][]) {
+    for (int i = 0; i < matriz.length; i++) {
+      for (int j = 0; j < matriz[i].length; j++) {
+        //Compruebo si hay un elemento de la mitad debajo de la diagonal principal
+        //que sea distinto de cero
+        //Todos los elementos debajo de esa diagonal principal, cumple la condicion de que i > j
+        if (i > j && matriz[i][j] != 0) { 
+          return false;
+        }
+      }
+    }
+    return false;
+  }  
 
 }
