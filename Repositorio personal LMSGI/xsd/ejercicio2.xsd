@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="marvel">
-    </xs:element>
-    <xs:element name="superheroe">
-        <xs:complexType>
-
+    <xs:element name="marvel" type="tipoMarvel"/>
+    
+        <xs:complexType name="tipoMarvel">
             <xs:sequence>
-
-            <xs:element name="poder" maxOccurs="unbounded" type="textoNoVacio"/>
-            <xs:element name="color" maxOccurs="unbounded" type="textoNoVacio"/>
-            <xs:element name="procedencia" maxOccurs="unbounded" type="textoNoVacio"/>
-
-
+                <xs:element name="superheroe" type="tipoSuperheroe" maxOccurs="unbounded"/>
             </xs:sequence>
-            <xs:attribute name="nombre" type="xs:string" use="required"/>
-            
-
-
-
+            <xs:attribute name="creador" type="xs:string"/>
         </xs:complexType>
 
-    </xs:element>
-    
-
+        <xs:complexType name="tipoSuperheroe">
+            <xs:choice>
+                <xs:element name="poder"/>
+                <xs:element name="color"/>
+                <xs:element name="procedencia"/>
+            </xs:choice>
+            <xs:attribute name="nombre"/>
+        </xs:complexType>
 </xs:schema>

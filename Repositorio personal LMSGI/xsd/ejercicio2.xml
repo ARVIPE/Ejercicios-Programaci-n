@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <marvel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ejercicio2.xsd">
     
-</marvel>
-
-
 
 <!-- Crea un fichero XSD que valide el siguiente XML --> 
-<marvel creador="Stan Lee">
+    
     <superheroe nombre="Hulk">
         <poder>Fuerza</poder>
     </superheroe>
@@ -16,4 +13,5 @@
     <superheroe nombre="Thor">
         <procedencia>Asdgar</procedencia>
     </superheroe>
+ 
 </marvel>
