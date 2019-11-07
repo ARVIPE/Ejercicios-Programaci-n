@@ -36,11 +36,19 @@ public class ejercicio4 {
     }else{
       System.out.println("La matríz no es diagonal");
     }
+    //Comprobamos si la matríz es superior
     boolean esSuperior = esMatrizSuperior(matriz);
     if (esSuperior) {
       System.out.println("La matríz es superior");
     }else{
       System.out.println("La matríz no es superior");
+    }
+    //Comrpobamos si la matriz es dispersa
+    boolean esDispersa = esMatrizDispersa(matriz);
+    if (esDispersa) {
+      System.out.println("La matríz es dispersa");
+    }else{
+      System.out.println("La matríz no es dispersa");
     }
 
   }
@@ -77,6 +85,32 @@ public class ejercicio4 {
       }
     }
     return false;
+  }
+  private static boolean esMatrizDispersa (int matriz[][]) {
+    //Voy a comprobar si todas las filas tienen al menos un elemento
+    //igual a cero
+    for (int i = 0; i < matriz.length; i++) {
+      //La i me recorre todas las filas
+      //Con un bucle de j recorro todos los elementos de cada fila
+      boolean noHayCeros = true;
+      for (int j = 0; j < matriz[i].length; j++) {
+          if(matriz[i][j] == 0) { // En la fila i o en la j hay al menos un cero
+            noHayCeros = false;
+          }
+        
+          if (noHayCeros == true) {
+            return false;
+          }
+        
+        
+        //Si llegamos hasta aquí, es porque hemos comprobado todas las filas
+        //y todas las columnas, y todas ellas tienen al menos un elemento igual
+        //a cero.
+      }
+     
+    }
+    
   }  
+}  
 
-}
+
