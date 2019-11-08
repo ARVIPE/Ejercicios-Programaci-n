@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - TareaMatrices",
+            "request": "launch",
+            "mainClass": "tema5.TareaMatrices",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ejercicio4",
             "request": "launch",
             "mainClass": "tema5.bloque4.ejercicio4",

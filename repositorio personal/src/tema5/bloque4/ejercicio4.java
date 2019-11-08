@@ -86,31 +86,50 @@ public class ejercicio4 {
     }
     return false;
   }
-  private static boolean esMatrizDispersa (int matriz[][]) {
-    //Voy a comprobar si todas las filas tienen al menos un elemento
-    //igual a cero
-    for (int i = 0; i < matriz.length; i++) {
-      //La i me recorre todas las filas
-      //Con un bucle de j recorro todos los elementos de cada fila
-      boolean noHayCeros = true;
-      for (int j = 0; j < matriz[i].length; j++) {
-          if(matriz[i][j] == 0) { // En la fila i o en la j hay al menos un cero
-            noHayCeros = false;
-          }
-        
-          if (noHayCeros == true) {
-            return false;
-          }
-        
-        
-        //Si llegamos hasta aquí, es porque hemos comprobado todas las filas
-        //y todas las columnas, y todas ellas tienen al menos un elemento igual
-        //a cero.
+  public static boolean esMatrizDispersa (int matriz[][]) {
+		// Voy a comprobar si todas las filas tienen al menos un elemento
+		// igual a cero
+		for (int i = 0; i < matriz.length; i++) {
+			// La i me recorre todas las filas
+			// Con un bucle de j recorro todos los elementos de cada fila
+			boolean noHayCeros = true;
+			for (int j = 0; j < matriz[i].length; j++) {
+				  if (matriz[i][j] == 0) { // En la fila "i" hay al menos un 0
+					  noHayCeros = false;
+				  }
+			}
+			  if (noHayCeros) {
+				return false;
       }
-     
     }
     
-  }  
-}  
+      // Voy a comprobar si todas las columnas tienen al menos un elemento
+		  // igual a cero
+		  for (int i = 0; i < matriz.length; i++) {
+			  // La i me recorre todas las filas
+			  // Con un bucle de j recorro todos los elementos de cada fila
+			boolean noHayCeros = true;
+			  for (int j = 0; j < matriz[i].length; j++) {
+				  if (matriz[j][i] == 0) { // En la columna "i" hay al menos un 0
+					  noHayCeros = false;
+				  }
+			  }
+			  if (noHayCeros) {
+				  return false;
+			  }
+      }
+		
+		
+		    // Si llegamos hasta aqu� es porque hemos comprobado todas las
+		    // filas y todas las columnas y todas ellas tienen al menos un
+		    // elemento igual a cero
+		  return true;
+    }
+  }
+}
+  
+
+
+  
 
 
