@@ -17,4 +17,4 @@
             </xs:choice>
             <xs:attribute name="nombre"/>
         </xs:complexType>
-</xs:schema>
+    </xs:schema>
