@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <marvel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ejercicio2.xsd">
     
-
-<!-- Crea un fichero XSD que valide el siguiente XML --> 
     
     <superheroe nombre="Hulk">
         <poder>Fuerza</poder>
