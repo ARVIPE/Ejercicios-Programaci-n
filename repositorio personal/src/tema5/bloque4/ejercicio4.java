@@ -125,11 +125,4 @@ public class ejercicio4 {
 		    // elemento igual a cero
 		  return true;
     }
-  }
 }
-  
-
-
-  
-
-
