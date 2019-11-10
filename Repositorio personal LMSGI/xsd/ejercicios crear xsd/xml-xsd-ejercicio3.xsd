@@ -41,8 +41,7 @@
                 <xs:element name="cuota_iva"/>
                 <xs:element name="total"/>
             </xs:choice>
-
-
-
-
+        </xs:complexType>
 </xs:schema>
+
+
