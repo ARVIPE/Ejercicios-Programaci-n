@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="factura" type="tipoFactura"/>
+
+        <xs:complexType name="datos_empresa">
+            <xs:choice>
+                <xs:element name="nombre"/>
+                <xs:element name="poblacion"/>
+                <xs:element name="provincia"/>
+                <xs:element name="dir"/>
+                <xs:element name="cif"/>
+            </xs:choice>
+
+
+
+        </xs:complexType>
+
+
+
+
+</xs:schema>

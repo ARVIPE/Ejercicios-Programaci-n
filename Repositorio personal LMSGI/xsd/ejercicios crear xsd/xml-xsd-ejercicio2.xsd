@@ -7,8 +7,44 @@
             <xs:element name="vehiculo" type="tipoVehiculo" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
-    
 
+    <xs:complexType name="tipoVehiculo">
+        <xs:choice>
+            <xs:element name="nombre"/>
+            <xs:element name="modelo" maxOccurs="unbounded"/>
+            <xs:element name="fabricacion" type="tipoFabricacion" maxOccurs="unbounded" />
+            <xs:element name="modificaciones" type="tipoModificaciones" maxOccurs="unbounded"/>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="tipoFabricacion">
+        <xs:choice>
+            <xs:element name="inicio" type="tipoInicio" maxOccurs="unbounded"/>
+            <xs:element name="fin" type="tipoFin" maxOccurs="unbounded"/>
+        </xs:choice>
+    </xs:complexType>
+    
+    <xs:complexType name="tipoInicio">
+        <xs:choice>
+            <xs:element name="dia" />
+            <xs:element name="mes"/>
+            <xs:element name="anyo"/>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="tipoFin">
+    <xs:choice>
+        <xs:element name="dia"/>
+        <xs:element name="mes"/>
+        <xs:element name="anyo"/>
+    </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="tipoModificaciones">
+    <xs:choice>
+        <xs:element name="modificacion" />
+    </xs:choice>    
+    </xs:complexType>
 
 
 </xs:schema>
