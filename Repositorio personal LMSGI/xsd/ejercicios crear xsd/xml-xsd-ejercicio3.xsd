@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="factura" type="tipoFactura"/>
+
+        <xs:complexType name="tipoFactura"/>
+            <xs:choice>
+            <xs:element name="datos_empresa" type="tipoDatos_empresa" maxOccurs="unbounded"/>
+            <xs:element name="datos_cliente" type="tipoDatos_cliente" maxOccurs="unbounded"/>
+            <xs:element name="datos_factura" type="tipoDatos_factura" maxOccur="unbounded"/>
+            </xs:choice>
+        </xs:complexType>
+
+
+        <xs:complexType name="tipoDatos_empresa">
+            <xs:choice>
+                <xs:element name="nombre"/>
+                <xs:element name="poblacion"/>
+                <xs:element name="provincia"/>
+                <xs:element name="dir"/>
+                <xs:element name="cif"/>
+                <xs:element name="telefono"/>
+            </xs:choice>
+        </xs:complexType>
+
+        <xs:complexType name="tipoDatos_cliente">
+            
+            <xs:choice>
+                <xs:element name="nombre"/>
+                <xs:element name="poblacion"/>
+                <xs:element name="provincia"/>
+                <xs:element name="dir_env"/>
+            </xs:choice>
+        </xs:complexType>
+
+        <xs:complexType name="tipoDatos_factura">
+            <xs:choice>
+                <xs:element name="fecha"/>
+                <xs:element name="linea"/>
+                <xs:element name="base"/>
+                <xs:element name="cuota_iva"/>
+                <xs:element name="total"/>
+            </xs:choice>
+        </xs:complexType>
+
+</xs:schema>
+
+        
+
