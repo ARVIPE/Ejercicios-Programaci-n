@@ -4,9 +4,9 @@ public class persona {
 
     String nombre;
     String apellidos;
-    public int DNI;
-    public int direccion;
-    public int telefono;
+    public String DNI;
+    public	String direccion;
+    public String telefono;
     
 
    /**
@@ -14,7 +14,7 @@ public class persona {
     */
     public void imprimeEnConsola () {
         System.out.println("Persona: nombre" + nombre + " - apellidos: " +
-        apellidos + " - DNI:" + DNI + "dirección" + direccion + "telefono" + telefono);
+        apellidos + " - DNI: " + DNI + " - direccion: " + direccion + " - telefono: " + telefono);
     }
 
 }
