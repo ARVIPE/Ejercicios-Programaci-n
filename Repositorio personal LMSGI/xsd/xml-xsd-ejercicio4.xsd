@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="concesionario" type="tipoConcesionario"/>
+    
+        <xs:complexType name="tipoConcesionario">
+            <xs:sequence>
+                <xs:element name="modeloCoche" type="tipoModeloCoche" maxOccurs="unbounded"/>   
+            </xs:sequence>
+            <xs:atributte name="idModeloCoche" type="xs:string" use="optional"/>
+        </xs:complexType>
+
+        <xs:complexType name="tipoModeloCoche">
+            <xs:sequence>
+                <xs:element name="modeloMotor" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:atributte name="idModeloCoche" type="xs:string" use="required"/>
+        </xs:complexType>
+    
+</xs:schema>

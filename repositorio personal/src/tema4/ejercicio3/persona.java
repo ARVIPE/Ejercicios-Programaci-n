@@ -14,10 +14,7 @@ public class persona {
     */
     public void imprimeEnConsola () {
         System.out.println("Persona: nombre" + nombre + " - apellidos: " +
-        apellidos + " - DNI:" + DNI + )
-
-    
-
-
+        apellidos + " - DNI:" + DNI + "dirección" + direccion + "telefono" + telefono);
+    }
 
 }
