@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="universoMarvel" type="tipoUniversoMarvel"/>
+    <xs:element name="usuario" type="tipoUsuario"/>
 
-    <xs:complexType name="tipoUniversoMarvel">
+    <xs:complexType name="tipoUsuario">
         <xs:sequence>
             <xs:element name="personaje" type="tipoPersonaje"/>
         </xs:sequence>
-    </complexType>
+    </xs:complexType>
 
     <xs:complexType name="tipoPersonaje">
         <xs:sequence>
@@ -25,7 +25,7 @@
 
     <xs:complexType name="tipoColores">
         <xs:sequence>
-            <xs:element name="color">
+            <xs:element name="color"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
