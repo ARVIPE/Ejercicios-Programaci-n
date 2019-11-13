@@ -1,4 +1,4 @@
-package practicaexamen;
+package practicaexamen.OpcionA;
 
 import java.lang.reflect.Array;
 

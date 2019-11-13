@@ -31,13 +31,7 @@ public class TareaMatrices {
           
         
 
-            for(k = 0; i < matriz2.length; k++) {
-                for (l = 0; l < matriz2[k].length; l++) {
-                
-
-
-                }
-            }
+  
         }
     }
 }
