@@ -5,24 +5,36 @@ public class apartadoC_OpcionB {
 	public static void main(String[] args) {
 		
 		int array[] = new int[20];
+		int i;
 		
 		//Inicializamos el contenido del array
-		for (int i = 0; i < array.length; i++) {
+		for (i = 0; i < array.length; i++) {
 	          
-	 		array[i] = (i + 1);
-        //Imprimimos el valor del array
-
-	 		for(i = 2; i < array-1; i++) {
-				if(array%i==0) { 
-					System.out.println("El numero no es primo");
-					return;
+		int numero = 0;
+		boolean esPrimo;
+		
+		do {
+				esPrimo = true;
+				array[i] = (int) Math.round(Math.random() * 100);
+				for(int j=2; i < numero-1; j++) {
+					if (numero%j==0) {
+						esPrimo = false;
+					}
 				}
-			}
-	 		System.out.println(array[i]);
-                
-        }
-      
-
+			
+			}while(!esPrimo);
+		
+			array[i]=numero;
+		}
+		
+		for(i = 0; i < array.length; i++) {
+		System.out.print(array[i]);
+		}
+		
 	}
-
 }
+		
+		
+		
+			
+
