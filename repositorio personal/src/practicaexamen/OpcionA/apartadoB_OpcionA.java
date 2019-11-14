@@ -2,7 +2,7 @@ package practicaexamen.OpcionA;
 
 import javax.swing.JOptionPane;
 
-public class apartadoB_Opci�nA {
+public class apartadoB_OpcionA {
 
 	public static void main(String[] args) {
 		int limiteInferior, limiteSuperior;

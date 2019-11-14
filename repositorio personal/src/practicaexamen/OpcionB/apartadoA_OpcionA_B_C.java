@@ -1,8 +1,8 @@
-package practicaexamen.OpcionA;
+package practicaexamen.OpcionB;
 
 import java.lang.reflect.Array;
 
-public class apartadoA_OpciónA_B_C {
+public class apartadoA_OpcionA_B_C {
 
 	public static void main(String[] args) {
 
@@ -18,7 +18,7 @@ public class apartadoA_OpciónA_B_C {
 		System.out.print(array[i] + "   ");
 		}
 		
-		//Realizamos un salto de línea
+		//Realizamos un salto de lï¿½nea
 		System.out.println();
 		
 		
@@ -30,7 +30,7 @@ public class apartadoA_OpciónA_B_C {
 		}
 		
 		
-		//Aquí ya le decimos que nos imprima el valor de la suma
+		//Aquï¿½ ya le decimos que nos imprima el valor de la suma
 		System.out.print("La suma es: " + suma);
 	
 		System.out.println();
@@ -43,7 +43,7 @@ public class apartadoA_OpciónA_B_C {
 		
 		System.out.println();
 		
-		//Buscamos el mayor y el menor número del array
+		//Buscamos el mayor y el menor nï¿½mero del array
 		int mayor = array[0];
         int menor = array[0];
        
@@ -56,7 +56,7 @@ public class apartadoA_OpciónA_B_C {
             }
         }
         
-        //Ya aquí imprimimos en pantalla el mayor y el menor
+        //Ya aquï¿½ imprimimos en pantalla el mayor y el menor
         System.out.println("El mayor valor es: "+ mayor);
         System.out.println("El menor valor es: "+ menor);
     }
