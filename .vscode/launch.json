@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - apartadoE_OpcionA",
+            "request": "launch",
+            "mainClass": "practicaexamen.OpcionA.apartadoE_OpcionA",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - apartadoD_OpcionA",
+            "request": "launch",
+            "mainClass": "practicaexamen.OpcionA.apartadoD_OpcionA",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - TareaMatrices",
             "request": "launch",
             "mainClass": "tema5.TareaMatrices",
