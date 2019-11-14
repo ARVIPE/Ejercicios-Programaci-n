@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - apartadoB_OpcionC",
+            "request": "launch",
+            "mainClass": "practicaexamen.OpcionC.apartadoB_OpcionC",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - apartadoE_OpcionA",
             "request": "launch",
             "mainClass": "practicaexamen.OpcionA.apartadoE_OpcionA",

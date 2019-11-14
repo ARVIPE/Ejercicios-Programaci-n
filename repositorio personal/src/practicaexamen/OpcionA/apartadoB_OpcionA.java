@@ -2,15 +2,15 @@ package practicaexamen.OpcionA;
 
 import javax.swing.JOptionPane;
 
-public class apartadoB_OpciónA {
+public class apartadoB_Opciï¿½nA {
 
 	public static void main(String[] args) {
 		int limiteInferior, limiteSuperior;
 		int numeros[] = new int[100];
 		
 		// Pedir limites al usuario
-		limiteInferior = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el límite inferior"));
-		limiteSuperior = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el límite superior"));
+		limiteInferior = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el lï¿½mite inferior"));
+		limiteSuperior = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el lï¿½mite superior"));
 
 		// Inicializamos el contenido del array
 		for (int i = 0; i < numeros.length; i++) {
