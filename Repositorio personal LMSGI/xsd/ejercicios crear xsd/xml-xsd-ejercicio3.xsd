@@ -2,12 +2,13 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="factura" type="tipoFactura"/>
 
-        <xs:complexType name="tipoFactura"/>
-            <xs:choice>
-            <xs:element name="datos_empresa" type="tipoDatos_empresa" maxOccurs="unbounded"/>
-            <xs:element name="datos_cliente" type="tipoDatos_cliente" maxOccurs="unbounded"/>
-            <xs:element name="datos_factura" type="tipoDatos_factura" maxOccur="unbounded"/>
-            </xs:choice>
+        <xs:complexType name="tipoFactura">
+            <xs:all>
+                <xs:element name="datos_empresa" type="tipoDatos_empresa"/>
+                <xs:element name="datos_cliente" type="tipoDatos_cliente" />
+                <xs:element name="datos_factura" type="tipoDatos_factura" />
+            </xs:all>
+            <xs:attribute name="n_fac" type="xs:string"/>
         </xs:complexType>
 
 

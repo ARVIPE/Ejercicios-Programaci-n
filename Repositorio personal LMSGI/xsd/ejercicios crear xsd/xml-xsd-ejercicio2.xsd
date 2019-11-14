@@ -11,39 +11,32 @@
 
     <xs:complexType name="tipoVehiculo">
         <xs:choice>
-            <xs:element name="nombre"/>
-            <xs:element name="modelo" maxOccurs="unbounded"/>
-            <xs:element name="fabricacion" type="tipoFabricacion" maxOccurs="unbounded" />
-            <xs:element name="modificaciones" type="tipoModificaciones" maxOccurs="unbounded"/>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="modelo" type="xs:string" />
+            <xs:element name="fabricacion" type="tipoFabricacion"/>
+            <xs:element name="modificaciones" />
         </xs:choice>
     </xs:complexType>
 
     <xs:complexType name="tipoFabricacion">
         <xs:choice>
-            <xs:element name="inicio" type="tipoInicio" maxOccurs="unbounded"/>
-            <xs:element name="fin" type="tipoFin" maxOccurs="unbounded"/>
+            <xs:element name="inicio" type="tipoFecha" />
+            <xs:element name="fin" type="tipoFecha"/> 
         </xs:choice>
     </xs:complexType>
     
-    <xs:complexType name="tipoInicio">
+    <xs:complexType name="tipoFecha">
         <xs:choice>
-            <xs:element name="dia" />
-            <xs:element name="mes"/>
-            <xs:element name="anyo"/>
+            <xs:element name="dia" type="xs:string"/>
+            <xs:element name="mes" type="xs:string"/>
+            <xs:element name="anyo" type="xs:string"/>
         </xs:choice>
     </xs:complexType>
 
-    <xs:complexType name="tipoFin">
-    <xs:choice>
-        <xs:element name="dia"/>
-        <xs:element name="mes"/>
-        <xs:element name="anyo"/>
-    </xs:choice>
-    </xs:complexType>
 
     <xs:complexType name="tipoModificaciones">
     <xs:choice>
-        <xs:element name="modificacion" />
+        <xs:element name="modificacion" type="xs:string" maxOccurs="unbounded" />
     </xs:choice>    
     </xs:complexType>
 
