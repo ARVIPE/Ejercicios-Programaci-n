@@ -4,24 +4,28 @@
 
         <xs:complexType name="tipoFactura">
             <xs:all>
-                <xs:element name="datos_empresa" type="tipoDatos_empresa"/>
-                <xs:element name="datos_cliente" type="tipoDatos_cliente" />
-                <xs:element name="datos_factura" type="tipoDatos_factura" />
+                <xs:element name="datos_empresa" />
+                <xs:element name="datos_cliente" />
+                <xs:element name="datos_factura" />
             </xs:all>
             <xs:attribute name="n_fac" type="xs:string"/>
         </xs:complexType>
 
-
-        <xs:complexType name="tipoDatos_empresa">
-            <xs:choice>
-                <xs:element name="nombre"/>
-                <xs:element name="poblacion"/>
+        <xs:complexType name="DatosGenerico">
+            <xs:sequence>
+                <xs:element name="nombre" type="xs:string"/>
+                <xs:element name="poblacion">
+                    <xs:complexType>
+                        <xs:attribute name="cod_postal" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
                 <xs:element name="provincia"/>
                 <xs:element name="dir"/>
                 <xs:element name="cif"/>
                 <xs:element name="telefono"/>
-            </xs:choice>
+            </xs:sequence>
         </xs:complexType>
+
 
         <xs:complexType name="tipoDatos_cliente">
             
