@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <usuario id="rafaelCarlosMuñoz@gmail.com" 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:noNamespaceSchemaLocation="xml-xsd-ejercicio6.xsd"> <!-- El valor del usuario debe terminar en la cadena "gmail.com" o "gmail.es" -->
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="xml-xsd-ejercicio6.xsd"> <!-- El valor del usuario debe terminar en la cadena "gmail.com" o "gmail.es" -->
 	<ultimasSesiones>
 		<sesion fecha="2017-11-07" hora="09:30">Expirada</sesion> <!-- El atributo fecha debe tomar una fecha en formato europeo
 																	, el atributo hora debe tomar una hora válida en formato 24 H-->
