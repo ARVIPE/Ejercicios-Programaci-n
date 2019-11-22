@@ -14,9 +14,11 @@ public class Ejercicio05_Sumacuyoindiceseapar {
 		for (int i = 0; i < numeros.length; i++) {
 			if (i%2 == 0) {
 				int numerospares = numeros[i];
+			}
+		}
 				
 			
-		}
+		
 	}
 
 	private static int numeroAleatorio() {

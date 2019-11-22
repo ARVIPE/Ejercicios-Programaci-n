@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Ejercicio05_Sumacuyoindiceseapar",
+            "request": "launch",
+            "mainClass": "tema5.bloque1.Ejercicio05_Sumacuyoindiceseapar",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ejercicio1",
+            "request": "launch",
+            "mainClass": "entornosdedesarrollo.ejercicio1",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - apartadoB_OpcionC",
             "request": "launch",
             "mainClass": "practicaexamen.OpcionC.apartadoB_OpcionC",
