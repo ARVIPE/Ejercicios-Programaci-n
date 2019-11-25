@@ -1,4 +1,4 @@
-package entornosdedesarrollo;
+package ejerciciosumador;
 
 import java.awt.EventQueue;
 
