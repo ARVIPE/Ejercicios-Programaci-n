@@ -11,6 +11,22 @@
             <xs:attribute name="n_fac" type="xs:string" />
         </xs:complexType>
 
+        <xs:complexType name="tipoDatosEmpresa">
+            <xs:sequence>
+                <xs:element name="nombre"/>
+                <xs:element name="poblacion"/>
+                <xs:element name="provincia"/>
+                <xs:element name="dir"/>
+                <xs:element name="cif"/>
+                
+
+
+            </xs:sequence>
+
+
+
+        </xs:complexType>
+
 
 
     
