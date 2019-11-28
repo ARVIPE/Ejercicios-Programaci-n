@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="mobiliario" type="tipoMobiliario">
+       
+        <xs:complexType type="tipoMobiliario">
+            <xs:sequence>
+                <xs:element name="fuentes" type="tipoFuentes"/>
+                <xs:element name="farola" type="tipoFarola"/>
+                <xs:element name="bancos" type="tipoBancos"/>
+                <xs:element name="senal" type="tipoSenal"/>
+                <xs:element name="papelera" type="tipoPapelera"/>
+                <xs:element name="jardin" type="tipoJardin"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:complexType name="tipoFuentes">
+            <xs:choice>
+                <xs:element name="fuente"/>
+            </xs:choice>
+            <xs:attribute name=""></xs:attribute>
+        </xs:complexType>
+
+
+    </xs:element>
+</xs:schema>
