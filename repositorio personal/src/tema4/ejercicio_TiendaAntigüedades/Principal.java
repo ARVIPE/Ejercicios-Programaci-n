@@ -6,11 +6,11 @@ public class Principal {
 
 		Antiguedad joya = new Antiguedad(1822, "españa", 150); // Año, origen, precio
 		Antiguedad libro = new Antiguedad(1942, "españa", 54); // Año, origen, precio
+		
 
-
-		joya.imprimir();
-		System.out.println();
-		libro.imprimir();
+		System.out.println(joya);
+		System.out.println(libro);
+		
 
 	}
 
