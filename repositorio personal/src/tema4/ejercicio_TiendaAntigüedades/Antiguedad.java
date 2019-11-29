@@ -19,13 +19,16 @@ public class Antiguedad {
 			for (int j = 0; j < 1; j++) {
 				System.out.print("El año de fabricación es: " + año_fabricacion + "   " + "El origen es: " + origen
 						+ "   " + "El precio es: " + precio_venta + " euros");
-
 			}
 
 		}
+	}
+	public Antiguedad getjoya(){
+		return joya;
+	}
 
+	public Antiguedad getlibro(){
+		return libro;
 	}
-	public Antiguedad getJoya() {
-		return joya();
-	}
+
 }
