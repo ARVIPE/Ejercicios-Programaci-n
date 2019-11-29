@@ -1,31 +1,36 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="universoMarvel" type="tipoUniversoMarvel"/>
+    <xs:element name="universoMarvel" type="tipoUniversoMarvel" />
+        <xs:complexType name="tipoUniversoMarvel">
+            <xs:sequence>
+                <xs:element name="personaje" type="tipoPersonaje" maxOccurs="unbounded"/>        
+            </xs:sequence>
+        </xs:complexType>
 
-    <xs:complexType name="tipoUniversoMarvel">
-        <xs:sequence>
-            <xs:element name="personaje" type="tipoPersonaje"/>
-        </xs:sequence>
-    </xs:complexType>
+        <xs:complexType name="tipoPersonaje" mixed="true">
+            <xs:sequence>
+                <xs:element name="traje" type="tipoTraje"/>
+                <xs:element name="enemigo" type="xs:string" maxOccurs="unbounded"/>
+            </xs:sequence>
+                <xs:attribute name="bando" type="xs:string" />
+        </xs:complexType>
 
-    <xs:complexType name="tipoPersonaje">
-        <xs:sequence>
-            <xs:element name="traje" type="tipoTraje" maxOccurs="unbounded"/>
-            <xs:element name="enemigo"/>
-        </xs:sequence>
-    </xs:complexType>
+        <xs:complexType name="tipoTraje">
+            <xs:sequence>
+                <xs:element name="creador" type="xs:string" />
+                <xs:element name="colores" type="tipoColores"/>
+            </xs:sequence>
+        </xs:complexType>
 
-    <xs:complexType name="tipoTraje">
-        <xs:sequence>
-            <xs:element name="creador"/>
-            <xs:element name="colores" type="tipoColores" maxOccurs="unbounded"/>
-            <xs:element name="enemigo"/>            
-        </xs:sequence>
-    </xs:complexType>
+        <xs:complexType name="tipoColores">
+            <xs:sequence>
+                <xs:element name="color" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="valor" use="optional" type="xs:string" />
+        </xs:complexType>        
 
-    <xs:complexType name="tipoColores">
-        <xs:sequence>
-            <xs:element name="color"/>
-        </xs:sequence>
-    </xs:complexType>
+        
+
+
+
 </xs:schema>
