@@ -1,5 +1,7 @@
 package tema4.ejercicio_TiendaAntigüedades;
 
+import tema4.ejercicio_bloque03_ejercicio06.Plato;
+
 public class Antiguedad {
 
 	private int año_fabricacion;
@@ -22,5 +24,8 @@ public class Antiguedad {
 
 		}
 
+	}
+	public Antiguedad getJoya() {
+		return joya();
 	}
 }
