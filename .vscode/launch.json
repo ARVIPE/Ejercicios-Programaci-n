@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Principal",
+            "request": "launch",
+            "mainClass": "tema4.ejercicio_TiendaAntigüedades.Principal",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Ejercicio05_Sumacuyoindiceseapar",
             "request": "launch",
             "mainClass": "tema5.bloque1.Ejercicio05_Sumacuyoindiceseapar",

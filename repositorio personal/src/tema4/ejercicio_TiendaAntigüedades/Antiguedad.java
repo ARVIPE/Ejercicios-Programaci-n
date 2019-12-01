@@ -1,65 +1,78 @@
-package tema4.ejercicio_TiendaAntigüedades;
+package tema4.ejercicio_TiendaAntig�edades;
 
-import tema4.ejercicio_bloque03_ejercicio06.Plato;
 
-public class Antiguedad {
-
-	private String origen;
-	private int precio_venta;
-	private String nombre;
-	private int anyo;
-	private int precio;
-
-	public Antiguedad(String nombre,int anyo, String origen, int precio) {
-		this.nombre = nombre;
-		this.anyo = anyo;
+public abstract class Antiguedad {
+	
+	protected  Antiguedad joya;
+	protected  Antiguedad libro;
+	protected int anioFabricacion;
+	protected String origen;
+	protected float precioVenta;
+	
+	public Antiguedad() {
+		
+	}
+	/**
+	 * @param anioFabricacion
+	 * @param origen
+	 * @param precioVenta
+	 */
+	
+	public Antiguedad(int anioFabricacion, String origen, float precioVenta) {
+		super();
+		this.anioFabricacion = anioFabricacion;
 		this.origen = origen;
-		this.precio = precio;
+		this.precioVenta = precioVenta;
 	}
-
-	public void imprimir() {
-		for (int i = 0; i < 1; i++) {
-			for (int j = 0; j < 1; j++) {
-				System.out.print("El año de fabricación es: " + anyo + "   " + "El origen es: " + origen
-						+ "   " + "El precio es: " + precio_venta + " euros");
-			}
-
-		}
+	/**
+	 * 
+	 */
+	public Antiguedad (Antiguedad joya, Antiguedad libro) {
+		super();
+		this.joya = joya;
+		this.libro = libro;
+		
 	}
-	public String nombre() {
-		return nombre;
+	/**
+	 * @return the anioFabricacion
+	 */
+	public int getAnioFabricacion() {
+		return anioFabricacion;
 	}
-	
-	//String y luego los geters y los seters
-	
-	public void setnombre(String nombre) {
-		this.nombre = nombre;
+	/**
+	 * @param anioFabricacion the anioFabricacion to set
+	 */
+	public void setAnioFabricacion(int anioFabricacion) {
+		this.anioFabricacion = anioFabricacion;
 	}
-	public int getanyo(){
-		return anyo;public void setnombre(String nombre) {
-			this.nombre = nombre;
-		}
-	}
-	
-	public void setanyo(int anyo) {
-		this.anyo = anyo;
-	}
-	
-	
-	public String getorigen(){
+	/**
+	 * @return the origen
+	 */
+	public String getOrigen() {
 		return origen;
 	}
-	
-	public void setorigen(String origen) {
+	/**
+	 * @param origen the origen to set
+	 */
+	public void setOrigen(String origen) {
 		this.origen = origen;
 	}
-	
-	public int getprecio(int precio) {
-		return precio;
+	/**
+	 * @return the precioVenta
+	 */
+	public float getPrecioVenta() {
+		return precioVenta;
 	}
-	
-	public void setprecio() {
-		this.precio = precio;
+	/**
+	 * @param precioVenta the precioVenta to set
+	 */
+	public void setPrecioVenta(float precioVenta) {
+		this.precioVenta = precioVenta;
+	}
+	@Override
+	public String toString() {
+		return "Antiguedades [anioFabricacion=" + anioFabricacion + ", origen=" + origen + ", precioVenta="
+				+ precioVenta + "]";
 	}
 	
 
