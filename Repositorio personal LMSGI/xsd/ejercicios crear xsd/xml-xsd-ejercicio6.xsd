@@ -7,46 +7,114 @@
                 <xs:element name="marcadores" type="tipoMarcadores"/>
                 <xs:element name="mensajes" type="tipoMensajes" />
             </xs:sequence>
-            <xs:attribute name="id" type="xs:string"/>
+            <xs:attribute name="id" type="tipoID"/>
         </xs:complexType>
+
+        <xs:simpleType name="tipoID">
+            <xs:restriction base="xs:string">
+                <xs:pattern value=".+@(gmail.com|gmail.es)"></xs:pattern>
+            </xs:restriction>
+        </xs:simpleType>
 
         <xs:complexType name="tipoUltimasSesiones">
             <xs:sequence>
-                <xs:element name="sesion">
-                    <xs:complexType mixed="true">
-                        
-                    </xs:complexType>
-
-                </xs:element>
+                <xs:element name="sesion" type="tipoSesion" maxOccurs="unbounded"/>
             </xs:sequence>
-            <xs:attribute name="fecha" use="required" type="xs:string"/>
-            <xs:attribute name="hora" use="required" type="xs:string"/>
         </xs:complexType>
 
-        <xs:complexType name="tipoSesion">
+        <xs:complexType name="tipoSesion" mixed="true">
             <xs:sequence>
-                <xs:element name="dispositivo">
+                <xs:element name="dispositivo" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType mixed="true">
-                        <xs:sequence></xs:sequence>
-                    <xs:attribute name="ip" use="required" type="xs:string"/>
+                    <xs:attribute name="ip" use="required" type="tipoIp"/>
                     <xs:attribute name="navegador" use="required" type="xs:string"/>
-                    <xs:attribute name="NAT" use="required" type="xs:string"/>
+                    <xs:attribute name="NAT" use="required" type="tipoNAT"/>
                     </xs:complexType>
-                
-
                 </xs:element>
             </xs:sequence>
-            <xs:attribute name="fecha" use="required" type="xs:string"/>
-            <xs:attribute name="hora" use="required" type="xs:string"/>
+            <xs:attribute name="fecha" use="required" type="xs:date"/>
+            <xs:attribute name="hora" use="required" type="tipoHora"/>
         </xs:complexType>
 
-    
+        <xs:simpleType name="tipoHora">
+            <xs:restriction base="xs:string">
+                <xs:pattern value="\d{2}:\d{2}"/>
+            </xs:restriction>
+        </xs:simpleType>
+
+        <xs:simpleType name="tipoIp">
+            <xs:restriction base="xs:string">
+              <xs:pattern value="\d{3}.\d{1,3}.\d{1,3}.\d{1,3}"/>
+            </xs:restriction>
+         </xs:simpleType>
+
+        <xs:simpleType name="tipoNAT">
+            <xs:restriction base="xs:string">
+                <xs:pattern value="si|no"/>
+            </xs:restriction>
+        </xs:simpleType>
+
+        <xs:complexType name="tipoMarcadores">
+            <xs:sequence>
+                <xs:element name="marcador" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="tipoMarcador">
+                                <xs:attribute name="nombre"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+                    
+        
+        <xs:simpleType name="tipoMarcador">
+            <xs:restriction base="xs:string">
+                <xs:pattern value="(http://|https://).*"/>
+            </xs:restriction>
+        </xs:simpleType>
+
+        <xs:complexType name="tipoMensajes">
+            <xs:sequence>
+                <xs:element name="mails" type="tipoMails" maxOccurs="unbounded"/>
+                <xs:element name="hangout" type="tipoHangout" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:complexType name="tipoMails">
+            <xs:sequence>
+                <xs:element name="mail" type="tipoMail" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:complexType name="tipoMail">
+            <xs:sequence>
+                <xs:element name="asunto" type="xs:string" />
+                <xs:element name="cuerpo" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="de" use="required" type="tipoDe"/>
+        </xs:complexType>
+
+        <xs:simpleType name="tipoDe">
+            <xs:restriction base="xs:string">
+                <xs:pattern value=".+@.+(.com|.es)"/>    
+            </xs:restriction>
+        </xs:simpleType>
 
 
-      
+        <xs:complexType name="tipoHangout">
+            <xs:sequence>
+                <xs:element name="mensaje" type="tipoMensaje"/>
+            </xs:sequence>
+        </xs:complexType>
 
+        <xs:complexType name="tipoMensaje">
+            <xs:sequence>
+                <xs:element name="asunto" type="xs:string" maxOccurs="unbounded"/>
+                <xs:element name="cuerpo" type="xs:string" maxOccurs="unbounded"/>
+            </xs:sequence>
 
-
-
-
+        </xs:complexType>
+        
 </xs:schema>
