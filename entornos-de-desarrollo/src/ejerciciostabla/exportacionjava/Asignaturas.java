@@ -1,4 +1,4 @@
-package exportacionjava;
+package ejerciciostabla.exportacionjava;
 
 import java.io.Serializable;
 import java.sql.Blob;
