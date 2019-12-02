@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="mobiliario" type="tipoMobiliario" />
+        <xs:complexType name="tipoMobiliario">
+            <xs:sequence>
+                <xs:element name="fuentes" type="tipoFuentes" maxOccurs="unbounded"/>
+                <xs:element name="farola" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element name="bancos" type="tipoBancos" />
+                <xs:element name="senal">
+                    <xs:complexType>
+                        <xs:sequence></xs:sequence>
+                            <xs:attribute name="cocheMultado" use="required" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="papelera">
+                    <xs:complexType>
+                        <xs:sequence></xs:sequence>
+                            <xs:attribute name="dimension" use="required" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="jardin" type="tipoJardin" />
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:complexType name="tipoFuentes" mixed="true">
+            <xs:sequence>
+                <xs:element name="fuente">
+                    <xs:complexType>
+                        <xs:sequence></xs:sequence>
+                        <xs:attribute name="nombre" use="required" type="xs:string"/>
+                        <xs:attribute name="litroPorSegundo" use="required" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="ciudad" use="required" type="xs:string"/>
+        </xs:complexType>
+
+        <xs:complexType name="tipoBancos">
+            <xs:sequence>
+                <xs:element name="macetero">
+                    <xs:complexType>
+                        <xs:sequence></xs:sequence>
+                        <xs:attribute name="personasSentadas" use="required" type="xs:string"></xs:attribute>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:complexType name="tipoJardin">
+            <xs:sequence>
+                <xs:element name="extension" maxOccurs="unbounded"/>
+                <xs:element name="arboleda" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="localizacion" use="optional" type="xs:string"/>
+        </xs:complexType>
+
+
+
+</xs:schema>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="youtube" type="TipoYoutube"/>
+        <complexType name="TipoYoutube">
+            <xs:sequence>
+                <xs:element name="videos" type="tipoVideos"/>                 
+                <xs:element name="publicidad" type="tipoPublicidad"/>                                
+            </xs:sequence>
+        </complexType>
+
+        <xs:complexType name="tipoVideos">
+            <xs:sequence>
+                <xs:element name="video" type="tipoVideo"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:complexType name="tipoVideo">
+            <xs:sequence>
+                <xs:element name="url" type="xs:string" maxOccurs="unbounded"/>
+                <xs:element name="visualizaciones" type="xs:string" maxOccurs="unbounded"/>
+                <xs:element name="comentarios">
+                    <xs:complexType mixed="true">
+                        <xs:sequence>
+                            <xs:element name="buenos" type="xs:string"/>
+                            <xs:element name="malos" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>                
+                <xs:element name="subscriptores" type="tipoSubscriptores"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:complexType name="tipoSubscriptores">
+            <xs:sequence>
+                <xs:element name="subscriptor" type="tipoSubscriptor"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:complexType name="tipoSubscriptor">
+            <xs:sequence>
+                <xs:element name="fechaSubscripcion"/>
+                <xs:element name="comentarios" />
+                <xs:element name="correoElectronico" type="tipoCorreoElectronico"/>
+                <xs:element name="idioma" type="xs:string"/>
+            </xs:sequence>
+                <xs:attribute name="codigo" type="xs:string" />
+        </xs:complexType>
+
+        <xs:complexType name="tipoCorreoElectronico">
+            <xs:sequence>
+                <xs:element name="fechaSubscripcion">
+                    <xs:complexType>
+                        <xs:attribute name="dia" use="required" type="xs:string"/>
+                        <xs:attribute name="mes" use="required" type="xs:string"/>
+                        <xs:attribute name="anyo" use="required" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="comentarios"/>
+                <xs:element name="correoElectronico" type="tipoCorreoElec"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:complexType name="tipoCorreoElec">
+            <xs:all>
+                <xs:element name="usuario" type="xs:string"/>
+                <xs:element name="servidor">
+                    <xs:complexType>
+                        <xs:choice>
+                            <xs:element name="gmail" type="tipoVacio"/>
+                            <xs:element name="hotmail" type="tipoVacio"/>
+                            <xs:element name="yahoo" type="tipoVacio"/>
+                            </xs:choice>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:all>
+            <xs:attribute name="completo" type="xs:string"/>
+        </xs:complexType>
+                
+
+        <xs:complexType name="tipoVacio"/>
+
+
+
+
+
+
+</xs:schema>
