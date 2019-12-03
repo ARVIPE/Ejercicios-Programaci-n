@@ -3,12 +3,15 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.text.JTextComponent;
 
 import ejerciciostabla.exportacionjava.Alumnos;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class pantallaalumnos {
 
@@ -54,7 +57,7 @@ public class pantallaalumnos {
 		frame.getContentPane().setBackground(new Color(0, 128, 0));
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNumeroAlumno = new JLabel("Numero Alumno");
+		JLabel lblNumeroAlumno = new JLabel("NumeroAlumno");
 		lblNumeroAlumno.setBounds(38, 45, 136, 15);
 		frame.getContentPane().add(lblNumeroAlumno);
 		
@@ -82,19 +85,51 @@ public class pantallaalumnos {
 		textField_2.setColumns(10);
 		
 		JButton btnNuevo = new JButton("Nuevo");
+		btnNuevo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				txtNombre.setText(" ");
+				txtGrupo.setText(" ");
+			
+
+			}
+		});
 		btnNuevo.setBounds(314, 40, 114, 25);
 		frame.getContentPane().add(btnNuevo);
 		
 		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnGuardar.setBounds(314, 95, 114, 25);
 		frame.getContentPane().add(btnGuardar);
 		
 		
 		JButton btnAnterior = new JButton("Anterior");
+		btnAnterior.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				indiceAlumnoActual--;
+				
+				if(indiceAlumnoActual == -1) {
+					
+					System.out.println();
+					
+				}
+				
+			
+			}
+		});
 		btnAnterior.setBounds(28, 195, 114, 25);
 		frame.getContentPane().add(btnAnterior);
 		
 		JButton btnSiguiente = new JButton("Siguiente");
+		btnSiguiente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				indiceAlumnoActual++;
+				
+			
+			}
+		});
 		btnSiguiente.setBounds(173, 195, 114, 25);
 		frame.getContentPane().add(btnSiguiente);
 		frame.setBounds(100, 100, 450, 300);
