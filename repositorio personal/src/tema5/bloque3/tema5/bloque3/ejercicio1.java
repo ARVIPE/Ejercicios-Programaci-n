@@ -1,4 +1,4 @@
-package tema5.bloque3;
+package tema5.bloque3.tema5.bloque3;
 
 
 public class ejercicio1 {

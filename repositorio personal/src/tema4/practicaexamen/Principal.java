@@ -15,7 +15,17 @@ public class Principal {
 		System.out.println("Carta de abajo hacia arriba es: ");
 		baraja.cartasdeAbajoHaciaArriba();
 		baraja.imprimir();
+		
+		System.out.println("La baraja mezclada es: ");
+		baraja.mezclarBaraja();
+		baraja.imprimir();
 
+		System.out.println("La baraja ordenada es: ");
+		baraja.ordenar();
+		baraja.imprimir();
+		
+		System.out.println("Los jugadores han cogido las cartas: ");
+		baraja.cogerCarta(null);
 	}
 
 }
