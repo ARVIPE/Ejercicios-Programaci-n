@@ -13,18 +13,15 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class pantallaalumnos {
+public class PantallaAlumnos {
 
 	private JFrame frame;
-	private JTextField txtNumAlumno;
+	private int indiceAlumnoActual = 0;
+	private int numAlumnos = -1;
+	private Alumnos[] arrayAlumnos = new Alumnos[50];
+	private JTextField txtNumero;
 	private JTextField txtNombre;
 	private JTextField txtGrupo;
-	private int indiceAlumnoActual = -1;
-	private int numAlumnos = 0;
-	private Alumnos[] arrayAlumnos = new Alumnos[50];
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
 
 	/**
 	 * Launch the application.
@@ -33,7 +30,7 @@ public class pantallaalumnos {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					pantallaalumnos window = new pantallaalumnos();
+					PantallaAlumnos window = new PantallaAlumnos();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +42,7 @@ public class pantallaalumnos {
 	/**
 	 * Create the application.
 	 */
-	public pantallaalumnos() {
+	public PantallaAlumnos() {
 		initialize();
 	}
 
@@ -61,10 +58,10 @@ public class pantallaalumnos {
 		lblNumeroAlumno.setBounds(38, 45, 136, 15);
 		frame.getContentPane().add(lblNumeroAlumno);
 		
-		textField = new JTextField();
-		textField.setBounds(192, 43, 95, 19);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		txtNumero = new JTextField();
+		txtNumero.setBounds(192, 43, 95, 19);
+		frame.getContentPane().add(txtNumero);
+		txtNumero.setColumns(10);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setBounds(38, 100, 66, 15);
@@ -74,23 +71,22 @@ public class pantallaalumnos {
 		lblGrupo.setBounds(38, 148, 66, 15);
 		frame.getContentPane().add(lblGrupo);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(192, 98, 95, 19);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		txtNombre = new JTextField();
+		txtNombre.setBounds(192, 98, 95, 19);
+		frame.getContentPane().add(txtNombre);
+		txtNombre.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(192, 146, 95, 19);
-		frame.getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		txtGrupo = new JTextField();
+		txtGrupo.setBounds(192, 146, 95, 19);
+		frame.getContentPane().add(txtGrupo);
+		txtGrupo.setColumns(10);
 		
 		JButton btnNuevo = new JButton("Nuevo");
 		btnNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				txtNombre.setText(" ");
-				txtGrupo.setText(" ");
-			
-
+				txtNombre.setText("");
+				txtGrupo.setText("");
+				txtNumero.setText("");
 			}
 		});
 		btnNuevo.setBounds(314, 40, 114, 25);
@@ -99,6 +95,14 @@ public class pantallaalumnos {
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				Alumnos auxiliar = new Alumnos();
+				auxiliar.setNombre(txtNombre.getText());
+				auxiliar.setNumAl(Long.parseLong(txtNumero.getText()));
+				auxiliar.setGrupo(txtGrupo.getText());
+				
+				arrayAlumnos[indiceAlumnoActual] = auxiliar;
+				indiceAlumnoActual++;
+				numAlumnos++;
 			}
 		});
 		btnGuardar.setBounds(314, 95, 114, 25);

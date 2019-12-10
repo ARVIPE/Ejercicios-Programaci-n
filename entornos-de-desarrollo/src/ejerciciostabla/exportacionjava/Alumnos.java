@@ -45,11 +45,11 @@ public class Alumnos implements Serializable {
 	/**
 	 * Set the Num_al.
 	 * 
-	 * @param numAl
+	 * @param string
 	 *            Num_al
 	 */
-	public void setNumAl(Long numAl) {
-		this.numAl = numAl;
+	public void setNumAl(Long string) {
+		this.numAl = string;
 	}
 
 	/**
