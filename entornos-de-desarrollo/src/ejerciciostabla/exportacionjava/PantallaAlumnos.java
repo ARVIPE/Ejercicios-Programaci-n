@@ -81,6 +81,7 @@ public class PantallaAlumnos {
 		frame.getContentPane().add(txtGrupo);
 		txtGrupo.setColumns(10);
 		
+		
 		JButton btnNuevo = new JButton("Nuevo");
 		btnNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -112,26 +113,29 @@ public class PantallaAlumnos {
 		JButton btnAnterior = new JButton("Anterior");
 		btnAnterior.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				indiceAlumnoActual--;
-				
-				if(indiceAlumnoActual == -1) {
-					
-					System.out.println();
-					
+				if (indiceAlumnoActual > 0) {
+					indiceAlumnoActual--;
+					txtNombre.setText(arrayAlumnos[indiceAlumnoActual].getNombre());
+					txtNumero.setText(arrayAlumnos[indiceAlumnoActual].getNumAl().toString());
+					txtGrupo.setText(arrayAlumnos[indiceAlumnoActual].getGrupo().toString());
 				}
 				
-			
 			}
-		});
+			}
+		);
 		btnAnterior.setBounds(28, 195, 114, 25);
 		frame.getContentPane().add(btnAnterior);
 		
 		JButton btnSiguiente = new JButton("Siguiente");
 		btnSiguiente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				indiceAlumnoActual++;
-				
-			
+				if (indiceAlumnoActual < numAlumnos -1) {
+					indiceAlumnoActual++;
+					txtNombre.setText(arrayAlumnos[indiceAlumnoActual].getNombre());
+					txtNumero.setText(arrayAlumnos[indiceAlumnoActual].getNumAl().toString());
+					txtGrupo.setText(arrayAlumnos[indiceAlumnoActual].getGrupo().toString());
+
+				}
 			}
 		});
 		btnSiguiente.setBounds(173, 195, 114, 25);
