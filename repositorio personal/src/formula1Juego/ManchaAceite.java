@@ -12,7 +12,7 @@ public class ManchaAceite extends Obstaculo {
 		getImpulso();
 		setImpulso(impulso);
 		
-		Impulso = -Impulso;
+		
 		
 	}
 
