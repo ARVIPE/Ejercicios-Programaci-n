@@ -1,5 +1,7 @@
 package formula1Juego;
 
+import java.lang.reflect.Array;
+
 public class Pista {
 
 	public Obstaculo obstaculo[] = new Obstaculo[4];
@@ -17,6 +19,10 @@ public class Pista {
 			}
 			
 		}
+	}
+	
+	public void sumarOrestarObstaculo () {
+		
 	}
 
 }

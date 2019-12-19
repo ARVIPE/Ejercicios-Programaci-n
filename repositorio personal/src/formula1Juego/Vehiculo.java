@@ -14,10 +14,6 @@ public class Vehiculo {
 		this.color = color;
 	}
 	/**
-	 * 
-	 */
-	
-	/**
 	 * @return the nombre
 	 */
 	public String getNombre() {

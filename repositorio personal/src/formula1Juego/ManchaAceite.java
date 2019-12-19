@@ -10,7 +10,9 @@ public class ManchaAceite extends Obstaculo {
 	public void impulso() {
 		
 		getImpulso();
-		setImpulso(impulso);
+		setImpulso(-impulso);
+		
+		
 		
 		
 		

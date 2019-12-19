@@ -13,6 +13,12 @@ public abstract class Obstaculo {
 		this.impulso = (int) Math.round(Math.random() * (20 - 10) + 10);
 	}
 
+	
+	
+	public void restarOsumaObstaculo() {
+		
+		
+	}
 	/**
 	 * @return the posicionObstaculo
 	 */
