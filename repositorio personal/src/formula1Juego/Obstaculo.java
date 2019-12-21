@@ -2,75 +2,54 @@ package formula1Juego;
 
 public abstract class Obstaculo {
 	
+	private String nombre;
 	private int posicionObstaculo;
 	protected int impulso;
-	private int retroceso;
 
 
-	public Obstaculo() {
+	public Obstaculo(String nombre) {
 		super();
 		this.posicionObstaculo = (int) Math.round(Math.random() * (100 - 1) + 1);
 		this.impulso = (int) Math.round(Math.random() * (20 - 10) + 10);
+		this.nombre = nombre;
 	}
 
-	
-	
-	public void restarOsumaObstaculo() {
-		
-		
+
+	public String getNombre() {
+		return nombre;
 	}
-	/**
-	 * @return the posicionObstaculo
-	 */
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
 	public int getPosicionObstaculo() {
 		return posicionObstaculo;
 	}
 
-	/**
-	 * @param posicionObstaculo the posicionObstaculo to set
-	 */
+
 	public void setPosicionObstaculo(int posicionObstaculo) {
 		this.posicionObstaculo = posicionObstaculo;
 	}
 
-	/**
-	 * @return the impulso
-	 */
+
 	public int getImpulso() {
 		return impulso;
 	}
 
-	/**
-	 * @param impulso the impulso to set
-	 */
+
 	public void setImpulso(int impulso) {
 		this.impulso = impulso;
 	}
 
-	/**
-	 * @return the retroceso
-	 */
-	public int getRetroceso() {
-		return retroceso;
-	}
-
-	/**
-	 * @param retroceso the retroceso to set
-	 */
-	public void setRetroceso(int retroceso) {
-		this.retroceso = retroceso;
-	}
-	
 
 	@Override
 	public String toString() {
-		return "Obstaculo [posicionObstaculo=" + posicionObstaculo + ", impulso=" + impulso + ", retroceso=" + retroceso
+		return "Obstaculo [nombre=" + nombre + ", posicionObstaculo=" + posicionObstaculo + ", impulso=" + impulso
 				+ "]";
 	}
-
-	public abstract void impulso();
-
-	
 
 	
 }

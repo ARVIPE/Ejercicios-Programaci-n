@@ -2,20 +2,18 @@ package formula1Juego;
 
 public class ManchaAceite extends Obstaculo {
 
-	public ManchaAceite() {
+	public ManchaAceite(String nombre) {
+		super(nombre);
 		
 	}
-
-	@Override
-	public void impulso() {
-		
+	
+	public void retroceder() {
 		getImpulso();
 		setImpulso(-impulso);
 		
-		
-		
-		
-		
 	}
+	
+
+
 
 }

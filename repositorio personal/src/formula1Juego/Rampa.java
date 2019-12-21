@@ -2,13 +2,12 @@ package formula1Juego;
 
 public class Rampa extends Obstaculo {
 
-	public Rampa() {
+	public Rampa(String nombre) {
+		super(nombre);
 		
 	}
-
-	@Override
-	public void impulso() {
-		
+	
+	public void retroceder() {
 		getImpulso();
 		setImpulso(impulso);
 		
