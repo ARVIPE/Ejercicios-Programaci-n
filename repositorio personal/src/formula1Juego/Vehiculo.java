@@ -3,13 +3,15 @@ package formula1Juego;
 public abstract class Vehiculo {
 	
 	private String nombre;
-	private Pista p = new Pista();
 	private int posicion;
+	private String color;
+	private Pista p;
 	
 	public Vehiculo(String nombre) {
 		super();
 		this.nombre = nombre;
 		this.posicion = 0;
+		this.p = new Pista();
 	
 	}
 	
@@ -25,14 +27,6 @@ public abstract class Vehiculo {
 		this.nombre = nombre;
 	}
 
-	public Pista getP() {
-		return p;
-	}
-
-	public void setP(Pista p) {
-		this.p = p;
-	}
-
 	public int getPosicion() {
 		return posicion;
 	}
@@ -41,13 +35,23 @@ public abstract class Vehiculo {
 		this.posicion = posicion;
 	}
 
-	@Override
-	public String toString() {
-		return "Vehiculo [nombre = " + nombre + " posicion = " + posicion + "]";
+	public String getColor() {
+		return color;
 	}
 
-	public abstract void CaerEnObstaculo();
-	
-	
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public Pista getP() {
+		return p;
+	}
+
+	public void setP(Pista p) {
+		this.p = p;
+	}
+
+	public abstract void caerEnUnObstaculo();
+
 
 }
