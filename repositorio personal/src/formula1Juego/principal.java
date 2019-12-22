@@ -10,7 +10,6 @@ public class principal {
 			coche.avanzar();
 		}while(!coche.FinDeJuego());
 		
-
 	}
 
 }

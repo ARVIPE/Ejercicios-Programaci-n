@@ -4,16 +4,10 @@ public class Rampa extends Obstaculo {
 
 	public Rampa(String nombre) {
 		super(nombre);
+		this.impulso = 5;
 		
 	}
-	
-	public void retroceder() {
-		getImpulso();
-		setImpulso(impulso);
-		
-	}
-	
-	
+
 
 
 

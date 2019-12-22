@@ -7,12 +7,5 @@ public class Coche extends Vehiculo {
 	
 	}
 	
-	@Override
-	public void CaerEnObstaculo() {
-		for(int i = 0; i < 4; i++){
-			if(posicionObstaculo)
-
-		}
-	}
 
 }

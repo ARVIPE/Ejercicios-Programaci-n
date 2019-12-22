@@ -1,6 +1,6 @@
 package formula1Juego;
 
-public abstract class Obstaculo {
+public class Obstaculo {
 	
 	private String nombre;
 	private int posicionObstaculo;
@@ -10,7 +10,6 @@ public abstract class Obstaculo {
 	public Obstaculo(String nombre) {
 		super();
 		this.posicionObstaculo = (int) Math.round(Math.random() * (100 - 1) + 1);
-		this.impulso = (int) Math.round(Math.random() * (20 - 10) + 10);
 		this.nombre = nombre;
 	}
 
@@ -47,8 +46,7 @@ public abstract class Obstaculo {
 
 	@Override
 	public String toString() {
-		return "Obstaculo [nombre=" + nombre + ", posicionObstaculo=" + posicionObstaculo + ", impulso=" + impulso
-				+ "]";
+		return "Obstaculo [nombre=" + nombre + ", posicionObstaculo=" + posicionObstaculo + "]";
 	}
 
 	

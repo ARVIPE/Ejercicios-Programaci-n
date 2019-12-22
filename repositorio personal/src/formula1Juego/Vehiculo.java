@@ -5,7 +5,7 @@ public abstract class Vehiculo {
 	private String nombre;
 	private int posicion;
 	private String color;
-	private Pista p;
+	private Pista p = new Pista();
 	
 	public Vehiculo(String nombre) {
 		super();
@@ -51,7 +51,16 @@ public abstract class Vehiculo {
 		this.p = p;
 	}
 
-	public abstract void caerEnUnObstaculo();
+	public void tirada(){
+		this.posicion += (int) Math.round(Math.random() * (6 - 1) + 1);
 
+			for(int i = 0; i < p.getObstaculos().size(); i++){
+				if(p.getObstaculos().get(i).getPosicionObstaculo() == this.posicion){
+				this.posicion += p.getObstaculos().get(i).getImpulso();
+				System.out.println(this.nombre + "cae en el obstaculo: " + p.getObstaculos().get(i).getNombre());
+			}
+		}
+
+	}
 
 }

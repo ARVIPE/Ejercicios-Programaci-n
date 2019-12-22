@@ -11,12 +11,14 @@ public class Pista {
 	public Pista() {
 		
 		for(int i = 0; i < 4; i++) {
-			int numero = (int) Math.round(Math.random() * (1));
+			int numero = (int) Math.round(Math.random() * (100 - 1) + 1);
 			
-			if(numero < 0.5f) {
+			if(numero < 50) {
 				obstaculos.add(new Rampa("Rampa"));
 			}else{
+				if(numero > 50){
 				obstaculos.add(new ManchaAceite("Mancha Aceite"));
+				}
 			}
 		}
 		

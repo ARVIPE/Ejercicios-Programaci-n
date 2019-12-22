@@ -4,14 +4,12 @@ public class ManchaAceite extends Obstaculo {
 
 	public ManchaAceite(String nombre) {
 		super(nombre);
+		this.impulso = -5;
 		
 	}
 	
-	public void retroceder() {
-		getImpulso();
-		setImpulso(-impulso);
-		
-	}
+
+	
 	
 
 
