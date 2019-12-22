@@ -11,13 +11,9 @@ public abstract class Vehiculo {
 		super();
 		this.nombre = nombre;
 		this.posicion = 0;
-		this.p = new Pista();
 	
 	}
 	
-	public void mover() {
-		this.posicion += Math.round(Math.random() * (6 - 1) + 1);
-	}
 
 	public String getNombre() {
 		return nombre;
@@ -51,16 +47,26 @@ public abstract class Vehiculo {
 		this.p = p;
 	}
 
-	public void tirada(){
+	
+	public void tirada() {
+
 		this.posicion += (int) Math.round(Math.random() * (6 - 1) + 1);
 
-			for(int i = 0; i < p.getObstaculos().size(); i++){
-				if(p.getObstaculos().get(i).getPosicionObstaculo() == this.posicion){
+		for (int i = 0; i < p.getObstaculos().size(); i++) {
+			if (p.getObstaculos().get(i).getPosicionObstaculo() == this.posicion) {
 				this.posicion += p.getObstaculos().get(i).getImpulso();
-				System.out.println(this.nombre + "cae en el obstaculo: " + p.getObstaculos().get(i).getNombre());
+				System.out.println(this.nombre +  " ha caido en un obstaculo: " + p.getObstaculos().get(i).getNombre());
 			}
+
 		}
 
 	}
+
+	@Override
+	public String toString() {
+		return "Vehiculos [nombre=" + nombre + ", posicion=" + posicion + ", color=" + color + "]";
+	}
+
+
 
 }

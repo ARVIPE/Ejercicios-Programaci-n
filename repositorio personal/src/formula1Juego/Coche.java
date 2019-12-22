@@ -6,6 +6,5 @@ public class Coche extends Vehiculo {
 		super(nombre);
 	
 	}
-	
 
 }

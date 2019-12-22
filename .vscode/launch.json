@@ -4,6 +4,13 @@
             "type": "java",
             "name": "CodeLens (Launch) - Principal",
             "request": "launch",
+            "mainClass": "VideojuegoCoches.Principal",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Principal",
+            "request": "launch",
             "mainClass": "tema4.ejercicio_TiendaAntigüedades.Principal",
             "projectName": "repositorio personal"
         },

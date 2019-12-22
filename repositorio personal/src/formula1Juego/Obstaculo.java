@@ -11,6 +11,7 @@ public class Obstaculo {
 		super();
 		this.posicionObstaculo = (int) Math.round(Math.random() * (100 - 1) + 1);
 		this.nombre = nombre;
+		this.impulso = 0;
 	}
 
 
