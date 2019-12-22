@@ -1,4 +1,4 @@
-package formula1Juego;
+package formula1Juego.formula1Juego;
 import java.util.ArrayList;
 import java.util.List;
 
