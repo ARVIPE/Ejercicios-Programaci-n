@@ -20,7 +20,7 @@ public class Formula1 extends Canvas {
 	public static final int WIDTH = 640;
 	public static final int HEIGHT = 480;
 	public static final int SPEED = 10;
-	
+	  
 	public BufferStrategy strategy;
 	public HashMap sprites;
 	public int posX,posY,vX;
