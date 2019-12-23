@@ -31,7 +31,7 @@ public class Formula1 extends Canvas {
 		posX = WIDTH/2;
 		posY = HEIGHT/2;
 		vX = 2;
-	
+	 
 		JFrame ventana = new JFrame("Formula 1");
 		JPanel panel = (JPanel)ventana.getContentPane();
 		setBounds(0,0,WIDTH,HEIGHT);
