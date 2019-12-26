@@ -4,10 +4,10 @@ import java.util.List;
 
 public class Carrera extends Obstaculo{
 	
-	Vehiculo vehiculo1 = new Coche("Fran");
-	Vehiculo vehiculo2 = new Coche("Ana");
-	Vehiculo vehiculo3 = new Coche("Medina");
-	Vehiculo vehiculo4 = new Coche("Nuria");
+	Vehiculo vehiculo1 = new Coche("Vehiculo1");
+	Vehiculo vehiculo2 = new Coche("Vehiculo2");
+	Vehiculo vehiculo3 = new Coche("Vehiculo3");
+	Vehiculo vehiculo4 = new Coche("Vehiculo4");
 	
 	static List<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
 
@@ -18,7 +18,7 @@ public class Carrera extends Obstaculo{
 		vehiculos.add(vehiculo3);
 		vehiculos.add(vehiculo4);
 	}
-
+	
 	public static void avanzar() {
 		for (int i = 0; i < vehiculos.size(); i++) {
 			vehiculos.get(i).tirada();
