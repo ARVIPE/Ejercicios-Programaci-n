@@ -113,8 +113,8 @@ public class Formula1 extends Canvas {
 
 	public static void main(String[] args) {
 		Formula1 inv = new Formula1();
-		Carrera coche = new Carrera("Circuito de Mónaco");
-
+		Carrera coche = new Carrera("Circuito de Monaco");
+		
 		do {
 			Carrera.avanzar();
 		} while (!coche.FinDeJuego());
