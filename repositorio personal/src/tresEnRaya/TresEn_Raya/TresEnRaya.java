@@ -40,6 +40,7 @@ public class TresEnRaya extends Canvas {
 	public static int JUGADOR_1 = 1;
 	public static int JUGADOR_2 = 2;
 	private int turnoActual = JUGADOR_1;
+	int contador = 0;
 	
 	
 	public int matrizJugadas[][] = new int[][] {{0, 0, 0},
@@ -79,14 +80,23 @@ public class TresEnRaya extends Canvas {
 							if (turnoActual == JUGADOR_1) {
 								
 								SoundsRepository.getInstance().playSound(SoundsRepository.EFECTO_JUGADOR_1);
-							
+								comprobar_ganador(turnoActual);
+								//Le he agregado un contador y le digo que si este llega a 4 y el turno es el de jugador 1
+								//Entonces es que ha habido un empate
+								if((contador == 4) && (turnoActual == JUGADOR_1)) {
+									JOptionPane.showMessageDialog(null, "Ha habido un empate");
+									System.exit(0);
+								}
 								turnoActual = JUGADOR_2;
+								
 							}
 							else {
-						
 								SoundsRepository.getInstance().playSound(SoundsRepository.EFECTO_JUGADOR_2);
-						
+								comprobar_ganador(turnoActual);
+								contador = contador + 1;
+								System.out.println("contador = " + contador);
 								turnoActual = JUGADOR_1;
+								
 							}
 						}
 					}
@@ -174,15 +184,88 @@ public class TresEnRaya extends Canvas {
 		TresEnRaya.getInstance();
 
 	}
-	
-/**	public void comprobar_ganador(int valor_juego){ 
-	    if((matrizJugadas[0][0]==1) && (matrizJugadas[0][1]==1) && (matrizJugadas[0][2]==1)){
-	    	System.out.println("Ha ganado el jugador 1");
-	    	FinDeJuego(null);
+		
+	public void comprobar_ganador(int valor_juego){
+		if((matrizJugadas[0][0]==1) && (matrizJugadas[0][1]==1) && (matrizJugadas[0][2]==1)){
+	    	JOptionPane.showMessageDialog(null, "Ha ganado el jugador 1");
+	    	System.exit(0);
 	    }
-	}
-	**/
+		if((matrizJugadas[1][0]==1) && (matrizJugadas[1][1]==1) && (matrizJugadas[1][2]==1)){
+		    JOptionPane.showMessageDialog(null, "Ha ganado el jugador 1");
+			System.exit(0);
+		}
+		if((matrizJugadas[2][0]==1) && (matrizJugadas[2][1]==1) && (matrizJugadas[2][2]==1)){
+		    JOptionPane.showMessageDialog(null, "Ha ganado el jugador 1");
+			System.exit(0);
+		}
+		if((matrizJugadas[0][0]==1) && (matrizJugadas[1][0]==1) && (matrizJugadas[2][0]==1)){
+		    JOptionPane.showMessageDialog(null, "Ha ganado el jugador 1");
+			System.exit(0);
+		}
+		if((matrizJugadas[0][1]==1) && (matrizJugadas[1][1]==1) && (matrizJugadas[2][1]==1)){
+		    JOptionPane.showMessageDialog(null, "Ha ganado el jugador 1");
+			System.exit(0);
+		}
+		if((matrizJugadas[0][2]==1) && (matrizJugadas[1][2]==1) && (matrizJugadas[2][2]==1)){
+		    JOptionPane.showMessageDialog(null, "Ha ganado el jugador 1");
+			System.exit(0);
+		}
+		if((matrizJugadas[0][0]==1) && (matrizJugadas[1][1]==1) && (matrizJugadas[2][2]==1)){
+		    JOptionPane.showMessageDialog(null, "Ha ganado el jugador 1");
+			System.exit(0);
+		}
+		if((matrizJugadas[0][2]==1) && (matrizJugadas[1][1]==1) && (matrizJugadas[2][0]==1)){
+		    JOptionPane.showMessageDialog(null, "Ha ganado el jugador 1");
+			System.exit(0);
+		}
+		if((matrizJugadas[0][2]==1) && (matrizJugadas[1][2]==1) && (matrizJugadas[2][2]==1)){
+		    JOptionPane.showMessageDialog(null, "Ha ganado el jugador 1");
+			System.exit(0);
+		}
+		/**
+		 * 
+		 */
+		if((matrizJugadas[0][0]==2) && (matrizJugadas[0][1]==2) && (matrizJugadas[0][2]==2)){
+			JOptionPane.showMessageDialog(null, "Ha ganado el jugador 2");
+	    	System.exit(0);
+	    }
+		if((matrizJugadas[1][0]==2) && (matrizJugadas[1][1]==2) && (matrizJugadas[1][2]==2)){
+			JOptionPane.showMessageDialog(null, "Ha ganado el jugador 2");
+			System.exit(0);
+		}
+		if((matrizJugadas[2][0]==2) && (matrizJugadas[2][1]==2) && (matrizJugadas[2][2]==2)){
+			JOptionPane.showMessageDialog(null, "Ha ganado el jugador 2");
+			System.exit(0);
+		}
+		if((matrizJugadas[0][0]==2) && (matrizJugadas[1][0]==2) && (matrizJugadas[2][0]==2)){
+			JOptionPane.showMessageDialog(null, "Ha ganado el jugador 2");
+			System.exit(0);
+		}
+		if((matrizJugadas[0][1]==2) && (matrizJugadas[1][1]==2) && (matrizJugadas[2][1]==2)){
+			JOptionPane.showMessageDialog(null, "Ha ganado el jugador 2");
+			System.exit(0);
+		}
+		if((matrizJugadas[0][2]==2) && (matrizJugadas[1][2]==2) && (matrizJugadas[2][2]==2)){
+			JOptionPane.showMessageDialog(null, "Ha ganado el jugador 2");
+			System.exit(0);
+		}
+		if((matrizJugadas[0][0]==2) && (matrizJugadas[1][1]==2) && (matrizJugadas[2][2]==2)){
+			JOptionPane.showMessageDialog(null, "Ha ganado el jugador 2");
+			System.exit(0);
+		}
+		if((matrizJugadas[0][2]==2) && (matrizJugadas[1][1]==2) && (matrizJugadas[2][0]==2)){
+			JOptionPane.showMessageDialog(null, "Ha ganado el jugador 2");
+			System.exit(0);
+		}
+		if((matrizJugadas[0][2]==2) && (matrizJugadas[1][2]==2) && (matrizJugadas[2][2]==2)){
+		    JOptionPane.showMessageDialog(null, "Ha ganado el jugador 2");
+			System.exit(0);
+		}
+		
 	
+	}
 }
+		    	
+	    
 	    
 	

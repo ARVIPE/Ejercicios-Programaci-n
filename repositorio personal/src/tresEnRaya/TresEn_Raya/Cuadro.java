@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 
-public class Cuadro extends TresEnRaya{
+public class Cuadro {
 	
 	private int xEnTablero, yEnTablero;
 	
@@ -108,17 +108,8 @@ public class Cuadro extends TresEnRaya{
 			}
 			System.out.println();
 		}
-		comprobar_ganador();
 	}
 	
-	private void comprobar_ganador() {
-	    if((matrizJugadas[0][0]==1) && (matrizJugadas[0][1]==1) && (matrizJugadas[0][2]==1)){
-	    	System.out.println("Ha ganado el jugador 1");
-	    	FinDeJuego(null);
-	    }
-	}
-
-
 	/**
 	 * 
 	 */
