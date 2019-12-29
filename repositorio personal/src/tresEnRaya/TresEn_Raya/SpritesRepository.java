@@ -1,4 +1,4 @@
-package tresEnRaya.version14_Una_matriz_representa_el_juego;
+package tresEnRaya.TresEn_Raya;
 
 import java.awt.image.BufferedImage;
 import java.net.URL;
@@ -10,15 +10,15 @@ import javax.imageio.ImageIO;
 public class SpritesRepository {
 	private HashMap<String, BufferedImage> sprites = new HashMap<String, BufferedImage>();
 	
-	// Variable principal del patrón Singleton
+	// Variable principal del patrï¿½n Singleton
 	private static SpritesRepository instance = null;
 	
-	// Carpeta en la que se encuentran los recursos: imágenes, sonidos, etc.
+	// Carpeta en la que se encuentran los recursos: imï¿½genes, sonidos, etc.
 	private static String RESOURCES_FOLDER = "../resources/images/";
 	
 	// Recursos de sonido que puede utilizarse en el juego
-	public static String IMAGEN_JUGADOR_1 = "Barcelona.png";
-	public static String IMAGEN_JUGADOR_2 = "RealMadrid.png";
+	public static String IMAGEN_JUGADOR_1 = "Hulk.png";
+	public static String IMAGEN_JUGADOR_2 = "IronMan.png";
 
 	
 	/**
@@ -30,7 +30,7 @@ public class SpritesRepository {
 	}
 	
 	/**
-	 * Método principal del patrón Singleton
+	 * Mï¿½todo principal del patrï¿½n Singleton
 	 * @return
 	 */
 	public static SpritesRepository getInstance() {
@@ -49,22 +49,22 @@ public class SpritesRepository {
 		// Para localizar el archivo se utiliza un objeto de tipo URL
 		URL url=null;
 		
-		// Se intenta cargar el recurso del disco duro, si no se pudiera se capturará la excepción y se
-		// mostrará un mensaje en pantalla
+		// Se intenta cargar el recurso del disco duro, si no se pudiera se capturarï¿½ la excepciï¿½n y se
+		// mostrarï¿½ un mensaje en pantalla
 		try {
 			url = getClass().getResource(resourceName);
 			return ImageIO.read(url);
 		} catch (Exception e) {
-			// Aquí dentro capturamos y tratamos el error que pueda haberse ocasionado
+			// Aquï¿½ dentro capturamos y tratamos el error que pueda haberse ocasionado
 			System.out.println("No se pudo cargar la imagen " + resourceName +" de "+url);
 			System.out.println("El error fue : "+e.getClass().getName()+" "+e.getMessage());
 			System.exit(0); // Fin del programa
 		}
-		return null; // Sólo se llegará a esta línea si no se ha podido cargar el recurso correctamente
+		return null; // Sï¿½lo se llegarï¿½ a esta lï¿½nea si no se ha podido cargar el recurso correctamente
 	}
 	
 	/**
-	 * Método para obtener una imagen.
+	 * Mï¿½todo para obtener una imagen.
 	 * @param nombre
 	 * @return
 	 */
@@ -75,7 +75,7 @@ public class SpritesRepository {
 		// En caso de que el objeto BufferedImage no exista dentro del HashMap, se carga desde el disco duro
 		if (img == null) {
 			img = loadImage(RESOURCES_FOLDER + resourceName);
-			// Una vez que cargo el recurso en la memoria, lo agrego al HashMap, así no habrá que volver a 
+			// Una vez que cargo el recurso en la memoria, lo agrego al HashMap, asï¿½ no habrï¿½ que volver a 
 			// buscarlo en el disco duro. Como "clave" del objeto en el HashMap utilizo el nombre del fichero
 			sprites.put(resourceName, img);
 		}

@@ -1,4 +1,4 @@
-package tresEnRaya.version14_Una_matriz_representa_el_juego;
+package tresEnRaya.TresEn_Raya;
 
 import java.applet.Applet;
 import java.applet.AudioClip;
@@ -7,25 +7,25 @@ import java.net.URL;
 import java.util.HashMap;
 
 /**
- * @author Rafael Carlos Muñoz Ruiz
+ * @author Rafael Carlos Muï¿½oz Ruiz
  *
  */
 
 public class SoundsRepository {
 
-	// Almacén de sonidos, se trata de un HashMap que tiene String como "claves" de los objetos y "AudioClip" como objetos
+	// Almacï¿½n de sonidos, se trata de un HashMap que tiene String como "claves" de los objetos y "AudioClip" como objetos
 	private HashMap<String, AudioClip> sounds = new HashMap<String, AudioClip>();
 
-	// Variable principal del patrón Singleton
+	// Variable principal del patrï¿½n Singleton
 	private static SoundsRepository instance = null;
 	
-	// Carpeta en la que se encuentran los recursos: imágenes, sonidos, etc.
+	// Carpeta en la que se encuentran los recursos: imï¿½genes, sonidos, etc.
 	private static String RESOURCES_FOLDER = "../resources/sounds/";
 	
 	// Recursos de sonido que puede utilizarse en el juego
 	public static String MUSICA_DE_FONDO = "musica.wav";
-	public static String EFECTO_JUGADOR_1 = "missile.wav";
-	public static String EFECTO_JUGADOR_2 = "photon.wav";
+	public static String EFECTO_JUGADOR_1 = "gota1.wav";
+	public static String EFECTO_JUGADOR_2 = "gota.wav";
 	
 	/**
 	 * Default constructor
@@ -38,7 +38,7 @@ public class SoundsRepository {
 	}
 	
 	/**
-	 * Método principal del patrón Singleton
+	 * Mï¿½todo principal del patrï¿½n Singleton
 	 * @return
 	 */
 	public static SoundsRepository getInstance() {
@@ -60,7 +60,7 @@ public class SoundsRepository {
 	}
 	
 	/**
-	 * Obtiene el AudioClip desde el almacén HashMap, si no existe lo carga desde el disco duro.
+	 * Obtiene el AudioClip desde el almacï¿½n HashMap, si no existe lo carga desde el disco duro.
 	 * @param resourceName
 	 * @return
 	 */
@@ -71,7 +71,7 @@ public class SoundsRepository {
 		// En caso de que el objeto AudioClip no exista dentro del HashMap, se carga desde el disco duro
 		if (clip == null) {
 			clip = loadResource(RESOURCES_FOLDER + resourceName);
-			// Una vez que cargo el recurso en la memoria, lo agrego al HashMap, así no habrá que volver a 
+			// Una vez que cargo el recurso en la memoria, lo agrego al HashMap, asï¿½ no habrï¿½ que volver a 
 			// buscarlo en el disco duro. Como "clave" del objeto en el HashMap utilizo el nombre del fichero
 			sounds.put(resourceName, clip);
 		}
@@ -79,7 +79,7 @@ public class SoundsRepository {
 	}
 	
 	/**
-	 * Lanza un sonido, el sonido sólo se escuchará una vez
+	 * Lanza un sonido, el sonido sï¿½lo se escucharï¿½ una vez
 	 * @param name
 	 */
 	public void playSound(final String name) {

@@ -1,4 +1,4 @@
-package tresEnRaya.version14_Una_matriz_representa_el_juego;
+package tresEnRaya.TresEn_Raya;
 
 import java.awt.BorderLayout;
 import java.awt.Canvas;
@@ -42,7 +42,7 @@ public class TresEnRaya extends Canvas {
 	private int turnoActual = JUGADOR_1;
 	
 	
-	private int matrizJugadas[][] = new int[][] {{0, 0, 0},
+	public int matrizJugadas[][] = new int[][] {{0, 0, 0},
 												 {0, 0, 0},
 												 {0, 0, 0}};
 	
@@ -159,6 +159,10 @@ public class TresEnRaya extends Canvas {
 			cuadro.paint(g);
 		}
 	}
+	
+	public void FinDeJuego(String[] args) {
+		return;
+	}
 
 	
 	public int[][] getMatrizJugadas() {
@@ -169,40 +173,16 @@ public class TresEnRaya extends Canvas {
 	public static void main(String[] args) {
 		TresEnRaya.getInstance();
 
-
-	}	
-	/**
-	public boolean compruebaGanador(int x, int y, int jugador) {
-
-	    boolean ganador = false;
-	    String simbolo = "["+Jugador.lista_jugadores.get(jugador).getSimbolo_jugador().toString()+"]";
-
-	    //valida por fila
-	    if([x][0].equals(simbolo) && tablero[x][1].equals(simbolo) && tablero[x][2].equals(simbolo)){
-	       ganador = true;
-	       return ganador;
+	}
+	
+/**	public void comprobar_ganador(int valor_juego){ 
+	    if((matrizJugadas[0][0]==1) && (matrizJugadas[0][1]==1) && (matrizJugadas[0][2]==1)){
+	    	System.out.println("Ha ganado el jugador 1");
+	    	FinDeJuego(null);
 	    }
-
-	    //validacion por columna
-	    if(tablero[0][y].equals(simbolo) && tablero[1][y].equals(simbolo) && tablero[2][y].equals(simbolo)){
-	       ganador = true;
-	       return ganador;
-	    }
-
-	    //validación diagonal principal
-	    if(tablero[0][0].equals(simbolo) && tablero[1][1].equals(simbolo) && tablero[2][2].equals(simbolo)){
-	        ganador = true;
-	       return ganador;
-	    }
-
-	    //validación diagonal secundaria
-	    if(tablero[0][2].equals(simbolo) && tablero[1][1].equals(simbolo) && tablero[2][0].equals(simbolo)){
-	        ganador = true;
-	       return ganador;
-	    }
-
-	    return ganador;
 	}
 	**/
-
+	
 }
+	    
+	

@@ -1,11 +1,11 @@
-package tresEnRaya.version14_Una_matriz_representa_el_juego;
+package tresEnRaya.TresEn_Raya;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 
-public class Cuadro {
+public class Cuadro extends TresEnRaya{
 	
 	private int xEnTablero, yEnTablero;
 	
@@ -108,8 +108,17 @@ public class Cuadro {
 			}
 			System.out.println();
 		}
+		comprobar_ganador();
 	}
 	
+	private void comprobar_ganador() {
+	    if((matrizJugadas[0][0]==1) && (matrizJugadas[0][1]==1) && (matrizJugadas[0][2]==1)){
+	    	System.out.println("Ha ganado el jugador 1");
+	    	FinDeJuego(null);
+	    }
+	}
+
+
 	/**
 	 * 
 	 */
