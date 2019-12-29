@@ -10,10 +10,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -28,8 +31,10 @@ public class TresEnRaya extends Canvas {
 
 
 	private static final int JFRAME_WIDTH=700;
-	private static final int JFRAME_HEIGHT=700;	
+	private static final int JFRAME_HEIGHT=700;
 	
+	private BufferedImage ocean;
+	private int t;
 
 	List<Cuadro> cuadros = new ArrayList<Cuadro>();
 	
@@ -170,9 +175,10 @@ public class TresEnRaya extends Canvas {
 		}
 	}
 	
-	public void FinDeJuego(String[] args) {
-		return;
-	}
+	/**
+	public void paintWorld() {
+		ocean = SpritesRepository.getSprite("oceano.gif");
+	}**/
 
 	
 	public int[][] getMatrizJugadas() {

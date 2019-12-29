@@ -13,7 +13,7 @@ public class SpritesRepository {
 	// Variable principal del patr�n Singleton
 	private static SpritesRepository instance = null;
 	
-	// Carpeta en la que se encuentran los recursos: im�genes, sonidos, etc.
+	// Carpeta en la que se encuentran los recursos: imagenes, sonidos, etc.
 	private static String RESOURCES_FOLDER = "../resources/images/";
 	
 	// Recursos de sonido que puede utilizarse en el juego
