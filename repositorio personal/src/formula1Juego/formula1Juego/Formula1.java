@@ -47,7 +47,7 @@ public class Formula1 extends Canvas {
 		});
 		ventana.setResizable(false);
 		createBufferStrategy(2);
-		strategy = getBufferStrategy();
+		strategy = getBufferStrategy(); 
 		requestFocus();
 	}
 
