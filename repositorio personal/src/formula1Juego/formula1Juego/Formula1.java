@@ -1,125 +1,110 @@
 package formula1Juego.formula1Juego;
 
+import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Toolkit;
+import java.awt.GraphicsConfiguration;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-import java.net.URL;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import tresEnRaya.TresEn_Raya.Cuadro;
+import tresEnRaya.TresEn_Raya.SoundsRepository;
+import tresEnRaya.TresEn_Raya.SpritesRepository;
+import tresEnRaya.TresEn_Raya.TresEnRaya;
+
+
 public class Formula1 extends Canvas {
-	public static final int WIDTH = 640;
-	public static final int HEIGHT = 480;
-	public static final int SPEED = 10;
 
-	public BufferStrategy strategy;
-	public HashMap sprites;
-	public int posX, posY, vX;
-	public long usedTime;
+	Carrera carrera1 = new Carrera("Circuito de Monaco");
+	
+	JFrame ventana = new JFrame("Formula 1");
 
+	private static final int JFRAME_WIDTH=1000;
+	private static final int JFRAME_HEIGHT=400;	
+	
+	
+	// Variable para establecer la instancia del patrón singleton
+	private static Formula1 instance = null;
+	
 	public Formula1() {
-		sprites = new HashMap();
-		posX = WIDTH / 2;
-		posY = HEIGHT / 2;
-		vX = 2;
 
-		JFrame ventana = new JFrame("Formula 1");
+		SoundsRepository.getInstance();
+
 		JPanel panel = (JPanel) ventana.getContentPane();
-		setBounds(0, 0, WIDTH, HEIGHT);
-		panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-		panel.setLayout(null);
-		panel.add(this);
-		ventana.setBounds(0, 0, WIDTH, HEIGHT);
-		ventana.setVisible(true);
-		ventana.addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent e) {
-				System.exit(0);
-			}
-		});
-		ventana.setResizable(false);
-		createBufferStrategy(2);
-		strategy = getBufferStrategy(); 
-		requestFocus();
-	}
-
-	public BufferedImage loadImage(String nombre) {
-		URL url = null;
-		try {
-			url = getClass().getResource(nombre);
-			return ImageIO.read(url);
-		} catch (Exception e) {
-			System.out.println("No se pudo cargar la imagen " + nombre + " de " + url);
-			System.out.println("El error fue : " + e.getClass().getName() + " " + e.getMessage());
-			System.exit(0);
-			return null;
-		}
-	}
-
-	public BufferedImage getSprite(String nombre) {
-		BufferedImage img = (BufferedImage) sprites.get(nombre);
-		if (img == null) {
-			img = loadImage("../res/" + nombre);
-			sprites.put(nombre, img);
-		}
-		return img;
-	}
-
-	public void paintWorld() {
-		Toolkit.getDefaultToolkit().sync();
-		Graphics g = strategy.getDrawGraphics();
-		g.setColor(Color.black);
-		g.fillRect(0, 0, getWidth(), getHeight());
-		g.drawImage(getSprite("coche1.gif"), posX, posY, this);
-		g.drawImage(getSprite("coche1.gif"), posX, posY + 100, this);
-		g.drawImage(getSprite("coche1.gif"), posX, posY - 100, this);
-		g.drawImage(getSprite("coche1.gif"), posX, posY - 200, this);
-
-		g.setColor(Color.white);
-		if (usedTime > 0)
-			g.drawString((1000 / usedTime) + " fps", 0, HEIGHT - 50);
-		else
-			g.drawString("--- ", 0, HEIGHT - 50);
-		strategy.show();
-	}
-
-	public void updateWorld() {
-		posX += vX;
-		if (posX < 0 || posX > WIDTH)
-			vX = -vX;
-	}
-
-	public void game() {
-		usedTime = 1000;
-		while (isVisible()) {
-			long startTime = System.currentTimeMillis();
-			updateWorld();
-			paintWorld();
-			usedTime = System.currentTimeMillis() - startTime;
-			try {
-				Thread.sleep(SPEED);
-			} catch (InterruptedException e) {
-			}
-		}
-	}
-
-	public static void main(String[] args) {
-		Formula1 inv = new Formula1();
-		Carrera coche = new Carrera("Circuito de Monaco");
 		
-		do {
-			Carrera.avanzar();
-		} while (!coche.FinDeJuego());
+		panel.setLayout(new BorderLayout());
+	
+		panel.add(this, BorderLayout.CENTER);
+	
+		ventana.setBounds(0,0, JFRAME_WIDTH, JFRAME_HEIGHT);
+		
+		this.addMouseListener(new MouseAdapter() {
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+			
+				if (e.getButton() == MouseEvent.BUTTON1) {
+						Carrera.avanzar();
+						Formula1.getInstance().repaint();
+						Formula1.getInstance().revalidate();
+					}
+				}
+		});
 
-		inv.game();
+		SoundsRepository.getInstance().loopSound(SoundsRepository.MUSICA_DE_FONDO);
+		
+	
+		ventana.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+	
+		ventana.addWindowListener( new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				cerrarAplicacion();
+			}
+		
+		});
+		
+		ventana.setVisible(true);
+	
+		this.requestFocus();
+
 	}
-
+	/**
+	 * @return
+	 */
+	public static Formula1 getInstance () {
+		if (instance == null) {
+			instance = new Formula1();
+		}
+		return instance;
+	}
+	
+	private void cerrarAplicacion() {
+		String [] opciones ={"Aceptar","Cancelar"};
+		int eleccion = JOptionPane.showOptionDialog(ventana,"¿Desea cerrar la aplicación?","Salir de la aplicación",
+		JOptionPane.YES_NO_OPTION,
+		JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
+		if (eleccion == JOptionPane.YES_OPTION) {
+			System.exit(0);
+		}
+	}
+	
+	public Carrera getCarrera1() {
+		return carrera1;
+	}
+	public void setCarrera1(Carrera carrera1) {
+		this.carrera1 = carrera1;
+	}
+	
 }

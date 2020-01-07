@@ -3,6 +3,9 @@ package formula1Juego.formula1Juego;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 public class Pista {
 	
 	List<Obstaculo> obstaculos = new ArrayList <Obstaculo>();
@@ -24,7 +27,7 @@ public class Pista {
 		
 	}
 
-
+	
 	public List<Obstaculo> getObstaculos() {
 		return obstaculos;
 	}
@@ -33,6 +36,12 @@ public class Pista {
 	public void setObstaculos(List<Obstaculo> obstaculos) {
 		this.obstaculos = obstaculos;
 	}
+	
+	public void paint (Graphics g) {		
+		g.setColor(Color.BLACK);
+		g.drawRect(0, 0, 640, 120);
+	}
+	
 	
 }
 		
