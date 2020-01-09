@@ -2,8 +2,6 @@ package formula1Juego.formula1Juego;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Vehiculo {
 	
@@ -13,7 +11,6 @@ public abstract class Vehiculo {
 	private Pista pista;
 	private int numeroDePista;
 	private int distanciaDeLaPista;
-	public List <Integer> tacometro  = new ArrayList <Integer>();
 	
 	public Vehiculo(String nombre, int numeroDePista, Color color) {
 		super();
@@ -44,7 +41,7 @@ public abstract class Vehiculo {
 					SoundRepository.getInstance().playSound(SoundRepository.MUSICA_IMPULSO);
 				}
 			}
-		}	this.tacometro.add(this.posicion); 
+		}
 		}else {
 			tirada = false;
 			System.out.println("Ha llegado a la meta: " + this.nombre);
@@ -52,13 +49,6 @@ public abstract class Vehiculo {
 		return tirada;
 
 	}
-	
-	 
-		public void imprimirTacometro () {
-			System.out.println(tacometro.toString());
-		}
-
-	
 	//Tenemos que construir cada una de las cuatro pistas estas son
 	//el numero de cada pista * 400 que es el alto de nuestra ventana entre 4
 	//ya que tenemos cuatro pistas
@@ -68,7 +58,7 @@ public abstract class Vehiculo {
 	
 	
 	//Creamos metodos abstractos para pintar los vehiculos
-	protected abstract void paint(Graphics g);
+	public abstract void pintar(Graphics g);
 	public abstract void pintarVehiculo(Graphics g);
 
 	@Override
@@ -135,7 +125,6 @@ public abstract class Vehiculo {
 	public void setDistanciaDeLaPista(int distanciaDeLaPista) {
 		this.distanciaDeLaPista = distanciaDeLaPista;
 	}
-
 	
 
 
