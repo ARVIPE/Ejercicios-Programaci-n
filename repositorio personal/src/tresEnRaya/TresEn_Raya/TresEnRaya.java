@@ -166,7 +166,7 @@ public class TresEnRaya extends Canvas {
 	public void paint(Graphics g) {
 		super.paint(g);
 
-		g.setColor(Color.WHITE);
+		g.setColor(Color.RED);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		
 	
