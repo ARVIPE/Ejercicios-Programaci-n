@@ -21,7 +21,7 @@ public class Carrera {
 		vehiculos.add(vehiculo3);
 		vehiculos.add(vehiculo4);
 	}
-	
+	//Creamos nuestro metodo que sea para avanzar y ejecute nuestra tirada
 	public static void avanzar() {
 		for (int i = 0; i < vehiculos.size(); i++) {
 			vehiculos.get(i).tirada();
@@ -29,7 +29,7 @@ public class Carrera {
 			
 		}
 	}
-
+	//Creamos un metodo que indica cuando se da el fin de juego y además cuando este se dé que nos indique el ganador 
 	public static boolean FinDeJuego() {
 		for(int i = 0; i < vehiculos.size(); i++) {
 			if(vehiculos.get(i).getPosicion()>=100) {
@@ -41,7 +41,7 @@ public class Carrera {
 		System.out.println();
 		return false;
 	}
-
+	//Getters y Setters
 	public Vehiculo getVehiculo1() {
 		return vehiculo1;
 	}

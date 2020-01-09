@@ -28,9 +28,9 @@ import tresEnRaya.TresEn_Raya.TresEnRaya;
 public class Formula1 extends Canvas {
 
 	Carrera carrera1 = new Carrera();
-	
+	//Le ponemos el nombre a nuestra ventana
 	JFrame ventana = new JFrame("Formula 1");
-
+	//Indicamos las dimensiones de la ventana
 	protected static final int JFRAME_WIDTH=1000;
 	protected static final int JFRAME_HEIGHT=400;	
 	
@@ -56,7 +56,7 @@ public class Formula1 extends Canvas {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				super.mouseClicked(e);
-			
+				//Le decimos que cuando haga clic izquierdo avance
 				if (e.getButton() == MouseEvent.BUTTON1) {
 						Carrera.avanzar();
 						Formula1.getInstance().repaint();
@@ -65,7 +65,7 @@ public class Formula1 extends Canvas {
 					}
 				}
 		});
-
+		//Agregamos sonidos
 		SoundRepository.getInstance().loopSound(SoundRepository.MUSICA_DE_FONDO_FORMULA1);
 		
 	
@@ -83,7 +83,7 @@ public class Formula1 extends Canvas {
 		this.requestFocus();
 
 	}
-	
+	//Ejecutamos nuestro patron singleton
 	/**
 	 * @return
 	 */
@@ -113,6 +113,13 @@ public class Formula1 extends Canvas {
 	
 	public static void main(String[] args) {
 		Formula1.getInstance();
+	}
+	
+	public void paint(Graphics g){
+		g.drawRect(0, 0, 1000, 100);
+		g.drawRect(0, 100, 1000, 100);
+		g.drawRect(0, 200, 1000, 100);
+		g.drawRect(0, 300, 1000, 100);
 	}
 	
 

@@ -19,7 +19,7 @@ public class Moto extends Vehiculo {
 	public void pintar(Graphics g) {
 		this.getPista().paint(g);
 		this.pintarVehiculo(g);
-		
+	//Pintamos la moto	
 	}
 	public void pintarVehiculo(Graphics g) {
 		g.setColor(this.getColor());

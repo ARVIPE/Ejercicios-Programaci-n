@@ -25,7 +25,8 @@ public abstract class Vehiculo {
 
 	}
 	
-	
+	//Agregamos un metodo tirada para que nos genere un numero aleatorio y nos diga si un obstaculo es una mancha
+	//o es una rampa
 	public boolean tirada() {
 		boolean tirada = true;
 		if(posicion < Pista.getLongitud()) {

@@ -12,7 +12,7 @@ public class ManchaAceite extends Obstaculo {
 		this.color = Color.YELLOW;
 		this.coordenada = coordenada;
 	}
-
+	//pintamos la macha
 	@Override
 	public void paint(Graphics g) {
 		g.setColor(color);

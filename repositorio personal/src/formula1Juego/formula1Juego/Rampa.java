@@ -12,7 +12,7 @@ public class Rampa extends Obstaculo {
 		this.color = Color.RED;
 		this.coordenada = coordenada;
 	}
-
+	//Pintamos la rampa
 	@Override
 	public void paint(Graphics g) {
 		g.setColor(color);
