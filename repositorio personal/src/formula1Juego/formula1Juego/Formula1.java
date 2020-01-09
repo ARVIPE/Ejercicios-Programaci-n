@@ -26,12 +26,12 @@ import tresEnRaya.TresEn_Raya.TresEnRaya;
 
 public class Formula1 extends Canvas {
 
-	Carrera carrera1 = new Carrera("Circuito de Monaco");
+	Carrera carrera1 = new Carrera();
 	
 	JFrame ventana = new JFrame("Formula 1");
 
-	private static final int JFRAME_WIDTH=1000;
-	private static final int JFRAME_HEIGHT=400;	
+	protected static final int JFRAME_WIDTH=1000;
+	protected static final int JFRAME_HEIGHT=400;	
 	
 	
 	// Variable para establecer la instancia del patrón singleton
@@ -39,7 +39,7 @@ public class Formula1 extends Canvas {
 	
 	public Formula1() {
 
-		SoundsRepository.getInstance();
+		SoundRepository.getInstance();
 
 		JPanel panel = (JPanel) ventana.getContentPane();
 		
@@ -63,7 +63,7 @@ public class Formula1 extends Canvas {
 				}
 		});
 
-		SoundsRepository.getInstance().loopSound(SoundsRepository.MUSICA_DE_FONDO);
+		SoundRepository.getInstance().loopSound(SoundRepository.MUSICA_DE_FONDO_FORMULA1);
 		
 	
 		ventana.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -106,5 +106,10 @@ public class Formula1 extends Canvas {
 	public void setCarrera1(Carrera carrera1) {
 		this.carrera1 = carrera1;
 	}
+	
+	public static void main(String[] args) {
+		Formula1.getInstance();
+	}
+	
 	
 }
