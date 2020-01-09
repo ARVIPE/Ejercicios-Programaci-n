@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import sun.java2d.loops.FillRect;
 import tresEnRaya.TresEn_Raya.Cuadro;
 import tresEnRaya.TresEn_Raya.SoundsRepository;
 import tresEnRaya.TresEn_Raya.SpritesRepository;
@@ -39,6 +40,7 @@ public class Formula1 extends Canvas {
 	
 	public Formula1() {
 
+		
 		SoundRepository.getInstance();
 
 		JPanel panel = (JPanel) ventana.getContentPane();
@@ -59,6 +61,7 @@ public class Formula1 extends Canvas {
 						Carrera.avanzar();
 						Formula1.getInstance().repaint();
 						Formula1.getInstance().revalidate();
+		
 					}
 				}
 		});
@@ -80,6 +83,7 @@ public class Formula1 extends Canvas {
 		this.requestFocus();
 
 	}
+	
 	/**
 	 * @return
 	 */
@@ -110,6 +114,8 @@ public class Formula1 extends Canvas {
 	public static void main(String[] args) {
 		Formula1.getInstance();
 	}
+	
+
 	
 	
 }

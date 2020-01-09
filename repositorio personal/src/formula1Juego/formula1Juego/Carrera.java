@@ -15,7 +15,7 @@ public class Carrera {
 	
 
 	public Carrera() {
-		
+
 		vehiculos.add(vehiculo1);
 		vehiculos.add(vehiculo2);
 		vehiculos.add(vehiculo3);
