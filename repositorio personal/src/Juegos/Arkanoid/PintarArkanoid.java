@@ -1,40 +1,120 @@
 package Juegos.Arkanoid;
 
-import java.awt.BorderLayout;
 import java.awt.Canvas;
-import java.awt.event.MouseAdapter;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.net.URL;
+import java.util.HashMap;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import Juegos.formula1Juego.formula1Juego.Formula1;
-import Juegos.formula1Juego.formula1Juego.SoundRepository;
+import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.net.URL;
+import java.util.HashMap;
+
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class PintarArkanoid extends Canvas {
+	public static final int WIDTH = 300;
+	public static final int HEIGHT = 500;
+	public static final int SPEED = 10;
 	
-	//Le ponemos el nombre a nuestra ventana
-	JFrame ventana = new JFrame("Arkanoid");
-	//Indicamos las dimensiones de la ventana
-	protected static final int JFRAME_WIDTH=700;
-	protected static final int JFRAME_HEIGHT=700;
+	public BufferStrategy strategy;
+	public HashMap sprites;
+	public int posX,posY,vX;
 	
-	//Inicializamos la instancia
-	private static PintarArkanoid instance = null;
+	public PintarArkanoid() {
+		sprites = new HashMap();
+		posX = WIDTH/2;
+		posY = HEIGHT/2;
+		vX = 2;
 	
-	private void cerrarAplicacion() {
-		String [] opciones ={"Aceptar","Cancelar"};
-		int eleccion = JOptionPane.showOptionDialog(ventana,"¿Desea cerrar la aplicación?","Salir de la aplicación",
-		JOptionPane.YES_NO_OPTION,
-		JOptionPane.QUESTION_MESSAGE, null, opciones, "Aceptar");
-		if (eleccion == JOptionPane.YES_OPTION) {
+		JFrame ventana = new JFrame("Arkanoid");
+		JPanel panel = (JPanel)ventana.getContentPane();
+		setBounds(0,0,WIDTH,HEIGHT);
+		panel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
+		panel.setLayout(null);
+		panel.add(this);
+		ventana.setBounds(0,0,WIDTH,HEIGHT);
+		ventana.setVisible(true);
+		ventana.addWindowListener( new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
+		ventana.setResizable(false);
+		this.setIgnoreRepaint(true);
+		createBufferStrategy(2);
+		strategy = getBufferStrategy();
+		requestFocus();
+	}
+	
+	public BufferedImage loadImage(String nombre) {
+		URL url=null;
+		try {
+			url = getClass().getResource(nombre);
+			return ImageIO.read(url);
+		} catch (Exception e) {
+			System.out.println("No se pudo cargar la imagen " + nombre +" de "+url);
+			System.out.println("El error fue : "+e.getClass().getName()+" "+e.getMessage());
 			System.exit(0);
+			return null;
 		}
 	}
 	
+	public BufferedImage getSprite(String nombre) {
+		BufferedImage img = (BufferedImage)sprites.get(nombre);
+		if (img == null) {
+			img = loadImage("../res/"+nombre);
+			sprites.put(nombre,img);
+		}
+		return img;
+	}
 	
+
 	
+	public void paintWorld() {
+		Graphics g = strategy.getDrawGraphics();
+		g.setColor(Color.black);
+		g.fillRect(0,0,getWidth(),getHeight());
+		strategy.show();
+	}
+	
+
+	
+	public void updateWorld() {
+		posX += vX;
+		if (posX < 0 || posX > WIDTH) vX = -vX;
+	}
+	
+	public void game() {
+		while (isVisible()) {
+			updateWorld();
+			paintWorld();
+			try { 
+				 Thread.sleep(SPEED);
+			} catch (InterruptedException e) {}
+		}
+	}
+	
+	public static void main(String[] args) {
+		PintarArkanoid inv = new PintarArkanoid();
+		inv.game();
+	}
 }
-
-
-

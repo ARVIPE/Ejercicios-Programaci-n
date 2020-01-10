@@ -103,7 +103,7 @@ public class Formula1 extends Canvas {
 	
 	public Carrera getCarrera1() {
 		return carrera1;
-s	}
+	}
 	public void setCarrera1(Carrera carrera1) {
 		this.carrera1 = carrera1;
 	}
