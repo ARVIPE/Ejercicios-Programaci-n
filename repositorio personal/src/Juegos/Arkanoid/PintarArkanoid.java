@@ -31,11 +31,17 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class PintarArkanoid extends Canvas {
+	// Indicamos alto y ancho del objeto tipo Canvas
 	public static final int WIDTH = 300;
 	public static final int HEIGHT = 500;
-	public static final int SPEED = 10;
 	
+	// Velocidad de los fotogramas, en concreto este indica que el proceso de redibujado dormirá 10 millis
+	// tras haber repintado la escena
+	public static final int SPEED_FPS=60;
+	
+	// BufferStrategy usado para conseguir la técnica de doble búffer
 	public BufferStrategy strategy;
+	private long usedTime; // Tiempo usado en cada iteración del bucle principal del juego.
 	public HashMap sprites;
 	public int posX,posY,vX;
 	
@@ -53,7 +59,7 @@ public class PintarArkanoid extends Canvas {
 		panel.add(this);
 		ventana.setBounds(0,0,WIDTH,HEIGHT);
 		ventana.setVisible(true);
-		ventana.addWindowListener( new WindowAdapter() {
+		ventana.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			}
@@ -65,7 +71,7 @@ public class PintarArkanoid extends Canvas {
 		requestFocus();
 	}
 	
-	public BufferedImage loadImage(String nombre) {
+		public BufferedImage loadImage(String nombre) {
 		URL url=null;
 		try {
 			url = getClass().getResource(nombre);
@@ -87,29 +93,33 @@ public class PintarArkanoid extends Canvas {
 		return img;
 	}
 	
-
-	
 	public void paintWorld() {
 		Graphics g = strategy.getDrawGraphics();
-		g.setColor(Color.black);
-		g.fillRect(0,0,getWidth(),getHeight());
+		//g.setColor(Color.white);
+		//g.fillRect(0,0,getWidth(),getHeight());
 		strategy.show();
+		g.setColor(Color.gray);
+		g.fillOval(150, 250, 10, 10);
 	}
-	
-
-	
+		
 	public void updateWorld() {
 		posX += vX;
 		if (posX < 0 || posX > WIDTH) vX = -vX;
 	}
 	
 	public void game() {
+		// Inicialización del juego
+		//initWorld();
+		
+		// El bucle se ejecutará mientras el objeto Canvas sea visible
 		while (isVisible()) {
+			long startTime = System.currentTimeMillis(); // Tomo el tiempo, en millis, antes de crear el siguiente Frame del juego
+			// actualizo y pinto la escena
 			updateWorld();
 			paintWorld();
-			try { 
-				 Thread.sleep(SPEED);
-			} catch (InterruptedException e) {}
+		// Calculo el tiempo que se ha tardado en la ejecución
+		usedTime = System.currentTimeMillis()-startTime;
+
 		}
 	}
 	

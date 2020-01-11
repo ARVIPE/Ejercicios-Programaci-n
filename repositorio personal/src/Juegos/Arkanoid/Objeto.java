@@ -2,14 +2,21 @@ package Juegos.Arkanoid;
 
 public class Objeto {
 	
-	private int nombre;
-	private int color;
+	private String nombre;
+	private String color;
 	private int xCoord;
 	private int yCoord;
 	
-
-	private Objeto() {
+	public Objeto(String nombre, String color, int xCoord, int yCoord) {
+		super();
+		this.nombre = nombre;
+		this.color = color;
+		this.xCoord = xCoord;
+		this.yCoord = yCoord;
 	}
+	
+
+	
 	
 	
 		
