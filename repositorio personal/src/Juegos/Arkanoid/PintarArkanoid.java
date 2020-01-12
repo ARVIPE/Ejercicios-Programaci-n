@@ -71,6 +71,16 @@ public class PintarArkanoid extends Canvas {
 		requestFocus();
 	}
 	
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, this.getWidth(), this.getHeight());
+		
+		Ladrillo.getInstance().paint(g);
+	}
+	
 		public BufferedImage loadImage(String nombre) {
 		URL url=null;
 		try {
@@ -95,11 +105,9 @@ public class PintarArkanoid extends Canvas {
 	
 	public void paintWorld() {
 		Graphics g = strategy.getDrawGraphics();
-		//g.setColor(Color.white);
-		//g.fillRect(0,0,getWidth(),getHeight());
+		g.setColor(Color.white);
+		g.fillRect(0,0,getWidth(),getHeight());
 		strategy.show();
-		g.setColor(Color.gray);
-		g.fillOval(150, 250, 10, 10);
 	}
 		
 	public void updateWorld() {
