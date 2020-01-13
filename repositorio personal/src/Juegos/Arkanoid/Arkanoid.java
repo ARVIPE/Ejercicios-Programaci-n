@@ -30,10 +30,12 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class PintarArkanoid extends Canvas {
+public class Arkanoid extends Canvas {
 	// Indicamos alto y ancho del objeto tipo Canvas
 	public static final int WIDTH = 300;
 	public static final int HEIGHT = 500;
+	private static Arkanoid instance = null;
+
 	
 	// Velocidad de los fotogramas, en concreto este indica que el proceso de redibujado dormirá 10 millis
 	// tras haber repintado la escena
@@ -45,7 +47,7 @@ public class PintarArkanoid extends Canvas {
 	public HashMap sprites;
 	public int posX,posY,vX;
 	
-	public PintarArkanoid() {
+	public Arkanoid() {
 		sprites = new HashMap();
 		posX = WIDTH/2;
 		posY = HEIGHT/2;
@@ -131,8 +133,18 @@ public class PintarArkanoid extends Canvas {
 		}
 	}
 	
+	//Realizamos nuestro patron singleton
+	public static Arkanoid getInstace() {
+		if(instance == null) {
+			instance = new Arkanoid();
+		}
+		return instance;
+	}
+	
+
+	
 	public static void main(String[] args) {
-		PintarArkanoid inv = new PintarArkanoid();
+		Arkanoid inv = new Arkanoid();
 		inv.game();
 	}
 }

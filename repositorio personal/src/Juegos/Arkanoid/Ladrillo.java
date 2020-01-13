@@ -22,6 +22,11 @@ public class Ladrillo extends Objeto{
 		g.setColor(Color.RED);
 		g.fillRect(50, 50, 30, 30);
 	}
+	@Override
+	public void mover() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	
