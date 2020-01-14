@@ -10,7 +10,9 @@ import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -36,6 +38,7 @@ public class Arkanoid extends Canvas {
 	public static final int WIDTH = 500;
 	public static final int HEIGHT = 700;
 	private static Arkanoid instance = null;
+	public List <Ladrillo> muro = new ArrayList<Ladrillo>();
 	Pelota pelota = new Pelota();
 
 	
@@ -115,6 +118,16 @@ public class Arkanoid extends Canvas {
 
 	
 	}
+	
+	private void initWorld() {
+		for(int i = 0; i <= 12; i++) {
+			Ladrillo ladrillo = new Ladrillo();
+			g.setColor(Color.yellow);
+			g.fillRect(100, 100, 45, 30);
+			muro.add(ladrillo);
+		}
+		
+	}
 		
 	public void updateWorld() {
 		pelota.mover();
@@ -122,7 +135,7 @@ public class Arkanoid extends Canvas {
 	
 	public void game() {
 		// Inicialización del juego
-
+			initWorld();
 		
 		// El bucle se ejecutará mientras el objeto Canvas sea visible
 		while (isVisible()) {
@@ -135,7 +148,8 @@ public class Arkanoid extends Canvas {
 			}catch (InterruptedException e) {}
 		}
 	}
-	
+
+
 	//Realizamos nuestro patron singleton
 	public static Arkanoid getInstace() {
 		if(instance == null) {

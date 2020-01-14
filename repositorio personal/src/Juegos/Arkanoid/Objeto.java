@@ -15,7 +15,6 @@ public abstract class Objeto {
 	
 	public abstract void paint(Graphics g);
 	
-	public abstract void mover();
 
 	public Color getColor() {
 		return color;

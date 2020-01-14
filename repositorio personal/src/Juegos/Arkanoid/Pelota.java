@@ -13,8 +13,8 @@ public class Pelota extends Objeto {
 	public Pelota() {
 		super();
 		this.color = Color.gray;
-		this.xCoord = 260;
-		this.yCoord = 160;
+		this.xCoord = 240;
+		this.yCoord = 140;
 		this.alto = 15;
 		this.ancho = 15;
 		this.vx = 5;
@@ -31,14 +31,19 @@ public class Pelota extends Objeto {
 	}
 	
 	public void mover() {
+		//Vamos aumentando la velocidad horizontal y verticalmente
 		this.xCoord += this.vx;
 		this.yCoord += this.vy;
 		
+		//Le indicamos que si la pelota llega al borde izquierdo o derecho cambie de sentido
+		//Tenemos que tener en cuenta que el borde izquierdo es 0 pero el derecho es la extension de la ventana
+		//menos la de la pelota
 		if(this.xCoord < 0 || this.xCoord > (Arkanoid.getInstace().getWidth() - 15)) {
 			vx = -vx;
 		
 		}
-		if(this.yCoord < 0 || this.yCoord > (Arkanoid.getInstace().getHeight() - 15)) {
+		//Le indicamos que si la pelota llega al borde superior o inferior cambie de sentido
+		if(this.yCoord < 0 || this.yCoord > (Arkanoid.getInstace().getHeight() - 60)) {
 			vy = -vy;
 		}
 		
