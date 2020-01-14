@@ -1,4 +1,4 @@
-package Juegos.Arkanoid;
+/**package Juegos.Arkanoid;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -35,3 +35,4 @@ public class Ladrillo extends Objeto{
 }
 
 
+**/

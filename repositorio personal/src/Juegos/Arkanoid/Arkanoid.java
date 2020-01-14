@@ -4,6 +4,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
@@ -32,9 +33,10 @@ import javax.swing.JPanel;
 
 public class Arkanoid extends Canvas {
 	// Indicamos alto y ancho del objeto tipo Canvas
-	public static final int WIDTH = 300;
-	public static final int HEIGHT = 500;
+	public static final int WIDTH = 500;
+	public static final int HEIGHT = 700;
 	private static Arkanoid instance = null;
+	Pelota pelota = new Pelota();
 
 	
 	// Velocidad de los fotogramas, en concreto este indica que el proceso de redibujado dormirá 10 millis
@@ -70,7 +72,7 @@ public class Arkanoid extends Canvas {
 		this.setIgnoreRepaint(true);
 		createBufferStrategy(2);
 		strategy = getBufferStrategy();
-		requestFocus();
+		this.requestFocus();
 	}
 	
 	@Override
@@ -80,7 +82,6 @@ public class Arkanoid extends Canvas {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		
-		Ladrillo.getInstance().paint(g);
 	}
 	
 		public BufferedImage loadImage(String nombre) {
@@ -106,30 +107,32 @@ public class Arkanoid extends Canvas {
 	}
 	
 	public void paintWorld() {
-		Graphics g = strategy.getDrawGraphics();
-		g.setColor(Color.white);
+		Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
+		g.setColor(Color.black);
 		g.fillRect(0,0,getWidth(),getHeight());
+		pelota.paint(g);
 		strategy.show();
+
+	
 	}
 		
 	public void updateWorld() {
-		posX += vX;
-		if (posX < 0 || posX > WIDTH) vX = -vX;
+		pelota.mover();
 	}
 	
 	public void game() {
 		// Inicialización del juego
-		//initWorld();
+
 		
 		// El bucle se ejecutará mientras el objeto Canvas sea visible
 		while (isVisible()) {
-			long startTime = System.currentTimeMillis(); // Tomo el tiempo, en millis, antes de crear el siguiente Frame del juego
 			// actualizo y pinto la escena
 			updateWorld();
 			paintWorld();
-		// Calculo el tiempo que se ha tardado en la ejecución
-		usedTime = System.currentTimeMillis()-startTime;
-
+			
+			try {
+				Thread.sleep(SPEED_FPS);
+			}catch (InterruptedException e) {}
 		}
 	}
 	
@@ -140,11 +143,8 @@ public class Arkanoid extends Canvas {
 		}
 		return instance;
 	}
-	
-
-	
+		
 	public static void main(String[] args) {
-		Arkanoid inv = new Arkanoid();
-		inv.game();
+		Arkanoid.getInstace().game();
 	}
 }

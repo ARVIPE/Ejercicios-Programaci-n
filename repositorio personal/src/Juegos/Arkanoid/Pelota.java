@@ -12,15 +12,15 @@ public class Pelota extends Objeto {
 	
 	public Pelota() {
 		super();
-		this.color = Color.white;
+		this.color = Color.gray;
 		this.xCoord = 260;
 		this.yCoord = 160;
 		this.alto = 15;
 		this.ancho = 15;
 		this.vx = 5;
 		this.vy = 5;
+
 	}
-	
 	
 	
 	@Override
@@ -33,51 +33,17 @@ public class Pelota extends Objeto {
 	public void mover() {
 		this.xCoord += this.vx;
 		this.yCoord += this.vy;
-		//this.y_coord += this.vy;
 		
-		if (this.xCoord < 0 || this.xCoord > (Arkanoid.getInstace().getWidth() - this.getAncho()) ) {
-				
+		if(this.xCoord < 0 || this.xCoord > (Arkanoid.getInstace().getWidth() - 15)) {
 			vx = -vx;
-			
+		
 		}
-		if (this.yCoord < 0 || this.yCoord > (Arkanoid.getInstace().getHeight() - this.getAlto())) {
+		if(this.yCoord < 0 || this.yCoord > (Arkanoid.getInstace().getHeight() - 15)) {
 			vy = -vy;
 		}
-	}
-
-
-
-	public int getVx() {
-		return vx;
-	}
-
-
-
-	public void setVx(int vx) {
-		this.vx = vx;
-	}
-
-
-
-	public int getVy() {
-		return vy;
-	}
-
-
-
-	public void setVy(int vy) {
-		this.vy = vy;
-	}	
-	
-	
-
-
-	
-	
-	
-	
-	
 		
+		
+	}
 	
 
 
