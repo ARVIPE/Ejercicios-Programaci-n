@@ -1,4 +1,4 @@
-package Juegos.Arkanoid;
+package Juegos.Arkanoid.Codigo;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,6 +14,8 @@ public abstract class Objeto {
 	}
 	
 	public abstract void paint(Graphics g);
+	
+	protected abstract void movimiento();
 	
 
 	public Color getColor() {
@@ -55,8 +57,9 @@ public abstract class Objeto {
 	public void setAlto(int alto) {
 		this.alto = alto;
 	}
+
+
 	
- 	
 	
 	
 		

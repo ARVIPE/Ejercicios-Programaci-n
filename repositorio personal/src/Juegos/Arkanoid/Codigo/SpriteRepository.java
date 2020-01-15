@@ -1,4 +1,4 @@
-package Juegos.Arkanoid;
+package Juegos.Arkanoid.Codigo;
 
 import java.awt.image.BufferedImage;
 import java.net.URL;
@@ -14,19 +14,19 @@ public class SpriteRepository {
 	private static SpriteRepository instance = null;
 	
 	// Carpeta en la que se encuentran los recursos: imagenes, sonidos, etc.
-	private static String RESOURCES_FOLDER = "../resources/images/";
+	private static String RESOURCES_FOLDER = "../res/";
 	
 	// Recursos de sonido que puede utilizarse en el juego
-	public static String IMAGEN_JUGADOR_1 = "Hulk.png";
-	public static String IMAGEN_JUGADOR_2 = "IronMan.png";
+	public static String NAVE = "nave-50x15.png";
+
 
 	
 	/**
 	 * Default constructor
 	 */
 	public SpriteRepository() {
-		this.getSprite(IMAGEN_JUGADOR_1);
-		this.getSprite(IMAGEN_JUGADOR_2);
+		this.getSprite(NAVE);
+
 	}
 	
 	/**

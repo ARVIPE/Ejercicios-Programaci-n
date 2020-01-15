@@ -1,4 +1,4 @@
-package Juegos.Arkanoid;
+package Juegos.Arkanoid.Codigo;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -47,6 +47,13 @@ public class Pelota extends Objeto {
 			vy = -vy;
 		}
 		
+		
+	}
+
+
+	@Override
+	protected void movimiento() {
+		// TODO Auto-generated method stub
 		
 	}
 	

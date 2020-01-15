@@ -1,6 +1,6 @@
-package Juegos.Arkanoid;
+package Juegos.Arkanoid.Codigo;
 
-import java.awt.Canvas;
+import java.awt.Canvas;		
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -17,6 +17,7 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -35,11 +36,12 @@ import javax.swing.JPanel;
 
 public class Arkanoid extends Canvas {
 	// Indicamos alto y ancho del objeto tipo Canvas
-	public static final int WIDTH = 500;
+	public static final int WIDTH = 520;
 	public static final int HEIGHT = 700;
 	private static Arkanoid instance = null;
-	public List <Ladrillo> muro = new ArrayList<Ladrillo>();
+	public List <Objeto> objetos = new ArrayList<Objeto>();
 	Pelota pelota = new Pelota();
+	Nave nave = null;
 
 	
 	// Velocidad de los fotogramas, en concreto este indica que el proceso de redibujado dormirá 10 millis
@@ -78,15 +80,6 @@ public class Arkanoid extends Canvas {
 		this.requestFocus();
 	}
 	
-	@Override
-	public void paint(Graphics g) {
-		super.paint(g);
-		
-		g.setColor(Color.BLACK);
-		g.fillRect(0, 0, this.getWidth(), this.getHeight());
-		
-	}
-	
 		public BufferedImage loadImage(String nombre) {
 		URL url=null;
 		try {
@@ -113,6 +106,9 @@ public class Arkanoid extends Canvas {
 		Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
 		g.setColor(Color.black);
 		g.fillRect(0,0,getWidth(),getHeight());
+		for (Objeto ladrillo : objetos) {			
+			ladrillo.paint(g);
+		}	
 		pelota.paint(g);
 		strategy.show();
 
@@ -120,35 +116,91 @@ public class Arkanoid extends Canvas {
 	}
 	
 	private void initWorld() {
-		for(int i = 0; i <= 12; i++) {
+		int CoordenadaX = 20;
+		int CoordenadaY = 30;
+		for(int i = 0; i <= 9; i++) {
 			Ladrillo ladrillo = new Ladrillo();
-			g.setColor(Color.yellow);
-			g.fillRect(100, 100, 45, 30);
-			muro.add(ladrillo);
+			ladrillo.setColor(Color.blue);
+			ladrillo.setxCoord(CoordenadaX);
+			objetos.add(ladrillo);
+			CoordenadaX += ladrillo.getAncho() + 2;
 		}
+		CoordenadaX = 20;
+		CoordenadaY = 65;
+		for(int i = 0; i <= 9; i++) {
+			Ladrillo ladrillo = new Ladrillo();
+			ladrillo.setColor(Color.yellow);
+			ladrillo.setxCoord(CoordenadaX);
+			ladrillo.setyCoord(CoordenadaY);
+			objetos.add(ladrillo);
+			CoordenadaX += ladrillo.getAncho() + 2;
+		}
+		CoordenadaX = 20;
+		CoordenadaY = 100;
+		for(int i = 0; i <= 9; i++) {
+			Ladrillo ladrillo = new Ladrillo();
+			ladrillo.setColor(Color.red);
+			ladrillo.setxCoord(CoordenadaX);
+			ladrillo.setyCoord(CoordenadaY);
+			objetos.add(ladrillo);
+			CoordenadaX += ladrillo.getAncho() + 2;
+		}
+		CoordenadaX = 20;
+		CoordenadaY = 135;
+		for(int i = 0; i <= 9; i++) {
+			Ladrillo ladrillo = new Ladrillo();
+			ladrillo.setColor(Color.orange);
+			ladrillo.setxCoord(CoordenadaX);
+			ladrillo.setyCoord(CoordenadaY);
+			objetos.add(ladrillo);
+			CoordenadaX += ladrillo.getAncho() + 2;
+		}
+		Nave nave = new Nave();
+		this.objetos.add(nave);
+		// Mantengo una referencia al Player
+		this.nave = nave;
+		// Agrego un listener para eventos de teclado y, cuando se produzcan, los derivo al objeto de tipo Player
+		this.addKeyListener(nave);
+		
 		
 	}
 		
 	public void updateWorld() {
 		pelota.mover();
+		//llamo al metodo act de todos los objetos agregados a mi lista de actors
+		for (Objeto o: this.objetos) {
+			o.movimiento();
+		}
 	}
+	
+		
 	
 	public void game() {
 		// Inicialización del juego
 			initWorld();
-		
+
 		// El bucle se ejecutará mientras el objeto Canvas sea visible
 		while (isVisible()) {
+			long startTime = System.currentTimeMillis(); // Tomo el tiempo, en millis, antes de crear el siguiente Frame del juego
 			// actualizo y pinto la escena
 			updateWorld();
 			paintWorld();
-			
+			// Calculo el tiempo que se ha tardado en la ejecución
+			usedTime = System.currentTimeMillis() - startTime;
+			// Hago que el bucle pare una serie de millis, antes de generar el siguiente FPS
+			// El cálculo hecho "duerme" el proceso para no generar más de los SPEED_FPS que
+			// se haya específicado
 			try {
-				Thread.sleep(SPEED_FPS);
-			}catch (InterruptedException e) {}
+				int millisToSleep = (int) (1000 / SPEED_FPS - usedTime);
+				if (millisToSleep < 0) {
+					millisToSleep = 0;
+				}
+				Thread.sleep(millisToSleep);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 	}
-
 
 	//Realizamos nuestro patron singleton
 	public static Arkanoid getInstace() {

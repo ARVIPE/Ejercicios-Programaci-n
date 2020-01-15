@@ -1,4 +1,4 @@
-package Juegos.Arkanoid;
+package Juegos.Arkanoid.Codigo;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -16,9 +16,17 @@ public class Ladrillo extends Objeto{
 	
 
 	public void paint(Graphics g) {
-		g.setColor(Color.RED);
-		g.fillRect(this.xCoord, this.yCoord, this.ancho, this.alto);
+		g.setColor(getColor());
+		g.fillRect(this.getxCoord(), this.getyCoord(), this.ancho, this.alto);
 	}
+
+
+	@Override
+	protected void movimiento() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 	
 
