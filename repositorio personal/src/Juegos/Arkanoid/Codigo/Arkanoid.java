@@ -167,10 +167,7 @@ public class Arkanoid extends Canvas {
 		
 	public void updateWorld() {
 		pelota.mover();
-		//llamo al metodo act de todos los objetos agregados a mi lista de actors
-		for (Objeto o: this.objetos) {
-			o.movimiento();
-		}
+		
 	}
 	
 		
