@@ -34,7 +34,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Arkanoid extends Canvas {
+public class Arkanoid extends Canvas  {
 	// Indicamos alto y ancho del objeto tipo Canvas
 	public static final int WIDTH = 520;
 	public static final int HEIGHT = 700;
@@ -165,6 +165,7 @@ public class Arkanoid extends Canvas {
 		// Mantengo una referencia al Player
 		// Agrego un listener para eventos de teclado y, cuando se produzcan, los derivo al objeto de tipo Player
 		this.addKeyListener(nave);
+		this.addMouseMotionListener(nave);
 		
 		
 	}

@@ -4,9 +4,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 
-public class Nave extends Objeto implements KeyListener{
+public class Nave extends Objeto implements KeyListener, MouseMotionListener{
 	// Propiedades específicas del jugador
 	protected int vx; // Cantidad de píxeles que aumentará la posición del jugador en cada iteración del bucle principal del juego
 	private boolean left,right; // Booleanas que determinan si el player se está moviendo actualmente
@@ -34,6 +36,12 @@ public class Nave extends Objeto implements KeyListener{
 			xCoord = Arkanoid.getInstace().getWidth() - 15;
 		}
 	}
+	/**
+	@Override void colisionCon(Objeto naveColisionada) {
+		super.collisionWith(naveColisionada);
+		//Debo comprobar el tipo del actor que colisiona con este
+		if(naveColisionada inst)
+	}**/
 		
 
 	/**
@@ -85,6 +93,16 @@ public class Nave extends Objeto implements KeyListener{
 	public void paint(Graphics g) {
 		g.drawImage(imagenDeNave, this.xCoord, 600, null);
 
+	}
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseMoved(MouseEvent arg0) {
+		setxCoord(arg0.getX());
+		
 	}
 
 }
