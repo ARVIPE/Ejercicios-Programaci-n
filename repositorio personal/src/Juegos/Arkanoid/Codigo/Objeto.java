@@ -2,16 +2,25 @@ package Juegos.Arkanoid.Codigo;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 public abstract class Objeto {
 	
 	public Color color;
 	public int xCoord, yCoord;
 	public int ancho, alto;
-	
+	protected BufferedImage spriteActual = null;
+	protected BufferedImage image;
+		
 	public Objeto() {
-		super();
+
 	}
+	
+	public Objeto(String spritname) {
+		this.image = SpriteRepository.getInstance().getSprite(spritname);
+		
+	}
+	
 	
 	public abstract void paint(Graphics g);
 	

@@ -17,11 +17,7 @@ public class Nave extends Objeto implements KeyListener{
 	 * Constructor por defecto, que inicializa la imagen del jugador
 	 */
 	public Nave() {
-		super();
-		this.xCoord = 100;
-		this.yCoord = 300;
-		ImagenDeNave = SpriteRepository.getInstance().getSprite("nave-50x15.png");
-		
+		super("nave-50x15.png");
 		
 	}
 	public void paintNave(Graphics g) {

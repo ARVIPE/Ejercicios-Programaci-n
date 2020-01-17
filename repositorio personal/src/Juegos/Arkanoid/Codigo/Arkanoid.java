@@ -106,6 +106,8 @@ public class Arkanoid extends Canvas {
 		Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
 		g.setColor(Color.black);
 		g.fillRect(0,0,getWidth(),getHeight());
+		BufferedImage nave = loadImage("../res/nave-50x15.png");
+		g.drawImage(nave, 230, 600, null);
 		for (Objeto ladrillo : objetos) {			
 			ladrillo.paint(g);
 		}	
