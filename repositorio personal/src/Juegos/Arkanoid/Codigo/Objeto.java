@@ -10,15 +10,9 @@ public abstract class Objeto {
 	public int xCoord, yCoord;
 	public int ancho, alto;
 	protected BufferedImage spriteActual = null;
-	protected BufferedImage image;
 		
 	public Objeto() {
 
-	}
-	
-	public Objeto(String spritname) {
-		this.image = SpriteRepository.getInstance().getSprite(spritname);
-		
 	}
 	
 	

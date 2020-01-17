@@ -80,7 +80,7 @@ public class Arkanoid extends Canvas {
 		this.requestFocus();
 	}
 	
-		public BufferedImage loadImage(String nombre) {
+	public BufferedImage loadImage(String nombre) {
 		URL url=null;
 		try {
 			url = getClass().getResource(nombre);
@@ -106,11 +106,12 @@ public class Arkanoid extends Canvas {
 		Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
 		g.setColor(Color.black);
 		g.fillRect(0,0,getWidth(),getHeight());
-		BufferedImage nave = loadImage("../res/nave-50x15.png");
-		g.drawImage(nave, 230, 600, null);
+		//BufferedImage nave = loadImage("../res/nave-50x15.png");
+		//g.drawImage(nave, 230, 600, null);
 		for (Objeto ladrillo : objetos) {			
 			ladrillo.paint(g);
 		}	
+		nave.paint(g);
 		pelota.paint(g);
 		strategy.show();
 
@@ -157,10 +158,11 @@ public class Arkanoid extends Canvas {
 			objetos.add(ladrillo);
 			CoordenadaX += ladrillo.getAncho() + 2;
 		}
-		Nave nave = new Nave();
+		nave = new Nave();
+		nave.setxCoord(230);
+		nave.setyCoord(600);
 		this.objetos.add(nave);
 		// Mantengo una referencia al Player
-		this.nave = nave;
 		// Agrego un listener para eventos de teclado y, cuando se produzcan, los derivo al objeto de tipo Player
 		this.addKeyListener(nave);
 		

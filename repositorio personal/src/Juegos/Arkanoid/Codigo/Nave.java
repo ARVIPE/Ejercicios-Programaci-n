@@ -1,6 +1,7 @@
 package Juegos.Arkanoid.Codigo;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
@@ -10,28 +11,22 @@ public class Nave extends Objeto implements KeyListener{
 	protected int vx; // Cantidad de píxeles que aumentará la posición del jugador en cada iteración del bucle principal del juego
 	private boolean left,right; // Booleanas que determinan si el player se está moviendo actualmente
 	protected static final int PLAYER_SPEED = 4; // velocidad del movimiento de la nave en los dos ejes
-	private BufferedImage ImagenDeNave;
+	private BufferedImage imagenDeNave;
 
 
 	/**
 	 * Constructor por defecto, que inicializa la imagen del jugador
 	 */
 	public Nave() {
-		super("nave-50x15.png");
+		this.imagenDeNave = SpriteRepository.getInstance().getSprite("nave-50x15.png");
 		
-	}
-	public void paintNave(Graphics g) {
-		drawImage(g);
-	}
-	
-	private void drawImage(Graphics g) {
-		g.drawImage(this.ImagenDeNave, this.xCoord, this.yCoord, null);
-		
-	}
+	}  
 	/**
 	 * Método necesario para extender de Actor, incorpora el movimiento que el actor realizará en cada iteración del programa
 	 */
 	public void movimiento() {
+		this.xCoord += vx;
+		
 		if(xCoord < 0) {
 			xCoord = 0;
 		}
@@ -88,8 +83,8 @@ public class Nave extends Objeto implements KeyListener{
 
 	@Override
 	public void paint(Graphics g) {
-		// TODO Auto-generated method stub
-		
+		g.drawImage(imagenDeNave, this.xCoord, 600, null);
+
 	}
 
 }
