@@ -1,12 +1,13 @@
 package Juegos.Arkanoid.Codigo;
 
-import java.awt.Graphics;
+import java.awt.Graphics;	
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
+
 
 public class Nave extends Objeto implements KeyListener, MouseMotionListener{
 	// Propiedades específicas del jugador
@@ -26,14 +27,15 @@ public class Nave extends Objeto implements KeyListener, MouseMotionListener{
 	/**
 	 * Método necesario para extender de Actor, incorpora el movimiento que el actor realizará en cada iteración del programa
 	 */
+	@Override 
 	public void movimiento() {
-		this.xCoord += vx;
+		//la nave solo se moverï¿½ sobre el eje x
+		this.xCoord += this.vx;
 		
-		if(xCoord < 0) {
-			xCoord = 0;
-		}
-		if(xCoord == (Arkanoid.getInstace().getWidth() - 15)) {
-			xCoord = Arkanoid.getInstace().getWidth() - 15;
+		//limitacion del movimiento de la nave de manera que si llega a los bordes de la ventana no salga de la pantalla
+		if (this.xCoord < 0 ) { this.xCoord = 0; }
+		if (this.xCoord > (Arkanoid.getInstace().getWidth() - 60)) {
+			this.xCoord = Arkanoid.getInstace().getWidth() - 60;
 		}
 	}
 	/**
