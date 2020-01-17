@@ -26,6 +26,19 @@ public class Ladrillo extends Objeto{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	public void collisionWith(Objeto objetoCollisioned) {
+		super.collisionWith(objetoCollisioned);
+		//Debo comprobar el tipo del objeto que colisiona con este
+		if(objetoCollisioned instanceof Pelota) {
+			//Si este actor colisiona con una pelota, debo eliminar ladrillo
+			this.setMarkedForRemoval(true);
+		}
+		
+	}
+
+
 
 
 	

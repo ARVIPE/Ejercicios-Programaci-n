@@ -1,10 +1,11 @@
 package Juegos.Arkanoid.Codigo;
 
-import java.awt.Canvas;		
+import java.awt.Canvas;			
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
@@ -17,6 +18,7 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 
 
 import java.awt.Canvas;
@@ -39,8 +41,11 @@ public class Arkanoid extends Canvas  {
 	public static final int WIDTH = 520;
 	public static final int HEIGHT = 700;
 	private static Arkanoid instance = null;
+	// Lista con todos los actores que intervienen en el videojuego
 	public List <Objeto> objetos = new ArrayList<Objeto>();
-	Pelota pelota = new Pelota();
+	// Lista con actores que deben incorporarse en la siguiente iteracion del juego
+	private List<Objeto> newActorsForNextInteration = new ArrayList<Objeto>();
+	Pelota pelota = null;
 	Nave nave = null;
 
 	
@@ -158,6 +163,12 @@ public class Arkanoid extends Canvas  {
 			objetos.add(ladrillo);
 			CoordenadaX += ladrillo.getAncho() + 2;
 		}
+		pelota = new Pelota();
+		pelota.setxCoord(400);
+		pelota.setyCoord(300);
+		this.objetos.add(pelota);
+		
+		
 		nave = new Nave();
 		nave.setxCoord(230);
 		nave.setyCoord(600);
@@ -176,6 +187,52 @@ public class Arkanoid extends Canvas  {
 		for (Objeto o: this.objetos) {
 			o.movimiento();
 		}
+		List<Objeto> actorsForRemoval = new ArrayList<Objeto>();
+		for (Objeto actor : this.objetos) {
+			if (actor.isMarkedForRemoval()) {
+				actorsForRemoval.add(actor);
+			}
+		}
+		// Elimino los actores marcados para su eliminación
+		for (Objeto actor : actorsForRemoval) {
+			this.objetos.remove(actor);
+		}
+		// Limpio la lista de actores para eliminar
+		actorsForRemoval.clear();
+		
+		// Además de eliminar actores, también puede haber actores nuevos que se deban insertar en la siguiente iteración.
+		// Se insertan y después se limpia la lista de nuevos actores a insertar
+		this.objetos.addAll(newActorsForNextInteration);
+		this.newActorsForNextInteration.clear();
+
+		// Finalmente, se llama al método "act" de cada actor, para que cada uno recalcule por si mismo sus valores.
+		for (Objeto actor : this.objetos) {
+			actor.movimiento();
+		}
+		
+		// Una vez que cada actor ha actuado, intento detectar colisiones entre los actores y notificarlas. Para detectar
+		// estas colisiones, no nos queda más remedio que intentar detectar la colisión de cualquier actor con cualquier otro
+		// sólo con la excepción de no comparar un actor consigo mismo.
+		// La detección de colisiones se va a baser en formar un rectángulo con las medidas que ocupa cada actor en pantalla,
+		// De esa manera, las colisiones se traducirán en intersecciones entre rectángulos.
+		for (Objeto actor1 : this.objetos) {
+			// Creo un rectángulo para este actor.
+			Rectangle rect1 = new Rectangle(actor1.getxCoord(), actor1.getyCoord(), actor1.getAncho(), actor1.getAlto());
+			// Compruebo un actor con cualquier otro actor
+			for (Objeto actor2 : this.objetos) {
+				// Evito comparar un actor consigo mismo, ya que eso siempre provocaría una colisión y no tiene sentido
+				if (!actor1.equals(actor2)) {
+					// Formo el rectángulo del actor 2
+					Rectangle rect2 = new Rectangle(actor2.getxCoord(), actor2.getyCoord(), actor2.getAlto(), actor2.getAncho());
+					// Si los dos rectángulos tienen alguna intersección, notifico una colisión en los dos actores
+					if (rect1.intersects(rect2)) {
+						actor1.collisionWith(actor2); // El actor 1 colisiona con el actor 2
+						actor2.collisionWith(actor1); // El actor 2 colisiona con el actor 1
+					}
+				}
+			}
+		}
+		
 	}
 	
 		
