@@ -228,6 +228,8 @@ public class Arkanoid extends Canvas  {
 					if (rect1.intersects(rect2)) {
 						actor1.collisionWith(actor2); // El actor 1 colisiona con el actor 2
 						actor2.collisionWith(actor1); // El actor 2 colisiona con el actor 1
+					
+						
 					}
 				}
 			}

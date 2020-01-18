@@ -12,10 +12,11 @@ public abstract class Objeto {
 	protected BufferedImage spriteActual = null;
 	protected boolean markedForRemoval = false; //Pondremos a true esta bandera cuando el objeto deba
 											//ser eliminado de la siguiente iteracion del juego
-		
+		   
 	public Objeto() {
-
+		
 	}
+	
 	
 	
 	public abstract void paint(Graphics g);
@@ -68,6 +69,10 @@ public abstract class Objeto {
 	
 	public boolean isMarkedForRemoval() { return markedForRemoval; }
 	public void setMarkedForRemoval(boolean markedForRemoval) { this.markedForRemoval = markedForRemoval; }
+
+
+
+	public void collisionCon(Objeto objetoCollisioned) {}
 
 
 	

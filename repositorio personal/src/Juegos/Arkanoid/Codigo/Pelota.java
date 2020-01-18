@@ -1,9 +1,7 @@
 package Juegos.Arkanoid.Codigo;
 
-import java.awt.Color;
+import java.awt.Color;	
 import java.awt.Graphics;
-
-
 
 public class Pelota extends Objeto {
 
@@ -48,6 +46,21 @@ public class Pelota extends Objeto {
 		}
 		
 		
+	}
+	
+	@Override
+	public void collisionWith(Objeto actorCollisioned) {
+		super.collisionWith(actorCollisioned);
+
+		if (actorCollisioned instanceof Ladrillo) {
+			vx = -vx;
+			vy = -vy;
+		}
+		if(actorCollisioned instanceof Nave) {
+			vx = -vx;
+			vy = -vy;
+		}
+
 	}
 
 
