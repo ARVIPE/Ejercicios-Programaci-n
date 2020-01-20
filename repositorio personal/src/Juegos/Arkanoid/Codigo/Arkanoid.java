@@ -163,16 +163,17 @@ public class Arkanoid extends Canvas  {
 			objetos.add(ladrillo);
 			CoordenadaX += ladrillo.getAncho() + 2;
 		}
-		pelota = new Pelota();
-		pelota.setxCoord(400);
-		pelota.setyCoord(300);
-		this.objetos.add(pelota);
-		
 		
 		nave = new Nave();
 		nave.setxCoord(230);
 		nave.setyCoord(600);
 		this.objetos.add(nave);
+		
+		pelota = new Pelota();
+		pelota.setxCoord(400);
+		pelota.setyCoord(300);
+		this.objetos.add(pelota);
+
 		// Mantengo una referencia al Player
 		// Agrego un listener para eventos de teclado y, cuando se produzcan, los derivo al objeto de tipo Player
 		this.addKeyListener(nave);
@@ -209,7 +210,7 @@ public class Arkanoid extends Canvas  {
 		for (Objeto actor : this.objetos) {
 			actor.movimiento();
 		}
-		
+		boolean yaHaColisionado = false;
 		// Una vez que cada actor ha actuado, intento detectar colisiones entre los actores y notificarlas. Para detectar
 		// estas colisiones, no nos queda más remedio que intentar detectar la colisión de cualquier actor con cualquier otro
 		// sólo con la excepción de no comparar un actor consigo mismo.
@@ -223,16 +224,17 @@ public class Arkanoid extends Canvas  {
 				// Evito comparar un actor consigo mismo, ya que eso siempre provocaría una colisión y no tiene sentido
 				if (!actor1.equals(actor2)) {
 					// Formo el rectángulo del actor 2
-					Rectangle rect2 = new Rectangle(actor2.getxCoord(), actor2.getyCoord(), actor2.getAlto(), actor2.getAncho());
+					Rectangle rect2 = new Rectangle(actor2.getxCoord(), actor2.getyCoord(), actor2.getAncho(), actor2.getAlto());
 					// Si los dos rectángulos tienen alguna intersección, notifico una colisión en los dos actores
 					if (rect1.intersects(rect2)) {
 						actor1.collisionWith(actor2); // El actor 1 colisiona con el actor 2
 						actor2.collisionWith(actor1); // El actor 2 colisiona con el actor 1
-					
-						
+						yaHaColisionado = true;
+						break;
 					}
 				}
 			}
+			if (yaHaColisionado == true) break;
 		}
 		
 	}

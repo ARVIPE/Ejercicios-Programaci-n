@@ -22,8 +22,14 @@ public class Nave extends Objeto implements KeyListener, MouseMotionListener{
 	 */
 	public Nave() {
 		this.imagenDeNave = SpriteRepository.getInstance().getSprite("nave-50x15.png");
-		
+		ajustarAnchoAlto();
 	}  
+	
+	public void ajustarAnchoAlto() {
+		this.ancho = this.imagenDeNave.getWidth();
+		this.alto = this.imagenDeNave.getHeight();
+	}
+	
 	/**
 	 * Método necesario para extender de Actor, incorpora el movimiento que el actor realizará en cada iteración del programa
 	 */

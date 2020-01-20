@@ -53,12 +53,12 @@ public class Pelota extends Objeto {
 		super.collisionWith(actorCollisioned);
 
 		if (actorCollisioned instanceof Ladrillo) {
-			vx = -vx;
-			vy = -vy;
+			this.vx = -this.vx;
+			this.vy = -this.vy;
 		}
 		if(actorCollisioned instanceof Nave) {
-			vx = -vx;
-			vy = -vy;
+			this.vx = -this.vx;
+			this.vy = -this.vy;
 		}
 
 	}
