@@ -1,6 +1,6 @@
 package Juegos.Arkanoid.Codigo;
 
-import java.awt.Canvas;			
+import java.awt.Canvas;				
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -18,7 +18,6 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 
 
 import java.awt.Canvas;
@@ -266,6 +265,10 @@ public class Arkanoid extends Canvas  {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public void addNewActorToNextIteration (Objeto newObjeto) {
+		this.newActorsForNextInteration.add(newObjeto);
 	}
 
 	//Realizamos nuestro patron singleton

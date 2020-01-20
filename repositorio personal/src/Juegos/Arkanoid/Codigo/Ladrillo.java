@@ -1,6 +1,6 @@
 package Juegos.Arkanoid.Codigo;
 
-import java.awt.Color;
+import java.awt.Color;	
 import java.awt.Graphics;
 
 public class Ladrillo extends Objeto{
@@ -34,10 +34,16 @@ public class Ladrillo extends Objeto{
 		if(objetoCollisioned instanceof Pelota) {
 			//Si este actor colisiona con una pelota, debo eliminar ladrillo
 			this.setMarkedForRemoval(true);
-			
-		}
-		
-		
+			this.createExplosion();	
+		}	
+	}
+
+
+	private void createExplosion() {
+		Explosion explosion = new Explosion();
+		explosion.setxCoord(this.xCoord); 
+		explosion.setyCoord(this.yCoord); 
+        Arkanoid.getInstace().addNewActorToNextIteration(explosion);
 	}
 
 
