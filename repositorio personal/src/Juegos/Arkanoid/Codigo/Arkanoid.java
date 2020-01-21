@@ -127,23 +127,13 @@ public class Arkanoid extends Canvas  {
 		int CoordenadaY = 30;
 		for(int i = 0; i <= 9; i++) {
 			Ladrillo ladrillo = new Ladrillo();
-			ladrillo.setColor(Color.blue);
+			ladrillo.setColor(Color.red);
 			ladrillo.setxCoord(CoordenadaX);
 			objetos.add(ladrillo);
 			CoordenadaX += ladrillo.getAncho() + 2;
 		}
 		CoordenadaX = 20;
 		CoordenadaY = 65;
-		for(int i = 0; i <= 9; i++) {
-			Ladrillo ladrillo = new Ladrillo();
-			ladrillo.setColor(Color.yellow);
-			ladrillo.setxCoord(CoordenadaX);
-			ladrillo.setyCoord(CoordenadaY);
-			objetos.add(ladrillo);
-			CoordenadaX += ladrillo.getAncho() + 2;
-		}
-		CoordenadaX = 20;
-		CoordenadaY = 100;
 		for(int i = 0; i <= 9; i++) {
 			Ladrillo ladrillo = new Ladrillo();
 			ladrillo.setColor(Color.red);
@@ -153,10 +143,40 @@ public class Arkanoid extends Canvas  {
 			CoordenadaX += ladrillo.getAncho() + 2;
 		}
 		CoordenadaX = 20;
+		CoordenadaY = 100;
+		for(int i = 0; i <= 9; i++) {
+			Ladrillo ladrillo = new Ladrillo();
+			ladrillo.setColor(Color.yellow);
+			ladrillo.setxCoord(CoordenadaX);
+			ladrillo.setyCoord(CoordenadaY);
+			objetos.add(ladrillo);
+			CoordenadaX += ladrillo.getAncho() + 2;
+		}
+		CoordenadaX = 20;
 		CoordenadaY = 135;
 		for(int i = 0; i <= 9; i++) {
 			Ladrillo ladrillo = new Ladrillo();
-			ladrillo.setColor(Color.orange);
+			ladrillo.setColor(Color.yellow);
+			ladrillo.setxCoord(CoordenadaX);
+			ladrillo.setyCoord(CoordenadaY);
+			objetos.add(ladrillo);
+			CoordenadaX += ladrillo.getAncho() + 2;
+		}
+		CoordenadaX = 20;
+		CoordenadaY = 170;
+		for(int i = 0; i <= 9; i++) {
+			Ladrillo ladrillo = new Ladrillo();
+			ladrillo.setColor(Color.decode("#45196b"));
+			ladrillo.setxCoord(CoordenadaX);
+			ladrillo.setyCoord(CoordenadaY);
+			objetos.add(ladrillo);
+			CoordenadaX += ladrillo.getAncho() + 2;
+		}
+		CoordenadaX = 20;
+		CoordenadaY = 205;
+		for(int i = 0; i <= 9; i++) {
+			Ladrillo ladrillo = new Ladrillo();
+			ladrillo.setColor(Color.decode("#45196b"));
 			ladrillo.setxCoord(CoordenadaX);
 			ladrillo.setyCoord(CoordenadaY);
 			objetos.add(ladrillo);
@@ -182,10 +202,9 @@ public class Arkanoid extends Canvas  {
 	}
 		
 	public void updateWorld() {
-		pelota.mover();
 		//llamo al metodo act de todos los objetos agregados a mi lista de actors
 		for (Objeto o: this.objetos) {
-			o.movimiento();
+			o.act();
 		}
 		List<Objeto> actorsForRemoval = new ArrayList<Objeto>();
 		for (Objeto actor : this.objetos) {
@@ -207,7 +226,7 @@ public class Arkanoid extends Canvas  {
 
 		// Finalmente, se llama al método "act" de cada actor, para que cada uno recalcule por si mismo sus valores.
 		for (Objeto actor : this.objetos) {
-			actor.movimiento();
+			actor.act();
 		}
 		boolean yaHaColisionado = false;
 		// Una vez que cada actor ha actuado, intento detectar colisiones entre los actores y notificarlas. Para detectar

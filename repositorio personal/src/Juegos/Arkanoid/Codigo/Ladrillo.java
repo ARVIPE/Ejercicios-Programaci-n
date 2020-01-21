@@ -20,12 +20,6 @@ public class Ladrillo extends Objeto{
 		g.fillRect(this.getxCoord(), this.getyCoord(), this.ancho, this.alto);
 	}
 
-
-	@Override
-	protected void movimiento() {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	@Override
 	public void collisionWith(Objeto objetoCollisioned) { 
@@ -41,8 +35,8 @@ public class Ladrillo extends Objeto{
 
 	private void createExplosion() {
 		Explosion explosion = new Explosion();
-		explosion.setxCoord(this.xCoord); 
-		explosion.setyCoord(this.yCoord); 
+		explosion.setxCoord(this.xCoord + (this.ancho / 2) - explosion.getAncho() / 2);
+		explosion.setyCoord(this.yCoord + (this.alto / 2) - explosion.getAlto() / 2);
         Arkanoid.getInstace().addNewActorToNextIteration(explosion);
 	}
 

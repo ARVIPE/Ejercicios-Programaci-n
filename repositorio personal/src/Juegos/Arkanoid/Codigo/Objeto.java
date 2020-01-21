@@ -121,7 +121,6 @@ public abstract class Objeto {
 		
 	}
 	
-	protected abstract void movimiento();
 	
 
 	public Color getColor() {

@@ -15,8 +15,8 @@ public class Pelota extends Objeto {
 		this.yCoord = 140;
 		this.alto = 15;
 		this.ancho = 15;
-		this.vx = 5;
-		this.vy = 5;
+		this.vx = 3;
+		this.vy = 3;
 
 	}
 	
@@ -28,7 +28,7 @@ public class Pelota extends Objeto {
 		
 	}
 	
-	public void mover() {
+	public void act() {
 		//Vamos aumentando la velocidad horizontal y verticalmente
 		this.xCoord += this.vx;
 		this.yCoord += this.vy;
@@ -60,12 +60,6 @@ public class Pelota extends Objeto {
 	}
 
 
-	@Override
-	protected void movimiento() {
-		// TODO Auto-generated method stub
-		
-	}
-	
 
 
 }

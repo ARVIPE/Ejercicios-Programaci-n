@@ -34,7 +34,7 @@ public class Nave extends Objeto implements KeyListener, MouseMotionListener{
 	 * Método necesario para extender de Actor, incorpora el movimiento que el actor realizará en cada iteración del programa
 	 */
 	@Override 
-	public void movimiento() {
+	public void act() {
 		//la nave solo se moverï¿½ sobre el eje x
 		this.xCoord += this.vx;
 		

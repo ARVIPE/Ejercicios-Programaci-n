@@ -28,10 +28,4 @@ public class Explosion extends Objeto {
 		}
 	}
 
-	@Override
-	protected void movimiento() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
