@@ -1,4 +1,4 @@
-package Juegos.Arkanoid.Codigo;
+package Juegos.Arkanoiderweno.Codigo;
 
 import java.awt.Graphics;	
 import java.awt.Graphics2D;
@@ -21,7 +21,7 @@ public class Nave extends Objeto implements KeyListener, MouseMotionListener{
 	 * Constructor por defecto, que inicializa la imagen del jugador
 	 */
 	public Nave() {
-		this.imagenDeNave = SpriteRepository.getInstance().getSprite("nave-50x15.png");
+		this.imagenDeNave = SpriteRepository.getInstance().getSprite("titosanti.png");
 		ajustarAnchoAlto();
 	}  
 	
@@ -99,7 +99,7 @@ public class Nave extends Objeto implements KeyListener, MouseMotionListener{
 
 	@Override
 	public void paint(Graphics g) {
-		g.drawImage(imagenDeNave, xCoord, 600, null);
+		g.drawImage(imagenDeNave, this.xCoord, 600, null);
 
 	}
 	@Override
