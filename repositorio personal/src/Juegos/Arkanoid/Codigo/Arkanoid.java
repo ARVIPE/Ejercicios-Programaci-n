@@ -136,7 +136,7 @@ public class Arkanoid extends Canvas  {
 		CoordenadaY = 65;
 		for(int i = 0; i <= 9; i++) {
 			Ladrillo ladrillo = new Ladrillo();
-			ladrillo.setColor(Color.red);
+			ladrillo.setColor(Color.blue);
 			ladrillo.setxCoord(CoordenadaX);
 			ladrillo.setyCoord(CoordenadaY);
 			objetos.add(ladrillo);
@@ -156,7 +156,7 @@ public class Arkanoid extends Canvas  {
 		CoordenadaY = 135;
 		for(int i = 0; i <= 9; i++) {
 			Ladrillo ladrillo = new Ladrillo();
-			ladrillo.setColor(Color.yellow);
+			ladrillo.setColor(Color.orange);
 			ladrillo.setxCoord(CoordenadaX);
 			ladrillo.setyCoord(CoordenadaY);
 			objetos.add(ladrillo);
@@ -166,7 +166,7 @@ public class Arkanoid extends Canvas  {
 		CoordenadaY = 170;
 		for(int i = 0; i <= 9; i++) {
 			Ladrillo ladrillo = new Ladrillo();
-			ladrillo.setColor(Color.decode("#45196b"));
+			ladrillo.setColor(Color.pink);
 			ladrillo.setxCoord(CoordenadaX);
 			ladrillo.setyCoord(CoordenadaY);
 			objetos.add(ladrillo);
@@ -176,7 +176,7 @@ public class Arkanoid extends Canvas  {
 		CoordenadaY = 205;
 		for(int i = 0; i <= 9; i++) {
 			Ladrillo ladrillo = new Ladrillo();
-			ladrillo.setColor(Color.decode("#45196b"));
+			ladrillo.setColor(Color.green);
 			ladrillo.setxCoord(CoordenadaX);
 			ladrillo.setyCoord(CoordenadaY);
 			objetos.add(ladrillo);
@@ -197,6 +197,8 @@ public class Arkanoid extends Canvas  {
 		// Agrego un listener para eventos de teclado y, cuando se produzcan, los derivo al objeto de tipo Player
 		this.addKeyListener(nave);
 		this.addMouseMotionListener(nave);
+		this.addKeyListener(pelota);
+		this.addMouseListener(pelota);
 		
 		
 	}
@@ -297,7 +299,12 @@ public class Arkanoid extends Canvas  {
 		}
 		return instance;
 	}
+	
 		
+	public Nave getNave() {
+		return nave;
+	}
+
 	public static void main(String[] args) {
 		Arkanoid.getInstace().game();
 	}
