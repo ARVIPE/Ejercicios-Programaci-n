@@ -1,6 +1,6 @@
 package Juegos.Arkanoid.Codigo;
 
-import java.awt.Canvas;				
+import java.awt.Canvas;					
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -123,6 +123,7 @@ public class Arkanoid extends Canvas  {
 	}
 	
 	private void initWorld() {
+		SoundRepository.getInstance().playSound(SoundRepository.MUSICACOMIENZO);
 		int CoordenadaX = 20;
 		int CoordenadaY = 30;
 		for(int i = 0; i <= 9; i++) {

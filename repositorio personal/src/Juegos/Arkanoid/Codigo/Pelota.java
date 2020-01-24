@@ -64,8 +64,13 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 	public void collisionWith(Objeto actorCollisioned) {
 		super.collisionWith(actorCollisioned);
 
-		if (actorCollisioned instanceof Ladrillo || actorCollisioned instanceof Nave) {
+		if (actorCollisioned instanceof Ladrillo){
 			this.vy = -this.vy;
+			SoundRepository.getInstance().playSound(SoundRepository.EXPLOSION);
+		}
+		if (actorCollisioned instanceof Nave) {
+			this.vy = -this.vy;
+			SoundRepository.getInstance().playSound(SoundRepository.CHOCARPELOTA);
 		}
 	}
 
