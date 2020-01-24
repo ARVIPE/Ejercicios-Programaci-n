@@ -24,7 +24,6 @@ public class SoundRepository {
 	
 	// Recursos de sonido que puede utilizarse en el juego
 	public static String MUSICACOMIENZO = "musicaComienzo.wav";
-	public static String CHOCARLADRILLO = "ChocarLadrillo¡.wav";
 	public static String CHOCARPELOTA = "ChocarPelota.wav";
 	public static String EXPLOSION = "explosion.wav";
 	
@@ -34,7 +33,6 @@ public class SoundRepository {
 	public SoundRepository() {
 		// Carga de recursos en memoria
 		this.getAudioClip(MUSICACOMIENZO);
-		this.getAudioClip(CHOCARLADRILLO);
 		this.getAudioClip(CHOCARPELOTA);
 		this.getAudioClip(EXPLOSION);
 	}
