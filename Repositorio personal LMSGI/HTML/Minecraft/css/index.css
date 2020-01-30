@@ -1,0 +1,31 @@
+@font-face{
+    font-family:"minecraft";
+    src: url(images/minecraft_font.ttf)
+}
+
+h1{
+    font-family: "minecraft";
+}
+
+.logo {
+    width: 474px;
+    height: 150px;
+    margin: auto;
+    display: inline-block;
+}
+
+#encabezado{
+    background-image: url(file:///C:/Users/arvip/Documents/GitHub/Ejercicios-Programaci-n/Repositorio%20personal%20LMSGI/HTML/Minecraft/images/banner1.png);
+    height: auto;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+
+}
+
+.icono{
+    width: -100px;
+    height: 0px;
+    margin: auto
+}

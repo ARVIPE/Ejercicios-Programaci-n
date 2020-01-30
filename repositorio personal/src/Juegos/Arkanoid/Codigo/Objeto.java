@@ -178,6 +178,9 @@ public abstract class Objeto {
 	public void collisionCon(Objeto objetoCollisioned) {}
 
 
+	public void comenzarMoverPelota() {}
+
+
 	
 	
 	

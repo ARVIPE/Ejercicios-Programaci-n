@@ -15,6 +15,11 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 	private boolean space;
 	protected static final int PLAYER_SPEED = 4;
 	private int contador = 0;
+	//Variable ficticia para medir el tiempo
+	private long usedTime;
+	//Variable con la que empieza a contar el tiempo en milis
+	long startTime = System.currentTimeMillis(); 
+	int contadortiempo = 0;
 	
 	public Pelota() {
 		super();
@@ -30,11 +35,23 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 	@Override
 	public void paint(Graphics g) {
 		g.setColor(getColor());
-		g.fillOval(this.xCoord, this.yCoord, this.ancho, this.alto);
+		g.fillOval(this.xCoord, this.yCoord, this.ancho, this.alto);		
+	}
+	
+	public void tiempo() {
+		//Unidad de tiempo que empieza en cero
+		usedTime = System.currentTimeMillis() - startTime;
+		if(usedTime >= 5000 && contadortiempo == 0 && contador == 0) {
+			contadortiempo++;
+			contador++;
+			vx = 3;
+			vy = 3;
 		
+		}
 	}
 	
 	public void act() {
+		tiempo();
 		//Si la velocidad de la pelota es 0 aparece en las mismas coordenadas que la nave
 		if(this.vx == 0 && this.vy == 0) {
 			this.xCoord = Arkanoid.getInstace().getNave().getxCoord() + 17;
@@ -111,6 +128,7 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 		// TODO Auto-generated method stub
 		
 	}
+			 
 
 
 	@Override

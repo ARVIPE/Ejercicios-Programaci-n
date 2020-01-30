@@ -63,7 +63,7 @@ public class Arkanoid extends Canvas  {
 		posX = WIDTH/2;
 		posY = HEIGHT/2;
 		vX = 2;
-	
+		//Indicamos el nombre de la ventana
 		JFrame ventana = new JFrame("Arkanoid");
 		JPanel panel = (JPanel)ventana.getContentPane();
 		setBounds(0,0,WIDTH,HEIGHT);
@@ -118,6 +118,8 @@ public class Arkanoid extends Canvas  {
 		nave.paint(g);
 		pelota.paint(g);
 		strategy.show();
+		
+		
 
 	
 	}
