@@ -7,17 +7,17 @@ package Juegos.Arkanoid.Codigo;
  */
 public class PuntoAltaPrecision {
 	// En lugar de utilizar valores enteros para determinar la coordenada, utilizamos flotantes
-	public float vx;
-	public float vy;
+	public float x;
+	public float y;
 	
 	/**
 	 * Constructor
 	 * @param x
 	 * @param y
 	 */
-	public PuntoAltaPrecision (float vx, float vy) {
-		this.vx = vx;
-		this.vy = vy;
+	public PuntoAltaPrecision (float x, float y) {
+		this.x = x;
+		this.y = y;
 	}
 
 	/**
@@ -25,6 +25,6 @@ public class PuntoAltaPrecision {
 	 */
 	@Override
 	public String toString() {
-		return "PuntoAltaPrecision [x=" + vx + ", y=" + vy + "]";
+		return "PuntoAltaPrecision [x=" + x + ", y=" + y + "]";
 	}
 }

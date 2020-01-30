@@ -20,7 +20,11 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 	//Variable con la que empieza a contar el tiempo en milis
 	long startTime = System.currentTimeMillis(); 
 	int contadortiempo = 0;
-	
+	//Creamos un boolean para decirle cuando iniciamos
+	private boolean inicio = false;
+	private TrayectoriaRecta t = null;
+	private PuntoAltaPrecision p = null;
+	private float distancia = 3;
 	public Pelota() {
 		super();
 		this.color = Color.gray;
@@ -37,56 +41,67 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 		g.setColor(getColor());
 		g.fillOval(this.xCoord, this.yCoord, this.ancho, this.alto);		
 	}
-	
-	public void tiempo() {
-		//Unidad de tiempo que empieza en cero
+
+	public void act() {
+		// Unidad de tiempo que empieza en cero
 		usedTime = System.currentTimeMillis() - startTime;
-		if(usedTime >= 5000 && contadortiempo == 0 && contador == 0) {
+		if (usedTime >= 5000 && contadortiempo == 0 && contador == 0) {
 			contadortiempo++;
 			contador++;
-			vx = 3;
-			vy = 3;
-		
+			//Llamamos al metodo para crear un punto
+			primerPunto();
+			//Cuando el inicio es true la pelota deja de estar donde esta la nave
+			inicio = true;
 		}
-	}
-	
-	public void act() {
-		tiempo();
-		//Si la velocidad de la pelota es 0 aparece en las mismas coordenadas que la nave
-		if(this.vx == 0 && this.vy == 0) {
+		//La pelota deja de estar donde la nave
+		if (!inicio) {
 			this.xCoord = Arkanoid.getInstace().getNave().getxCoord() + 17;
 			this.yCoord = Arkanoid.getInstace().getNave().getyCoord() - 15;
+		} else {
+			// Le indicamos que si la pelota llega al borde izquierdo o derecho cambie de
+			// sentido
+			// Tenemos que tener en cuenta que el borde izquierdo es 0 pero el derecho es la
+			// extension de la ventana
+			// menos la de la pelota
+			//Esta condicion siempre se va a cumplir independientemente de que el inicio se verdadero
+			//o falso
+			if (this.xCoord < 0 || this.xCoord > (Arkanoid.getInstace().getWidth() - 15)) {
+				t.reflejarHorizontalmenteRespectoAPunto(p);
+
+			}
+			// Le indicamos que si la pelota llega al borde superior o inferior cambie de
+			// sentido
+			if (this.yCoord < 0 || this.yCoord > (Arkanoid.getInstace().getHeight() - 60)) {
+				t.reflejarVerticalmenteRespectoAPunto(p);
+			}
+			// Aqui cogemos el anterior punto y de forma aleatoria generamos el siguiente
+			// punto
+			p = t.getPuntoADistanciaDePunto(p, distancia);
+			this.xCoord = Math.round(p.x);
+			this.yCoord = Math.round(p.y);
+
+
 		}
-		
-		//Vamos aumentando la velocidad horizontal y verticalmente
-		this.xCoord += this.vx;
-		this.yCoord += this.vy;
-		
-		//Le indicamos que si la pelota llega al borde izquierdo o derecho cambie de sentido
-		//Tenemos que tener en cuenta que el borde izquierdo es 0 pero el derecho es la extension de la ventana
-		//menos la de la pelota
-		if(this.xCoord < 0 || this.xCoord > (Arkanoid.getInstace().getWidth() - 15)) {
-			vx = -vx;
-		
-		}
-		//Le indicamos que si la pelota llega al borde superior o inferior cambie de sentido
-		if(this.yCoord < 0 || this.yCoord > (Arkanoid.getInstace().getHeight() - 60)) {
-			vy = -vy;
-		}
-		
-		
+
 	}
 	
+	public void primerPunto() {
+		//Tomamos las coordenadas de la pelota para crear nuestro punto
+		p = new PuntoAltaPrecision(this.xCoord, this.yCoord);
+		//Indicamos la trayectoria por la que va la pelota
+		t = new TrayectoriaRecta(1.7f, p, false);
+	}
+
 	@Override
 	public void collisionWith(Objeto actorCollisioned) {
 		super.collisionWith(actorCollisioned);
-
 		if (actorCollisioned instanceof Ladrillo){
-			this.vy = -this.vy;
+			t.reflejarVerticalmenteRespectoAPunto(p);
+			distancia+= 0.1;
 			SoundRepository.getInstance().playSound(SoundRepository.EXPLOSION);
 		}
 		if (actorCollisioned instanceof Nave) {
-			this.vy = -this.vy;
+			t.reflejarVerticalmenteRespectoAPunto(p);
 			SoundRepository.getInstance().playSound(SoundRepository.CHOCARPELOTA);
 		}
 	}
@@ -95,8 +110,8 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(contador == 0) {
-			vx = 3;
-			vy = 3;
+			primerPunto();
+			inicio = true;
 		}
 		contador++;
 	}
@@ -151,8 +166,10 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 	
 	protected void updateSpeed() {
 		if(contador == 0) {
-			if (space) this.vx = 3;
-			if (space) this.vy = 3;
+			if (space) {
+				primerPunto();
+				inicio = true;
+			}
 		}
 	}
 	

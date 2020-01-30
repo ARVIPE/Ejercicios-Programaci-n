@@ -26,8 +26,8 @@ public class TrayectoriaRecta {
 	 * @param direccionCreciente
 	 */
 	public TrayectoriaRecta (PuntoAltaPrecision p1, PuntoAltaPrecision p2, boolean direccionCreciente) {
-		this.m = (p2.vy - p1.vy) / (p2.vx - p1.vx); // Calculo de la pendiente
-		this.o = p1.vy - this.m * p1.vx; // Calculo de la ordenada en el origen
+		this.m = (p2.y - p1.y) / (p2.x - p1.x); // Calculo de la pendiente
+		this.o = p1.y - this.m * p1.x; // Calculo de la ordenada en el origen
 		this.direccionCreciente = direccionCreciente;
 	}
 		
@@ -40,7 +40,7 @@ public class TrayectoriaRecta {
 	public TrayectoriaRecta (float pendiente, PuntoAltaPrecision p, boolean direccionCreciente) {
 		this.m = pendiente;
 		this.direccionCreciente = direccionCreciente;
-		this.o = p.vy - this.m * p.vx; // Calculo de la ordenada en el origen
+		this.o = p.y - this.m * p.x; // Calculo de la ordenada en el origen
 	}
 	
 	/**
@@ -55,21 +55,21 @@ public class TrayectoriaRecta {
 		
 		// Calculo de la coordenada x del punto de destino. Se hace resolviendo una ecuación de segundo grado
 		float a = 1 + m * m; // Coeficiente "a" de la ecuación de segundo grado
-		float b = (0-2) * (1+m*m)*origen.vx; // Coeficiente "b" de la ecuación de segundo grado
-		float c = a*origen.vx*origen.vx-distancia*distancia; // Coeficiente "c" de la ecuación de segundo grado
+		float b = (0-2) * (1+m*m)*origen.x; // Coeficiente "b" de la ecuación de segundo grado
+		float c = a*origen.x*origen.x-distancia*distancia; // Coeficiente "c" de la ecuación de segundo grado
 		
 		// La ecuación de segundo grado tiene dos soluciones pero nosotros estamos recorriendo la trayectoria
 		// en uno de los sentidos.
 		// Calculo la coordenada x del punto de destino
 		if (this.direccionCreciente) {
-			destino.vx = (float) ((0 - b) + Math.sqrt(b * b - 4 * a * c)) / (2 * a);
+			destino.x = (float) ((0 - b) + Math.sqrt(b * b - 4 * a * c)) / (2 * a);
 		}
 		else {
-			destino.vx = (float) ((0 - b) - Math.sqrt(b * b - 4 * a * c)) / (2 * a);
+			destino.x = (float) ((0 - b) - Math.sqrt(b * b - 4 * a * c)) / (2 * a);
 		}
 		
 		// Calculo de la coordenada y del punto de destino
-		destino.vy = m * destino.vx + o;
+		destino.y = m * destino.x + o;
 		
 		// Devuelvo el nuevo punto calculado
 		return destino;
@@ -83,7 +83,7 @@ public class TrayectoriaRecta {
 	 * @return
 	 */
 	public float getDistanciaPuntoAPunto (PuntoAltaPrecision p1, PuntoAltaPrecision p2) {
-		return (float) Math.sqrt(Math.pow(p2.vx - p1.vx, 2) + Math.pow(p2.vy - p1.vy, 2));
+		return (float) Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
 	}
 	
 	/**
@@ -95,7 +95,7 @@ public class TrayectoriaRecta {
 		// Cambio de signo la pendiente de la recta y calculo el nuevo corte de la recta en el origen, 
 		// aprovechando el saber que la recta pasa por un punto que me dan como argumento de entrada.
 		this.m = -this.m;
-		this.o = p.vy - this.m * p.vx;
+		this.o = p.y - this.m * p.x;
 	}
 	
 	/**
@@ -107,6 +107,7 @@ public class TrayectoriaRecta {
 		// Cambio de signo la pendiente, calculo el nuevo punto de corte del eje de abcisas y cambio
 		// la dirección en la que nos movemos sobre la trayectoria
 		this.m = -this.m;
+		this.o = p.y - this.m * p.x;
 		this.direccionCreciente = !this.direccionCreciente;
 	}
 	
@@ -168,7 +169,7 @@ public class TrayectoriaRecta {
 	 */
 	public void setPendiente (float nuevaPendiente, PuntoAltaPrecision puntoDePivote, boolean direccionCreciente) {
 		this.m = nuevaPendiente;
-		this.o = puntoDePivote.vy - this.m * puntoDePivote.vx;
+		this.o = puntoDePivote.y - this.m * puntoDePivote.x;
 		this.direccionCreciente = direccionCreciente;
 	}
 	
