@@ -118,8 +118,6 @@ public class Arkanoid extends Canvas  {
 		nave.paint(g);
 		pelota.paint(g);
 		strategy.show();
-		
-		
 
 	
 	}

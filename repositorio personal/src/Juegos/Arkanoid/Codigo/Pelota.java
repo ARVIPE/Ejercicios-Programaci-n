@@ -46,7 +46,11 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 		// Unidad de tiempo que empieza en cero
 		usedTime = System.currentTimeMillis() - startTime;
 		if (usedTime >= 5000 && contadortiempo == 0 && contador == 0) {
+			//Este contador que utilizo para que la pelota no siga sumando velocidad
+			//en el used time
 			contadortiempo++;
+			//Este es el contador para que no sume mas de una vez la velocidad
+			//tanto en el space como en el raton
 			contador++;
 			//Llamamos al metodo para crear un punto
 			primerPunto();
@@ -55,6 +59,7 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 		}
 		//La pelota deja de estar donde la nave
 		if (!inicio) {
+			//Coordenadas en las que la pelota esta junto a la nave
 			this.xCoord = Arkanoid.getInstace().getNave().getxCoord() + 17;
 			this.yCoord = Arkanoid.getInstace().getNave().getyCoord() - 15;
 		} else {
@@ -65,13 +70,13 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 			// menos la de la pelota
 			//Esta condicion siempre se va a cumplir independientemente de que el inicio se verdadero
 			//o falso
-			if (this.xCoord < 0 || this.xCoord > (Arkanoid.getInstace().getWidth() - 15)) {
+			if (this.xCoord < 0 || this.xCoord > (Arkanoid.getInstace().getWidth() - this.ancho)) {
 				t.reflejarHorizontalmenteRespectoAPunto(p);
 
 			}
 			// Le indicamos que si la pelota llega al borde superior o inferior cambie de
 			// sentido
-			if (this.yCoord < 0 || this.yCoord > (Arkanoid.getInstace().getHeight() - 60)) {
+			if (this.yCoord < 0 || this.yCoord > (Arkanoid.getInstace().getHeight() - (this.alto + 30))) {
 				t.reflejarVerticalmenteRespectoAPunto(p);
 			}
 			// Aqui cogemos el anterior punto y de forma aleatoria generamos el siguiente
@@ -79,6 +84,10 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 			p = t.getPuntoADistanciaDePunto(p, distancia);
 			this.xCoord = Math.round(p.x);
 			this.yCoord = Math.round(p.y);
+			
+			//if(this.yCoord > (Arkanoid.getInstace().getHeight() - (this.alto + 30))){
+				//this.setMarkedForRemoval(true);
+			//}
 
 
 		}
@@ -97,6 +106,7 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 		super.collisionWith(actorCollisioned);
 		if (actorCollisioned instanceof Ladrillo){
 			t.reflejarVerticalmenteRespectoAPunto(p);
+			//Aumentar la velocidad
 			distancia+= 0.1;
 			SoundRepository.getInstance().playSound(SoundRepository.EXPLOSION);
 		}
