@@ -18,6 +18,8 @@ public class SpriteRepository {
 	
 	// Recursos de sonido que puede utilizarse en el juego
 	public static String NAVE = "nave-50x15.png";
+	public static String GameOver = "game-over.png";
+	public static String ImagenDeVidas = "nave-25x7.png";
 
 
 	
@@ -26,6 +28,8 @@ public class SpriteRepository {
 	 */
 	public SpriteRepository() {
 		this.getSprite(NAVE);
+		this.getSprite(GameOver);
+		this.getSprite(ImagenDeVidas);
 
 	}
 	

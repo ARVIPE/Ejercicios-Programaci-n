@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.image.BufferedImage;
 
 public class Pelota extends Objeto implements KeyListener, MouseListener{
 
@@ -15,6 +16,8 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 	private boolean space;
 	protected static final int PLAYER_SPEED = 4;
 	private int contador = 0;
+	//Contador para cada una de las vidas de la pelota
+	private int contadorVidas = 0;
 	//Variable ficticia para medir el tiempo
 	private long usedTime;
 	//Variable con la que empieza a contar el tiempo en milis
@@ -25,6 +28,8 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 	private TrayectoriaRecta t = null;
 	private PuntoAltaPrecision p = null;
 	private float distancia = 3;
+	private BufferedImage imagenDeGameOver;
+	private BufferedImage ImagenDeVidas; 
 	public Pelota() {
 		super();
 		this.color = Color.gray;
@@ -43,9 +48,11 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 	}
 
 	public void act() {
-		// Unidad de tiempo que empieza en cero
+		//Para calcular nuestra variable fictia antes tomamos el startTime que es una unidad de tiempo fija que son las milesimas desde 1970 en ese preciso momento
+		//Luego ejecutamos el systemcurrentmillis para que vaya sumando todo el rato milesimas desde 1970 luego la diferencia de la que va sumando todo el rato
+		//menos la fija de antes tiene que llegarnos a 5000
 		usedTime = System.currentTimeMillis() - startTime;
-		if (usedTime >= 5000 && contadortiempo == 0 && contador == 0) {
+		if (usedTime >= 5000 && contadortiempo == 0 && contador == 0 && contadorVidas <= 0) {
 			//Este contador que utilizo para que la pelota no siga sumando velocidad
 			//en el used time
 			contadortiempo++;
@@ -76,7 +83,7 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 			}
 			// Le indicamos que si la pelota llega al borde superior o inferior cambie de
 			// sentido
-			if (this.yCoord < 0 || this.yCoord > (Arkanoid.getInstace().getHeight() - (this.alto + 30))) {
+			if (this.yCoord < 0) {
 				t.reflejarVerticalmenteRespectoAPunto(p);
 			}
 			// Aqui cogemos el anterior punto y de forma aleatoria generamos el siguiente
@@ -85,12 +92,41 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 			this.xCoord = Math.round(p.x);
 			this.yCoord = Math.round(p.y);
 			
-			//if(this.yCoord > (Arkanoid.getInstace().getHeight() - (this.alto + 30))){
-				//this.setMarkedForRemoval(true);
-			//}
+			if(yCoord >= (Arkanoid.getInstace().getHeight())){
+				//Contador para cada una de las vidas de la pelota
+				contadorVidas++;
+				//Como inicio es falso la pelota aparece donde la nave
+				//pero como tenemos 4 vidas tenemos un limite de 4
+				if(contadorVidas == 4) {
+					//Pintamos el gameover
+					this.imagenDeGameOver = SpriteRepository.getInstance().getSprite("game-over.png");
+				}else {
+					inicio = false;
+				}
+				//Restablecemos cada uno de los contadores de tiempo y de space y raton
+				contadortiempo = 0;
+				contador = 0;
+				//Restablecemos el startTime
+				startTime = System.currentTimeMillis();
+			}
+			
+
+			this.ImagenDeVidas = SpriteRepository.getInstance().getSprite("nave-25x7.png");
+			
+			
 
 
 		}
+
+	}
+	
+	public void paintImagenDeVidas(Graphics g) {
+		g.drawImage(ImagenDeVidas, (((Arkanoid.getInstace().getWidth())/2)), 300, null);
+
+	}
+	
+	public void paintImagenDeGameOver(Graphics g) {
+		g.drawImage(imagenDeGameOver, (((Arkanoid.getInstace().getWidth())/2) - 180), 300, null);
 
 	}
 	
@@ -107,7 +143,7 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 		if (actorCollisioned instanceof Ladrillo){
 			t.reflejarVerticalmenteRespectoAPunto(p);
 			//Aumentar la velocidad
-			distancia+= 0.1;
+			distancia+= 0.2;
 			SoundRepository.getInstance().playSound(SoundRepository.EXPLOSION);
 		}
 		if (actorCollisioned instanceof Nave) {
@@ -119,7 +155,7 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if(contador == 0) {
+		if(contador == 0 && contadorVidas <= 4) {
 			primerPunto();
 			inicio = true;
 		}
@@ -175,7 +211,7 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 	}
 	
 	protected void updateSpeed() {
-		if(contador == 0) {
+		if(contador == 0 && contadorVidas <= 4) {
 			if (space) {
 				primerPunto();
 				inicio = true;
