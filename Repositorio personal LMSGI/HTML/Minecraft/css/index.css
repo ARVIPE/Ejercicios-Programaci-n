@@ -8,10 +8,10 @@ h1{
 }
 
 .logo {
+    background-image: url(file:///C:/Users/arvip/Documents/GitHub/Ejercicios-Programaci-n/Repositorio%20personal%20LMSGI/HTML/Minecraft/images/banner.png);
     width: 474px;
     height: 150px;
     margin: auto;
-    display: inline-block;
 }
 
 #encabezado{
@@ -29,3 +29,24 @@ h1{
     height: 0px;
     margin: auto
 }
+
+.vertical-menu {
+    width: 400px; /* Set a width if you like */
+  }
+  
+  .vertical-menu a {
+    background-color: #eee; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  .vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+  }
+  
+  .vertical-menu a.active {
+    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    color: white;
+  }
