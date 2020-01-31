@@ -8,6 +8,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Pelota extends Objeto implements KeyListener, MouseListener{
 
@@ -29,7 +31,9 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 	private PuntoAltaPrecision p = null;
 	private float distancia = 3;
 	private BufferedImage imagenDeGameOver;
-	private BufferedImage ImagenDeVidas; 
+	private BufferedImage ImagenDeVidas;
+	//Creamos una lista para cada una de las vidas de la pelota
+	public List <Pelota> vidapelotas = new ArrayList<Pelota>();
 	public Pelota() {
 		super();
 		this.color = Color.gray;
@@ -52,7 +56,7 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 		//Luego ejecutamos el systemcurrentmillis para que vaya sumando todo el rato milesimas desde 1970 luego la diferencia de la que va sumando todo el rato
 		//menos la fija de antes tiene que llegarnos a 5000
 		usedTime = System.currentTimeMillis() - startTime;
-		if (usedTime >= 5000 && contadortiempo == 0 && contador == 0 && contadorVidas <= 0) {
+		if (usedTime >= 5000 && contadortiempo == 0 && contador == 0 && contadorVidas <= 4) {
 			//Este contador que utilizo para que la pelota no siga sumando velocidad
 			//en el used time
 			contadortiempo++;
@@ -113,15 +117,19 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 
 			this.ImagenDeVidas = SpriteRepository.getInstance().getSprite("nave-25x7.png");
 			
-			
-
-
 		}
 
 	}
 	
 	public void paintImagenDeVidas(Graphics g) {
-		g.drawImage(ImagenDeVidas, (((Arkanoid.getInstace().getWidth())/2)), 300, null);
+		int CoordenadaX = 20;
+		int variable = 4;
+		for(int i = 0; i < variable; i++) {
+			Pelota pelota = new Pelota();
+			vidapelotas.add(pelota);
+			g.drawImage(ImagenDeVidas, CoordenadaX, 650, null);
+			CoordenadaX += 30;
+		}
 
 	}
 	
@@ -143,7 +151,7 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 		if (actorCollisioned instanceof Ladrillo){
 			t.reflejarVerticalmenteRespectoAPunto(p);
 			//Aumentar la velocidad
-			distancia+= 0.2;
+			distancia+= 0.1;
 			SoundRepository.getInstance().playSound(SoundRepository.EXPLOSION);
 		}
 		if (actorCollisioned instanceof Nave) {
