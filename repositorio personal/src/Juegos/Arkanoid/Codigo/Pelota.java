@@ -124,13 +124,10 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 	public void paintImagenDeVidas(Graphics g) {
 		int CoordenadaX = 20;
 		int variable = 4;
-		for(int i = 0; i < variable; i++) {
-			Pelota pelota = new Pelota();
-			vidapelotas.add(pelota);
-			g.drawImage(ImagenDeVidas, CoordenadaX, 650, null);
-			CoordenadaX += 30;
+			for(int i = 4; i < 5 && i > 0;i--) {
+				g.drawImage(ImagenDeVidas, CoordenadaX, 650, null);
+				CoordenadaX += 30;
 		}
-
 	}
 	
 	public void paintImagenDeGameOver(Graphics g) {
