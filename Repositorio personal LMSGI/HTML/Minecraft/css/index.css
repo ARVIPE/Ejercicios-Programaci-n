@@ -11,7 +11,7 @@ h1{
     background-image: url(file:///C:/Users/arvip/Documents/GitHub/Ejercicios-Programaci-n/Repositorio%20personal%20LMSGI/HTML/Minecraft/images/banner.png);
     width: 474px;
     height: 150px;
-    margin: auto;
+	margin: auto;
 }
 
 #encabezado{
@@ -25,52 +25,65 @@ h1{
 }
 
 .icono{
-  margin-left: 50px;
+  margin-left: 1350px;
   height: 0px;
 }
 
-.navegacion ul{
-	list-style: none;
+nav ul {
+    padding: 0;
+    margin: 0;
+	background-color: rgb(51, 51, 51);
+	width: 326px;
+	padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin-right: 0px;
+    margin-bottom: 50px;
+	float: left;
+	border-top-width: 2px;
+    border-top-style: solid;
+	border-top-color: rgb(0, 0, 0);
+	box-shadow: 10px 10px 0 #000;
+	height: 1000px;
+	width: 400px;
+	
+
 }
 
-.menu > li{
-	position: relative;
-	display: inline-block;
+.letra{
+	color: #FF0000;
+	font-family:"minecraft";
+	font-size: 30px; 
+}
+.block-small{
+	max-height: 32px !important;
+	max-width: 32px !important;
+	vertical-align: middle;
 }
 
-.menu > li > a{
-	display: block;
-	padding: 15px 20px;
-	color: #353535;
-	font-family: 'Open sans';
-	text-decoration: none;
+.parrafo {
+	margin-left: 600px;
+	background-color: white;
+	width: 715px;
+	height: 1430px;
+	margin-top: 50px;
+	font-family:"minecraft";
 }
 
-.menu li a:hover{
-	color: #CE7D35;
-	transition: all .3s;
+.texto{
+	border-radius: 30px 30px 30px 30px;
+	-moz-border-radius: 30px 30px 30px 30px;
+	-webkit-border-radius: 30px 30px 30px 30px;
+	border: 2px solid #000000;
 }
 
-/* Submenu*/
-
-.submenu{
-	position: absolute;
-	background: #333333;
-	width: 120%;
-	visibility: hidden;
-	opacity: 0;
-	transition: opacity 1.5s;
+.marcador{
+	width: 715px;
+	height: 1430px;
+	margin-top: 500px;
 }
 
-.submenu li a{
-	display: block;
-	padding: 15px;
-	color: #fff;
-	font-family: 'Open sans';
-	text-decoration: none;
-}
 
-.menu li:hover .submenu{
-	visibility: visible;
-	opacity: 1;
-}
+
+
