@@ -10,11 +10,13 @@ import java.awt.image.BufferedImage;
 
 
 public class Nave extends Objeto implements KeyListener, MouseMotionListener{
-	// Propiedades específicas del jugador
-	protected int vx; // Cantidad de píxeles que aumentará la posición del jugador en cada iteración del bucle principal del juego
-	private boolean left,right; // Booleanas que determinan si el player se está moviendo actualmente
+	// Propiedades especÃ­ficas del jugador
+	protected int vx; // Cantidad de pÃ­xeles que aumentarÃ¡ la posiciÃ³n del jugador en cada iteraciÃ³n del bucle principal del juego
+	private boolean left,right; // Booleanas que determinan si el player se estÃ¡ moviendo actualmente
 	protected static final int PLAYER_SPEED = 4; // velocidad del movimiento de la nave en los dos ejes
 	private BufferedImage imagenDeNave;
+	protected static int VIDAS = 4; //nï¿½mero de vidas Mï¿½XIMAS iniciales que va a tener el jugador
+	public static Nave instance = null;
 
 
 	/**
@@ -30,12 +32,20 @@ public class Nave extends Objeto implements KeyListener, MouseMotionListener{
 		this.alto = this.imagenDeNave.getHeight();
 	}
 	
+	
+	public static Nave getInstance() {
+		if (instance == null) {
+			instance = new Nave();
+		}
+		return instance;
+	}
+	
 	/**
-	 * Método necesario para extender de Actor, incorpora el movimiento que el actor realizará en cada iteración del programa
+	 * MÃ©todo necesario para extender de Actor, incorpora el movimiento que el actor realizarÃ¡ en cada iteraciÃ³n del programa
 	 */
 	@Override 
 	public void act() {
-		//la nave solo se moverï¿½ sobre el eje x
+		//la nave solo se moverÃ¯Â¿Â½ sobre el eje x
 		this.xCoord += this.vx;
 		
 		//limitacion del movimiento de la nave de manera que si llega a los bordes de la ventana no salga de la pantalla
@@ -65,7 +75,7 @@ public class Nave extends Objeto implements KeyListener, MouseMotionListener{
 	}
 
 	/**
-	 * Cuando una tecla se libera se desactiva la bandera booleana que se había activado al pulsarla
+	 * Cuando una tecla se libera se desactiva la bandera booleana que se habÃ­a activado al pulsarla
 	 */
 	@Override
 	public void keyReleased(KeyEvent e) {
@@ -77,13 +87,13 @@ public class Nave extends Objeto implements KeyListener, MouseMotionListener{
 	}
 	  
 	/**
-	 * Este método no se utiliza pero es necesario implementarlo por el KeyListener
+	 * Este mÃ©todo no se utiliza pero es necesario implementarlo por el KeyListener
 	 */
 	@Override
 	public void keyTyped(KeyEvent e) {}
 	
 	/**
-	 * En función de las banderas booleanas de movimiento, actualizamos las velocidades en los dos ejes
+	 * En funciÃ³n de las banderas booleanas de movimiento, actualizamos las velocidades en los dos ejes
 	 */
 	protected void updateSpeed() {
 		vx=0;
@@ -92,7 +102,7 @@ public class Nave extends Objeto implements KeyListener, MouseMotionListener{
 	}
 		  
 	
-	// Métodos Getters y Setters
+	// MÃ©todos Getters y Setters
 	public int getVx() { return vx; }
 	public void setVx(int vx) { this.vx = vx; }
 
@@ -112,6 +122,15 @@ public class Nave extends Objeto implements KeyListener, MouseMotionListener{
 		setxCoord(arg0.getX());
 		
 	}
+
+	public int getVidas() {
+		return VIDAS;
+	}
+
+	public void setVidas(int vidas) {
+		this.VIDAS = vidas;
+	}
+	
 
 }
 

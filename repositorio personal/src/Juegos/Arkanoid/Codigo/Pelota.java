@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Pelota extends Objeto implements KeyListener, MouseListener{
@@ -19,7 +20,7 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 	protected static final int PLAYER_SPEED = 4;
 	private int contador = 0;
 	//Contador para cada una de las vidas de la pelota
-	private int contadorVidas = 0;
+	private int Vidas = 0;
 	//Variable ficticia para medir el tiempo
 	private long usedTime;
 	//Variable con la que empieza a contar el tiempo en milis
@@ -32,6 +33,8 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 	private float distancia = 3;
 	private BufferedImage imagenDeGameOver;
 	private BufferedImage ImagenDeVidas;
+	TrayectoriaRecta trayectoria = null;
+	private long millisEnInicio = 0; // inicio del tiempo en millisegundos
 	//Creamos una lista para cada una de las vidas de la pelota
 	public List <Pelota> vidapelotas = new ArrayList<Pelota>();
 	public Pelota() {
@@ -41,7 +44,9 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 		this.ancho = 15;
 		this.vx = 0;
 		this.vy = 0;
-
+		this.millisEnInicio = new Date().getTime(); // Esto nos da el tiempo desde 0 en adelante, empieza a contar desde
+		// que se crea la pelota
+		
 	}
 	
 	
@@ -56,7 +61,7 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 		//Luego ejecutamos el systemcurrentmillis para que vaya sumando todo el rato milesimas desde 1970 luego la diferencia de la que va sumando todo el rato
 		//menos la fija de antes tiene que llegarnos a 5000
 		usedTime = System.currentTimeMillis() - startTime;
-		if (usedTime >= 5000 && contadortiempo == 0 && contador == 0 && contadorVidas <= 4) {
+		if (usedTime >= 5000 && contadortiempo == 0 && contador == 0 && Vidas <= 4) {
 			//Este contador que utilizo para que la pelota no siga sumando velocidad
 			//en el used time
 			contadortiempo++;
@@ -95,39 +100,16 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 			p = t.getPuntoADistanciaDePunto(p, distancia);
 			this.xCoord = Math.round(p.x);
 			this.yCoord = Math.round(p.y);
-			
-			if(yCoord >= (Arkanoid.getInstace().getHeight())){
-				//Contador para cada una de las vidas de la pelota
-				contadorVidas++;
-				//Como inicio es falso la pelota aparece donde la nave
-				//pero como tenemos 4 vidas tenemos un limite de 4
-				if(contadorVidas == 4) {
-					//Pintamos el gameover
-					this.imagenDeGameOver = SpriteRepository.getInstance().getSprite("game-over.png");
-				}else {
-					inicio = false;
-				}
-				//Restablecemos cada uno de los contadores de tiempo y de space y raton
-				contadortiempo = 0;
-				contador = 0;
-				//Restablecemos el startTime
-				startTime = System.currentTimeMillis();
-			}
-			
-
-			this.ImagenDeVidas = SpriteRepository.getInstance().getSprite("nave-25x7.png");
-			
 		}
 
 	}
 	
-	public void paintImagenDeVidas(Graphics g) {
-		int CoordenadaX = 20;
-		int variable = 4;
-			for(int i = 4; i < 5 && i > 0;i--) {
-				g.drawImage(ImagenDeVidas, CoordenadaX, 650, null);
-				CoordenadaX += 30;
-		}
+	/**
+	 * M�todo que nos reinicia la salida de la bola cuando sale del Canvas, reininica los millis y vuelve la trayectoria a null
+	 */
+	public void reiniciarMillis() {
+		millisEnInicio = new Date().getTime();
+		trayectoria = null;
 	}
 	
 	public void paintImagenDeGameOver(Graphics g) {
@@ -160,7 +142,7 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if(contador == 0 && contadorVidas <= 4) {
+		if(contador == 0 && Vidas <= 4) {
 			primerPunto();
 			inicio = true;
 		}
@@ -216,7 +198,7 @@ public class Pelota extends Objeto implements KeyListener, MouseListener{
 	}
 	
 	protected void updateSpeed() {
-		if(contador == 0 && contadorVidas <= 4) {
+		if(contador == 0 && Vidas <= 4) {
 			if (space) {
 				primerPunto();
 				inicio = true;
