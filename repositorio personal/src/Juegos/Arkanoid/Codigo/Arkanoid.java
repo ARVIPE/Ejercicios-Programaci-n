@@ -48,15 +48,19 @@ public class Arkanoid extends Canvas  {
 	Nave nave = null;
 
 	
-	// Velocidad de los fotogramas, en concreto este indica que el proceso de redibujado dormir· 10 millis
+	// Velocidad de los fotogramas, en concreto este indica que el proceso de redibujado dormir√° 10 millis
 	// tras haber repintado la escena
 	public static final int SPEED_FPS=60;
 	
-	// BufferStrategy usado para conseguir la tÈcnica de doble b˙ffer
+	// BufferStrategy usado para conseguir la t√©cnica de doble b√∫ffer
 	public BufferStrategy strategy;
-	private long usedTime; // Tiempo usado en cada iteraciÛn del bucle principal del juego.
+	private long usedTime; // Tiempo usado en cada iteraci√≥n del bucle principal del juego.
 	public HashMap sprites;
 	public int posX,posY,vX;
+	// Para establecer el lugar que ocupa la barra de estado, necesitamos tener una
+	// referencia de hasta dÔøΩnde llega
+	// la zona vertical de juego y dÔøΩnde empieza la barra de estado
+	private int YforStatusBar = 0;
 	
 	public Arkanoid() {
 		sprites = new HashMap();
@@ -114,10 +118,14 @@ public class Arkanoid extends Canvas  {
 		//g.drawImage(nave, 230, 600, null);
 		for (Objeto ladrillo : objetos) {			
 			ladrillo.paint(g);
-		}	
+		}
+		// Pinto la barra de estado, para lo que necesito conocer el alto del juego
+		YforStatusBar = this.getHeight() - 22; // le doy la altura del camvas - 12 para dejarl las vidas abajo a la
+												// izquierda
+		this.pintaVidas(g);
+		
 		nave.paint(g);
 		pelota.paint(g);
-		pelota.paintImagenDeVidas(g);
 		pelota.paintImagenDeGameOver(g);
 		strategy.show();
 
@@ -217,38 +225,38 @@ public class Arkanoid extends Canvas  {
 				actorsForRemoval.add(actor);
 			}
 		}
-		// Elimino los actores marcados para su eliminaciÛn
+		// Elimino los actores marcados para su eliminaci√≥n
 		for (Objeto actor : actorsForRemoval) {
 			this.objetos.remove(actor);
 		}
 		// Limpio la lista de actores para eliminar
 		actorsForRemoval.clear();
 		
-		// Adem·s de eliminar actores, tambiÈn puede haber actores nuevos que se deban insertar en la siguiente iteraciÛn.
-		// Se insertan y despuÈs se limpia la lista de nuevos actores a insertar
+		// Adem√°s de eliminar actores, tambi√©n puede haber actores nuevos que se deban insertar en la siguiente iteraci√≥n.
+		// Se insertan y despu√©s se limpia la lista de nuevos actores a insertar
 		this.objetos.addAll(newActorsForNextInteration);
 		this.newActorsForNextInteration.clear();
 
-		// Finalmente, se llama al mÈtodo "act" de cada actor, para que cada uno recalcule por si mismo sus valores.
+		// Finalmente, se llama al m√©todo "act" de cada actor, para que cada uno recalcule por si mismo sus valores.
 		for (Objeto actor : this.objetos) {
 			actor.act();
 		}
 		boolean yaHaColisionado = false;
 		// Una vez que cada actor ha actuado, intento detectar colisiones entre los actores y notificarlas. Para detectar
-		// estas colisiones, no nos queda m·s remedio que intentar detectar la colisiÛn de cualquier actor con cualquier otro
-		// sÛlo con la excepciÛn de no comparar un actor consigo mismo.
-		// La detecciÛn de colisiones se va a baser en formar un rect·ngulo con las medidas que ocupa cada actor en pantalla,
-		// De esa manera, las colisiones se traducir·n en intersecciones entre rect·ngulos.
+		// estas colisiones, no nos queda m√°s remedio que intentar detectar la colisi√≥n de cualquier actor con cualquier otro
+		// s√≥lo con la excepci√≥n de no comparar un actor consigo mismo.
+		// La detecci√≥n de colisiones se va a baser en formar un rect√°ngulo con las medidas que ocupa cada actor en pantalla,
+		// De esa manera, las colisiones se traducir√°n en intersecciones entre rect√°ngulos.
 		for (Objeto actor1 : this.objetos) {
-			// Creo un rect·ngulo para este actor.
+			// Creo un rect√°ngulo para este actor.
 			Rectangle rect1 = new Rectangle(actor1.getxCoord(), actor1.getyCoord(), actor1.getAncho(), actor1.getAlto());
 			// Compruebo un actor con cualquier otro actor
 			for (Objeto actor2 : this.objetos) {
-				// Evito comparar un actor consigo mismo, ya que eso siempre provocarÌa una colisiÛn y no tiene sentido
+				// Evito comparar un actor consigo mismo, ya que eso siempre provocar√≠a una colisi√≥n y no tiene sentido
 				if (!actor1.equals(actor2)) {
-					// Formo el rect·ngulo del actor 2
+					// Formo el rect√°ngulo del actor 2
 					Rectangle rect2 = new Rectangle(actor2.getxCoord(), actor2.getyCoord(), actor2.getAncho(), actor2.getAlto());
-					// Si los dos rect·ngulos tienen alguna intersecciÛn, notifico una colisiÛn en los dos actores
+					// Si los dos rect√°ngulos tienen alguna intersecci√≥n, notifico una colisi√≥n en los dos actores
 					if (rect1.intersects(rect2)) {
 						actor1.collisionWith(actor2); // El actor 1 colisiona con el actor 2
 						actor2.collisionWith(actor1); // El actor 2 colisiona con el actor 1
@@ -262,23 +270,71 @@ public class Arkanoid extends Canvas  {
 		
 	}
 	
-		
+	/**
+	 * MÔøΩtodo en el cual pintamos las vidas
+	 * 
+	 * @param g
+	 */
+	public void pintaVidas(Graphics2D g) {
+		int xBase = 5 + Nave.VIDAS; // posiciÔøΩn de la coordenada X de cada vida (4 en nuestro caso)
+		for (int i = 0; i < nave.getVidas(); i++) {
+			BufferedImage vidas = SpriteRepository.getInstance().getSprite("nave-25x7.png");
+			g.drawImage(vidas, xBase + i * vidas.getWidth(), YforStatusBar, this); // pintado de las vidas
+
+		}
+	}
+	
+	/**
+	 * Con este mÔøΩtodo restamos las vidas y devolvemos la bola al incio pegada a la
+	 * nave
+	 */
+	public void restarVida() {
+		if (Nave.getInstance().VIDAS > 0) {
+			Nave.getInstance().VIDAS--;
+			// mÔøΩtodo que estÔøΩ en clase pelota con el que reiniciamos la bola desde el inicio
+			pelota.reiniciarMillis();
+			
+		}
+		if(Nave.getInstance().VIDAS == 0) {
+			pelota.setMarkedForRemoval(true);
+		}
+
+	}
+
+	
+	/**
+	 * MÔøΩtodo en el cual incluimos el mÔøΩtodo anterior para luego llamarlo en el
+	 * paintWorld principal
+	 * 
+	 * @param g
+	 */
+
+	public void paintStatus(Graphics2D g) {
+		pintaVidas(g);
+	}
 	
 	public void game() {
-		// InicializaciÛn del juego
+		// Inicializaci√≥n del juego
 			initWorld();
 
-		// El bucle se ejecutar· mientras el objeto Canvas sea visible
+		// El bucle se ejecutar√° mientras el objeto Canvas sea visible
 		while (isVisible()) {
 			long startTime = System.currentTimeMillis(); // Tomo el tiempo, en millis, antes de crear el siguiente Frame del juego
 			// actualizo y pinto la escena
 			updateWorld();
 			paintWorld();
-			// Calculo el tiempo que se ha tardado en la ejecuciÛn
+			// Calculo el tiempo que se ha tardado en la ejecuci√≥n
 			usedTime = System.currentTimeMillis() - startTime;
+			
+			// Con esta condiciÔøΩn le indicamos a la bola que cuando salga del Canvas por
+						// abajo, actÔøΩe el mÔøΩtodo de restar vidas y reiniciar la bola
+			if (pelota.getyCoord() > Arkanoid.getInstace().HEIGHT) {
+				restarVida();
+							
+			}
 			// Hago que el bucle pare una serie de millis, antes de generar el siguiente FPS
-			// El c·lculo hecho "duerme" el proceso para no generar m·s de los SPEED_FPS que
-			// se haya especÌficado
+			// El c√°lculo hecho "duerme" el proceso para no generar m√°s de los SPEED_FPS que
+			// se haya espec√≠ficado
 			try {
 				int millisToSleep = (int) (1000 / SPEED_FPS - usedTime);
 				if (millisToSleep < 0) {
