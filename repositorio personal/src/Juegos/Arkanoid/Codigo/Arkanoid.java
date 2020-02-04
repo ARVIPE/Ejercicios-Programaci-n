@@ -46,11 +46,12 @@ public class Arkanoid extends Canvas  {
 	private List<Objeto> newActorsForNextInteration = new ArrayList<Objeto>();
 	Pelota pelota = null;
 	Nave nave = null;
+	private BufferedImage ImagenDeVidas;
 
 	
 	// Velocidad de los fotogramas, en concreto este indica que el proceso de redibujado dormirá 10 millis
 	// tras haber repintado la escena
-	public static final int SPEED_FPS=60;
+	public static final int SPEED_FPS=200;
 	
 	// BufferStrategy usado para conseguir la técnica de doble búffer
 	public BufferStrategy strategy;
@@ -110,19 +111,31 @@ public class Arkanoid extends Canvas  {
 		Graphics2D g = (Graphics2D) strategy.getDrawGraphics();
 		g.setColor(Color.black);
 		g.fillRect(0,0,getWidth(),getHeight());
+		this.ImagenDeVidas = SpriteRepository.getInstance().getSprite("nave-25x7.png");
 		//BufferedImage nave = loadImage("../res/nave-50x15.png");
 		//g.drawImage(nave, 230, 600, null);
 		for (Objeto ladrillo : objetos) {			
 			ladrillo.paint(g);
-		}	
+		}
+		//Llamamos al numero de vidas que le hemos asignado en pelota
+		int vidas = Arkanoid.getInstace().getPelota().getContadorVidas();
+		int CoordenadaX = 20;
+		int variable = 4;
+		
+		//Pintamos imagen de vidas 
+			for(int i = 0; i < vidas ;i++) {
+				g.drawImage(ImagenDeVidas, CoordenadaX, 650, null);
+				CoordenadaX += 30;
+		}
+		
 		nave.paint(g);
 		pelota.paint(g);
-		pelota.paintImagenDeVidas(g);
 		pelota.paintImagenDeGameOver(g);
 		strategy.show();
 
 	
 	}
+	
 	
 	private void initWorld() {
 		SoundRepository.getInstance().playSound(SoundRepository.MUSICACOMIENZO);
@@ -201,9 +214,7 @@ public class Arkanoid extends Canvas  {
 		this.addKeyListener(nave);
 		this.addMouseMotionListener(nave);
 		this.addKeyListener(pelota);
-		this.addMouseListener(pelota);
-		
-		
+		this.addMouseListener(pelota);	
 	}
 		
 	public void updateWorld() {
@@ -267,7 +278,6 @@ public class Arkanoid extends Canvas  {
 	public void game() {
 		// Inicialización del juego
 			initWorld();
-
 		// El bucle se ejecutará mientras el objeto Canvas sea visible
 		while (isVisible()) {
 			long startTime = System.currentTimeMillis(); // Tomo el tiempo, en millis, antes de crear el siguiente Frame del juego
@@ -306,6 +316,10 @@ public class Arkanoid extends Canvas  {
 		
 	public Nave getNave() {
 		return nave;
+	}
+	
+	public Pelota getPelota() {
+		return pelota;
 	}
 
 	public static void main(String[] args) {

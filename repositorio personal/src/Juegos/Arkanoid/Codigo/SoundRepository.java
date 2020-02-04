@@ -26,6 +26,7 @@ public class SoundRepository {
 	public static String MUSICACOMIENZO = "musicaComienzo.wav";
 	public static String CHOCARPELOTA = "ChocarPelota.wav";
 	public static String EXPLOSION = "explosion.wav";
+	public static String MUSICAVIDA = "musicamuere.wav";
 	
 	/**
 	 * Default constructor
@@ -35,6 +36,7 @@ public class SoundRepository {
 		this.getAudioClip(MUSICACOMIENZO);
 		this.getAudioClip(CHOCARPELOTA);
 		this.getAudioClip(EXPLOSION);
+		this.getAudioClip(MUSICAVIDA);
 	}
 	
 	/**
