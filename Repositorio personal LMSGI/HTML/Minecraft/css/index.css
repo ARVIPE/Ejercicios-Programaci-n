@@ -20,7 +20,7 @@ h1{
     padding-top: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
-    padding-left: 20px;
+	padding-left: 20px;
 
 }
 
@@ -34,10 +34,7 @@ nav ul {
     margin: 0;
 	background-color: rgb(51, 51, 51);
 	width: 326px;
-	padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
+	padding: 10px;
     margin-right: 0px;
     margin-bottom: 50px;
 	float: left;
@@ -45,16 +42,17 @@ nav ul {
     border-top-style: solid;
 	border-top-color: rgb(0, 0, 0);
 	box-shadow: 10px 10px 0 #000;
-	height: 1000px;
+	height: 700px;
 	width: 400px;
+	position: fixed;
 	
 
 }
 
-.letra{
+.letramenu{
 	color: #FF0000;
-	font-family:"minecraft";
-	font-size: 30px; 
+	font-family:"medieval";
+	font-size: 40px;
 }
 .block-small{
 	max-height: 32px !important;
@@ -82,6 +80,31 @@ nav ul {
 	width: 715px;
 	height: 1430px;
 	margin-top: 500px;
+}
+
+.texto{
+	background-color: white;
+	width: 1000px;
+	height: 1030px;
+	margin-left: 450px;
+}
+
+.imagenPresentacion{
+	margin-left: 400px;
+	margin-top: 50px;
+	border-color: red;
+	border: 5px solid red;
+}
+
+#letraTitulo{
+	color: black;
+	font-family:"Minecraft";
+	font-size: 40px;
+}
+
+.letratexto{
+	color: black;
+	font-family:"Minecraft";
 }
 
 

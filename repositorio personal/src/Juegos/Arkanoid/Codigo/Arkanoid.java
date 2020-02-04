@@ -49,13 +49,13 @@ public class Arkanoid extends Canvas  {
 	private BufferedImage ImagenDeVidas;
 
 	
-	// Velocidad de los fotogramas, en concreto este indica que el proceso de redibujado dormirá 10 millis
+	// Velocidad de los fotogramas, en concreto este indica que el proceso de redibujado dormirï¿½ 10 millis
 	// tras haber repintado la escena
-	public static final int SPEED_FPS=200;
+	public static final int SPEED_FPS=60;
 	
-	// BufferStrategy usado para conseguir la técnica de doble búffer
+	// BufferStrategy usado para conseguir la tï¿½cnica de doble bï¿½ffer
 	public BufferStrategy strategy;
-	private long usedTime; // Tiempo usado en cada iteración del bucle principal del juego.
+	private long usedTime; // Tiempo usado en cada iteraciï¿½n del bucle principal del juego.
 	public HashMap sprites;
 	public int posX,posY,vX;
 	
@@ -132,8 +132,7 @@ public class Arkanoid extends Canvas  {
 		pelota.paint(g);
 		pelota.paintImagenDeGameOver(g);
 		strategy.show();
-
-	
+		
 	}
 	
 	
@@ -228,38 +227,38 @@ public class Arkanoid extends Canvas  {
 				actorsForRemoval.add(actor);
 			}
 		}
-		// Elimino los actores marcados para su eliminación
+		// Elimino los actores marcados para su eliminaciï¿½n
 		for (Objeto actor : actorsForRemoval) {
 			this.objetos.remove(actor);
 		}
 		// Limpio la lista de actores para eliminar
 		actorsForRemoval.clear();
 		
-		// Además de eliminar actores, también puede haber actores nuevos que se deban insertar en la siguiente iteración.
-		// Se insertan y después se limpia la lista de nuevos actores a insertar
+		// Ademï¿½s de eliminar actores, tambiï¿½n puede haber actores nuevos que se deban insertar en la siguiente iteraciï¿½n.
+		// Se insertan y despuï¿½s se limpia la lista de nuevos actores a insertar
 		this.objetos.addAll(newActorsForNextInteration);
 		this.newActorsForNextInteration.clear();
 
-		// Finalmente, se llama al método "act" de cada actor, para que cada uno recalcule por si mismo sus valores.
+		// Finalmente, se llama al mï¿½todo "act" de cada actor, para que cada uno recalcule por si mismo sus valores.
 		for (Objeto actor : this.objetos) {
 			actor.act();
 		}
 		boolean yaHaColisionado = false;
 		// Una vez que cada actor ha actuado, intento detectar colisiones entre los actores y notificarlas. Para detectar
-		// estas colisiones, no nos queda más remedio que intentar detectar la colisión de cualquier actor con cualquier otro
-		// sólo con la excepción de no comparar un actor consigo mismo.
-		// La detección de colisiones se va a baser en formar un rectángulo con las medidas que ocupa cada actor en pantalla,
-		// De esa manera, las colisiones se traducirán en intersecciones entre rectángulos.
+		// estas colisiones, no nos queda mï¿½s remedio que intentar detectar la colisiï¿½n de cualquier actor con cualquier otro
+		// sï¿½lo con la excepciï¿½n de no comparar un actor consigo mismo.
+		// La detecciï¿½n de colisiones se va a baser en formar un rectï¿½ngulo con las medidas que ocupa cada actor en pantalla,
+		// De esa manera, las colisiones se traducirï¿½n en intersecciones entre rectï¿½ngulos.
 		for (Objeto actor1 : this.objetos) {
-			// Creo un rectángulo para este actor.
+			// Creo un rectï¿½ngulo para este actor.
 			Rectangle rect1 = new Rectangle(actor1.getxCoord(), actor1.getyCoord(), actor1.getAncho(), actor1.getAlto());
 			// Compruebo un actor con cualquier otro actor
 			for (Objeto actor2 : this.objetos) {
-				// Evito comparar un actor consigo mismo, ya que eso siempre provocaría una colisión y no tiene sentido
+				// Evito comparar un actor consigo mismo, ya que eso siempre provocarï¿½a una colisiï¿½n y no tiene sentido
 				if (!actor1.equals(actor2)) {
-					// Formo el rectángulo del actor 2
+					// Formo el rectï¿½ngulo del actor 2
 					Rectangle rect2 = new Rectangle(actor2.getxCoord(), actor2.getyCoord(), actor2.getAncho(), actor2.getAlto());
-					// Si los dos rectángulos tienen alguna intersección, notifico una colisión en los dos actores
+					// Si los dos rectï¿½ngulos tienen alguna intersecciï¿½n, notifico una colisiï¿½n en los dos actores
 					if (rect1.intersects(rect2)) {
 						actor1.collisionWith(actor2); // El actor 1 colisiona con el actor 2
 						actor2.collisionWith(actor1); // El actor 2 colisiona con el actor 1
@@ -276,19 +275,19 @@ public class Arkanoid extends Canvas  {
 		
 	
 	public void game() {
-		// Inicialización del juego
+		// Inicializaciï¿½n del juego
 			initWorld();
-		// El bucle se ejecutará mientras el objeto Canvas sea visible
+		// El bucle se ejecutarï¿½ mientras el objeto Canvas sea visible
 		while (isVisible()) {
 			long startTime = System.currentTimeMillis(); // Tomo el tiempo, en millis, antes de crear el siguiente Frame del juego
 			// actualizo y pinto la escena
 			updateWorld();
 			paintWorld();
-			// Calculo el tiempo que se ha tardado en la ejecución
+			// Calculo el tiempo que se ha tardado en la ejecuciï¿½n
 			usedTime = System.currentTimeMillis() - startTime;
 			// Hago que el bucle pare una serie de millis, antes de generar el siguiente FPS
-			// El cálculo hecho "duerme" el proceso para no generar más de los SPEED_FPS que
-			// se haya específicado
+			// El cï¿½lculo hecho "duerme" el proceso para no generar mï¿½s de los SPEED_FPS que
+			// se haya especï¿½ficado
 			try {
 				int millisToSleep = (int) (1000 / SPEED_FPS - usedTime);
 				if (millisToSleep < 0) {

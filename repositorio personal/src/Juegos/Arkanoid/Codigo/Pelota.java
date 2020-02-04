@@ -106,7 +106,6 @@ public class Pelota extends Objeto implements KeyListener, MouseListener {
 					this.setMarkedForRemoval(true);
 					//Pintamos el gameover
 					this.imagenDeGameOver = SpriteRepository.getInstance().getSprite("game-over.png");
-					
 				}
 				//Restablecemos cada uno de los contadores de tiempo y de space y raton
 				contadortiempo = 0;
