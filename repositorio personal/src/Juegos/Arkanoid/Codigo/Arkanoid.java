@@ -148,64 +148,59 @@ public class Arkanoid extends Canvas  {
 		SoundRepository.getInstance().playSound(SoundRepository.MUSICACOMIENZO);
 		int CoordenadaX = 20;
 		int CoordenadaY = 30;
-		for(int i = 0; i <= 1; i++) {
+		for(int i = 0; i <= 9; i++) {
 			Ladrillo ladrillo = new Ladrillo();
 			ladrillo.setColor(Color.red);
 			ladrillo.setxCoord(CoordenadaX);
 			objetos.add(ladrillo);
 			CoordenadaX += ladrillo.getAncho() + 2;
+			ladrillo.setDureza(1);
 		}
-//		CoordenadaX = 20;
-//		CoordenadaY = 65;
-//		for(int i = 0; i <= 9; i++) {
-//			Ladrillo ladrillo = new Ladrillo();
-//			ladrillo.setColor(Color.blue);
-//			ladrillo.setxCoord(CoordenadaX);
-//			ladrillo.setyCoord(CoordenadaY);
-//			objetos.add(ladrillo);
-//			CoordenadaX += ladrillo.getAncho() + 2;
-//		}
-//		CoordenadaX = 20;
-//		CoordenadaY = 100;
-//		for(int i = 0; i <= 9; i++) {
-//			Ladrillo ladrillo = new Ladrillo();
-//			ladrillo.setColor(Color.yellow);
-//			ladrillo.setxCoord(CoordenadaX);
-//			ladrillo.setyCoord(CoordenadaY);
-//			objetos.add(ladrillo);
-//			CoordenadaX += ladrillo.getAncho() + 2;
-//		}
-//		CoordenadaX = 20;
-//		CoordenadaY = 135;
-//		for(int i = 0; i <= 9; i++) {
-//			Ladrillo ladrillo = new Ladrillo();
-//			ladrillo.setColor(Color.orange);
-//			ladrillo.setxCoord(CoordenadaX);
-//			ladrillo.setyCoord(CoordenadaY);
-//			objetos.add(ladrillo);
-//			CoordenadaX += ladrillo.getAncho() + 2;
-//		}
-//		CoordenadaX = 20;
-//		CoordenadaY = 170;
-//		for(int i = 0; i <= 9; i++) {
-//			Ladrillo ladrillo = new Ladrillo();
-//			ladrillo.setColor(Color.pink);
-//			ladrillo.setxCoord(CoordenadaX);
-//			ladrillo.setyCoord(CoordenadaY);
-//			objetos.add(ladrillo);
-//			CoordenadaX += ladrillo.getAncho() + 2;
-//		}
-//		CoordenadaX = 20;
-//		CoordenadaY = 205;
-//		for(int i = 0; i <= 9; i++) {
-//			Ladrillo ladrillo = new Ladrillo();
-//			ladrillo.setColor(Color.green);
-//			ladrillo.setxCoord(CoordenadaX);
-//			ladrillo.setyCoord(CoordenadaY);
-//			objetos.add(ladrillo);
-//			CoordenadaX += ladrillo.getAncho() + 2;
-//		}
-//		
+		CoordenadaX = 20;
+		CoordenadaY = 65;
+		for(int i = 0; i <= 9; i++) {
+			Ladrillo ladrillo = new Ladrillo();
+			ladrillo.setColor(Color.blue);
+			ladrillo.setxCoord(CoordenadaX);
+			ladrillo.setyCoord(CoordenadaY);
+			objetos.add(ladrillo);
+			CoordenadaX += ladrillo.getAncho() + 2;
+			ladrillo.setDureza(1);
+		}
+		CoordenadaX = 20;
+		CoordenadaY = 100;
+		for(int i = 0; i <= 9; i++) {
+			Ladrillo ladrillo = new Ladrillo();
+			ladrillo.setColor(Color.yellow);
+			ladrillo.setxCoord(CoordenadaX);
+			ladrillo.setyCoord(CoordenadaY);
+			objetos.add(ladrillo);
+			CoordenadaX += ladrillo.getAncho() + 2;
+			ladrillo.setDureza(1);
+		}
+		CoordenadaX = 20;
+		CoordenadaY = 135;
+		for(int i = 0; i <= 9; i++) {
+			Ladrillo ladrillo = new Ladrillo();
+			ladrillo.setColor(Color.orange);
+			ladrillo.setxCoord(CoordenadaX);
+			ladrillo.setyCoord(CoordenadaY);
+			objetos.add(ladrillo);
+			CoordenadaX += ladrillo.getAncho() + 2;
+			ladrillo.setDureza(1);
+		}
+		CoordenadaX = 20;
+		CoordenadaY = 170;
+		for(int i = 0; i <= 9; i++) {
+			Ladrillo ladrillo = new Ladrillo();
+			ladrillo.setColor(Color.pink);
+			ladrillo.setxCoord(CoordenadaX);
+			ladrillo.setyCoord(CoordenadaY);
+			objetos.add(ladrillo);
+			CoordenadaX += ladrillo.getAncho() + 2;
+			ladrillo.setDureza(1);
+		}
+		
 		nave = new Nave();
 		nave.setxCoord(230);
 		nave.setyCoord(600);
@@ -226,28 +221,30 @@ public class Arkanoid extends Canvas  {
 	}
 
 	private void SegundaFase() {
+		SoundRepository.getInstance().playSound(SoundRepository.MUSICACOMIENZO);
 		int CoordenadaX = 20;
-		int CoordenadaY = 140;
+		int CoordenadaY = 30;
 		for(int i = 0; i <= 9; i++) {
 			Ladrillo ladrillo = new Ladrillo();
-			ladrillo.setColor(Color.orange);
+			ladrillo.setColor(Color.red);
+			ladrillo.setxCoord(CoordenadaX);
+			objetos.add(ladrillo);
+			CoordenadaX += ladrillo.getAncho() + 2;
+			ladrillo.setDureza(1);
+		}
+		CoordenadaX = 20;
+		CoordenadaY = 100;
+		for(int i = 0; i <= 9; i++) {
+			Ladrillo ladrillo = new Ladrillo();
+			ladrillo.setColor(Color.yellow);
 			ladrillo.setxCoord(CoordenadaX);
 			ladrillo.setyCoord(CoordenadaY);
 			objetos.add(ladrillo);
 			CoordenadaX += ladrillo.getAncho() + 2;
+			ladrillo.setDureza(2);
 		}
 		CoordenadaX = 20;
-		CoordenadaY = 180;
-		for(int i = 0; i <= 9; i++) {
-			Ladrillo ladrillo = new Ladrillo();
-			ladrillo.setColor(Color.orange);
-			ladrillo.setxCoord(CoordenadaX);
-			ladrillo.setyCoord(CoordenadaY);
-			objetos.add(ladrillo);
-			CoordenadaX += ladrillo.getAncho() + 2;
-		}
-		CoordenadaX = 20;
-		CoordenadaY = 220;
+		CoordenadaY = 170;
 		for(int i = 0; i <= 9; i++) {
 			Ladrillo ladrillo = new Ladrillo();
 			ladrillo.setColor(Color.pink);
@@ -255,7 +252,9 @@ public class Arkanoid extends Canvas  {
 			ladrillo.setyCoord(CoordenadaY);
 			objetos.add(ladrillo);
 			CoordenadaX += ladrillo.getAncho() + 2;
+			ladrillo.setDureza(1);
 		}
+		
 	}
 	
 	

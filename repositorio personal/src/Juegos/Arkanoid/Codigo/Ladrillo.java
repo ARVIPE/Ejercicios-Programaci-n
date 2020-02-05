@@ -5,6 +5,8 @@ import java.awt.Graphics;
 
 public class Ladrillo extends Objeto{
 
+	protected int dureza;
+	
 	public Ladrillo() {
 		super();
 		this.color = Color.yellow;
@@ -26,9 +28,12 @@ public class Ladrillo extends Objeto{
 		super.collisionWith(objetoCollisioned);
 		//Debo comprobar el tipo del objeto que colisiona con este
 		if(objetoCollisioned instanceof Pelota) {
+			dureza--;
+			if(dureza == 0) {
 			//Si este actor colisiona con una pelota, debo eliminar ladrillo
 			this.setMarkedForRemoval(true);
 			this.createExplosion();	
+			}
 		}	
 	}
 
@@ -39,6 +44,18 @@ public class Ladrillo extends Objeto{
 		explosion.setyCoord(this.yCoord + (this.alto / 2) - explosion.getAlto() / 2);
         Arkanoid.getInstace().addNewActorToNextIteration(explosion);
 	}
+
+
+	public int getDureza() {
+		return dureza;
+	}
+
+
+	public void setDureza(int dureza) {
+		this.dureza = dureza;
+	}
+	
+	
 
 
 	
