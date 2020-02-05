@@ -1,6 +1,6 @@
 package Juegos.Arkanoid.Codigo;
 
-import java.awt.Canvas;					
+import java.awt.Canvas;						
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -12,6 +12,7 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -51,13 +52,15 @@ public class Arkanoid extends Canvas  {
 	
 	// Velocidad de los fotogramas, en concreto este indica que el proceso de redibujado dormir� 10 millis
 	// tras haber repintado la escena
-	public static final int SPEED_FPS=60;
+	public static final int SPEED_FPS=100;
 	
 	// BufferStrategy usado para conseguir la t�cnica de doble b�ffer
 	public BufferStrategy strategy;
 	private long usedTime; // Tiempo usado en cada iteraci�n del bucle principal del juego.
 	public HashMap sprites;
 	public int posX,posY,vX;
+	//Creamos una variable booleana para indicar cuando es fin de fase
+	private boolean esFinDeFase = false;
 	
 	public Arkanoid() {
 		sprites = new HashMap();
@@ -112,15 +115,25 @@ public class Arkanoid extends Canvas  {
 		g.setColor(Color.black);
 		g.fillRect(0,0,getWidth(),getHeight());
 		this.ImagenDeVidas = SpriteRepository.getInstance().getSprite("nave-25x7.png");
+		
+		// En el for que recorre el ArrayList de objetos que intervienen metemos una variable que compruebe si es fin de fase
+		esFinDeFase = true;
 		//BufferedImage nave = loadImage("../res/nave-50x15.png");
 		//g.drawImage(nave, 230, 600, null);
-		for (Objeto ladrillo : objetos) {			
-			ladrillo.paint(g);
+		for (Objeto objeto : objetos) {			
+			objeto.paint(g);
+			if(objeto instanceof Ladrillo){
+				esFinDeFase = false;
+			}
+			System.out.println("cambia a: " + esFinDeFase);
+			if(esFinDeFase == true){
+				System.out.println("campeon");
+			}
+			
 		}
 		//Llamamos al numero de vidas que le hemos asignado en pelota
 		int vidas = Arkanoid.getInstace().getPelota().getContadorVidas();
 		int CoordenadaX = 20;
-		int variable = 4;
 		
 		//Pintamos imagen de vidas 
 			for(int i = 0; i < vidas ;i++) {
@@ -207,6 +220,7 @@ public class Arkanoid extends Canvas  {
 		pelota.setxCoord(400);
 		pelota.setyCoord(300);
 		this.objetos.add(pelota);
+		
 
 		// Mantengo una referencia al Player
 		// Agrego un listener para eventos de teclado y, cuando se produzcan, los derivo al objeto de tipo Player
@@ -215,6 +229,42 @@ public class Arkanoid extends Canvas  {
 		this.addKeyListener(pelota);
 		this.addMouseListener(pelota);	
 	}
+
+	private void SegundaFase() {
+		int CoordenadaX = 20;
+		int CoordenadaY = 140;
+		for(int i = 0; i <= 9; i++) {
+			Ladrillo ladrillo = new Ladrillo();
+			ladrillo.setColor(Color.orange);
+			ladrillo.setxCoord(CoordenadaX);
+			ladrillo.setyCoord(CoordenadaY);
+			objetos.add(ladrillo);
+			CoordenadaX += ladrillo.getAncho() + 2;
+		}
+		CoordenadaX = 20;
+		CoordenadaY = 180;
+		for(int i = 0; i <= 9; i++) {
+			Ladrillo ladrillo = new Ladrillo();
+			ladrillo.setColor(Color.orange);
+			ladrillo.setxCoord(CoordenadaX);
+			ladrillo.setyCoord(CoordenadaY);
+			objetos.add(ladrillo);
+			CoordenadaX += ladrillo.getAncho() + 2;
+		}
+		CoordenadaX = 20;
+		CoordenadaY = 220;
+		for(int i = 0; i <= 9; i++) {
+			Ladrillo ladrillo = new Ladrillo();
+			ladrillo.setColor(Color.pink);
+			ladrillo.setxCoord(CoordenadaX);
+			ladrillo.setyCoord(CoordenadaY);
+			objetos.add(ladrillo);
+			CoordenadaX += ladrillo.getAncho() + 2;
+		}
+	}
+	
+	
+	
 		
 	public void updateWorld() {
 		//llamo al metodo act de todos los objetos agregados a mi lista de actors
@@ -268,6 +318,12 @@ public class Arkanoid extends Canvas  {
 				}
 			}
 			if (yaHaColisionado == true) break;
+		}
+		
+		//Si es fin de fase pintamos la segunda fase
+		if(esFinDeFase == true) {
+			SegundaFase();
+			getPelota().setInicio(false);
 		}
 		
 	}

@@ -33,6 +33,8 @@ public class Pelota extends Objeto implements KeyListener, MouseListener {
 	private BufferedImage imagenDeGameOver;
 	// Creamos una lista para cada una de las vidas de la pelota
 	public List<Pelota> vidapelotas = new ArrayList<Pelota>();
+	Pelota pelota = null;
+	private static Arkanoid instance = null;
 
 	public Pelota() {
 		super();
@@ -43,7 +45,13 @@ public class Pelota extends Objeto implements KeyListener, MouseListener {
 		this.vy = 0;
 
 	}
-
+	//Realizamos nuestro patron singleton
+	public static Arkanoid getInstace() {
+		if(instance == null) {
+			instance = new Arkanoid();
+		}
+		return instance;
+	}
 	@Override
 	public void paint(Graphics g) {
 		g.setColor(getColor());
@@ -72,6 +80,8 @@ public class Pelota extends Objeto implements KeyListener, MouseListener {
 			//Coordenadas en las que la pelota esta junto a la nave
 			this.xCoord = Arkanoid.getInstace().getNave().getxCoord() + 17;
 			this.yCoord = Arkanoid.getInstace().getNave().getyCoord() - 15;
+			contador = 0;
+			contadortiempo = 0;
 		} else {
 			// Le indicamos que si la pelota llega al borde izquierdo o derecho cambie de
 			// sentido
@@ -86,7 +96,7 @@ public class Pelota extends Objeto implements KeyListener, MouseListener {
 			}
 			// Le indicamos que si la pelota llega al borde superior o inferior cambie de
 			// sentido
-			if (this.yCoord < 0) {
+			if (this.yCoord < 0 || this.yCoord > (Arkanoid.getInstace().getHeight())) {
 				t.reflejarVerticalmenteRespectoAPunto(p);
 			}
 			// Aqui cogemos el anterior punto y de forma aleatoria generamos el siguiente
@@ -95,27 +105,34 @@ public class Pelota extends Objeto implements KeyListener, MouseListener {
 			this.xCoord = Math.round(p.x);
 			this.yCoord = Math.round(p.y);
 			
-			if(yCoord >= (Arkanoid.getInstace().getHeight())){
-				SoundRepository.getInstance().playSound(SoundRepository.MUSICAVIDA);
-				inicio = false;
-				//Vamos quitando vidas cada vez que llega al borde inferior
-				contadorVidas--;
-				//Como inicio es falso la pelota aparece donde la nave
-				//pero como tenemos 4 vidas tenemos un limite de 4
-				if(contadorVidas == 0) {
-					this.setMarkedForRemoval(true);
-					//Pintamos el gameover
-					this.imagenDeGameOver = SpriteRepository.getInstance().getSprite("game-over.png");
-				}
-				//Restablecemos cada uno de los contadores de tiempo y de space y raton
-				contadortiempo = 0;
-				contador = 0;
-				//Restablecemos el startTime
-				startTime = System.currentTimeMillis();
-			}
+			//restarVida();
+			
+			
 			
 		}
 
+	}
+	
+	public void restarVida() {
+		if(yCoord >= (Arkanoid.getInstace().getHeight())){
+			SoundRepository.getInstance().playSound(SoundRepository.MUSICAVIDA);
+			inicio = false;
+			//Vamos quitando vidas cada vez que llega al borde inferior
+			contadorVidas--;
+			//Como inicio es falso la pelota aparece donde la nave
+			//pero como tenemos 4 vidas tenemos un limite de 4
+			if(contadorVidas == 0) {
+				this.setMarkedForRemoval(true);
+				//Pintamos el gameover
+				this.imagenDeGameOver = SpriteRepository.getInstance().getSprite("game-over.png");
+			}
+			//Restablecemos cada uno de los contadores de tiempo y de space y raton
+			contadortiempo = 0;
+			contador = 0;
+			//Restablecemos el startTime
+			startTime = System.currentTimeMillis();
+		}
+		
 	}
 
 	public void paintImagenDeGameOver(Graphics g) {
@@ -220,5 +237,36 @@ public class Pelota extends Objeto implements KeyListener, MouseListener {
 		// TODO Auto-generated method stub
 
 	}
+
+	public boolean isInicio() {
+		return inicio;
+	}
+
+	public void setInicio(boolean inicio) {
+		this.inicio = inicio;
+	}
+	public Pelota getPelota() {
+		return pelota;
+	}
+	public void setPelota(Pelota pelota) {
+		this.pelota = pelota;
+	}
+	public int getContador() {
+		return contador;
+	}
+	public void setContador(int contador) {
+		this.contador = contador;
+	}
+	public int getContadortiempo() {
+		return contadortiempo;
+	}
+	public void setContadortiempo(int contadortiempo) {
+		this.contadortiempo = contadortiempo;
+	}
+	
+	
+	
+	
+	
 
 }
