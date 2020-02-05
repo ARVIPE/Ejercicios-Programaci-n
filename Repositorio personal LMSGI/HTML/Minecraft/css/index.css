@@ -7,6 +7,7 @@ h1{
     font-family: "minecraft";
 }
 
+
 .logo {
     background-image: url(file:///C:/Users/arvip/Documents/GitHub/Ejercicios-Programaci-n/Repositorio%20personal%20LMSGI/HTML/Minecraft/images/banner.png);
     width: 474px;
@@ -14,7 +15,7 @@ h1{
 	margin: auto;
 }
 
-#encabezado{
+.encabezado{
     background-image: url(file:///C:/Users/arvip/Documents/GitHub/Ejercicios-Programaci-n/Repositorio%20personal%20LMSGI/HTML/Minecraft/images/banner1.png);
     height: auto;
     padding-top: 20px;
@@ -44,7 +45,8 @@ nav ul {
 	box-shadow: 10px 10px 0 #000;
 	height: 700px;
 	width: 400px;
-	position: fixed;
+	margin-top: 30px;
+
 	
 
 }
@@ -85,8 +87,9 @@ nav ul {
 .texto{
 	background-color: white;
 	width: 1000px;
-	height: 1030px;
+	height: 1000px;
 	margin-left: 450px;
+	margin-top: 26px;
 }
 
 .imagenPresentacion{
@@ -105,6 +108,27 @@ nav ul {
 .letratexto{
 	color: black;
 	font-family:"Minecraft";
+}
+
+.contador{
+	margin-left: 120px;
+}
+
+.cierre{
+    background-image: url(file:///C:/Users/arvip/Documents/GitHub/Ejercicios-Programaci-n/Repositorio%20personal%20LMSGI/HTML/Minecraft/images/banner2.png);
+    height: auto;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+	padding-left: 20px;
+	margin-top: 30px;
+
+}
+
+.imageMod{
+	width: 30%;
+	height: 30%;
+	margin-left: 300px;
 }
 
 
