@@ -159,7 +159,7 @@ public class Pelota extends Objeto implements KeyListener, MouseListener {
 		if (actorCollisioned instanceof Ladrillo) {
 			t.reflejarVerticalmenteRespectoAPunto(p);
 			// Aumentar la velocidad
-			distancia += 0.1;
+			distancia += 0.01;
 			SoundRepository.getInstance().playSound(SoundRepository.EXPLOSION);
 		}
 		if (actorCollisioned instanceof Nave) {

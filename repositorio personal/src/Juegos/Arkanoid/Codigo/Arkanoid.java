@@ -18,6 +18,7 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -61,6 +62,8 @@ public class Arkanoid extends Canvas  {
 	public int posX,posY,vX;
 	//Creamos una variable booleana para indicar cuando es fin de fase
 	private boolean esFinDeFase = false;
+	private int contadorFinDeFase = 0;
+	
 	
 	public Arkanoid() {
 		sprites = new HashMap();
@@ -316,7 +319,13 @@ public class Arkanoid extends Canvas  {
 		
 		//Si es fin de fase pintamos la segunda fase
 		if(esFinDeFase == true) {
+			if(contadorFinDeFase == 0) {
 			SegundaFase();
+			}
+			if(contadorFinDeFase == 1) {
+				JOptionPane.showMessageDialog(null, "Has ganado");
+			}
+			contadorFinDeFase++;
 			getPelota().setStartTime(System.currentTimeMillis());
 			getPelota().reiniciarMilis();
 			getPelota().setInicio(false);
