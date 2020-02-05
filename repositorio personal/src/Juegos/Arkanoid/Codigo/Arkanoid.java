@@ -125,11 +125,6 @@ public class Arkanoid extends Canvas  {
 			if(objeto instanceof Ladrillo){
 				esFinDeFase = false;
 			}
-			System.out.println("cambia a: " + esFinDeFase);
-			if(esFinDeFase == true){
-				System.out.println("campeon");
-			}
-			
 		}
 		//Llamamos al numero de vidas que le hemos asignado en pelota
 		int vidas = Arkanoid.getInstace().getPelota().getContadorVidas();
@@ -153,64 +148,64 @@ public class Arkanoid extends Canvas  {
 		SoundRepository.getInstance().playSound(SoundRepository.MUSICACOMIENZO);
 		int CoordenadaX = 20;
 		int CoordenadaY = 30;
-		for(int i = 0; i <= 9; i++) {
+		for(int i = 0; i <= 1; i++) {
 			Ladrillo ladrillo = new Ladrillo();
 			ladrillo.setColor(Color.red);
 			ladrillo.setxCoord(CoordenadaX);
 			objetos.add(ladrillo);
 			CoordenadaX += ladrillo.getAncho() + 2;
 		}
-		CoordenadaX = 20;
-		CoordenadaY = 65;
-		for(int i = 0; i <= 9; i++) {
-			Ladrillo ladrillo = new Ladrillo();
-			ladrillo.setColor(Color.blue);
-			ladrillo.setxCoord(CoordenadaX);
-			ladrillo.setyCoord(CoordenadaY);
-			objetos.add(ladrillo);
-			CoordenadaX += ladrillo.getAncho() + 2;
-		}
-		CoordenadaX = 20;
-		CoordenadaY = 100;
-		for(int i = 0; i <= 9; i++) {
-			Ladrillo ladrillo = new Ladrillo();
-			ladrillo.setColor(Color.yellow);
-			ladrillo.setxCoord(CoordenadaX);
-			ladrillo.setyCoord(CoordenadaY);
-			objetos.add(ladrillo);
-			CoordenadaX += ladrillo.getAncho() + 2;
-		}
-		CoordenadaX = 20;
-		CoordenadaY = 135;
-		for(int i = 0; i <= 9; i++) {
-			Ladrillo ladrillo = new Ladrillo();
-			ladrillo.setColor(Color.orange);
-			ladrillo.setxCoord(CoordenadaX);
-			ladrillo.setyCoord(CoordenadaY);
-			objetos.add(ladrillo);
-			CoordenadaX += ladrillo.getAncho() + 2;
-		}
-		CoordenadaX = 20;
-		CoordenadaY = 170;
-		for(int i = 0; i <= 9; i++) {
-			Ladrillo ladrillo = new Ladrillo();
-			ladrillo.setColor(Color.pink);
-			ladrillo.setxCoord(CoordenadaX);
-			ladrillo.setyCoord(CoordenadaY);
-			objetos.add(ladrillo);
-			CoordenadaX += ladrillo.getAncho() + 2;
-		}
-		CoordenadaX = 20;
-		CoordenadaY = 205;
-		for(int i = 0; i <= 9; i++) {
-			Ladrillo ladrillo = new Ladrillo();
-			ladrillo.setColor(Color.green);
-			ladrillo.setxCoord(CoordenadaX);
-			ladrillo.setyCoord(CoordenadaY);
-			objetos.add(ladrillo);
-			CoordenadaX += ladrillo.getAncho() + 2;
-		}
-		
+//		CoordenadaX = 20;
+//		CoordenadaY = 65;
+//		for(int i = 0; i <= 9; i++) {
+//			Ladrillo ladrillo = new Ladrillo();
+//			ladrillo.setColor(Color.blue);
+//			ladrillo.setxCoord(CoordenadaX);
+//			ladrillo.setyCoord(CoordenadaY);
+//			objetos.add(ladrillo);
+//			CoordenadaX += ladrillo.getAncho() + 2;
+//		}
+//		CoordenadaX = 20;
+//		CoordenadaY = 100;
+//		for(int i = 0; i <= 9; i++) {
+//			Ladrillo ladrillo = new Ladrillo();
+//			ladrillo.setColor(Color.yellow);
+//			ladrillo.setxCoord(CoordenadaX);
+//			ladrillo.setyCoord(CoordenadaY);
+//			objetos.add(ladrillo);
+//			CoordenadaX += ladrillo.getAncho() + 2;
+//		}
+//		CoordenadaX = 20;
+//		CoordenadaY = 135;
+//		for(int i = 0; i <= 9; i++) {
+//			Ladrillo ladrillo = new Ladrillo();
+//			ladrillo.setColor(Color.orange);
+//			ladrillo.setxCoord(CoordenadaX);
+//			ladrillo.setyCoord(CoordenadaY);
+//			objetos.add(ladrillo);
+//			CoordenadaX += ladrillo.getAncho() + 2;
+//		}
+//		CoordenadaX = 20;
+//		CoordenadaY = 170;
+//		for(int i = 0; i <= 9; i++) {
+//			Ladrillo ladrillo = new Ladrillo();
+//			ladrillo.setColor(Color.pink);
+//			ladrillo.setxCoord(CoordenadaX);
+//			ladrillo.setyCoord(CoordenadaY);
+//			objetos.add(ladrillo);
+//			CoordenadaX += ladrillo.getAncho() + 2;
+//		}
+//		CoordenadaX = 20;
+//		CoordenadaY = 205;
+//		for(int i = 0; i <= 9; i++) {
+//			Ladrillo ladrillo = new Ladrillo();
+//			ladrillo.setColor(Color.green);
+//			ladrillo.setxCoord(CoordenadaX);
+//			ladrillo.setyCoord(CoordenadaY);
+//			objetos.add(ladrillo);
+//			CoordenadaX += ladrillo.getAncho() + 2;
+//		}
+//		
 		nave = new Nave();
 		nave.setxCoord(230);
 		nave.setyCoord(600);
@@ -323,6 +318,8 @@ public class Arkanoid extends Canvas  {
 		//Si es fin de fase pintamos la segunda fase
 		if(esFinDeFase == true) {
 			SegundaFase();
+			getPelota().setStartTime(System.currentTimeMillis());
+			getPelota().reiniciarMilis();
 			getPelota().setInicio(false);
 		}
 		

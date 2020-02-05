@@ -59,11 +59,11 @@ public class Pelota extends Objeto implements KeyListener, MouseListener {
 	}
 
 	public void act() {
+		usedTime = System.currentTimeMillis() - startTime;
 		//Para calcular nuestra variable fictia antes tomamos el startTime que es una unidad de tiempo fija que son las milesimas desde 1970 en ese preciso momento
 		//Luego ejecutamos el systemcurrentmillis para que vaya sumando todo el rato milesimas desde 1970 luego la diferencia de la que va sumando todo el rato
 		//menos la fija de antes tiene que llegarnos a 5000
-		usedTime = System.currentTimeMillis() - startTime;
-		if (usedTime >= 5000 && contadortiempo == 0 && contador == 0 && contadorVidas > 0 ) {
+		if (usedTime >= 5000 && contadortiempo == 0 && contador == 0 && contadorVidas > 0) {
 			//Este contador que utilizo para que la pelota no siga sumando velocidad
 			//en el used time
 			contadortiempo++;
@@ -105,12 +105,18 @@ public class Pelota extends Objeto implements KeyListener, MouseListener {
 			this.xCoord = Math.round(p.x);
 			this.yCoord = Math.round(p.y);
 			
-			//restarVida();
+			restarVida();
 			
 			
 			
 		}
 
+	}
+
+	public void reiniciarMilis(){
+		contador = 0;
+		contadortiempo = 0;
+		
 	}
 	
 	public void restarVida() {
@@ -263,6 +269,13 @@ public class Pelota extends Objeto implements KeyListener, MouseListener {
 	public void setContadortiempo(int contadortiempo) {
 		this.contadortiempo = contadortiempo;
 	}
+	public long getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(long startTime) {
+		this.startTime = startTime;
+	}
+	
 	
 	
 	
