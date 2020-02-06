@@ -108,6 +108,7 @@ nav ul {
 .letratexto{
 	color: black;
 	font-family:"Minecraft";
+	padding: 10px;
 }
 
 .contador{
@@ -126,9 +127,27 @@ nav ul {
 }
 
 .imageMod{
-	width: 30%;
-	height: 30%;
+	width: 25%;
+	height: 25%;
 	margin-left: 300px;
+}
+
+.imageCelda{
+	height: 60%;
+}
+
+
+.imageCeldaPequeña{
+	height: 40%;
+
+}
+
+.palabra{
+	font-weight: bold;
+}
+
+.anchoTitulo{
+	width: 10%;
 }
 
 
