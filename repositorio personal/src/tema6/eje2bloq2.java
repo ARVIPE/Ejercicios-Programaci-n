@@ -23,8 +23,24 @@ public class eje2bloq2 {
 	
 	}
 	
+	public static void ejercicio03() {
+		double y = 0;
+		double contador = 1;
+		double x = 1;
+		do {
+			contador++;
+			if(contador % 2 == 0) {
+				y+= 4/x;
+			}else {
+				y-= 4/x;
+			}
+			x = x + 2;
+		}while(!((Math.abs(Math.PI - y)) < 0.000001));
+		System.out.println(y);
+	}
+	
 	public static void main(String[] args) {
-		ejercicio();
+		ejercicio03();
 	}
 
 }
