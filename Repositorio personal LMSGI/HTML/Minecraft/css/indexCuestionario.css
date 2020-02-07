@@ -1,0 +1,85 @@
+html{
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+   
+   }
+   body{
+    background-color: blue;
+   }
+   .cont1{
+    max-width: 1000px;
+    height: 1000px;
+    background-color: #efefef;
+    padding-bottom: 1rem;
+    margin-left: 450px;
+   }
+   .form-top{
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0 1rem;
+    border-top: solid .4rem red;
+    margin-bottom: 1rem;
+   }
+   .form-top h2{
+   font-weight: bold;
+   color: #cac8c8;
+   font-size: 18px;
+   
+   }
+   h2 span{
+    color: red;
+   }
+   .form-reg{
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   }
+   .btn-form{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+   }
+   .input, .btn-submit, .btn-reset{
+    background-color: #efefef;
+    padding: .5rem;
+    margin: .5rem 0;
+    border:none;
+    border-bottom: solid #cac8c8 .2rem;
+    transition: all .5s;
+   }
+   .input:focus{
+    border-bottom: solid #f39b53 .2rem;
+   }
+   .btn-submit, .btn-reset{
+    width: 40%;
+    border-bottom: none;
+    background-color: rgba(145, 145, 6, 0.678);
+    color: white;
+   }
+   .btn-reset{
+    background-color: #eda135;
+   }
+   .btn-submit:hover{
+    background-color: #d6fa0e;
+   
+   }
+   .btn-reset:hover{
+    background-color: #fa9535;
+   }
+   .pregresp {
+    border: 1px solid #7DA5E0;
+    padding: 10px;
+    margin: 10px;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    }
+    
+    .pregunta {
+    color: #7DA5E0;
+    }
+    
+    .respuestas {
+    color: #000000;
+    }

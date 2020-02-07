@@ -7,6 +7,10 @@ h1{
     font-family: "minecraft";
 }
 
+#iframeid{
+	margin-left: 250px;
+}
+
 
 .logo {
     background-image: url(file:///C:/Users/arvip/Documents/GitHub/Ejercicios-Programaci-n/Repositorio%20personal%20LMSGI/HTML/Minecraft/images/banner.png);
@@ -43,7 +47,7 @@ nav ul {
     border-top-style: solid;
 	border-top-color: rgb(0, 0, 0);
 	box-shadow: 10px 10px 0 #000;
-	height: 700px;
+	height: 900px;
 	width: 400px;
 	margin-top: 30px;
 
@@ -89,6 +93,35 @@ nav ul {
 	width: 1000px;
 	height: 1000px;
 	margin-left: 450px;
+	margin-top: 26px;
+}
+
+.imageCrafteos{
+	width: 50%;
+	margin-left: 200px;
+}
+#textoMundos{
+	background-color: white;
+	width: 1000px;
+	height: 1100px;
+	margin-left: 450px;
+	margin-top: 26px;
+	border-radius: 20px;
+}
+
+#textoEspecial{
+	background-color: white;
+	width: 1000px;
+	height: 500px;
+	margin-left: 450px;
+	margin-top: 26px;
+	border-radius: 20%;
+}
+
+#texto{
+	background-color: blue;
+	width: 1000px;
+	height: 1000px;
 	margin-top: 26px;
 }
 
@@ -148,6 +181,62 @@ nav ul {
 
 .anchoTitulo{
 	width: 10%;
+}
+
+#imageCeldaEnderman{
+	height: 10%;
+}
+
+#imageCeldaAraña{
+	height: 20%;
+}
+
+ul li{
+	color: black;
+	font-family:"Minecraft";
+	padding: 10px;
+	margin-left: 300px;
+
+}
+
+.imagenesMods{
+	width: 25%;
+	height: 20%;
+	top: 500px;
+
+
+}
+
+.imagenPequeña{
+	height: 16.7%;
+}
+
+#letrapequeña{
+	color: grey;
+	font-family:"Minecraft";
+	padding: 10px;
+	margin-left: 80px;
+}
+
+ol li{
+	color: black;
+	font-family:"Minecraft";
+	padding: 10px;
+}
+
+.image-map{
+	width: 800px;
+	margin-top: 100px;
+	margin-left: 100px;
+}
+
+.imagenesMundos{
+	width: 25%;
+	height: 20%;
+	top: 500px;
+	margin-left: 350px;
+
+
 }
 
 
