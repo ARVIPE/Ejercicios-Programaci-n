@@ -11,22 +11,8 @@ h1{
 	margin-left: 250px;
 }
 
-
-.logo {
-    background-image: url(file:///C:/Users/arvip/Documents/GitHub/Ejercicios-Programaci-n/Repositorio%20personal%20LMSGI/HTML/Minecraft/images/banner.png);
-    width: 474px;
-    height: 150px;
-	margin: auto;
-}
-
-.encabezado{
-    background-image: url(file:///C:/Users/arvip/Documents/GitHub/Ejercicios-Programaci-n/Repositorio%20personal%20LMSGI/HTML/Minecraft/images/banner1.png);
-    height: auto;
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-	padding-left: 20px;
-
+#encabezado{
+	width: 1500px;
 }
 
 .icono{
@@ -148,16 +134,7 @@ nav ul {
 	margin-left: 120px;
 }
 
-.cierre{
-    background-image: url(file:///C:/Users/arvip/Documents/GitHub/Ejercicios-Programaci-n/Repositorio%20personal%20LMSGI/HTML/Minecraft/images/banner2.png);
-    height: auto;
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-	padding-left: 20px;
-	margin-top: 30px;
 
-}
 
 .imageMod{
 	width: 25%;
