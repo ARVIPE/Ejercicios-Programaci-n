@@ -51,25 +51,25 @@ public class ejerciciosbloq2 {
 	}
 	
 	public static void ejercicio05() {
-		double y = 0;
-		double x = 0;
-		int contador = 0;
+		float x = 0;
+		
+		float xAnterior = 0;
+		float xSiguiente = 0;
+		
+		int contadorMaximos = 0;
 		
 		do {
-		y = x*(Math.sin(x));
-		
-		x += 0.0001;
-		
-		if(((Math.max(y, (y-0.0001))) == y) && ((Math.max(y, (y+0.0001))) == y)) {
-			contador++;
-			System.out.println("Hay un máximo en el punto x: " + x + " y en el punto " + y);
-		}
-		
-		}while(contador==5); 
-		
-
-		
+			if(x * Math.sin(x)> xAnterior * Math.sin(xAnterior) && (x * Math.sin(x)) > xSiguiente * Math.sin(xSiguiente)) {
+				
+				System.out.println(x + " es un máximo");
+				contadorMaximos++;
+			}
+			x+= 0.01f;
+			xAnterior = x - 0.01f;
+			xSiguiente = x + 0.01f;
+		}while(!(contadorMaximos == 5));
 	}
+	
 	
 	public static void main(String[] args) {
 		ejercicio05();
