@@ -50,11 +50,19 @@ public class ejerciciosbloq3 {
 		for (int i = 0; i < cadenaDeTexto.length; i++) {
 			cadenaDeTexto[i] = str.charAt(i);
 			
-			if(Character.isLowerCase(cadenaDeTexto[i])) { minuscula = true;}
-			if(Character.isUpperCase(cadenaDeTexto[i])) { mayuscula = true;}
-			if(Character.isDigit(cadenaDeTexto[i])) { numero = true;}
+			if(Character.isLowerCase(cadenaDeTexto[i])) { 
+				minuscula = true;
+			}
+			if(Character.isUpperCase(cadenaDeTexto[i])) { 
+				mayuscula = true;
+			}
+			if(Character.isDigit(cadenaDeTexto[i])) {
+				numero = true;
+			}
 			//Tiene que haber un caracter que no sea ni letra ni numero
-			if(!Character.isLetterOrDigit(cadenaDeTexto[i])) { noAlfanumerico = true;}
+			if(!Character.isLetterOrDigit(cadenaDeTexto[i])){
+				noAlfanumerico = true;
+			}
 			
 		}
 		if(minuscula == true && mayuscula == true && numero == true && noAlfanumerico) {
