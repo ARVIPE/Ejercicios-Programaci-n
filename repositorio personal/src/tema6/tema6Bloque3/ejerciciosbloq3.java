@@ -1,4 +1,4 @@
-package tema6;
+package tema6.tema6Bloque3;
 
 import javax.swing.JOptionPane;
 
