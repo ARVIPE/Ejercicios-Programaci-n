@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Principal",
+            "request": "launch",
+            "mainClass": "tema7.ejercicioVentaCoches.Principal",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Arkanoid",
             "request": "launch",
             "mainClass": "Juegos.Arkanoid.Codigo.Arkanoid",
