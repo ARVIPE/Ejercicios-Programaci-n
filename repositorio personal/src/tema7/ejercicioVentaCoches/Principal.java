@@ -12,7 +12,7 @@ public class Principal {
         MenuPrincipal();
     }
 
-    private static void MenuPrincipal() throws SQLException{
+    public static void MenuPrincipal() throws SQLException{
 
         
         Scanner opcion = new Scanner(System.in);
