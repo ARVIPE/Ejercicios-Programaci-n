@@ -112,9 +112,8 @@ public class GestionDeFabricantes{
 		Scanner opcion = new Scanner(System.in);
 		System.out.println("Introduzca ID del fabricante a modificar");
 		int ID = opcion.nextInt();
-		System.out.println("Introduzca el nuevo ID (si desea dejar el mismo ID escriba -1 de lo contrario escriba 0)");
-		int ID1 = 0;
-		ID1 = opcion.nextInt();
+		System.out.println("Introduzca el nuevo ID");
+		int ID1 = opcion.nextInt();
 		System.out.println("Introduzca el nuevo CIF");
 		String CIF = opcion.next();
 		System.out.println("Introduzca el nuevo nombre");
