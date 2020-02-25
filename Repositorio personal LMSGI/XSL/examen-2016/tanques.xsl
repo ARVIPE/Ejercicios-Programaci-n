@@ -2,10 +2,10 @@
 <xsl:stylesheet
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:output method="html" encoding="iso-8859-1" />
-	<xsl:template match="/tanques">
+	<xsl:template match="/juegoTanques">
 		<html>
 			<head>
-				<title>Tanques</title>
+				<title>Juego De Tanques</title>
 			</head>
 			<style type="text/css">
 				body {
@@ -24,12 +24,22 @@
 				}
 			</style>
 			<body>
-				<xsl:apply-templates />
+				<xsl:apply-templates select="jugadasDescritas"/>
 			</body>
 		</html>
 	</xsl:template>
-		
-  
+
+	<xsl:template match="jugadasDescritas">
+		<table>
+			<tr>
+				<td>Jugada</td>
+				<td>Tanque</td>
+				<td>Jugada</td>
+			</tr>
+      <xsl:for-each select="jugada"/>
+		</table>
+	</xsl:template>
+
 
 
 </xsl:stylesheet>

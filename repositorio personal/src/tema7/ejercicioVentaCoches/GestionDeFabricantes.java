@@ -80,8 +80,6 @@ public class GestionDeFabricantes{
 	public static void AltaFabricante(Connection con) throws SQLException {
 		
 		Scanner opcion = new Scanner(System.in);
-		System.out.println("Introduzca un ID");
-		int ID = opcion.nextInt();
 		System.out.println("Introduzca un CIF");
 		String CIF = opcion.next();
 		System.out.println("Introduzca un nombre");
@@ -89,7 +87,7 @@ public class GestionDeFabricantes{
 		
 		Statement s = (Statement) con.createStatement();
 
-		s.executeUpdate("INSERT INTO tutorialjavacoches.fabricante (id, cif, nombre) " + "VALUES  (" + ID + ", '" + CIF + "', '" + NOMBRE + "')");
+		s.executeUpdate("INSERT INTO tutorialjavacoches.fabricante (cif, nombre) " + "VALUES  (4" + CIF + "', '" + NOMBRE + "')");
 		
 		s.close();
 	}
@@ -109,7 +107,7 @@ public class GestionDeFabricantes{
 	
 	public static void ModificarFabricante(Connection con) throws SQLException {
 		
-		Scanner opcion = new Scanner(System.in);
+		Scanner  opcion = new Scanner(System.in);
 		System.out.println("Introduzca ID del fabricante a modificar");
 		int ID = opcion.nextInt();
 		System.out.println("Introduzca el nuevo ID");
