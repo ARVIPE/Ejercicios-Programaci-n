@@ -1,4 +1,4 @@
-package tema7.ejercicioVentaCochesConStatements.modelo.controladores;
+package tema7.gestionVenta;
 
 public class ImposibleConectarException extends Exception {
 

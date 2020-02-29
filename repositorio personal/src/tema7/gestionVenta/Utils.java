@@ -1,3 +1,5 @@
+package tema7.gestionVenta;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
@@ -40,7 +42,7 @@ public class Utils {
 	 * @return
 	 */
 	public static int obtenerNumUsuario () {
-		int num = obtenerNumUsuario("Introduzca nï¿½mero");
+		int num = obtenerNumUsuario("Introduzca número");
 		return num;
 	}
 	/**
@@ -67,7 +69,7 @@ public class Utils {
 		do {
 			num = Integer.parseInt(JOptionPane.showInputDialog(mensajeError + mensaje));
 			if (num < minimo || num > maximo) {
-				mensajeError = "El nï¿½mero debe estar entre " + minimo + " y " + maximo + " - ";
+				mensajeError = "El número debe estar entre " + minimo + " y " + maximo + " - ";
 			}
 		} while (num < minimo || num > maximo);
 		return num;

@@ -1,4 +1,4 @@
-package tema7.ejercicioVentaCochesConStatements;
+package tema7.gestionVenta.gestionVentaCoches;
 
 import java.util.Scanner;
 

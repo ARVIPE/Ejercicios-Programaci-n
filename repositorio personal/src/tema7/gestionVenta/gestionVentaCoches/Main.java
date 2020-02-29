@@ -1,4 +1,4 @@
-package tema7.ejercicioVentaCochesConStatements;
+package tema7.gestionVenta.gestionVentaCoches;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -20,7 +20,7 @@ public class Main {
 		do {
 			System.out.println("\n\t\t\tGESTIÓN DE VENTAS DE COCHES");
 			
-			System.out.println("\n\t1.- Gestión de concesionarios.");
+			System.out.println("\n\t1.- Gestión de fabricantes.");
 			System.out.println("\t2.- Gestión de ___________.");
 			System.out.println("\t3.- Gestión de ___________.");
 			System.out.println("\t4.- Gestión de ___________.");

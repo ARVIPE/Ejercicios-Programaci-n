@@ -1,8 +1,8 @@
-package tema7.ejercicioVentaCochesConStatements.modelo.controladores;
-
-import java.sql.SQLException;		
+package tema7.gestionVenta;
 
 import java.sql.Connection;
+import java.sql.SQLException;
+
 
 import oracle.ucp.jdbc.PoolDataSource;
 import oracle.ucp.jdbc.PoolDataSourceFactory;
@@ -16,6 +16,7 @@ public class ConnectionManagerV2 {
 	private static String host = JDBCPropiedades.getProperty("JDBC_HOST");
 	private static String schema = JDBCPropiedades.getProperty("JDBC_SCHEMA_NAME");
 	private static String properties = JDBCPropiedades.getProperty("JDBC_PROPERTIES");
+
  
 	private static PoolDataSource  pds = 
 			PoolDataSourceFactory.getPoolDataSource();

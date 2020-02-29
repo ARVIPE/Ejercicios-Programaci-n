@@ -1,11 +1,10 @@
-package tema7.ejercicioVentaCochesConStatements;
+package tema7.gestionVenta.gestionVentaCoches;
 
-import java.util.List;
+import java.util.List;		
 
-import tema7.ejercicioVentaCochesConStatements.modelo.Concesionario;
-import tema7.ejercicioVentaCochesConStatements.modelo.controladores.ControladorConcesionario;
-import tema7.ejercicioVentaCochesConStatements.modelo.controladores.ErrorBBDDException;
-
+import tema7.gestionVenta.gestionVentaCoches.modelo.Fabricante;
+import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ControladorFabricante;
+import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ErrorBBDDException;
 
 
 public class GestionFabricante {
@@ -20,10 +19,10 @@ public class GestionFabricante {
 			try {
 				System.out.println("\n\t\t\tGESTIÓN DE FABRICANTES");
 				
-				System.out.println("\n\t1.- Listado de concesionarios.");
-				System.out.println("\t2.- Alta de concesionario.");
-				System.out.println("\t3.- Modificación de concesionario.");
-				System.out.println("\t4.- Baja de concesionario.");
+				System.out.println("\n\t1.- Listado de fabricantes.");
+				System.out.println("\t2.- Alta de fabricante.");
+				System.out.println("\t3.- Modificación de fabricante.");
+				System.out.println("\t4.- Baja de fabricante.");
 				System.out.println("\t0.- Salir");
 				System.out.println("\n\tElija una opción: ");
 				
@@ -58,10 +57,10 @@ public class GestionFabricante {
 	 * @throws ErrorBBDDException
 	 */
 	private static void listado(boolean pausafinal) throws ErrorBBDDException {
-		List<Concesionario> concesionarios = ControladorConcesionario.getAll();
+		List<Fabricante> fabricantes = ControladorFabricante.getAll();
 		System.out.println("\n\tListado de fabricantes: \n");
-		for (Concesionario con : concesionarios) {
-			System.out.println("\t" + con.toString());
+		for (Fabricante fab : fabricantes) {
+			System.out.println("\t" + fab.toString());
 		}
 		if (pausafinal) {
 			System.out.println("\n\tPulse 'Intro' tecla para continuar");
@@ -77,13 +76,13 @@ public class GestionFabricante {
 	private static void alta () throws ErrorBBDDException {
 		System.out.println("\n\tAlta de fabricante\n");
 		
-		Concesionario con = new Concesionario();
+		Fabricante fab = new Fabricante();
 		System.out.print("\nIntroduzca 'CIF' del fabricante: ");
-		con.setCif(Utils.getStringConsola());
+		fab.setCif(Utils.getStringConsola());
 		System.out.print("\nIntroduzca 'Nombre' del fabricante: ");
-		con.setNombre(Utils.getStringConsola());
+		fab.setNombre(Utils.getStringConsola());
 		
-		ControladorConcesionario.almacenar(con);  
+		ControladorFabricante.almacenar(fab);  
 
 		System.out.println("\n\tInsertado correctamente!. Pulse 'Intro' para continuar");
 		Utils.pausa();
@@ -98,19 +97,19 @@ public class GestionFabricante {
 	private static void modificacion () throws ErrorBBDDException {
 		System.out.println("\n\tModificación de fabricante\n");
 		
-		Concesionario con = seleccionPorUsuario();
+		Fabricante fab = seleccionPorUsuario();
 		
-		if (con != null) {		
+		if (fab != null) {		
 			System.out.print("\nIntroduzca 'CIF' del fabricante ('Intro' para no modificar): ");
 			String str = Utils.getStringConsola();
 			if (!str.equals("")) 
-				con.setCif(str);
+				fab.setCif(str);
 			System.out.print("\nIntroduzca 'Nombre' del fabricante  ('Intro' para no modificar): ");
 			str = Utils.getStringConsola();
 			if (!str.equals("")) 
-				con.setNombre(str);
+				fab.setNombre(str);
 		
-			ControladorConcesionario.almacenar(con);  
+			ControladorFabricante.almacenar(fab);  
 
 			System.out.println("\n\tModificado correctamente!. Pulse 'Intro' para continuar");
 			Utils.pausa();
@@ -126,13 +125,13 @@ public class GestionFabricante {
 	private static void baja () throws ErrorBBDDException {
 		System.out.println("\n\tModificación de fabricante\n");
 		
-		Concesionario con = seleccionPorUsuario();
+		Fabricante fab = seleccionPorUsuario();
 		
-		if (con != null) {		
+		if (fab != null) {		
 			System.out.print("\n¿Realmente desea eliminar el registro? (S/N): ");
 			String str = Utils.getStringConsola();
 			if (str.equalsIgnoreCase("S")) { 		 
-				ControladorConcesionario.eliminar(con);  
+				ControladorFabricante.eliminar(fab);  
 				System.out.println("\n\tEliminado correctamente!. Pulse 'Intro' para continuar");
 				Utils.pausa();
 			}
@@ -146,8 +145,8 @@ public class GestionFabricante {
 	 * @return
 	 * @throws ErrorBBDDException
 	 */
-	private static Concesionario seleccionPorUsuario () throws ErrorBBDDException {
-		Concesionario con = null;
+	private static Fabricante seleccionPorUsuario () throws ErrorBBDDException {
+		Fabricante fab = null;
 		int id = -2;
 		do {
 			System.out.println("\n\tIntroduzca ID del fabricante ('-1' - ver listado, '0' - salir): ");
@@ -157,13 +156,13 @@ public class GestionFabricante {
 			}
 			else {
 				if (id != 0) {
-					con = ControladorConcesionario.get(id);
-					if (con == null) {
+					fab = ControladorFabricante.get(id);
+					if (fab == null) {
 						System.out.println("\tError. Ha especificado un ID inválido.");
 					}
 				}
 			}
-		} while (con == null && id != 0);
-		return con;
+		} while (fab == null && id != 0);
+		return fab;
 	}
 }

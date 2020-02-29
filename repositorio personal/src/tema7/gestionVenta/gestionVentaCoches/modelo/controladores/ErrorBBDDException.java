@@ -1,4 +1,4 @@
-package tema7.ejercicioVentaCochesConStatements.modelo.controladores;
+package tema7.gestionVenta.gestionVentaCoches.modelo.controladores;
 
 public class ErrorBBDDException extends Exception {
 

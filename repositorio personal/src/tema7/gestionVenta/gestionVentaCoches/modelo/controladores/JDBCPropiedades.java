@@ -1,4 +1,4 @@
-package tema7.ejercicioVentaCochesConStatements.modelo.controladores;
+package tema7.gestionVenta.gestionVentaCoches.modelo.controladores;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,7 +21,7 @@ public class JDBCPropiedades {
 			propiedades = new Properties();
 		    
 			try {
-				propiedades.load(propiedades.getClass().getResourceAsStream("/tutorialJava/capitulo7_Acceso_A_Datos/gestionVentaCoches/modelo/controladores/jdbc.properties"));
+				propiedades.load(propiedades.getClass().getResourceAsStream("/tema7/gestionVenta/gestionVentaCoches/modelo/controladores/jdbc.properties"));
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
