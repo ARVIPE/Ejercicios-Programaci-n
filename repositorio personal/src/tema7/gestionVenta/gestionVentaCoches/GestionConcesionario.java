@@ -113,7 +113,7 @@ public class GestionConcesionario {
 			str = Utils.getStringConsola();
 			if(!str.equals(""))
 				co.setLocalidad(str);
-			ControladorConcesionario.almacenar(co);  
+			ControladorConcesionario.almacenarModificado(co);  
 
 			System.out.println("\n\tModificado correctamente!. Pulse 'Intro' para continuar");
 			Utils.pausa();

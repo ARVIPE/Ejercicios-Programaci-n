@@ -137,7 +137,7 @@ public class ControladorConcesionario extends ControladorBBDD {
 	 * @param actors
 	 * @throws ErrorBBDDException
 	 */
-	private static void almacenarModificado (Concesionario con) throws ErrorBBDDException {
+	public static void almacenarModificado (Concesionario con) throws ErrorBBDDException {
 
 		Connection conn = null;
 
