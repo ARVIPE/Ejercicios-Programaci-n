@@ -21,10 +21,10 @@ public class Main {
 			System.out.println("\n\t\t\tGESTIÓN DE VENTAS DE COCHES");
 			
 			System.out.println("\n\t1.- Gestión de fabricantes.");
-			System.out.println("\t2.- Gestión de ___________.");
-			System.out.println("\t3.- Gestión de ___________.");
-			System.out.println("\t4.- Gestión de ___________.");
-			System.out.println("\t5.- Gestión de ___________.");
+			System.out.println("\t2.- Gestión de concesionarios.");
+			System.out.println("\t3.- Gestión de clientes.");
+			System.out.println("\t4.- Gestión de coches.");
+			System.out.println("\t5.- Gestión de ventas.");
 			System.out.println("\t0.- Salir");
 			System.out.println("\n\tElija una opción: ");
 			
@@ -36,6 +36,10 @@ public class Main {
 				break;
 			case 1:
 				GestionFabricante.menuGestion();
+			case 2:
+				GestionConcesionario.menuGestion();
+			case 4:
+				GestionCoche.menuGestion();
 			}
 		} while (opcionElegida != 0);
 	}
