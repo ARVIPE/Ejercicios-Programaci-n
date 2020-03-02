@@ -2,6 +2,7 @@ package tema7.gestionVenta.gestionVentaCoches;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Scanner;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
@@ -85,6 +86,7 @@ public class GestionClientes {
 	private static void alta () throws ErrorBBDDException, ParseException, java.text.ParseException {
 		System.out.println("\n\tAlta de clientes\n");
 		
+		Scanner sc = new Scanner(System.in);
 		
 		Cliente clien = new Cliente();
 		System.out.print("\nIntroduzca 'nombre' del cliente: ");
@@ -99,6 +101,8 @@ public class GestionClientes {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		clien.setFechaNac(sdf.parse(Utils.getStringConsola()));
 		
+		System.out.println("\nIntroduzca 'actividad' del cliente: ");
+		clien.setActivo(sc.equals(sc));
 		ControladorCliente.almacenar(clien);  
 
 		System.out.println("\n\tInsertado correctamente!. Pulse 'Intro' para continuar");
@@ -112,28 +116,28 @@ public class GestionClientes {
 	 * @throws ErrorBBDDException
 	 */
 	private static void modificacion () throws ErrorBBDDException {
-		System.out.println("\n\tModificación de fabricante\n");
+		System.out.println("\n\tModificación de \n");
 		
-		Coche co = seleccionPorUsuario();
+		Cliente clien = seleccionPorUsuario();
 		
-		if (co != null) {		
-			System.out.print("\nIntroduzca 'id' del fabricante ('Intro' para no modificar): ");
+		if (clien != null) {		
+			System.out.print("\nIntroduzca nombre del cliente ('Intro' para no modificar): ");
 			String str = Utils.getStringConsola();
 			if (!str.equals("")) 
-				co.setIdfabricante(0);
-			System.out.print("\nIntroduzca 'bastidor' del coche  ('Intro' para no modificar): ");
+				clien.setNombre(str);
+			System.out.print("\nIntroduzca 'apellidos' del cliente  ('Intro' para no modificar): ");
 			if (!str.equals("")) 
-				co.setBastidor(str);
-			System.out.println("\nIntroduzca 'modelo' del coche ('Intro' para no modificar: ");
+				clien.setApellidos(str);
+			System.out.println("\nIntroduzca 'localidad' del cliente ('Intro' para no modificar: ");
 			str = Utils.getStringConsola();
 			if(!str.equals(""))
-				co.setModelo(str);
-			System.out.println("\nIntroduzca 'color' del coche ('Intro para no modificar: ");
+				clien.setLocalidad(str);
+			System.out.println("\nIntroduzca 'dniNie' del cliente ('Intro para no modificar: ");
 			str = Utils.getStringConsola();
 			if(!str.equals(""))
-				co.setColor(str);
+				clien.setDniNie(str);
 			
-			ControladorCoche.almacenarModificado(co);  
+			ControladorCliente.almacenarModificado(clien);  
 
 			System.out.println("\n\tModificado correctamente!. Pulse 'Intro' para continuar");
 			Utils.pausa();
@@ -149,13 +153,13 @@ public class GestionClientes {
 	private static void baja () throws ErrorBBDDException {
 		System.out.println("\n\tModificación de coche\n");
 		
-		Coche co = seleccionPorUsuario();
+		Cliente clien = seleccionPorUsuario();
 		
-		if (co != null) {		
+		if (clien != null) {		
 			System.out.print("\n¿Realmente desea eliminar el registro? (S/N): ");
 			String str = Utils.getStringConsola();
 			if (str.equalsIgnoreCase("S")) { 		 
-				ControladorCoche.eliminar(co);  
+				ControladorCliente.eliminar(clien);  
 				System.out.println("\n\tEliminado correctamente!. Pulse 'Intro' para continuar");
 				Utils.pausa();
 			}
@@ -169,8 +173,8 @@ public class GestionClientes {
 	 * @return
 	 * @throws ErrorBBDDException
 	 */
-	private static Coche seleccionPorUsuario () throws ErrorBBDDException {
-		Coche co = null;
+	private static Cliente seleccionPorUsuario () throws ErrorBBDDException {
+		Cliente clien = null;
 		int id = -2;
 		do {
 			System.out.println("\n\tIntroduzca ID del fabricante ('-1' - ver listado, '0' - salir): ");
@@ -180,13 +184,13 @@ public class GestionClientes {
 			}
 			else {
 				if (id != 0) {
-					co = ControladorCoche.get(id);
-					if (co == null) {
+					clien = ControladorCliente.get(id);
+					if (clien == null) {
 						System.out.println("\tError. Ha especificado un ID inválido.");
 					}
 				}
 			}
-		} while (co == null && id != 0);
-		return co;
+		} while (clien == null && id != 0);
+		return clien;
 	}
 }

@@ -114,16 +114,16 @@ public class ControladorCliente extends ControladorBBDD {
 			
 			PreparedStatement ps = (PreparedStatement) conn.
 					prepareStatement(
-					"INSERT INTO cliente (nombre, apellidos, localidad, dniNie, fechaNac) VALUES  (?, ?, ?, ?, ?, ?, ?)");
+					"INSERT INTO cliente (id, nombre, apellidos, localidad, dniNie, fechaNac, activo) VALUES  (?, ?, ?, ?, ?, ?, ?)");
 			int registrosInsertados;
 			
 			ps.setInt(1, nextIdEnTabla(conn, "cliente")); 
-			ps.setInt(2, clien.getId());
-			ps.setString(3, clien.getNombre());
-			ps.setString(4, clien.getApellidos());
-			ps.setString(5, clien.getLocalidad());
-			ps.setString(6, clien.getDniNie());
-			ps.setString(7, clien.getFechaNac());
+			ps.setString(2, clien.getNombre());
+			ps.setString(3, clien.getApellidos());
+			ps.setString(4, clien.getLocalidad());
+			ps.setString(5, clien.getDniNie());
+			ps.setString(6, clien.getFechaNac());
+			ps.setBoolean(7, true);
 
 			registrosInsertados = ps.executeUpdate();
 			if (registrosInsertados != 1) {
@@ -143,7 +143,7 @@ public class ControladorCliente extends ControladorBBDD {
 	 * @param actors
 	 * @throws ErrorBBDDException
 	 */
-	private static void almacenarModificado (Cliente clien) throws ErrorBBDDException {
+	public static void almacenarModificado (Cliente clien) throws ErrorBBDDException {
 
 		Connection conn = null;
 
@@ -152,7 +152,7 @@ public class ControladorCliente extends ControladorBBDD {
 			
 			PreparedStatement ps = (PreparedStatement) conn.
 					prepareStatement(
-					"update venta set nombre = ?, apellidos = ?, localidad = ?, dniNie = ?, fechaNac = ? where id = ?");
+					"update cliente set nombre = ?, apellidos = ?, localidad = ?, dniNie = ?, fechaNac = ?, activo = ? where id = ?");
 			int registrosInsertados;
 			
 			ps.setString(1, clien.getNombre());
@@ -160,6 +160,8 @@ public class ControladorCliente extends ControladorBBDD {
 			ps.setString(3,	clien.getLocalidad());
 			ps.setString(4, clien.getDniNie());
 			ps.setString(5, clien.getFechaNac());
+			ps.setBoolean(6, clien.isActivo());
+			ps.setInt(7, clien.getId());
 
 			registrosInsertados = ps.executeUpdate();
 			if (registrosInsertados != 1) {

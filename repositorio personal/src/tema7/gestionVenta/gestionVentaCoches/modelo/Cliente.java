@@ -10,15 +10,16 @@ public class Cliente {
 	int id;
 	String nombre, apellidos, localidad, dniNie;
 	String fechaNac;
+	Boolean activo;
 	
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 	
 	public Cliente() {
 		
 	}
 	
-	public Cliente(int id, String nombre, String apellidos, String localidad, String dniNie, String fechaNac) {
+	public Cliente(int id, String nombre, String apellidos, String localidad, String dniNie, String fechaNac, Boolean activo) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -26,6 +27,7 @@ public class Cliente {
 		this.localidad = localidad;
 		this.dniNie = dniNie;
 		this.fechaNac = fechaNac;
+		this.activo = activo;
 	}
 
 	public int getId() {
@@ -76,11 +78,20 @@ public class Cliente {
 		this.fechaNac = sdf.format(date);
 	}
 
+	public Boolean isActivo() {
+		return activo;
+	}
+
+	public void setActivo(Boolean activo) {
+		this.activo = activo;
+	}
+
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", localidad=" + localidad
-				+ ", dniNie=" + dniNie + ", fechaNac=" + fechaNac + "]";
+				+ ", dniNie=" + dniNie + ", fechaNac=" + fechaNac + ", activo=" + activo;
 	}
+
 	
 	
 	
