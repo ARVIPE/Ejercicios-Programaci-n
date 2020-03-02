@@ -1,6 +1,6 @@
 package tema7.gestionVenta.gestionVentaCoches.modelo;
 
-import java.util.Date;	
+import java.util.Date;		
 import java.text.SimpleDateFormat;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
@@ -78,7 +78,7 @@ public class Cliente {
 		this.fechaNac = sdf.format(date);
 	}
 
-	public Boolean isActivo() {
+	public Boolean getActivo() {
 		return activo;
 	}
 

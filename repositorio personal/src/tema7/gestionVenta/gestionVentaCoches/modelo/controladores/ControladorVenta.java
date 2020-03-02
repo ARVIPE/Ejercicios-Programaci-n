@@ -113,10 +113,10 @@ public class ControladorVenta extends ControladorBBDD {
 			
 			PreparedStatement ps = (PreparedStatement) conn.
 					prepareStatement(
-					"INSERT INTO venta (idCliente, idConcesionario, idCoche, fecha, precioVenta) VALUES  (?, ?, ?, ?, ?)");
+					"INSERT INTO venta (id, idCliente, idConcesionario, idCoche, fecha, precioVenta) VALUES  (?, ?, ?, ?, ?, ?)");
 			int registrosInsertados;
 			
-			ps.setInt(1, nextIdEnTabla(conn, "fabricante")); 
+			ps.setInt(1, nextIdEnTabla(conn, "venta")); 
 			ps.setInt(2, ven.getIdCliente());
 			ps.setInt(3, ven.getIdConcesionario());
 			ps.setInt(4, ven.getIdCoche());

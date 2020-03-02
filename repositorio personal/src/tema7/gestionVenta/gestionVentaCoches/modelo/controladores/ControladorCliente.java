@@ -1,12 +1,14 @@
 package tema7.gestionVenta.gestionVentaCoches.modelo.controladores;
 
-import java.sql.Connection;			
+import java.sql.Connection;				
 import java.sql.PreparedStatement;  
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import java.text.ParseException;
 
 import tema7.gestionVenta.gestionVentaCoches.modelo.Cliente;
 
@@ -52,8 +54,9 @@ public class ControladorCliente extends ControladorBBDD {
 	 * 
 	 * @param actors
 	 * @throws ErrorBBDDException
+	 * @throws ParseException 
 	 */
-	public static void almacenar (Cliente cliente) throws ErrorBBDDException {
+	public static void almacenar (Cliente cliente) throws ErrorBBDDException, ParseException {
 		if (get(cliente.getId()) != null) { // Solo modificar
 			almacenarModificado(cliente);
 		}
@@ -137,44 +140,36 @@ public class ControladorCliente extends ControladorBBDD {
 
 	}
 	
-	
+
 	/**
 	 * 
-	 * @param actors
+	 * @param cli
 	 * @throws ErrorBBDDException
 	 */
-	public static void almacenarModificado (Cliente clien) throws ErrorBBDDException {
-
+	private static void almacenarModificado(Cliente cli)  throws ErrorBBDDException, ParseException{
 		Connection conn = null;
-
 		try {
 			conn = ConnectionManagerV2.getConexion();
+			PreparedStatement ps = conn.prepareStatement("update cliente set nombre=?, apellidos=?, localidad=?, dni=?, fechaNac=?, activo=? where id=?");
+			int registrosModificados;
 			
-			PreparedStatement ps = (PreparedStatement) conn.
-					prepareStatement(
-					"update cliente set nombre = ?, apellidos = ?, localidad = ?, dniNie = ?, fechaNac = ?, activo = ? where id = ?");
-			int registrosInsertados;
+			ps.setString(1, cli.getNombre());
+			ps.setString(2, cli.getApellidos());
+			ps.setString(3, cli.getLocalidad());
+			ps.setString(4, cli.getDniNie());
+			ps.setString(5, cli.getFechaNac());
+			ps.setBoolean(6, cli.getActivo());
+			ps.setInt(7, cli.getId());
 			
-			ps.setString(1, clien.getNombre());
-			ps.setString(2, clien.getApellidos());
-			ps.setString(3,	clien.getLocalidad());
-			ps.setString(4, clien.getDniNie());
-			ps.setString(5, clien.getFechaNac());
-			ps.setBoolean(6, clien.isActivo());
-			ps.setInt(7, clien.getId());
-
-			registrosInsertados = ps.executeUpdate();
-			if (registrosInsertados != 1) {
-				throw new ErrorBBDDException ("No ha sido posible la modificación del registro");
+			registrosModificados = ps.executeUpdate();
+			if(registrosModificados != 1) {
+				throw new ErrorBBDDException("No se ha podido hacer la modificación");
 			}
-			ps.close();
 			
-		} catch (SQLException | ImposibleConectarException e) {			
-			throw new ErrorBBDDException(e);
+		} catch (SQLException | ImposibleConectarException e) {
+			throw new ErrorBBDDException();
 		}
-
 	}
-	
 	
 	
 	/**

@@ -1,6 +1,6 @@
 package tema7.gestionVenta.gestionVentaCoches.modelo;
 
-import java.sql.Date;
+import java.util.Date;	
 import java.text.SimpleDateFormat;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;

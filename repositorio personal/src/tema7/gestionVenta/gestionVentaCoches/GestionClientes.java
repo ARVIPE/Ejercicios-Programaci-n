@@ -114,32 +114,42 @@ public class GestionClientes {
 	/**
 	 * 
 	 * @throws ErrorBBDDException
+	 * @throws ParseException
+	 * @throws java.text.ParseException 
 	 */
-	private static void modificacion () throws ErrorBBDDException {
-		System.out.println("\n\tModificación de \n");
+	private static void modificacion() throws ErrorBBDDException, ParseException, java.text.ParseException{
+		System.out.println("\n\tModificacion de cliente");
 		
-		Cliente clien = seleccionPorUsuario();
-		
-		if (clien != null) {		
-			System.out.print("\nIntroduzca nombre del cliente ('Intro' para no modificar): ");
+		Cliente cli = seleccionPorUsuario();
+		if( cli != null) {
+			System.out.println("\n\tIntroduzca 'nombre' del cliente ('Intro' para modificar): ");
 			String str = Utils.getStringConsola();
-			if (!str.equals("")) 
-				clien.setNombre(str);
-			System.out.print("\nIntroduzca 'apellidos' del cliente  ('Intro' para no modificar): ");
-			if (!str.equals("")) 
-				clien.setApellidos(str);
-			System.out.println("\nIntroduzca 'localidad' del cliente ('Intro' para no modificar: ");
-			str = Utils.getStringConsola();
-			if(!str.equals(""))
-				clien.setLocalidad(str);
-			System.out.println("\nIntroduzca 'dniNie' del cliente ('Intro para no modificar: ");
-			str = Utils.getStringConsola();
-			if(!str.equals(""))
-				clien.setDniNie(str);
+			if(!str.equals("")) cli.setNombre(str);
 			
-			ControladorCliente.almacenarModificado(clien);  
-
-			System.out.println("\n\tModificado correctamente!. Pulse 'Intro' para continuar");
+			System.out.println("\n\tIntroduzca 'apellidos' del cliente ('Intro' para modificar): ");
+			str = Utils.getStringConsola();
+			if(!str.equals("")) cli.setApellidos(str);
+			
+			System.out.println("\n\tIntroduzca 'localidad' del cliente ('Intro' para modificar): ");
+			str = Utils.getStringConsola();
+			if(!str.equals("")) cli.setLocalidad(str);
+			
+			System.out.println("\n\tIntroduzca 'dni' del cliente ('Intro' para modificar): ");
+			str = Utils.getStringConsola();
+			if(!str.equals("")) cli.setDniNie(str);
+			
+			System.out.println("\n\tIntroduzca 'fechaNac' del cliente ('Intro' para modificar): ");
+			str = Utils.getStringConsola();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			if(!str.equals("")) cli.setFechaNac(sdf.parse(Utils.getStringConsola()));
+			
+			System.out.println("\n\tIntroduzca 'activo' del cliente ('Intro' para modificar): ");
+			str = Utils.getStringConsola();
+			if(!str.contentEquals("")) cli.setActivo(Utils.getStringConsola().equals(Utils.getStringConsola()));
+			
+			ControladorCliente.almacenar(cli);
+			
+			System.out.println("\n\tModificado correctamente. Pulse 'Intro' para continuar ");
 			Utils.pausa();
 		}
 	}
