@@ -104,7 +104,7 @@ public class ControladorCoche extends ControladorBBDD {
 	 * @param actors
 	 * @throws ErrorBBDDException
 	 */
-	private static void almacenarNuevo (Coche co) throws ErrorBBDDException {
+	public static void almacenarNuevo (Coche co) throws ErrorBBDDException {
 
 		Connection conn = null;
 
@@ -140,7 +140,7 @@ public class ControladorCoche extends ControladorBBDD {
 	 * @param actors
 	 * @throws ErrorBBDDException
 	 */
-	private static void almacenarModificado (Coche co) throws ErrorBBDDException {
+	public static void almacenarModificado (Coche co) throws ErrorBBDDException {
 
 		Connection conn = null;
 
@@ -157,6 +157,7 @@ public class ControladorCoche extends ControladorBBDD {
 			ps.setString(2, co.getBastidor());
 			ps.setString(3, co.getModelo());
 			ps.setString(4, co.getColor());
+			ps.setInt(5, co.getId());
 
 			registrosInsertados = ps.executeUpdate();
 			if (registrosInsertados != 1) {

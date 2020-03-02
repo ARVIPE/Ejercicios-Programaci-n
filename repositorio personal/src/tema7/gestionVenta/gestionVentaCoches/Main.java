@@ -34,12 +34,14 @@ public class Main {
 			case 0:
 				System.out.println("\n!Qué tenga un feliz día!");
 				break;
-			case 1:
+			case 1: 
 				GestionFabricante.menuGestion();
 			case 2:
 				GestionConcesionario.menuGestion();
 			case 4:
 				GestionCoche.menuGestion();
+			case 5:
+				GestionVenta.menuGestion();
 			}
 		} while (opcionElegida != 0);
 	}

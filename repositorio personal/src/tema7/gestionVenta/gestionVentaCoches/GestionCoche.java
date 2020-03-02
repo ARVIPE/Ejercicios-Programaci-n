@@ -76,6 +76,7 @@ public class GestionCoche {
 	private static void alta () throws ErrorBBDDException {
 		System.out.println("\n\tAlta de coche\n");
 		
+		
 		Coche co = new Coche();
 		System.out.print("\nIntroduzca 'id' del fabricante: ");
 		co.setIdfabricante(Utils.getIntConsola(0));
@@ -120,7 +121,8 @@ public class GestionCoche {
 			str = Utils.getStringConsola();
 			if(!str.equals(""))
 				co.setColor(str);
-			ControladorCoche.almacenar(co);  
+			
+			ControladorCoche.almacenarModificado(co);  
 
 			System.out.println("\n\tModificado correctamente!. Pulse 'Intro' para continuar");
 			Utils.pausa();
