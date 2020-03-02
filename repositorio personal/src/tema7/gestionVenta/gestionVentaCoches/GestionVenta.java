@@ -18,10 +18,10 @@ public class GestionVenta {
 			try {
 				System.out.println("\n\t\t\tGESTIÓN DE COCHES");
 				
-				System.out.println("\n\t1.- Listado de coches.");
-				System.out.println("\t2.- Alta de coches.");
-				System.out.println("\t3.- Modificación de coche.");
-				System.out.println("\t4.- Baja de coche.");
+				System.out.println("\n\t1.- Listado de ventas.");
+				System.out.println("\t2.- Alta de ventas.");
+				System.out.println("\t3.- Modificación de ventas.");
+				System.out.println("\t4.- Baja de ventas.");
 				System.out.println("\t0.- Salir");
 				System.out.println("\n\tElija una opción: ");
 				

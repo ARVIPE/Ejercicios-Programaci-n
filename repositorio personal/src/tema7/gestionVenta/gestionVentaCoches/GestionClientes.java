@@ -1,29 +1,35 @@
 package tema7.gestionVenta.gestionVentaCoches;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Scanner;
 
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
+
+import tema7.gestionVenta.gestionVentaCoches.modelo.Cliente;
 import tema7.gestionVenta.gestionVentaCoches.modelo.Coche;
+import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ControladorCliente;
 import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ControladorCoche;
 import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ErrorBBDDException;
 
 
-public class GestionCoche {
+public class GestionClientes {
 
 	/**
+	 * @throws java.text.ParseException 
+	 * @throws ParseException 
 	 * 
 	 */
-	public static void menuGestion() {
+	public static void menuGestion() throws ParseException, java.text.ParseException {
 
 		int opcionElegida = -1;
 		do {
 			try {
 				System.out.println("\n\t\t\tGESTIÓN DE COCHES");
 				
-				System.out.println("\n\t1.- Listado de coches.");
-				System.out.println("\t2.- Alta de coches.");
-				System.out.println("\t3.- Modificación de coche.");
-				System.out.println("\t4.- Baja de coche.");
+				System.out.println("\n\t1.- Listado de clientes.");
+				System.out.println("\t2.- Alta de clientes.");
+				System.out.println("\t3.- Modificación de clientes.");
+				System.out.println("\t4.- Baja de clientes.");
 				System.out.println("\t0.- Salir");
 				System.out.println("\n\tElija una opción: ");
 				
@@ -58,10 +64,10 @@ public class GestionCoche {
 	 * @throws ErrorBBDDException
 	 */
 	private static void listado(boolean pausafinal) throws ErrorBBDDException {
-		List<Coche> coches = ControladorCoche.getAll();
-		System.out.println("\n\tListado de coches: \n");
-		for (Coche co : coches) {
-			System.out.println("\t" + co.toString());
+		List<Cliente> clientes = ControladorCliente.getAll();
+		System.out.println("\n\tListado de clientes: \n");
+		for (Cliente clien : clientes) {
+			System.out.println("\t" + clien.toString());
 		}
 		if (pausafinal) {
 			System.out.println("\n\tPulse 'Intro' tecla para continuar");
@@ -73,30 +79,27 @@ public class GestionCoche {
 	/**
 	 * 
 	 * @throws ErrorBBDDException
+	 * @throws java.text.ParseException 
+	 * @throws ParseException 
 	 */
-	private static void alta () throws ErrorBBDDException {
-		System.out.println("\n\tAlta de coche\n");
-		
-		Scanner sc = new Scanner(System.in);
-		
-		Coche co = new Coche();
-		
-		System.out.println("\nPulsa -1 para ver la lista de fabricantes");
-		String str = sc.next();
-		if(str.equalsIgnoreCase("-1")) {
-			GestionFabricante.listado(true);
-		}
-		System.out.print("\nIntroduzca 'id' del fabricante: ");
-		co.setIdfabricante(Utils.getIntConsola(0));
-		System.out.print("\nIntroduzca 'bastidor' del coche: ");
-		co.setBastidor(Utils.getStringConsola());
-		System.out.println("\nIntroduzca 'modelo' del coche: ");
-		co.setModelo(Utils.getStringConsola());
-		System.out.println("\nIntroduzca 'color' del coche: ");
-		co.setColor(Utils.getStringConsola());
+	private static void alta () throws ErrorBBDDException, ParseException, java.text.ParseException {
+		System.out.println("\n\tAlta de clientes\n");
 		
 		
-		ControladorCoche.almacenar(co);  
+		Cliente clien = new Cliente();
+		System.out.print("\nIntroduzca 'nombre' del cliente: ");
+		clien.setNombre(Utils.getStringConsola());
+		System.out.println("\nIntroduzca 'apellidos' del cliente: ");
+		clien.setApellidos(Utils.getStringConsola());
+		System.out.println("\nIntroduzca 'localidad' del cliente: ");
+		clien.setLocalidad(Utils.getStringConsola());
+		System.out.println("\nIntroduzca 'dniNie' del cliente ");
+		clien.setDniNie(Utils.getStringConsola());
+		System.out.println("\nIntroduzca 'fechaNac' del cliente ");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		clien.setFechaNac(sdf.parse(Utils.getStringConsola()));
+		
+		ControladorCliente.almacenar(clien);  
 
 		System.out.println("\n\tInsertado correctamente!. Pulse 'Intro' para continuar");
 		Utils.pausa();
@@ -116,9 +119,8 @@ public class GestionCoche {
 		if (co != null) {		
 			System.out.print("\nIntroduzca 'id' del fabricante ('Intro' para no modificar): ");
 			String str = Utils.getStringConsola();
-			int idFabricante = Integer.parseInt(str);
 			if (!str.equals("")) 
-				co.setIdfabricante(idFabricante);
+				co.setIdfabricante(0);
 			System.out.print("\nIntroduzca 'bastidor' del coche  ('Intro' para no modificar): ");
 			if (!str.equals("")) 
 				co.setBastidor(str);

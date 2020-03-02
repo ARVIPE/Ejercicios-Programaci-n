@@ -1,6 +1,9 @@
 package tema7.gestionVenta.gestionVentaCoches.modelo;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 public class Venta {
 
@@ -8,15 +11,15 @@ public class Venta {
 	int idCliente;
 	int idConcesionario;
 	int idCoche;
-	Date fecha;
+	String fecha;
 	float precioVenta;
 	
-	
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
 	public Venta() {
 	}
 
-	public Venta(int id, int idCliente, int idConcesionario, int idCoche, Date fecha, float precioVenta) {
+	public Venta(int id, int idCliente, int idConcesionario, int idCoche, String fecha, float precioVenta) {
 		super();
 		this.id = id;
 		this.idCliente = idCliente;
@@ -58,12 +61,12 @@ public class Venta {
 		this.idCoche = idCoche;
 	}
 
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
+	public void setFecha(Date date) throws ParseException {
+		this.fecha = sdf.format(date);
 	}
 
 	public float getPrecioVenta() {

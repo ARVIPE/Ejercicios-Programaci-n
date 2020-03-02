@@ -1,14 +1,24 @@
 package tema7.gestionVenta.gestionVentaCoches.modelo;
 
-import java.sql.Date;
+import java.util.Date;	
+import java.text.SimpleDateFormat;
+
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 public class Cliente {
 
 	int id;
 	String nombre, apellidos, localidad, dniNie;
-	Date fechaNac;
+	String fechaNac;
 	
-	public Cliente(int id, String nombre, String apellidos, String localidad, String dniNie, Date fechaNac) {
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
+	
+	public Cliente() {
+		
+	}
+	
+	public Cliente(int id, String nombre, String apellidos, String localidad, String dniNie, String fechaNac) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -58,12 +68,12 @@ public class Cliente {
 		this.dniNie = dniNie;
 	}
 
-	public Date getFechaNac() {
+	public String getFechaNac() {
 		return fechaNac;
 	}
 
-	public void setFechaNac(Date fechaNac) {
-		this.fechaNac = fechaNac;
+	public void setFechaNac(Date date) throws ParseException {
+		this.fechaNac = sdf.format(date);
 	}
 
 	@Override

@@ -56,7 +56,7 @@ public class GestionFabricante {
 	 * 
 	 * @throws ErrorBBDDException
 	 */
-	private static void listado(boolean pausafinal) throws ErrorBBDDException {
+	static void listado(boolean pausafinal) throws ErrorBBDDException {
 		List<Fabricante> fabricantes = ControladorFabricante.getAll();
 		System.out.println("\n\tListado de fabricantes: \n");
 		for (Fabricante fab : fabricantes) {

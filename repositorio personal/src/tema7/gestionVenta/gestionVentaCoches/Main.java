@@ -4,17 +4,21 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
+
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException, java.text.ParseException {
 		menuPrincipal();
 	}
 
 	
 	/**
+	 * @throws java.text.ParseException 
+	 * @throws ParseException 
 	 * 
 	 */
-	private static void menuPrincipal() {
+	private static void menuPrincipal() throws ParseException, java.text.ParseException {
 
 		int opcionElegida;
 		do {
@@ -38,6 +42,8 @@ public class Main {
 				GestionFabricante.menuGestion();
 			case 2:
 				GestionConcesionario.menuGestion();
+			case 3:
+				GestionClientes.menuGestion();
 			case 4:
 				GestionCoche.menuGestion();
 			case 5:
