@@ -1,6 +1,7 @@
 package tema7.gestionVenta.gestionVentaCoches;
 
 
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -18,9 +19,10 @@ public class GestionVenta {
 	/**
 	 * @throws java.text.ParseException 
 	 * @throws ParseException 
+	 * @throws SQLException 
 	 * 
 	 */
-	public static void menuGestion() throws ParseException, java.text.ParseException {
+	public static void menuGestion() throws ParseException, java.text.ParseException, SQLException {
 
 		int opcionElegida = -1;
 		do {

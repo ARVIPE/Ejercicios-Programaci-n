@@ -1,5 +1,6 @@
 package tema7.gestionVenta.gestionVentaCoches;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
@@ -14,9 +15,10 @@ public class GestionConcesionario {
 	/**
 	 * @throws java.text.ParseException 
 	 * @throws ParseException 
+	 * @throws SQLException 
 	 * 
 	 */
-	public static void menuGestion() throws ParseException, java.text.ParseException {
+	public static void menuGestion() throws ParseException, java.text.ParseException, SQLException {
 
 		int opcionElegida = -1;
 		do {

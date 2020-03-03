@@ -9,7 +9,9 @@ import java.util.Scanner;
 
 
 import tema7.gestionVenta.gestionVentaCoches.modelo.Cliente;
+import tema7.gestionVenta.gestionVentaCoches.modelo.Coche;
 import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ControladorCliente;
+import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ControladorCoche;
 import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ErrorBBDDException;
 
 
@@ -183,20 +185,30 @@ public class GestionClientes {
 		}
 		
 		/**
-		 * @throws ParseException 
 		 * 
+		 * @return
+		 * @throws ErrorBBDDException
+		 * @throws ParseException 
 		 */
-
-		private static Cliente seleccionPorUsuario() throws ErrorBBDDException, SQLException, ParseException {
-
-			System.out.println("\n\tIntroduce un ID del cliente");
-			Scanner sc = new Scanner(System.in);
-			Cliente cli = null;
-			int id = sc.nextInt();
-			cli = ControladorCliente.obtenerId(id);
-			return cli;
-
+		private static Cliente seleccionPorUsuario () throws ErrorBBDDException, ParseException {
+			Cliente clien = null;
+			int id = -2;
+			do {
+				System.out.println("\n\tIntroduzca ID del cliente ('-1' - ver listado, '0' - salir): ");
+				id = Utils.getIntConsola(-1);
+				if (id == -1) {
+					listado(false);
+				}
+				else {
+					if (id != 0) {
+						clien = ControladorCliente.obtenerId(id);
+						if (clien == null) {
+							System.out.println("\tError. Ha especificado un ID inválido.");
+						}
+					}
+				}
+			} while (clien == null && id != 0);
+			return clien;
 		}
-
 
 }

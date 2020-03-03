@@ -127,6 +127,7 @@ public class GestionCoche {
 			if (!str.equals("")) 
 				co.setIdfabricante(idFabricante);
 			System.out.print("\nIntroduzca 'bastidor' del coche  ('Intro' para no modificar): ");
+			str = Utils.getStringConsola();
 			if (!str.equals("")) 
 				co.setBastidor(str);
 			System.out.println("\nIntroduzca 'modelo' del coche ('Intro' para no modificar: ");
