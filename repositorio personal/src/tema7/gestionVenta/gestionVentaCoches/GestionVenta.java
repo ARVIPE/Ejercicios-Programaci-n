@@ -142,7 +142,9 @@ public class GestionVenta {
 			if(!str.equals("")) ven.setFecha(sdf.parse(Utils.getStringConsola()));
 			
 			System.out.println("\n\tIntroduzca 'precio' de venta ('Intro' para modificar): ");
-			str = Utils.getStringConsola();
+			float precio = Float.parseFloat(str);
+			if (!str.equals("")) 
+				ven.setPrecioVenta(precio);
 			
 
 			
@@ -152,10 +154,6 @@ public class GestionVenta {
 			Utils.pausa();
 		}
 	}
-
-	
-	
-	
 
 
 
