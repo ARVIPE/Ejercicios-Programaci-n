@@ -1,7 +1,10 @@
 package tema7.gestionVenta.gestionVentaCoches;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
+
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import tema7.gestionVenta.gestionVentaCoches.modelo.Coche;
 import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ControladorCoche;
@@ -11,9 +14,12 @@ import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ErrorBBDDExcep
 public class GestionCoche {
 
 	/**
+	 * @throws java.text.ParseException 
+	 * @throws ParseException 
+	 * @throws SQLException 
 	 * 
 	 */
-	public static void menuGestion() {
+	public static void menuGestion() throws ParseException, java.text.ParseException, SQLException {
 
 		int opcionElegida = -1;
 		do {
@@ -31,6 +37,7 @@ public class GestionCoche {
 				
 				switch (opcionElegida) {
 				case 0:
+					Main.menuPrincipal();
 					break;
 				case 1:
 					listado(true);

@@ -1,26 +1,26 @@
 package tema7.gestionVenta.gestionVentaCoches.modelo;
 
-import java.util.Date;		
+import java.util.Date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 public class Cliente {
 
 	int id;
-	String nombre, apellidos, localidad, dniNie;
+	String nombre;
+	String apellidos;
+	String localidad;
+	String dniNie;
 	String fechaNac;
-	Boolean activo;
+	boolean activo;
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
 	
 	public Cliente() {
 		
 	}
 	
-	public Cliente(int id, String nombre, String apellidos, String localidad, String dniNie, String fechaNac, Boolean activo) {
-		super();
+	public Cliente(int id, String nombre, String apellidos, String localidad, String dniNie, String fechaNac, boolean activo) {
 		this.id = id;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -28,6 +28,7 @@ public class Cliente {
 		this.dniNie = dniNie;
 		this.fechaNac = fechaNac;
 		this.activo = activo;
+		
 	}
 
 	public int getId() {
@@ -74,26 +75,23 @@ public class Cliente {
 		return fechaNac;
 	}
 
-	public void setFechaNac(Date date) throws ParseException {
+	public void setFechaNac(Date date) throws ParseException{
 		this.fechaNac = sdf.format(date);
 	}
 
-	public Boolean getActivo() {
+	public boolean isActivo() {
 		return activo;
 	}
 
-	public void setActivo(Boolean activo) {
+	public void setActivo(boolean activo) {
 		this.activo = activo;
 	}
 
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", localidad=" + localidad
-				+ ", dniNie=" + dniNie + ", fechaNac=" + fechaNac + ", activo=" + activo;
+				+ ", dniNie=" + dniNie + ", fechaNac=" + fechaNac + ", activo=" + activo + "]";
 	}
-
-	
-	
 	
 	
 }

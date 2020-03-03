@@ -2,13 +2,16 @@ package tema7.gestionVenta.gestionVentaCoches;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
+import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ErrorBBDDException;
+
 public class Main {
 
-	public static void main(String[] args) throws ParseException, java.text.ParseException {
+	public static void main(String[] args) throws ParseException, java.text.ParseException, SQLException, ErrorBBDDException {
 		menuPrincipal();
 	}
 
@@ -16,9 +19,11 @@ public class Main {
 	/**
 	 * @throws java.text.ParseException 
 	 * @throws ParseException 
+	 * @throws ErrorBBDDException 
+	 * @throws SQLException 
 	 * 
 	 */
-	private static void menuPrincipal() throws ParseException, java.text.ParseException {
+	static void menuPrincipal() throws ParseException, java.text.ParseException, SQLException, ErrorBBDDException {
 
 		int opcionElegida;
 		do {
@@ -37,7 +42,7 @@ public class Main {
 			switch (opcionElegida) {
 			case 0:
 				System.out.println("\n!Qué tenga un feliz día!");
-				break;
+				System.exit(0);
 			case 1: 
 				GestionFabricante.menuGestion();
 			case 2:

@@ -25,7 +25,7 @@ public class GestionVenta {
 		int opcionElegida = -1;
 		do {
 			try {
-				System.out.println("\n\t\t\tGESTIÓN DE COCHES");
+				System.out.println("\n\t\t\tGESTIÓN DE VENTAS");
 				
 				System.out.println("\n\t1.- Listado de ventas.");
 				System.out.println("\t2.- Alta de ventas.");
@@ -38,6 +38,7 @@ public class GestionVenta {
 				
 				switch (opcionElegida) {
 				case 0:
+					Main.menuPrincipal();
 					break;
 				case 1:
 					listado(true);

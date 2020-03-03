@@ -1,206 +1,202 @@
 package tema7.gestionVenta.gestionVentaCoches;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Scanner;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import tema7.gestionVenta.gestionVentaCoches.modelo.Cliente;
-import tema7.gestionVenta.gestionVentaCoches.modelo.Coche;
 import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ControladorCliente;
-import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ControladorCoche;
 import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ErrorBBDDException;
 
 
 public class GestionClientes {
+	
+	// Iniciaremos el objeto de conexión a null para poder usarlo cuando queramos
+		static Connection conn = null;
 
-	/**
-	 * @throws java.text.ParseException 
-	 * @throws ParseException 
-	 * 
-	 */
-	public static void menuGestion() throws ParseException, java.text.ParseException {
+		public static void menuGestion() throws SQLException, ErrorBBDDException, ParseException {
 
-		int opcionElegida = -1;
-		do {
-			try {
-				System.out.println("\n\t\t\tGESTIÓN DE COCHES");
-				
+			Scanner sc = new Scanner(System.in);
+			int option = 0;
+
+			do {
+
+				System.out.println("\n\t\t\tGESTIÓN DE CLIENTES");
+
 				System.out.println("\n\t1.- Listado de clientes.");
-				System.out.println("\t2.- Alta de clientes.");
-				System.out.println("\t3.- Modificación de clientes.");
-				System.out.println("\t4.- Baja de clientes.");
+				System.out.println("\t2.- Añadir cliente.");
+				System.out.println("\t3.- Modificar cliente.");
+				System.out.println("\t4.- Borrar cliente.");
 				System.out.println("\t0.- Salir");
 				System.out.println("\n\tElija una opción: ");
-				
-				opcionElegida = Utils.getIntConsola(0, 4);
-				
-				switch (opcionElegida) {
+
+				option = sc.nextInt();
+
+				switch (option) {
 				case 0:
+					Main.menuPrincipal();
 					break;
 				case 1:
 					listado(true);
 					break;
-				case 2: 
-					alta();
+				case 2:
+					darDeAlta();
 					break;
-				case 3: 
-					modificacion();
+				case 3:
+					modificar();
 					break;
-				case 4: 
+				case 4:
 					baja();
 					break;
 				}
-			} catch (ErrorBBDDException e) {
-				System.out.println("\n\t\t\tError de acceso a datos: " + e.getMessage() + "\n");
-				e.printStackTrace();
+
+			} while (option != 0);
+		}
+		
+		/**
+		 * @throws ParseException 
+		 * 
+		 */
+		
+		public static void listado(boolean pausafinal) throws ErrorBBDDException, ParseException {
+			List<Cliente> cli = ControladorCliente.getAll();
+			System.out.println("\n\tListado de clientes: \n");
+			for (Cliente cliente : cli) {
+				System.out.println("\t" + cliente.toString());
 			}
-		} while (opcionElegida != 0);
-	}
 
-	
-	/**
-	 * 
-	 * @throws ErrorBBDDException
-	 */
-	private static void listado(boolean pausafinal) throws ErrorBBDDException {
-		List<Cliente> clientes = ControladorCliente.getAll();
-		System.out.println("\n\tListado de clientes: \n");
-		for (Cliente clien : clientes) {
-			System.out.println("\t" + clien.toString());
 		}
-		if (pausafinal) {
-			System.out.println("\n\tPulse 'Intro' tecla para continuar");
-			Utils.pausa();
-		}
-	}
-	
-	
-	/**
-	 * 
-	 * @throws ErrorBBDDException
-	 * @throws java.text.ParseException 
-	 * @throws ParseException 
-	 */
-	private static void alta () throws ErrorBBDDException, ParseException, java.text.ParseException {
-		System.out.println("\n\tAlta de clientes\n");
 		
-		Scanner sc = new Scanner(System.in);
+		/**
+		 * @throws ParseException 
+		 * 
+		 */
 		
-		Cliente clien = new Cliente();
-		System.out.print("\nIntroduzca 'nombre' del cliente: ");
-		clien.setNombre(Utils.getStringConsola());
-		System.out.println("\nIntroduzca 'apellidos' del cliente: ");
-		clien.setApellidos(Utils.getStringConsola());
-		System.out.println("\nIntroduzca 'localidad' del cliente: ");
-		clien.setLocalidad(Utils.getStringConsola());
-		System.out.println("\nIntroduzca 'dniNie' del cliente ");
-		clien.setDniNie(Utils.getStringConsola());
-		System.out.println("\nIntroduzca 'fechaNac' del cliente ");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		clien.setFechaNac(sdf.parse(Utils.getStringConsola()));
-		
-		System.out.println("\nIntroduzca 'actividad' del cliente: ");
-		clien.setActivo(sc.equals(sc));
-		ControladorCliente.almacenar(clien);  
+		private static void darDeAlta() throws ErrorBBDDException, SQLException, ParseException {
+			System.out.println("\n\tAlta de cliente\n");
 
-		System.out.println("\n\tInsertado correctamente!. Pulse 'Intro' para continuar");
-		Utils.pausa();
-	}
+			Connection conn = null;
 
+			Scanner sc = new Scanner(System.in);
 
+			Cliente cli = new Cliente();
 
-	/**
-	 * 
-	 * @throws ErrorBBDDException
-	 * @throws ParseException
-	 * @throws java.text.ParseException 
-	 */
-	private static void modificacion() throws ErrorBBDDException, ParseException, java.text.ParseException{
-		System.out.println("\n\tModificacion de cliente");
-		
-		Cliente cli = seleccionPorUsuario();
-		if( cli != null) {
-			System.out.println("\n\tIntroduzca 'nombre' del cliente ('Intro' para modificar): ");
-			String str = Utils.getStringConsola();
-			if(!str.equals("")) cli.setNombre(str);
-			
-			System.out.println("\n\tIntroduzca 'apellidos' del cliente ('Intro' para modificar): ");
-			str = Utils.getStringConsola();
-			if(!str.equals("")) cli.setApellidos(str);
-			
-			System.out.println("\n\tIntroduzca 'localidad' del cliente ('Intro' para modificar): ");
-			str = Utils.getStringConsola();
-			if(!str.equals("")) cli.setLocalidad(str);
-			
-			System.out.println("\n\tIntroduzca 'dni' del cliente ('Intro' para modificar): ");
-			str = Utils.getStringConsola();
-			if(!str.equals("")) cli.setDniNie(str);
-			
-			System.out.println("\n\tIntroduzca 'fechaNac' del cliente ('Intro' para modificar): ");
-			str = Utils.getStringConsola();
+			System.out.print("\nIntroduzca 'Nombre' del cliente: ");
+			cli.setNombre(sc.next());
+			System.out.print("\nIntroduzca 'Apellidos' del cliente: ");
+			cli.setApellidos(sc.next());
+			System.out.print("\nIntroduzca 'Localidad' del cliente: ");
+			cli.setLocalidad(sc.next());
+			System.out.print("\nIntroduzca 'Dni' del cliente: ");
+			cli.setDniNie(sc.next());
+			System.out.print("\nIntroduzca 'Fecha de Nacimiento' del cliente: ");
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			if(!str.equals("")) cli.setFechaNac(sdf.parse(Utils.getStringConsola()));
+			cli.setFechaNac(sdf.parse(sc.next()));
 			
-			System.out.println("\n\tIntroduzca 'activo' del cliente ('Intro' para modificar): ");
-			str = Utils.getStringConsola();
-			if(!str.contentEquals("")) cli.setActivo(Utils.getStringConsola().equals(Utils.getStringConsola()));
-			
-			ControladorCliente.almacenar(cli);
-			
-			System.out.println("\n\tModificado correctamente. Pulse 'Intro' para continuar ");
-			Utils.pausa();
-		}
-	}
 
-	
-	
-	/**
-	 * 
-	 * @throws ErrorBBDDException
-	 */
-	private static void baja () throws ErrorBBDDException {
-		System.out.println("\n\tModificación de coche\n");
-		
-		Cliente clien = seleccionPorUsuario();
-		
-		if (clien != null) {		
-			System.out.print("\n¿Realmente desea eliminar el registro? (S/N): ");
-			String str = Utils.getStringConsola();
-			if (str.equalsIgnoreCase("S")) { 		 
-				ControladorCliente.eliminar(clien);  
-				System.out.println("\n\tEliminado correctamente!. Pulse 'Intro' para continuar");
-				Utils.pausa();
-			}
-		}
-	}
+			System.out.println("\nIntroduzca 'Actividad' del cliente: ");
+			cli.setActivo(sc.equals(sc));
+			ControladorCliente.almacenarNuevo(cli);
 
-	
-	
-	/**
-	 * 
-	 * @return
-	 * @throws ErrorBBDDException
-	 */
-	private static Cliente seleccionPorUsuario () throws ErrorBBDDException {
-		Cliente clien = null;
-		int id = -2;
-		do {
-			System.out.println("\n\tIntroduzca ID del fabricante ('-1' - ver listado, '0' - salir): ");
-			id = Utils.getIntConsola(-1);
-			if (id == -1) {
-				listado(false);
+			System.out.println("\n\tInsertado correctamente!");
+
+		}
+		
+		/**
+		 * @throws ParseException 
+		 * 
+		 */
+		
+		public static void modificar() throws ErrorBBDDException, SQLException, ParseException {
+			System.out.println("\n\tModificación del coche: ");
+			
+			Cliente cli = seleccionPorUsuario();
+			
+			if(cli != null) {
+				
+				System.out.println("\n\tIntroduce un 'Nombre' nuevo para el cliente: ");
+				Scanner sc = new Scanner(System.in);
+				String nombre;
+				nombre = sc.next();
+				if(!nombre.equals("")) 
+					cli.setNombre(nombre);
+				
+				
+				System.out.println("\n\tIntroduce un 'Apellido' nuevo para el cliente: ");
+				sc = new Scanner(System.in);
+				String apellido;
+				apellido = sc.next();
+				if(!apellido.equals("")) 
+					cli.setApellidos(apellido);
+				
+				System.out.println("\n\tIntroduce un 'Localidad' nuevo para el cliente: ");
+				String localidad;
+				localidad = sc.next();
+				if(!localidad.equals("")) 
+					cli.setLocalidad(localidad);
+				
+				System.out.println("\n\tIntroduce un 'Dni' nuevo para el cliente: ");
+				String dni;
+				dni = sc.next();
+				if(!dni.equals("")) 
+					cli.setDniNie(dni);
+				
+				System.out.println("\n\tIntroduce una 'Fecha' nueva para el cliente: ");
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				String fecha;
+				fecha = sc.next();
+				if(!fecha.equals("")) {
+					cli.setFechaNac(sdf.parse(fecha));
+				}
+					
+				ControladorCliente.almacenarModificacion(cli);
+				System.out.println("\n\tHas modificado el coche correctamente");
 			}
-			else {
-				if (id != 0) {
-					clien = ControladorCliente.get(id);
-					if (clien == null) {
-						System.out.println("\tError. Ha especificado un ID inválido.");
-					}
+			
+		}
+		
+		/**
+		 * 
+		 * @throws ErrorBBDDException
+		 * @throws SQLException
+		 * @throws ParseException
+		 */
+		
+		private static void baja() throws ErrorBBDDException, SQLException, ParseException {
+			System.out.println("\n\tEliminación del cliente\n");
+			Scanner sc = new Scanner(System.in);
+			Cliente cli = seleccionPorUsuario();
+
+			if (cli != null) {
+				System.out.print("\n¿Realmente desea eliminar el registro? (S/N): ");
+				String str = sc.next();
+				if (str.equalsIgnoreCase("S")) {
+					ControladorCliente.eliminarCliente(cli);
+					System.out.println("\n\tEliminado correctamente!");
+
 				}
 			}
-		} while (clien == null && id != 0);
-		return clien;
-	}
+		}
+		
+		/**
+		 * @throws ParseException 
+		 * 
+		 */
+
+		private static Cliente seleccionPorUsuario() throws ErrorBBDDException, SQLException, ParseException {
+
+			System.out.println("\n\tIntroduce un ID del cliente");
+			Scanner sc = new Scanner(System.in);
+			Cliente cli = null;
+			int id = sc.nextInt();
+			cli = ControladorCliente.obtenerId(id);
+			return cli;
+
+		}
+
+
 }

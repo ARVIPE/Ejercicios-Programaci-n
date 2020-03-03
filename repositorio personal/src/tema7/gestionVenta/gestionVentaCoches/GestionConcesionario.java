@@ -1,6 +1,9 @@
 package tema7.gestionVenta.gestionVentaCoches;
 
 import java.util.List;
+
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
+
 import tema7.gestionVenta.gestionVentaCoches.modelo.Concesionario;
 import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ControladorConcesionario;
 import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ErrorBBDDException;
@@ -9,14 +12,16 @@ import tema7.gestionVenta.gestionVentaCoches.modelo.controladores.ErrorBBDDExcep
 public class GestionConcesionario {
 
 	/**
+	 * @throws java.text.ParseException 
+	 * @throws ParseException 
 	 * 
 	 */
-	public static void menuGestion() {
+	public static void menuGestion() throws ParseException, java.text.ParseException {
 
 		int opcionElegida = -1;
 		do {
 			try {
-				System.out.println("\n\t\t\tGESTIÓN DE FABRICANTES");
+				System.out.println("\n\t\t\tGESTIÓN DE CONCESIONARIOS");
 				
 				System.out.println("\n\t1.- Listado de concesionarios.");
 				System.out.println("\t2.- Alta de concesionario.");
@@ -29,6 +34,7 @@ public class GestionConcesionario {
 				
 				switch (opcionElegida) {
 				case 0:
+					Main.menuPrincipal();
 					break;
 				case 1:
 					listado(true);
