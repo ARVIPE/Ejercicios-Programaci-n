@@ -97,7 +97,8 @@ public class GestionVenta {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		ven.setFecha(sdf.parse(Utils.getStringConsola()));
 		System.out.println("\nIntroduzca 'precio' de venta");
-		ven.setPrecioVenta(Utils.getIntConsola(0));
+		String str = Utils.getStringConsola();
+		ven.setPrecioVenta(Float.parseFloat(str));
 		
 		
 		
@@ -137,14 +138,15 @@ public class GestionVenta {
 				ven.setIdCoche(idCoche);
 			
 			System.out.println("\n\tIntroduzca 'fecha' de venta ('Intro' para modificar): ");
-			str = Utils.getStringConsola();
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			if(!str.equals("")) ven.setFecha(sdf.parse(Utils.getStringConsola()));
+			str = Utils.getStringConsola();
+			
+			if(!str.equals("")) ven.setFecha(sdf.parse(str));
 			
 			System.out.println("\n\tIntroduzca 'precio' de venta ('Intro' para modificar): ");
-			float precio = Float.parseFloat(str);
+			str = Utils.getStringConsola();
 			if (!str.equals("")) 
-				ven.setPrecioVenta(precio);
+				ven.setPrecioVenta(Float.parseFloat(str));
 			
 
 			
