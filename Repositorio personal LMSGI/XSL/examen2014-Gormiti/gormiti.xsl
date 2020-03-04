@@ -7,20 +7,13 @@
 			<head>
 				<title>Gormiti</title>
 				<style type="text/css">
-				body {
-				margin: 50px;
-				padding: 0px;
-				background: #2372DE;
-				font-family: 'Open Sans', sans-serif;
-				font-size: 11pt;
-				color: #FFFFFF;
-				text-align:center;
-				}
-
-				.tituloTabla {
-				font-weight: bold;
-				text-align: center;
-				}
+				thead td {
+          background: #5077cc;
+          color: #FFFFFF;
+        }
+        table img {
+          width: 50px;
+        }
 				</style>
       </head>
       <body>
@@ -31,13 +24,49 @@
           </thead>
           <tbody>
             <xsl:for-each select="gormiti">
-							
+              <xsl:choose>
+                <xsl:when test="position() mod 2 = 1">
+									<xsl:call-template name="pintaFila">
+											<xsl:with-param name="color">#c7d4f0</xsl:with-param>
+                    <xsl:with-param name="numeroJugador">
+                      <xsl:value-of select="@tribu"/>
+                    </xsl:with-param>
+                  </xsl:call-template>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:call-template name="pintaFila">
+                    <xsl:with-param name="color">#ffffff</xsl:with-param>
+                    
+                    
+                  </xsl:call-template>
+                </xsl:otherwise>
+              </xsl:choose>
             </xsl:for-each>
           </tbody>
         </table>
       </body>
 		</html>
 	</xsl:template>
+
+  <xsl:template name="pintaFila">
+    <xsl:param name="color"/>
+    <xsl:param name="volcan"/>
+
+    <tr style="background: {$color}">
+      <td>
+        <xsl:value-of select="position()"/>
+      </td>
+      <td>
+        <xsl:value-of select="@tribu"/>
+      </td>
+      <td>
+        <img src="{/gormitis/gormiti[@tribu=$volcan]}"/>
+      </td>
+      <td>
+        <xsl:value-of select="@desc"/>
+      </td>
+    </tr>
+  </xsl:template>
 
 
 </xsl:stylesheet>
