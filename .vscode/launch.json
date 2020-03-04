@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "tema7.gestionVenta.gestionVentaCoches.Main",
+            "projectName": "repositorio personal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Principal",
             "request": "launch",
             "mainClass": "tema7.ejercicioVentaCoches.Principal",

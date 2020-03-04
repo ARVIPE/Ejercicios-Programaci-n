@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="EjerciciosJava/EjerciciosJava/src/|Ejercicios-Programaci-n/repositorio personal/src/tema5/bloque2/|Ejercicios-Programaci-n/repositorio personal/src/tema5/bloque3/|TutorialJava/src/|Ejercicios-Programaci-n/repositorio personal/src/tema4/practicaexamen/|Ejercicios-Programaci-n/arkanoid/src/|Ejercicios-Programaci-n/entornos-de-desarrollo/src/|Ejercicios-Programaci-n/repositorio personal/src/tema4/ejercicio3_bloque2/|Ejercicios-Programaci-n/repositorio personal/src/" kind="src" path=""/>
+	<classpathentry kind="src" path="Ejercicios-Programaci-n/arkanoid/src"/>
+	<classpathentry kind="src" path="Ejercicios-Programaci-n/entornos-de-desarrollo/src"/>
+	<classpathentry excluding="tema5/bloque2/|tema5/bloque3/|tema4/practicaexamen/|tema4/ejercicio3_bloque2/" kind="src" path="Ejercicios-Programaci-n/repositorio personal/src"/>
+	<classpathentry kind="src" path="Ejercicios-Programaci-n/repositorio personal/src/tema4/ejercicio3_bloque2"/>
+	<classpathentry kind="src" path="Ejercicios-Programaci-n/repositorio personal/src/tema4/practicaexamen"/>
+	<classpathentry kind="src" path="Ejercicios-Programaci-n/repositorio personal/src/tema5/bloque2"/>
+	<classpathentry kind="src" path="Ejercicios-Programaci-n/repositorio personal/src/tema5/bloque3"/>
+	<classpathentry kind="src" path="EjerciciosJava/EjerciciosJava/src"/>
+	<classpathentry kind="src" path="TutorialJava/src"/>
+	<classpathentry kind="output" path="Ejercicios-Programaci-n/arkanoid/bin"/>
+</classpath>
