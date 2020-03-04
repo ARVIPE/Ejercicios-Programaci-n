@@ -17,8 +17,9 @@
 				</style>
       </head>
       <body>
-        <table border="1" width="90%">
+        <table border="1" width="50%">
           <thead>
+            <td></td>
             <td>Gormiti</td>
             <td>Tribu</td>
           </thead>
@@ -28,16 +29,13 @@
                 <xsl:when test="position() mod 2 = 1">
 									<xsl:call-template name="pintaFila">
 											<xsl:with-param name="color">#c7d4f0</xsl:with-param>
-                    <xsl:with-param name="numeroJugador">
-                      <xsl:value-of select="@tribu"/>
-                    </xsl:with-param>
+                      <xsl:with-param name="volcan"><xsl:value-of select="@tribu"/></xsl:with-param>
                   </xsl:call-template>
                 </xsl:when>
                 <xsl:otherwise>
                   <xsl:call-template name="pintaFila">
                     <xsl:with-param name="color">#ffffff</xsl:with-param>
-                    
-                    
+                    <xsl:with-param name="volcan"><xsl:value-of select="@tribu"/></xsl:with-param>
                   </xsl:call-template>
                 </xsl:otherwise>
               </xsl:choose>
@@ -57,13 +55,10 @@
         <xsl:value-of select="position()"/>
       </td>
       <td>
-        <xsl:value-of select="@tribu"/>
-      </td>
-      <td>
         <img src="{/gormitis/gormiti[@tribu=$volcan]}"/>
       </td>
       <td>
-        <xsl:value-of select="@desc"/>
+        <xsl:value-of select="@tribu"/>
       </td>
     </tr>
   </xsl:template>
