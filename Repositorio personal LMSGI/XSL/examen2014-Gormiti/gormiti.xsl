@@ -8,11 +8,11 @@
 				<title>Gormiti</title>
 				<style type="text/css">
 				thead td {
-          background: #5077cc;
+          background: #5077cc; 
           color: #FFFFFF;
         }
         table img {
-          width: 50px;
+          width: 50px; 
         }
 				</style>
       </head>
@@ -43,7 +43,7 @@
           </tbody>
         </table>
       </body>
-		</html>
+    </html>
 	</xsl:template>
 
   <xsl:template name="pintaFila">
