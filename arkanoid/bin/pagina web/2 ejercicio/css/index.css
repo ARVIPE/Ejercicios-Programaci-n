@@ -1,0 +1,163 @@
+#divPrincipal {
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+#banner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    text-align: center;
+}
+
+#otroDiv {
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contenedorTarjetas {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.tarjeta {
+    border: 1px solid blue;
+    padding: 1%;
+    display: inline-block;
+}
+
+.tarjetaUnTercio {
+    width: 30%;
+}
+
+.tarjetaUnCuarto {
+    width: 18%;
+}
+
+.tarjetaUnQuinto {
+    width: 15%;
+}
+
+.imagenAnchoCompleto {
+    width: 100%;
+}
+
+.enlaceImagenes{
+    width: 30%;
+    display: inline-block;
+}
+
+.textoTarjeta{
+    width: 20%;
+    display: inline-block; 
+}
+
+#CaracteristicasCuadro{
+    width: 100%;
+    height: 30%;
+    margin-top: 20px;
+    width: 50%;
+}
+
+#CaracteristicasDerecho{
+    width: 100%;
+    height: 30%;
+    margin-top: 80px;
+    width: 50%;
+}
+
+body{
+    font-family: 'MedievalSharp', cursive;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.imagenEscudo{
+    width: 38%;
+    float: right;
+    text-align: right;
+}
+
+.imgDeTarjeta{
+    margin-left: 80px;
+    margin-top: -60px;
+    width: 200%;
+    
+    /*height: 100%;*/
+}
+
+.imgDeEscudo{
+    margin-left: 80px;
+    margin-top: -200px;
+    width: 200%;
+    
+    /*height: 100%;*/
+}
+
+.daenerysImage{
+    margin-left:570px;
+    width: 30%;
+}
+
+.titulo{
+    font-family: 'MedievalSharp', serif;
+    font-size: 20;
+}
+
+.tituloPersonaje{
+    font-family: 'MedievalSharp', serif;
+    font-size: 60;
+    margin-left:100px;
+}
+
+.tituloGeneral{
+    font-family: 'Montserrat', serif;
+    font-size: 80;
+}
+.texto{
+  margin-right: 10%;
+  margin-left: 10%;
+}
+.Tabla{
+    border-radius: 10%;
+}
+
+#titulo{
+    font-family: 'PT Sans', sans-serif;
+}
+
+.tarjetaAncha{
+    width: 96%;
+
+}
+
+.tarjetaPersonajes{
+    border: 5px solid rgb(255, 0, 0);
+    padding: 1%;
+    display: inline-block;
+
+}
+
+.enlace {
+    display:inline;
+    border:0;
+    padding:0;
+    margin:0;
+    text-decoration:underline;
+    background:none;
+    color:#eeff00;
+    font-family: arial, sans-serif;
+    font-size: 1em;
+    line-height:1em;
+  }
+  
+  .enlace:hover {
+    text-decoration:none;
+    color: white;
+    cursor:pointer;
+  }
+
