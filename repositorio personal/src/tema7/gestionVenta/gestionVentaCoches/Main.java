@@ -14,7 +14,6 @@ public class Main {
 	public static void main(String[] args) throws ParseException, java.text.ParseException, SQLException, ErrorBBDDException {
 		menuPrincipal();
 	}
-
 	
 	/**
 	 * @throws java.text.ParseException 
@@ -36,6 +35,7 @@ public class Main {
 			System.out.println("\t5.- Gestión de ventas.");
 			System.out.println("\t0.- Salir");
 			System.out.println("\n\tElija una opción: ");
+			
 			
 			opcionElegida = Utils.getIntConsola(0, 5);
 			
