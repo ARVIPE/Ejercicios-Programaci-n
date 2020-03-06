@@ -55,7 +55,7 @@
         <xsl:value-of select="position()"/>
       </td>
       <td>
-        <img src="{/gormitis/gormiti[@tribu=$volcan]}"/>
+        <img src="{.}"/>
       </td>
       <td>
         <xsl:value-of select="@tribu"/>
