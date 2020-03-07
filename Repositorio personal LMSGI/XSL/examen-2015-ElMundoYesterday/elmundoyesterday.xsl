@@ -15,17 +15,14 @@
           }
         </style>
       </head>
+      <body>
+        <td align="center">
+          <img src="http://webdidacticarafaelmunoz.appspot.com/lmsgi/ejercicios-cap5/examen/2015-enero/recursos/el-mundo-yesterday.jpg"/>
+        </td>
+        
+      </body>
     </html>
   </xsl:template>
-
-  <xsl:template name="banner">
-    <xsl:param name="color"/>
-    <xsl:param name="volcan"/>
-
-    <tr style="background: {$color}">
-      <td>
-        <img src="{.}"/>
-      </td>
-    </tr>
-  </xsl:template>
+  
+  
 </xsl:stylesheet>
