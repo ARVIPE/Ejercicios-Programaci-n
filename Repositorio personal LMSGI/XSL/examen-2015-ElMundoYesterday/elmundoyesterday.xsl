@@ -17,4 +17,15 @@
       </head>
     </html>
   </xsl:template>
+
+  <xsl:template name="banner">
+    <xsl:param name="color"/>
+    <xsl:param name="volcan"/>
+
+    <tr style="background: {$color}">
+      <td>
+        <img src="{.}"/>
+      </td>
+    </tr>
+  </xsl:template>
 </xsl:stylesheet>

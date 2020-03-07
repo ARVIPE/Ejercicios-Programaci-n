@@ -1,6 +1,6 @@
 package tema7.gestionVenta.gestionVentaCoches;
 
-import java.sql.SQLException;
+import java.sql.SQLException;	
 import java.util.List;
 
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
