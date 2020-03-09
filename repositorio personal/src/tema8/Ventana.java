@@ -77,7 +77,11 @@ public class Ventana extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// Personalización del icono, otra vez
-				JOptionPane.showMessageDialog(null, "Botón presionado");
+				JOptionPane.showMessageDialog(null, pnlNombre);
+				JOptionPane.showMessageDialog(null, pnlPrimerAp);
+				JOptionPane.showMessageDialog(null, pnlSegunAp);
+				JOptionPane.showMessageDialog(null, pnlDNI);
+				JOptionPane.showMessageDialog(null, pnlLoc);
 			}
 		});
 		panel.add(bt);
