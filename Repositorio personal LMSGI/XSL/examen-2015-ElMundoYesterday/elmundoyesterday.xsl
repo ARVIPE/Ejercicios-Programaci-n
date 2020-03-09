@@ -19,10 +19,13 @@
         <td align="center">
           <img src="http://webdidacticarafaelmunoz.appspot.com/lmsgi/ejercicios-cap5/examen/2015-enero/recursos/el-mundo-yesterday.jpg"/>
         </td>
-        
+        <xsl:for-each select="menu">
+          <xsl:value-of select="enlace"/>
+        </xsl:for-each> 
       </body>
     </html>
   </xsl:template>
+
   
   
 </xsl:stylesheet>
