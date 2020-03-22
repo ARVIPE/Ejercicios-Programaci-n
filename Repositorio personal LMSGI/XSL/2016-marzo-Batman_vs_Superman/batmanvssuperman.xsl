@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" encoding="UTF-8"/>
 
@@ -21,12 +21,22 @@
         </style>
       </head>
       <body>
-        <h1>ArteOcho Lucena</h1>
+        <h1>
+          <xsl:value-of select="@nombre"/>
+        </h1>
         <xsl:for-each select="titulo">
           <xsl:call-template name="pintaFila"></xsl:call-template>
+        <h2>
+          <xsl:value-of select="@nombre"/>
+        </h2>
+        <h3>
+          <xsl:value-of select="@estreno"/>
+        </h3>
         </xsl:for-each>
-        <h2>Batman vs Superman: El Amanecer de la Justicia</h2>
-        <h3>Estreno: 23/03/2016</h3>
+        
+        
+        <xsl:call-template name="tablaDeSesiones"></xsl:call-template>
+        <xsl:call-template name="cartelera"></xsl:call-template>
       </body>
     </html>
   </xsl:template>
@@ -47,7 +57,7 @@
 
   <xsl:template name="bucleForFila">
     <xsl:param name="i"/>
-    <xsl:if test="$i &lt;= 8">
+    <xsl:if test="$i &lt;= 4">
       <tr>
         <xsl:call-template name="bucleForColumna">
           <xsl:with-param name="i">
@@ -67,7 +77,7 @@
   <xsl:template name="bucleForColumna">
     <xsl:param name="i"/>
     <xsl:param name="j"/>
-    <xsl:if test="$j &lt;= 8">
+    <xsl:if test="$j &lt;= 4">
       <xsl:call-template name="celda">
         <xsl:with-param name="x">
           <xsl:value-of select="$j"/>
@@ -91,19 +101,71 @@
     <xsl:param name="x"/>
     <xsl:param name="y"/>
     <td>
-      <xsl:for-each select="posicion">
-        <xsl:if test="$x = @x and $y = @y">
-          <xsl:choose>
-            <xsl:when test="@tipo = 'pared'">
-              <xsl:attribute name="class">pared</xsl:attribute>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:attribute name="class">tanque</xsl:attribute>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:if>
-      </xsl:for-each>
+      <xsl:choose>
+        <xsl:when test="ocupado[@fila=$y and @asiento=$x]">
+          <img src="{/cine/imagenes/imagen[@id='ocupado']}"></img>
+        </xsl:when>
+        <xsl:otherwise>
+          <img src="{/cine/imagenes/imagen[@id='libre']}"></img>
+        </xsl:otherwise>
+      </xsl:choose>
     </td>
+  </xsl:template>
+
+  <xsl:template name="tablaDeSesiones">
+    <table border="1" width="70%">
+      <xsl:for-each select="sesiones/sesion">
+        <xsl:choose>
+          <xsl:when test="position() mod 2 = 1">
+            <xsl:call-template name="tablaDeSesion">
+              <xsl:with-param name="color">#99def7</xsl:with-param>
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:call-template name="tablaDeSesion">
+              <xsl:with-param name="color">#ffffff</xsl:with-param>
+            </xsl:call-template>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:for-each>
+    </table>
+  </xsl:template>
+
+  <xsl:template name="tablaDeSesion">
+    <xsl:param name="color"/> 
+        <tr>
+          <td align="center" style="background:{$color}">
+              Sesión:
+              <xsl:value-of select="position()"/>
+              - Hora:
+              <xsl:value-of select="@hora"/>
+              <table border="1" width="30%" align="center">
+                    <xsl:call-template name="bucleForFila">
+                      <xsl:with-param name="i">1</xsl:with-param>
+                    </xsl:call-template>
+              </table>
+            </td>
+        </tr>
+  </xsl:template>
+
+  <xsl:template name="cartelera">
+    <h2>Otras películas</h2>
+    <table border="1">
+      <xsl:for-each select="cartelera/pelicula">
+        <xsl:variable name="id">
+          <xsl:value-of select="@id"/>
+        </xsl:variable>
+      <tr>
+        <td>
+          <img style="width:250px" src="{/cine/imagenes/imagen[@id=$id]}"></img>
+        </td>
+        <td>
+          <xsl:value-of select="@nombre"/>
+        </td>
+     </tr>
+      </xsl:for-each>
+    </table>
+    
   </xsl:template>
 
 </xsl:stylesheet>

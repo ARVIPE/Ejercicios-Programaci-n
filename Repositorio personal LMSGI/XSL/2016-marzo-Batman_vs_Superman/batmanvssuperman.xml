@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="batmanvssuperman.xsl" type="text/xsl"?>
 
 <cine nombre="ArteOcho Lucena">
@@ -12,7 +12,7 @@
             <ocupado fila="4" asiento="1"/>
         </sesion>
         <sesion hora="18:30">
-            <ocupado fila="3" asiento="2"/>
+            <ocupado fila="3" asiento="2"></ocupado>/>
             <ocupado fila="3" asiento="3"/>
             <ocupado fila="1" asiento="2"/>
             <ocupado fila="1" asiento="3"/>
