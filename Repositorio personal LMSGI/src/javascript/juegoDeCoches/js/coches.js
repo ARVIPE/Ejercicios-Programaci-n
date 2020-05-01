@@ -5,7 +5,22 @@ var game = (function () {
         ctx,
         imgFondo, // Imagen del background del juego
         imgCargadas = 0, // Control de la cantidad de imágenes cargadas
-        imgCoche; // Imagen del coche
+        imgCoche, // Imagen del coche
+        imgCamion, // Imagen de camión
+        vx = 5,
+        gravity = 1,
+        WIDTH = 100,
+        HEIGHT = 100;
+
+        //Coordenadas obstaculos
+        var CoorXCam = 500;
+        var CoorYCam = 300;
+
+        //Coordenadas iniciales
+        var CoorX = 350;
+        var CoorY = 200;
+
+        window.onload = init;
 
 
 
@@ -22,6 +37,9 @@ var game = (function () {
         // Necesitamos el contexto del canvas, para poderlo utilizar como "brocha", gracias a este elemento podremos
         // asignar colores y pintar primitivas, imágenes, textos, etc.
         ctx = canvas.getContext("2d");
+
+         // Start the first frame request
+         window.requestAnimationFrame(gameLoop);
 
         document.addEventListener("keydown", function(e){
             if(e.keyCode == "39"){
@@ -41,11 +59,13 @@ var game = (function () {
 
     }
 
-  //  function reFresh(){
-    //      coche = new Coche(10, 10);
-      //    paintEscena();
-      
-   // }
+    function gameLoop(timeStamp){
+        paintEscena();
+
+        // Keep requesting new frames
+        window.requestAnimationFrame(gameLoop);
+    }
+
 
     /**
      * A través de este método conseguiremos precargar las imágenes. Este proceso en JS no es síncrono, por tanto necesitamos implementar
@@ -67,9 +87,50 @@ var game = (function () {
         imgCoche.addEventListener('load', function() {
           imgCargadas++;
             paintEscena();
-        }, false); 
-      }  
+        }, false);
 
+        document.addEventListener("keydown", function(event){
+                  
+            if(event.keyCode == 39){
+                console.log("Has pulsado la derecha");
+                moverDerecha();
+                paintEscena();
+            }
+            if(event.keyCode == 37){
+             console.log("Has pulsado la izquierda");
+             moverIzquierda();
+             paintEscena();
+            }
+            if(event.keyCode == 38){
+                console.log("Has pulsado la izquierda");
+                moverArriba();
+                paintEscena();
+               }
+               if(event.keyCode == 40){
+                console.log("Has pulsado la izquierda");
+                moverAbajo();
+                paintEscena();
+               }   
+         });
+
+         // Carga de la imagen del fondo del juego
+        imgCamion = new Image();
+        imgCamion.src = 'images/camion.jpg';
+        imgCamion.addEventListener('load', function() {
+            // Este trozo de código se ejecutará de manera asíncrona cuando la imagen se haya realmente cargado.
+            imgCargadas++;
+            paintEscena();
+          }, false);
+      }
+        
+
+    
+    
+    function refrescarMundo() {
+        //Vamos acercando al borde izquierdo los obstaculos
+        CoorXCam -= 1
+
+    }
 
 
     /**
@@ -80,7 +141,8 @@ var game = (function () {
      */
     function paintEscena () {
         // Sólo pasamos a pintar la escena si nos aseguramos de que las dos imágenes han sido cargadas correctamente.
-        if (imgCargadas == 2) {
+        if (imgCargadas == 3) {
+            refrescarMundo();
             // Pintamos el fondo, el personaje, los caracteres adivinados y los fallos comentidos por el usuario. Cada cosa en su función
             paintFondo();
         }
@@ -93,8 +155,49 @@ var game = (function () {
 	function paintFondo () {
 		// Pinto el fondo de la escena
         ctx.drawImage(imgFondo, 0, 0);
-        ctx.drawImage(imgCoche, 10, 10);
+        ctx.drawImage(imgCoche, CoorX, CoorY, WIDTH, HEIGHT);
+        ctx.drawImage(imgCamion, CoorXCam, CoorYCam, 350, 350);
+        
 
+    }
+
+    
+
+    function moverDerecha(){
+    
+        //imgPelota = this.CoorX + 5;
+        CoorX = CoorX+28;
+    
+        if(CoorX > (canvas.width - this.WIDTH )){
+            CoorX = canvas.width - this.WIDTH
+        }
+       
+      }
+    
+      function moverIzquierda(){
+        
+        //imgPelota = this.CoorX + 5;
+        CoorX = CoorX-28;
+       
+      }
+    
+      function moverArriba(){
+        
+        //imgPelota = this.CoorX + 5;
+        CoorY = CoorY-28;
+        if(CoorY < 0){
+            CoorY = canvas.height;
+        }
+      }
+    
+      function moverAbajo(){
+        
+        //imgPelota = this.CoorX + 5;
+        CoorY = CoorY+28;
+    
+        if(CoorY > (canvas.height)){
+            CoorY = 0;
+        }
     }
 
 
