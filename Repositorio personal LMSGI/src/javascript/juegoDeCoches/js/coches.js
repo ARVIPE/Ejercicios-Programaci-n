@@ -128,7 +128,7 @@ var game = (function () {
     
     function refrescarMundo() {
         //Vamos acercando al borde izquierdo los obstaculos
-        CoorXCam -= 1
+        CoorXCam -= 1;
 
     }
 
