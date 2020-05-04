@@ -97,7 +97,7 @@ var game = (function () {
     function getCollisions() {
         for (let i = 0; i < obst.length; i++) {
             if (obst[i].x == CoorX && obst[i].y == CoorY) {
-                    alert("Fin del juego");
+                    alert("Has colisionado: Fin del juego");
             }
             
         }
