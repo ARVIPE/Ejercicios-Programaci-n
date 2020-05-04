@@ -7,10 +7,13 @@ var game = (function () {
         imgCargadas = 0, // Control de la cantidad de imágenes cargadas
         imgCoche, // Imagen del coche
         imgCamion, // Imagen de camión
-        vx = 5,
-        gravity = 1,
+        vx = 1,
         WIDTH = 100,
         HEIGHT = 100;
+
+        //Declaramos array de obstaculos
+        obst = [];
+        var lastRandomValue, exampleArray = [-84,-56,-28,0,28,56,84,112,140,168,196,224,252,280,308,336,364,392,420,448,476,504,532,560];
 
         //Coordenadas obstaculos
         var CoorXCam = 500;
@@ -18,11 +21,11 @@ var game = (function () {
 
         //Coordenadas iniciales
         var CoorX = 350;
-        var CoorY = 200;
+        var CoorY = 0;
 
         window.onload = init;
 
-
+        
 
     /**
      * Función de inicialización del juego. Esta es la función principal, la que se llama desde el código html.
@@ -39,32 +42,76 @@ var game = (function () {
         ctx = canvas.getContext("2d");
 
          // Start the first frame request
-         window.requestAnimationFrame(gameLoop);
+         gameLoop();
 
-        document.addEventListener("keydown", function(e){
-            if(e.keyCode == "39"){
-                coche.moverDerecha();
-            }
-            if(e.keyCode == "37"){
-                coche.moverIzquierda();
-            }
-            if(e.keyCode == "38"){
-                coche.moverArriba();
-            }
-            if(e.keyCode == "40"){
-                coche.moverAbajo();
-            }
-        
-        });
 
     }
 
     function gameLoop(timeStamp){
         paintEscena();
+        getTransitoryItems();
+        getCollisions()
 
         // Keep requesting new frames
         window.requestAnimationFrame(gameLoop);
     }
+
+
+
+    //Creamos una clase para los obstaculos
+    class Obstaculo{
+        constructor(){
+            this.x = canvas.width;
+            this.y = this.getRandomY();
+            this.vx = -1;
+            this.imgSprite = imgCamion;
+        }
+    
+        getRandomY(){
+            for(var i = 0, len = 1; i < len; i++) {
+                return getRandomFromArrayNotRepeated(exampleArray);
+            }
+        }
+        mover(){
+            this.x += this.vx;
+        }
+        paint(){
+          ctx.drawImage(this.imgSprite, this.x, this.y, 100, 100);
+          /*ctx.fillRect(this.x - 50, this.y, 50, 50);*/
+        }
+    }
+
+    function getTransitoryItems(){
+        if (Math.random() < 0.01) {
+            obst.push(new Obstaculo())
+        }
+    }
+
+    function bucleobs(){
+        for(let i = 0; i < obst.length; i++){
+            obst[i].mover();
+            obst[i].paint();
+        }
+    }
+
+    function getCollisions() {
+        for (let i = 0; i < obst.length; i++) {
+            if (obst[i].x == CoorX && obst[i].y == CoorY) {
+                    alert("Fin del juego");
+            }
+            
+        }
+    }
+
+    function getRandomFromArrayNotRepeated(array) {
+        var item = array[Math.floor(Math.random()*array.length)];
+        if(lastRandomValue === item && array.length > 1) {
+            return getRandomFromArrayNotRepeated(array, item);
+        } 
+        return lastRandomValue = item;
+     }
+     
+
 
 
     /**
@@ -115,22 +162,14 @@ var game = (function () {
 
          // Carga de la imagen del fondo del juego
         imgCamion = new Image();
-        imgCamion.src = 'images/camion.jpg';
+        imgCamion.src = 'images/moto.png';
         imgCamion.addEventListener('load', function() {
             // Este trozo de código se ejecutará de manera asíncrona cuando la imagen se haya realmente cargado.
             imgCargadas++;
             paintEscena();
           }, false);
       }
-        
-
     
-    
-    function refrescarMundo() {
-        //Vamos acercando al borde izquierdo los obstaculos
-        CoorXCam -= 1;
-
-    }
 
 
     /**
@@ -142,9 +181,9 @@ var game = (function () {
     function paintEscena () {
         // Sólo pasamos a pintar la escena si nos aseguramos de que las dos imágenes han sido cargadas correctamente.
         if (imgCargadas == 3) {
-            refrescarMundo();
             // Pintamos el fondo, el personaje, los caracteres adivinados y los fallos comentidos por el usuario. Cada cosa en su función
             paintFondo();
+            //Para ir aumentando la dificultad
         }
     } 
 
@@ -156,7 +195,9 @@ var game = (function () {
 		// Pinto el fondo de la escena
         ctx.drawImage(imgFondo, 0, 0);
         ctx.drawImage(imgCoche, CoorX, CoorY, WIDTH, HEIGHT);
-        ctx.drawImage(imgCamion, CoorXCam, CoorYCam, 350, 350);
+        bucleobs();
+        
+        
         
 
     }
@@ -193,7 +234,7 @@ var game = (function () {
       function moverAbajo(){
         
         //imgPelota = this.CoorX + 5;
-        CoorY = CoorY+28;
+        CoorY = CoorY+ 28;
     
         if(CoorY > (canvas.height)){
             CoorY = 0;
@@ -206,5 +247,6 @@ var game = (function () {
      */
     return {
         init: init
+        
     }
 })();
