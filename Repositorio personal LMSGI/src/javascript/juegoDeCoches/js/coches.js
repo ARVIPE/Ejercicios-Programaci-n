@@ -41,7 +41,7 @@ var game = (function () {
         // asignar colores y pintar primitivas, imágenes, textos, etc.
         ctx = canvas.getContext("2d");
 
-         // Start the first frame request
+         // Empezamos el primer frame
          gameLoop();
 
 
@@ -52,7 +52,6 @@ var game = (function () {
         getTransitoryItems();
         getCollisions()
 
-        // Keep requesting new frames
         window.requestAnimationFrame(gameLoop);
     }
 
@@ -77,7 +76,6 @@ var game = (function () {
         }
         paint(){
           ctx.drawImage(this.imgSprite, this.x, this.y, 100, 100);
-          /*ctx.fillRect(this.x - 50, this.y, 50, 50);*/
         }
     }
 
