@@ -187,7 +187,7 @@ public class Arkanoid extends Canvas  {
 		nave.setyCoord(600);
 		this.objetos.add(nave);
 		
-		pelota = new Pelota();
+		pelota = new Pelota(); 
 		pelota.setxCoord(400);
 		pelota.setyCoord(300);
 		this.objetos.add(pelota);
@@ -195,7 +195,7 @@ public class Arkanoid extends Canvas  {
 		// Mantengo una referencia al Player
 		// Agrego un listener para eventos de teclado y, cuando se produzcan, los derivo al objeto de tipo Player
 		this.addKeyListener(nave);
-		this.addMouseMotionListener(nave);
+		this.addMouseMotionListener(nave); 
 		
 		
 	}
